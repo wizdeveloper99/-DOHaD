@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* DOHaD India color palette - light green off-white theme */
+    --background: 120 20% 99%; /* #fefffe - Light green off-white background */
+    --foreground: 215 25% 27%; /* #1e293b - Dark slate text */
+
+    --muted: 120 20% 96%; /* Light muted areas */
+    --muted-foreground: 215 25% 27% / 0.7;
+    --muted-foreground-light: 215 25% 27% / 0.5;
+    --muted-foreground-dark: 215 25% 27% / 0.6;
+
+    --card: 0 0% 100%; /* Pure white for cards */
+    --card-foreground: 215 25% 27%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    /* Primary color set to teal #00645E */
+    --primary: 178 100% 20%; /* #00645E - Main teal color */
+    --primary-foreground: 0 0% 100%; /* White text on teal */
+
+    /* Secondary accent using green #8AD260 */
+    --secondary: 88 59% 60%; /* #8AD260 - Accent green */
+    --secondary-foreground: 215 25% 27%; /* Dark text on green */
+
+    /* Tertiary color using mint #D3DDBF */
+    --accent: 88 25% 81%; /* #D3DDBF - Mint color */
+    --accent-foreground: 215 25% 27%; /* Dark text on mint */
+
+    --border: 120 20% 90% / 0.3;
+    --border-light: 120 20% 85% / 0.4;
+    --border-dark: 120 20% 80% / 0.5;
+
+    --ring: 178 100% 20%; /* Match primary color */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* DOHaD India color palette - dark theme */
+    --background: 210 20% 9%; /* #111820 - Midnight background */
+    --foreground: 160 14% 93%; /* Light text on dark background */
+
+    --muted: 180 15% 20%; /* Darker muted areas */
+    --muted-foreground: 160 14% 93% / 0.7;
+    --muted-foreground-light: 160 14% 93% / 0.5;
+    --muted-foreground-dark: 160 14% 93% / 0.6;
+
+    --card: 210 20% 12%; /* Slightly lighter than background for cards */
+    --card-foreground: 160 14% 93%;
+
+    --popover: 210 20% 9%;
+    --popover-foreground: 160 14% 93%;
+
+    /* Primary color set to teal #00645E */
+    --primary: 178 100% 20%; /* #00645E - Main teal color */
+    --primary-foreground: 160 14% 93%; /* Light text on teal */
+
+    /* Secondary accent using green #8AD260 */
+    --secondary: 88 59% 60%; /* #8AD260 - Accent green */
+    --secondary-foreground: 210 20% 9%; /* Dark text on green */
+
+    /* Tertiary color using mint #D3DDBF */
+    --accent: 88 25% 81%; /* #D3DDBF - Mint color */
+    --accent-foreground: 210 20% 9%; /* Dark text on mint */
+
+    --border: 240 100% 100% / 0.08;
+    --border-light: 210 17% 6% / 0.1;
+    --border-dark: 210 17% 6% / 0.05;
+
+    --ring: 178 100% 20%; /* Match primary color */
+
+    --radius: 0.5rem;
+  }
+}
+
+/* Custom font configuration for Hind Siliguri */
+@layer base {
+  :root {
+    --font-sans: var(--font-hind-siliguri);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+
+  /* Typography hierarchy for DOHaD India */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+
+  .text-body {
+    @apply font-normal;
+  }
+}
