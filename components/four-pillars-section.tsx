@@ -1,96 +1,96 @@
-import AiCodeReviews from "./bento/ai-code-reviews"
-import RealtimeCodingPreviews from "./bento/real-time-previews"
-import OneClickIntegrationsIllustration from "./bento/one-click-integrations-illustration"
-import MCPConnectivityIllustration from "./bento/mcp-connectivity-illustration" // Updated import
-import EasyDeployment from "./bento/easy-deployment"
-import ParallelCodingAgents from "./bento/parallel-agents" // Updated import
+import React from "react"
 
-interface BentoCardProps {
+interface FeatureCardProps {
+  number: string
   title: string
   description: string
-  Component: React.ComponentType
+  gradient: string
 }
 
-const BentoCard = ({ title, description, Component }: BentoCardProps) => (
-  <div className="overflow-hidden rounded-2xl border border-white/20 flex flex-col justify-start items-start relative">
-    {/* Background with blur effect */}
-    <div
-      className="absolute inset-0 rounded-2xl"
-      style={{
-        background: "rgba(231, 236, 235, 0.08)",
-        backdropFilter: "blur(4px)",
-        WebkitBackdropFilter: "blur(4px)",
-      }}
-    />
-    {/* Additional subtle gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent rounded-2xl" />
+const FeatureCard = ({ number, title, description, gradient }: FeatureCardProps) => (
+  <div
+    className={`w-full h-[220px] md:h-[240px] lg:h-[260px] 
+      bg-card shadow-[0px_4px_12px_rgba(0,0,0,0.08)] 
+      overflow-hidden rounded-xl border border-border
+      transition-all duration-500 ease-out cursor-pointer relative
+      hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.12)]`}
+  >
+    {/* Background gradient */}
+    <div className={`absolute inset-0 ${gradient} opacity-10`} />
+    
+    {/* Subtle gradient overlay */}
+    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
 
-    <div className="self-stretch p-6 flex flex-col justify-start items-start gap-2 relative z-10">
-      <div className="self-stretch flex flex-col justify-start items-start gap-1.5">
-        <p className="self-stretch text-foreground text-lg font-normal leading-7">
-          {title} <br />
-          <span className="text-muted-foreground">{description}</span>
-        </p>
+    <div className="p-6 flex flex-col gap-4 relative z-10 h-full">
+      <div className="flex items-center gap-3">
+        <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
+          {number}
+        </span>
       </div>
-    </div>
-    <div className="self-stretch h-72 relative -mt-0.5 z-10">
-      <Component />
+      <h3 className="text-xl font-semibold text-foreground leading-tight">{title}</h3>
+      <p className="text-base leading-relaxed text-muted-foreground flex-1">{description}</p>
     </div>
   </div>
 )
 
 export function BentoSection() {
-  const cards = [
+  const features = [
     {
-      title: "AI-powered code reviews.",
-      description: "Get real-time, smart suggestions for cleaner code.",
-      Component: AiCodeReviews,
+      number: "01",
+      title: "Multidisciplinary Research",
+      description: "Catalyzing studies on early-life exposures and long-term health across India's diverse contexts.",
+      gradient: "bg-gradient-to-br from-primary to-primary/60",
     },
     {
-      title: "Real-time coding previews",
-      description: "Chat, collaborate, and instantly preview changes together.",
-      Component: RealtimeCodingPreviews,
+      number: "02",
+      title: "Multiomics & Cohorts",
+      description: "Supporting harmonized protocols, multi-cohort studies, and omics research to reveal biological pathways.",
+      gradient: "bg-gradient-to-br from-secondary to-secondary/60",
     },
     {
-      title: "One-click integrations",
-      description: "Easily connect your workflow with popular dev tools.",
-      Component: OneClickIntegrationsIllustration,
+      number: "03",
+      title: "Capacity Building",
+      description: "Training, mentorship, and open-access resources to develop India's next generation of DOHaD scientists.",
+      gradient: "bg-gradient-to-br from-accent to-accent/60",
     },
     {
-      title: "Flexible MCP connectivity",
-      description: "Effortlessly manage and configure MCP server access.",
-      Component: MCPConnectivityIllustration, // Updated component
+      number: "04",
+      title: "Scientific Communication",
+      description: "Webinars, newsletters, and regional meetings to share insights and connect the DOHaD India community.",
+      gradient: "bg-gradient-to-br from-primary to-secondary",
     },
     {
-      title: "Launch parallel coding agents", // Swapped position
-      description: "Solve complex problems faster with multiple AI agents.",
-      Component: ParallelCodingAgents, // Updated component
+      number: "05",
+      title: "Public Engagement",
+      description: "Disseminating knowledge through digital platforms, spotlighting young researchers, and raising awareness.",
+      gradient: "bg-gradient-to-br from-secondary to-accent",
     },
     {
-      title: "Deployment made easy", // Swapped position
-      description: "Go from code to live deployment on Vercel instantly.",
-      Component: EasyDeployment,
+      number: "06",
+      title: "Advocacy & Policy",
+      description: "Engaging governments, civil society, and global DOHaD networks to inform health programs and policies.",
+      gradient: "bg-gradient-to-br from-primary to-accent",
     },
   ]
 
   return (
-    <section className="w-full px-5 flex flex-col justify-center items-center overflow-visible bg-transparent">
-      <div className="w-full py-8 md:py-16 relative flex flex-col justify-start items-start gap-6">
-        <div className="w-[547px] h-[938px] absolute top-[614px] left-[80px] origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[130px] z-0" />
-        <div className="self-stretch py-8 md:py-14 flex flex-col justify-center items-center gap-2 z-10">
-          <div className="flex flex-col justify-start items-center gap-4">
-            <h2 className="w-full max-w-[655px] text-center text-foreground text-4xl md:text-6xl font-semibold leading-tight md:leading-[66px]">
-              Empower Your Workflow with AI
-            </h2>
-            <p className="w-full max-w-[600px] text-center text-muted-foreground text-lg md:text-xl font-medium leading-relaxed">
-              Ask your AI Agent for real-time collaboration, seamless integrations, and actionable insights to
-              streamline your operations.
-            </p>
-          </div>
+    <section className="w-full px-5 flex flex-col justify-center items-center bg-transparent">
+      <div className="w-full py-12 md:py-20 flex flex-col justify-center items-center gap-12">
+        {/* Section Heading */}
+        <div className="flex flex-col justify-center items-center gap-4">
+          <h2 className="text-center text-4xl md:text-6xl font-semibold text-foreground leading-tight">
+            DOHaD India Priorities
+          </h2>
+          <p className="max-w-[700px] text-center text-muted-foreground text-lg md:text-xl leading-relaxed">
+            Driving research, capacity building, communication, and advocacy 
+            to strengthen DOHaD science and policy in India.
+          </p>
         </div>
-        <div className="self-stretch grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 z-10">
-          {cards.map((card) => (
-            <BentoCard key={card.title} {...card} />//
+
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
+          {features.map((feature) => (
+            <FeatureCard key={feature.number} {...feature} />
           ))}
         </div>
       </div>
