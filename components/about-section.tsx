@@ -63,41 +63,38 @@ function FeatureCard({
 
 export default function AboutSection() {
   return (
-    <section className="">
-      <div className="max-w-7xl mx-auto px-6 text-center">
-        {/* Heading */}
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+    <section className="relative overflow-hidden py-12 md:py-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
           Core features that set us apart from the competition
         </h2>
-        <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-          
-          Explore our standout features designed to deliver exceptional performance
-          and value, distinguishing us from the competition.
+        <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl md:max-w-4xl mx-auto">
+          Explore our standout features designed to deliver exceptional performance and value, distinguishing us from the competition.
         </p>
 
-        {/* Grid layout */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+        <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
           {/* Left side */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 md:gap-8">
             <FeatureCard {...features[0]} />
             <FeatureCard {...features[1]} />
           </div>
 
           {/* Center image */}
           <div className="flex justify-center">
-            <div className="rounded-2xl overflow-hidden shadow-xl w-full h-full max-w-sm">
+            <div className="rounded-2xl overflow-hidden shadow-xl w-full max-w-[420px] md:max-w-[520px]">
               <Image
-                src="https://specials-images.forbesimg.com/imageserve/66562a0b9d62100aa9915391/women-owned-businesses--UI-UX-design-company--supplier-diversity-programs--peer/960x0.jpg?fit=scale"
-                alt="Features"
-                width={400}
-                height={500}
-                className="object-cover w-full h-full"
+                src="/2151663948.jpg"
+                alt="About DOHaD"
+                width={600}
+                height={800}
+                className="w-full h-auto object-cover select-none"
+                priority
               />
             </div>
           </div>
 
           {/* Right side */}
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-6 md:gap-8">
             <FeatureCard {...features[2]} />
             <FeatureCard {...features[3]} />
           </div>

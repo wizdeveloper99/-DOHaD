@@ -89,7 +89,7 @@ export function DashboardPreview() {
           <video
             ref={videoRef}
             src="/What is DOHaD.mp4"
-            poster="https://octet-gatsby.in2.cdn-alpha.com/wp-content/uploads/2024/04/Image-23-1536x864.webp"
+            poster="/12200.jpg"
             loop
             playsInline
             className="w-full h-full object-cover cursor-pointer"

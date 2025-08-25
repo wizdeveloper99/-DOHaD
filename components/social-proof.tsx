@@ -2,11 +2,11 @@ import Image from "next/image"
 
 export function SocialProof() {
   return (
-    <section className="self-stretch py-16 flex flex-col justify-center items-center gap-6 overflow-hidden">
+    <section className="self-stretch py-10 md:py-16 flex flex-col justify-center items-center gap-6 overflow-hidden">
       <div className="text-center text-gray-300 text-base font-medium leading-tight">
         Trusted by fast-growing startups
       </div>
-      <div className="self-stretch grid grid-cols-2 md:grid-cols-4 gap-8 justify-items-center">
+      <div className="self-stretch grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 justify-items-center">
         {Array.from({ length: 8 }).map((_, i) => (
           <Image
             key={i}

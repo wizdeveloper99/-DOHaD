@@ -3,6 +3,7 @@ import { FooterSection } from "@/components/footer-section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Users, BookOpen, Network, Calendar } from "lucide-react"
+import Image from "next/image"
 
 export default function JoinUsPage() {
   const membershipCategories = [
@@ -104,24 +105,37 @@ export default function JoinUsPage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Join Us</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Become part of India's leading community advancing research in developmental origins of health and disease
-          </p>
-        </div>
+      <main className="max-w-6xl mx-auto px-6 py-10">
+<section className="relative bg-background py-8 mb-16">
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    {/* Left Content */}
+    <div className="flex flex-col justify-center">
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+        Join Our Community <br /> & Advance DOHaD Research
+      </h1>
 
-        {/* Who Can Be a Member */}
-        <section className="mb-16">
-          <div className="bg-card border border-border rounded-lg p-8 md:p-12 text-center shadow-sm">
-            <h2 className="text-3xl font-bold text-foreground mb-6">Who can be a member?</h2>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-              Membership is open to everyone interested in DOHaD research, policy, and practice in India. Membership in
-              DOHaD India also includes a free membership for the International DOHaD Society.
-            </p>
-          </div>
-        </section>
+      <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
+        Be part of India’s leading network of researchers and professionals 
+        working on the developmental origins of health and disease. 
+        Collaborate, learn, and grow with us.
+      </p>
+    </div>
+
+    {/* Right Image (transparent PNG, bigger) */}
+    <div className="relative flex justify-center md:justify-end">
+      <Image
+        src="/young-mother-spending-time-with-baby.png" // Place PNG in /public/images/
+        alt="Join DOHaD Community"
+        width={900}
+        height={900}
+        className="object-contain"
+        priority
+      />
+    </div>
+  </div>
+</section>
+
 
         {/* Benefits Section */}
         <section className="mb-16">
@@ -168,48 +182,14 @@ export default function JoinUsPage() {
           </div>
         </section>
 
-        {/* Membership Categories */}
+        {/* Who Can Be a Member */}
         <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Choose a Membership</h2>
-            <p className="text-muted-foreground text-lg">
-              Choose the membership that fits your career stage and interests
+          <div className="bg-card border border-border rounded-lg p-8 md:p-12 text-center shadow-sm">
+            <h2 className="text-3xl font-bold text-foreground mb-6">Who can be a member?</h2>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
+              Membership is open to everyone interested in DOHaD research, policy, and practice in India. Membership in
+              DOHaD India also includes a free membership for the International DOHaD Society.
             </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {membershipCategories.map((category, index) => (
-              <Card key={index} className={`relative bg-card border-border ${category.popular ? "ring-2 ring-secondary" : ""}`}>
-                {category.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-secondary text-secondary-foreground px-3 py-1 rounded-full text-sm font-medium">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                <CardHeader className="text-center">
-                  <CardTitle className="text-xl font-bold text-foreground">{category.title}</CardTitle>
-                  <CardDescription className="text-sm text-muted-foreground">{category.description}</CardDescription>
-                  <div className="mt-4">
-                    <span className="text-3xl font-bold text-primary">{category.price}</span>
-                    <span className="text-muted-foreground ml-2">{category.period}</span>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-3">
-                    {category.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start gap-3">
-                        <CheckCircle className="w-5 h-5 text-secondary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm text-muted-foreground">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button className="w-full mt-6 bg-primary text-primary-foreground hover:bg-primary/90">
-                    Select Plan
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </section>
 

@@ -12,10 +12,10 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background relative overflow-hidden">
       <div className="relative z-10">
-        <main className="max-w-[1320px] mx-auto relative">
+        <main className="relative z-10">
           <HeroSection />
           {/* Dashboard Preview Wrapper */}
-          <div className="absolute bottom-[-220px] md:bottom-[-400px] left-1/2 transform -translate-x-1/2 z-30">
+          <div className="absolute bottom-[-220px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
             <AnimatedSection>
               <DashboardPreview />
             </AnimatedSection>

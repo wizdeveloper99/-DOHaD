@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section
       className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-hidden py-0 px-4
-         w-full h-[500px] md:w-[1220px] md:h-[600px] lg:h-[810px] md:px-0"
+         w-full h-[500px] md:w-[1320px] md:h-[600px] lg:h-[810px] md:px-0"
     >
       {/* SVG Background */}
       <div className="absolute inset-0 z-0">
@@ -437,18 +437,18 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-6 md:space-y-5 lg:space-y-6 mb-8 md:mb-7 lg:mb-9 max-w-md md:max-w-[500px] lg:max-w-[588px] mt-24 md:mt-[120px] lg:mt-[160px] px-6 md:px-4">
+      <div className="relative z-10 space-y-6 md:space-y-5 lg:space-y-6 mb-5  max-w-md md:max-w-[500px] lg:max-w-[588px] mt-24 md:mt-[120px] lg:mt-[160px] px-6 md:px-4">
         <h1 className="text-foreground text-4xl md:text-4xl lg:text-6xl font-semibold leading-tight">
-          Unleash the Power of AI Agents
+          A Healthy Start, A Productive Life
         </h1>
         <p className="text-muted-foreground text-lg md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
-          Accelerate your development workflow with intelligent AI agents that write, review, and optimize your code.
+          The DOHaD India Regional Society advances science and policy to improve the health of the Indian population from the earliest stages of life
         </p>
       </div>
 
       <Link
-  href="https://vercel.com/home"
-  target="_blank"
+  href="/join-us"
+  target="_self"
   rel="noopener noreferrer"
 >
   <Button
@@ -463,7 +463,7 @@ export function HeroSection() {
                focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2
                active:scale-95 w-full md:w-auto"
   >
-    Signup for free
+    Become a Member
   </Button>
 </Link>
 

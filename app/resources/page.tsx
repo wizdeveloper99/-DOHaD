@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 import { FileText, Users, Shield, Clock } from "lucide-react"
+import Image from "next/image"
 
 export default function ResourcesPage() {
   return (
@@ -8,12 +9,34 @@ export default function ResourcesPage() {
       <Header />
 
       <main className="max-w-4xl mx-auto px-6 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Resources</h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Essential documents and guidelines for DOHaD India members and the research community
-          </p>
-        </div>
+     <section className="">
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+    
+    {/* Left Image */}
+    <div className="relative flex justify-center md:justify-start">
+      <Image
+        src="/mother-baby-daughter-having-fun.png"
+        alt="Resources for DOHaD members"
+        width={800}     
+        height={800}    
+        className="object-contain w-full max-w-xl md:max-w-4xl"
+        priority
+      />
+    </div>
+
+    {/* Right Text */}
+    <div className="flex flex-col justify-center text-center md:text-left">
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        Resources
+      </h1>
+      <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+        Essential documents and guidelines for DOHaD India members and the research community.
+      </p>
+    </div>
+  </div>
+</section>
+
+
 
         {/* Coming Soon Message */}
         <div className="bg-card border border-border rounded-lg p-12 text-center mb-12 shadow-sm">
