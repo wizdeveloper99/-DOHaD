@@ -80,16 +80,17 @@ export default function ResourcesPage() {
           <p className="text-muted-foreground mb-6">
             Subscribe to our newsletter to be notified when new resources become available
           </p>
-          <div className="max-w-md mx-auto flex gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
-            />
-            <button className="px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
-              Subscribe
-            </button>
-          </div>
+          <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+  <input
+    type="email"
+    placeholder="Enter your email"
+    className="flex-1 w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
+  />
+  <button className="w-full sm:w-auto px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+    Subscribe
+  </button>
+</div>
+
         </div>
       </main>
 
