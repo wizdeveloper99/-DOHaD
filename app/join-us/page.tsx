@@ -214,16 +214,22 @@ export default function JoinUsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="text-center bg-muted/30 rounded-lg p-8 md:p-12 border border-border">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">Ready to Join Our Community?</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Take the first step towards advancing DOHaD research in India and connecting with like-minded professionals
-            across the country.
-          </p>
-          <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3">
-            Start Your Membership Application
-          </Button>
-        </section>
+        <section className="text-center bg-muted/30 rounded-lg p-6 md:p-12 border border-border">
+  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground mb-4">
+    Ready to Join Our Community?
+  </h2>
+  <p className="text-muted-foreground mb-6 md:mb-8 max-w-2xl mx-auto text-sm sm:text-base">
+    Take the first step towards advancing DOHaD research in India and connecting with like-minded professionals
+    across the country.
+  </p>
+  <Button
+    size="lg"
+    className="w-full sm:w-auto bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3"
+  >
+    Start Your Membership Application
+  </Button>
+</section>
+
       </main>
 
       <FooterSection />

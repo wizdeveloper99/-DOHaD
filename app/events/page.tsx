@@ -101,21 +101,22 @@ export default function EventsPage() {
 
         {/* Newsletter Signup */}
         <div className="bg-card border border-border rounded-lg p-8 text-center mt-12">
-          <h3 className="text-xl font-semibold text-foreground mb-4">Get Event Updates</h3>
-          <p className="text-muted-foreground mb-6">
-            Be the first to know about upcoming events and registration openings
-          </p>
-          <div className="max-w-md mx-auto flex gap-3">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-            />
-            <button className="px-6 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors">
-              Subscribe
-            </button>
-          </div>
-        </div>
+  <h3 className="text-xl font-semibold text-foreground mb-4">Get Event Updates</h3>
+  <p className="text-muted-foreground mb-6">
+    Be the first to know about upcoming events and registration openings
+  </p>
+  <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
+    <input
+      type="email"
+      placeholder="Enter your email"
+      className="flex-1 px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+    />
+    <button className="px-6 py-2 bg-secondary text-secondary-foreground rounded-lg hover:bg-secondary/90 transition-colors">
+      Subscribe
+    </button>
+  </div>
+</div>
+
       </main>
 
       <FooterSection />
