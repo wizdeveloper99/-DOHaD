@@ -77,10 +77,9 @@ export function DashboardPreview() {
       className="w-[calc(100vw-32px)] md:w-[1160px] mx-auto my-20"
     >
       <motion.div 
-        className="relative  
- rounded-xl border-2 border-gray-200/10 overflow-hidden  
-transition-transform duration-300 ease-out  
-hover:scale-110 hover:shadow-xl
+        className="relative rounded-xl border-2 border-gray-200/10 overflow-hidden 
+  transition-transform duration-300 ease-out 
+  md:hover:scale-110 md:hover:shadow-xl
 "
         onMouseEnter={triggerControls}
         onMouseLeave={() => setShowControls(false)}
