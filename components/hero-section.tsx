@@ -446,11 +446,27 @@ export function HeroSection() {
         </p>
       </div>
 
-      <Link href="https://vercel.com/home" target="_blank" rel="noopener noreferrer">
-        <Button className="relative z-10 bg-gradient-to-r from-green-500 to-green-400 text-white hover:from-green-600 hover:to-green-500 px-10 py-4 md:px-8 md:py-3 rounded-full font-medium text-lg md:text-base shadow-lg">
-          Signup for free
-        </Button>
-      </Link>
+      <Link
+  href="https://vercel.com/home"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <Button
+    className="relative z-10 
+               bg-secondary text-secondary-foreground 
+               hover:bg-secondary/90 
+               px-10 py-4 md:px-8 md:py-3 
+               rounded-full font-semibold text-lg md:text-base 
+               shadow-md 
+               transition-all duration-300 ease-out
+               hover:scale-105 hover:shadow-lg
+               focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2
+               active:scale-95 w-full md:w-auto"
+  >
+    Signup for free
+  </Button>
+</Link>
+
     </section>
   )
 }

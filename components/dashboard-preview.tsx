@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export function DashboardPreview() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -9,20 +9,6 @@ export function DashboardPreview() {
   const [showControls, setShowControls] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, { 
-    stiffness: 100, 
-    damping: 30, 
-    restDelta: 0.001 
-  });
-
-  const scale = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0.8, 1, 1, 0.8]);
-  const opacity = useTransform(smoothProgress, [0, 0.2, 0.8, 1], [0.3, 1, 1, 0.3]);
 
   // Video progress tracking
   useEffect(() => {
@@ -45,6 +31,7 @@ export function DashboardPreview() {
         videoRef.current.pause();
         setIsPlaying(false);
       } else {
+        videoRef.current.muted = false; // unmute when user clicks
         videoRef.current.play();
         setIsPlaying(true);
       }
@@ -74,27 +61,28 @@ export function DashboardPreview() {
     <motion.div 
       ref={containerRef}
       className="w-[calc(100vw-32px)] md:w-[1160px] mx-auto my-20"
-      style={{ scale, opacity }}
     >
-      <motion.div 
-        className="relative bg-white/5 rounded-2xl p-2 shadow-lg border border-gray-200/20 overflow-hidden"
-        onMouseEnter={() => setShowControls(true)}
-        onMouseLeave={() => setShowControls(false)}
-      >
+  <motion.div 
+    className="relative bg-white/5 rounded-2xl p-2 shadow-lg border border-gray-200/20 overflow-hidden 
+               transition-transform duration-300 ease-out hover:scale-110 hover:shadow-xl"
+    onMouseEnter={() => setShowControls(true)}
+    onMouseLeave={() => setShowControls(false)}
+  >
         {/* Main video container */}
-        <div className="relative rounded-xl overflow-hidden">
-          <video
-            ref={videoRef}
-            src="/What is DOHaD.mp4"
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover cursor-pointer"
-            onClick={handleVideoClick}
-            onEnded={handleVideoEnded}
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-          />
+        <div className="relative rounded-xl overflow-hidden aspect-video">
+        <video
+  ref={videoRef}
+  src="/What is DOHaD.mp4"
+  poster="https://octet-gatsby.in2.cdn-alpha.com/wp-content/uploads/2024/04/Image-23-1536x864.webp"   // <-- poster added
+  loop
+  playsInline
+  className="w-full h-full object-cover cursor-pointer"
+  onClick={handleVideoClick}
+  onEnded={handleVideoEnded}
+  onPlay={() => setIsPlaying(true)}
+  onPause={() => setIsPlaying(false)}
+/>
+
 
           {/* Video Controls Overlay */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

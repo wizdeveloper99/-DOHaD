@@ -6,34 +6,34 @@ import { ChevronDown } from "lucide-react"
 
 const faqData = [
   {
-    question: "What is Pointer and who is it for?",
+    question: "What is DOHaD and why is it important?",
     answer:
-      "Pointer is an AI-powered development platform designed for developers, teams, and organizations who want toaccelerate their coding workflow. It's perfect for both individual developers looking to enhance their productivity and teams seeking seamless collaboration tools.",
+      "The Developmental Origins of Health and Disease (DOHaD) paradigm focuses on how early-life exposures, including during preconception and pregnancy, impact long-term health. The DOHaD India Regional Society is dedicated to advancing this science and creating evidence-based policies and practices, particularly within the Indian context.",
   },
   {
-    question: "How does Pointer's AI code review work?",
+    question: "What is the mission of DOHaD India?",
     answer:
-      "Our AI analyzes your code in real-time, providing intelligent suggestions for improvements, catching potential bugs, and ensuring best practices. It learns from your coding patterns and adapts to your team's standards, making code reviews faster and more consistent.",
+      "DOHaD India aims to promote and coordinate research on the Developmental Origins of Health and Disease, while building the capacity of professionals through research, communication, and advocacy. Its mission is to catalyze collaborative research, capacity building, knowledge dissemination, and policy engagement rooted in the Indian context.",
   },
   {
-    question: "Can I integrate Pointer with my existing tools?",
+    question: "Who can become a member of DOHaD India?",
     answer:
-      "Yes! Pointer offers one-click integrations with popular development tools including GitHub, GitLab, VS Code, Slack, and many more. Our MCP connectivity allows you to easily manage and configure server access across your entire development stack.",
+      "Membership is open to anyone in India who is interested in DOHaD research, policy, and practice. Membership in DOHaD India also includes a free membership for the International DOHaD Society.",
   },
   {
-    question: "What's included in the free plan?",
+    question: "What are the benefits of becoming a member?",
     answer:
-      "The free plan includes real-time code suggestions, basic integrations, single MCP server connection, up to 2 AI coding agents, and Vercel deployments with Pointer branding. It's perfect for individual developers getting started.",
+      "Becoming a member of DOHaD India gives you access to the Journal of Developmental Origins of Health and Disease, newsletters, and resources from workshops and conferences. You also get opportunities for training, capacity building, and career advancement, as well as the chance to network and collaborate with researchers in India and internationally.",
   },
   {
-    question: "How do parallel coding agents work?",
+    question: "How do I become a member?",
     answer:
-      "Our parallel coding agents can work on different parts of your codebase simultaneously, solving complex problems faster than traditional single-threaded approaches. You can launch multiple agents to handle different tasks like bug fixes, feature development, and code optimization concurrently.",
+      "To become a member, you need to join the International DOHaD Society and select DOHaD India as your regional society. After that, DOHaD India will contact you with details on how to pay the annual membership fee.",
   },
   {
-    question: "Is my code secure with Pointer?",
+    question: "How much does a membership cost?",
     answer:
-      "Absolutely. We use enterprise-grade security measures including end-to-end encryption, secure data transmission, and compliance with industry standards. Your code never leaves your secure environment without your explicit permission, and we offer on-premises deployment options for enterprise customers.",
+      "The annual membership fees vary based on your career stage. Standard members are Rs. 1000, training/early career researchers are Rs. 500, and undergraduate students are Rs. 250. A portion of your fee will support regional initiatives in India.",
   },
 ]
 
@@ -43,7 +43,6 @@ interface FAQItemProps {
   isOpen: boolean
   onToggle: () => void
 }
-
 const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -78,7 +77,6 @@ const FAQItem = ({ question, answer, isOpen, onToggle }: FAQItemProps) => {
     </div>
   )
 }
-
 export function FAQSection() {
   const [openItems, setOpenItems] = useState<Set<number>>(new Set())
   const toggleItem = (index: number) => {
@@ -91,7 +89,7 @@ export function FAQSection() {
     setOpenItems(newOpenItems)
   }
   return (
-    <section className="w-full pt-[66px] pb-20 md:pb-40 px-5 relative flex flex-col justify-center items-center">
+    <section className="w-full pt-[66px] pb-8 md:pb-10 px-5 relative flex flex-col justify-center items-center">
       <div className="w-[300px] h-[500px] absolute top-[150px] left-1/2 -translate-x-1/2 origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[100px] z-0" />
       <div className="self-stretch pt-8 pb-8 md:pt-14 md:pb-14 flex flex-col justify-center items-center gap-2 relative z-10">
         <div className="flex flex-col justify-start items-center gap-4">
@@ -99,7 +97,7 @@ export function FAQSection() {
             Frequently Asked Questions
           </h2>
           <p className="self-stretch text-center text-muted-foreground text-sm font-medium leading-[18.20px] break-words">
-            Everything you need to know about Pointer and how it can transform your development workflow
+            Everything you need to know about DOHaD India and how we are working to promote a healthy start to life
           </p>
         </div>
       </div>

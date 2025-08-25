@@ -1,5 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
-import { AboutSection } from "@/components/about-section"
+import AboutSection from "@/components/about-section"
 import { BentoSection } from "@/components/four-pillars-section"
 import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
@@ -21,11 +21,14 @@ export default function HomePage() {
             </AnimatedSection>
           </div>
         </main>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto px-6 mt-[411px] md:mt-[400px]" delay={0.1}>
-          <SocialProof />
-        </AnimatedSection>
+        <AnimatedSection 
+  className="relative z-10 max-w-[1320px] mx-auto px-6 mt-24 md:mt-[320px]" 
+  delay={0.1}
+>
+  <SocialProof />
+</AnimatedSection>
 
-        <div className="relative z-10 pt-20 md:pt-2">
+        <div className="relative z-10 md:pt-2">
         <AnimatedSection
           id="testimonials-section"
           className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"

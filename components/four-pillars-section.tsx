@@ -4,31 +4,29 @@ interface FeatureCardProps {
   number: string
   title: string
   description: string
-  gradient: string
 }
 
-const FeatureCard = ({ number, title, description, gradient }: FeatureCardProps) => (
+const FeatureCard = ({ number, title, description }: FeatureCardProps) => (
   <div
-    className={`w-full h-[220px] md:h-[240px] lg:h-[260px] 
-      bg-card shadow-[0px_4px_12px_rgba(0,0,0,0.08)] 
-      overflow-hidden rounded-xl border border-border
-      transition-all duration-500 ease-out cursor-pointer relative
-      hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.12)]`}
+    className="
+      flex items-stretch transition-all duration-300 ease-out
+      hover:scale-[1.02] hover:border-primary
+    "
   >
-    {/* Background gradient */}
-    <div className={`absolute inset-0 ${gradient} opacity-10`} />
-    
-    {/* Subtle gradient overlay */}
-    <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+    {/* Left border */}
+    <div className="border-l-4 border-muted mr-10 transition-colors duration-300 group-hover:border-primary"></div>
 
-    <div className="p-6 flex flex-col gap-4 relative z-10 h-full">
-      <div className="flex items-center gap-3">
-        <span className="text-sm font-semibold text-primary bg-primary/10 px-3 py-1 rounded-full">
-          {number}
-        </span>
-      </div>
-      <h3 className="text-xl font-semibold text-foreground leading-tight">{title}</h3>
-      <p className="text-base leading-relaxed text-muted-foreground flex-1">{description}</p>
+    {/* Content */}
+    <div className="flex flex-col gap-4">
+      <span className="text-xl md:text-2xl font-semibold text-primary">
+        {number}
+      </span>
+      <h3 className="text-xl md:text-2xl lg:text-2xl font-semibold text-foreground leading-tight">
+        {title}
+      </h3>
+      <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-md">
+        {description}
+      </p>
     </div>
   </div>
 )
@@ -37,60 +35,60 @@ export function BentoSection() {
   const features = [
     {
       number: "01",
-      title: "Multidisciplinary Research",
-      description: "Catalyzing studies on early-life exposures and long-term health across India's diverse contexts.",
-      gradient: "bg-gradient-to-br from-primary to-primary/60",
+      title: "Remodel construction",
+      description:
+        "Velit sagittis fringilla neque dolor id et ac eu mattis ipsum morbi enim.",
     },
     {
       number: "02",
-      title: "Multiomics & Cohorts",
-      description: "Supporting harmonized protocols, multi-cohort studies, and omics research to reveal biological pathways.",
-      gradient: "bg-gradient-to-br from-secondary to-secondary/60",
+      title: "General construction",
+      description:
+        "Phasellus orci nullam orci ultrices vulputate at sodales tempor malesuada libero.",
     },
     {
       number: "03",
-      title: "Capacity Building",
-      description: "Training, mentorship, and open-access resources to develop India's next generation of DOHaD scientists.",
-      gradient: "bg-gradient-to-br from-accent to-accent/60",
+      title: "Project planning",
+      description:
+        "Egestas integer sollicitudin volutpat duis mauris pulvinar molestie neque nibh.",
     },
     {
       number: "04",
-      title: "Scientific Communication",
-      description: "Webinars, newsletters, and regional meetings to share insights and connect the DOHaD India community.",
-      gradient: "bg-gradient-to-br from-primary to-secondary",
+      title: "Space planning",
+      description:
+        "Eget vitae non habitant blandit in eu pellentesque nulla facilisis leo donec.",
     },
     {
       number: "05",
-      title: "Public Engagement",
-      description: "Disseminating knowledge through digital platforms, spotlighting young researchers, and raising awareness.",
-      gradient: "bg-gradient-to-br from-secondary to-accent",
+      title: "Exterior design",
+      description:
+        "Sed massa morbi turpis enim sed suspendisse massa ut a ultrices ut nisi in tellus.",
     },
     {
       number: "06",
-      title: "Advocacy & Policy",
-      description: "Engaging governments, civil society, and global DOHaD networks to inform health programs and policies.",
-      gradient: "bg-gradient-to-br from-primary to-accent",
+      title: "Interior design",
+      description:
+        "Praesent a porttitor adipiscing urna convallis non ipsum aenean magna enim.",
     },
   ]
 
   return (
-    <section className="w-full px-5 flex flex-col justify-center items-center bg-transparent">
-      <div className="w-full py-12 md:py-20 flex flex-col justify-center items-center gap-12">
-        {/* Section Heading */}
-        <div className="flex flex-col justify-center items-center gap-4">
-          <h2 className="text-center text-4xl md:text-6xl font-semibold text-foreground leading-tight">
+    <section className="w-full px-5 md:px-6 lg:px-8 bg-background">
+      <div className="w-full max-w-7xl mx-auto">
+        {/* Heading */}
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
             DOHaD India Priorities
           </h2>
-          <p className="max-w-[700px] text-center text-muted-foreground text-lg md:text-xl leading-relaxed">
-            Driving research, capacity building, communication, and advocacy 
-            to strengthen DOHaD science and policy in India.
+          <p className="mt-6 max-w-3xl mx-auto text-muted-foreground text-lg md:text-xl lg:text-2xl leading-relaxed">
+            Driving research, capacity building, communication, and advocacy to strengthen
+            DOHaD science and policy in India.
           </p>
         </div>
 
-        {/* Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full max-w-7xl">
-          {features.map((feature) => (
-            <FeatureCard key={feature.number} {...feature} />
+        {/* Grid with spacing between rows */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+          {features.map((f) => (
+            <FeatureCard key={f.number} {...f} />
           ))}
         </div>
       </div>
