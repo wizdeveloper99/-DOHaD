@@ -15,20 +15,20 @@ export default function HomePage() {
         <main className="max-w-[1320px] mx-auto relative">
           <HeroSection />
           {/* Dashboard Preview Wrapper */}
-          <div className="absolute bottom-[-200px] md:bottom-[-400px] left-1/2 transform -translate-x-1/2 z-30">
+          <div className="absolute bottom-[-220px] md:bottom-[-400px] left-1/2 transform -translate-x-1/2 z-30">
             <AnimatedSection>
               <DashboardPreview />
             </AnimatedSection>
           </div>
         </main>
         <AnimatedSection 
-  className="relative z-10 max-w-[1320px] mx-auto px-6 mt-24 md:mt-[320px]" 
+  className="relative z-10 max-w-[1320px] mx-auto px-6 mt-28 md:mt-[320px]" 
   delay={0.1}
 >
   <SocialProof />
 </AnimatedSection>
 
-        <div className="relative z-10 md:pt-2">
+        <div className="">
         <AnimatedSection
           id="testimonials-section"
           className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"

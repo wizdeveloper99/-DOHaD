@@ -66,10 +66,10 @@ export default function AboutSection() {
     <section className="">
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
           Core features that set us apart from the competition
         </h2>
-        <p className="mt-4 text-muted-foreground text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
           
           Explore our standout features designed to deliver exceptional performance
           and value, distinguishing us from the competition.

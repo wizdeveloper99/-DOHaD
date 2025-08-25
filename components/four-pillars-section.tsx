@@ -75,11 +75,11 @@ export function BentoSection() {
     <section className="w-full px-5 md:px-6 lg:px-8 bg-background">
       <div className="w-full max-w-7xl mx-auto">
         {/* Heading */}
-        <div className="text-center mb-20">
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight">
+        <div className="text-center mb-20 pt-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
             DOHaD India Priorities
           </h2>
-          <p className="mt-6 max-w-3xl mx-auto text-muted-foreground text-lg md:text-xl lg:text-2xl leading-relaxed">
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
             Driving research, capacity building, communication, and advocacy to strengthen
             DOHaD science and policy in India.
           </p>

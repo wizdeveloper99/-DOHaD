@@ -3,7 +3,7 @@ import Link from "next/link"
 
 export function CTASection() {
   return (
-    <section className="w-full pt-20 md:pt-60 lg:pt-60 pb-10 md:pb-20 px-5 relative flex flex-col justify-center items-center overflow-visible">
+    <section className="w-full pt-10 md:pt-20 lg:pt-24 pb-6 md:pb-10 px-5 relative flex flex-col justify-center items-center overflow-visible">
       <div className="absolute inset-0 top-[-90px]">
         <svg
           className="w-full h-full"
@@ -106,7 +106,10 @@ export function CTASection() {
           <h2 className="text-foreground text-4xl md:text-5xl lg:text-[68px] font-semibold leading-tight md:leading-tight lg:leading-[76px] break-words max-w-[435px]">
             Coding made effortless
           </h2>
-          <p className="text-muted-foreground text-sm md:text-base font-medium leading-[18.20px] md:leading-relaxed break-words max-w-2xl">
+          <p className=" md:leading-relaxed break-words 
+          
+          text-muted-foreground text-lg md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto
+          ">
             Hear how developers ship products faster, collaborate seamlessly, and build with confidence using Pointer's
             powerful AI tools
           </p>

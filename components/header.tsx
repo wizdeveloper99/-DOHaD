@@ -4,6 +4,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/co
 import { Menu } from "lucide-react"
 import Link from "next/link"
 import { ThemeToggle } from "./theme-toggle"
+import Image from "next/image"
 
 export function Header() {
   const navItems = [
@@ -15,15 +16,19 @@ export function Header() {
   ]
 
   return (
-    <header className="w-full py-3 px-6 bg-background/95 border-b border-border">
+    <header className="w-full py-4 px-6 bg-background/95 border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        {/* Logo - always on the left */}
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-          <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xs">DI</span>
-          </div>
-          <span className="text-foreground text-lg font-semibold">DOHaD</span>
-        </Link>
+  <div className="w-10 h-10 relative">
+    <Image
+      src="/logo__1_-removebg-preview.png"       
+      alt="DOHaD Logo"
+      fill
+      className="object-contain rounded-full"
+    />
+  </div>
+  <span className="text-foreground text-lg font-semibold">DOHaD</span>
+</Link>
         
         {/* Desktop Navigation - hidden on mobile */}
         <nav className="hidden md:flex items-center gap-2">
