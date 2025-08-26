@@ -32,44 +32,27 @@ const FeatureCard = ({ number, title, description }: FeatureCardProps) => (
 )
 
 export function BentoSection() {
-  const features = [
-    {
-      number: "01",
-      title: "Remodel construction",
-      description:
-        "Velit sagittis fringilla neque dolor id et ac eu mattis ipsum morbi enim.",
-    },
-    {
-      number: "02",
-      title: "General construction",
-      description:
-        "Phasellus orci nullam orci ultrices vulputate at sodales tempor malesuada libero.",
-    },
-    {
-      number: "03",
-      title: "Project planning",
-      description:
-        "Egestas integer sollicitudin volutpat duis mauris pulvinar molestie neque nibh.",
-    },
-    {
-      number: "04",
-      title: "Space planning",
-      description:
-        "Eget vitae non habitant blandit in eu pellentesque nulla facilisis leo donec.",
-    },
-    {
-      number: "05",
-      title: "Exterior design",
-      description:
-        "Sed massa morbi turpis enim sed suspendisse massa ut a ultrices ut nisi in tellus.",
-    },
-    {
-      number: "06",
-      title: "Interior design",
-      description:
-        "Praesent a porttitor adipiscing urna convallis non ipsum aenean magna enim.",
-    },
-  ]
+ const features = [
+  {
+    number: "01",
+    title: "Maternal Health",
+    description:
+      "Examining preconception and pregnancy factors that influence child development",
+  },
+  {
+    number: "02",
+    title: "Early Childhood",
+    description:
+      "Understanding critical periods of development and their long-term impacts",
+  },
+  {
+    number: "03",
+    title: "Multiomics Research",
+    description:
+      "Exploring epigenomics, metabolomics, and microbiome influences on health",
+  },
+];
+
 
   return (
     <section className="w-full px-5 md:px-6 lg:px-8 bg-background">
@@ -77,11 +60,10 @@ export function BentoSection() {
         {/* Heading */}
         <div className="text-center mb-20 pt-6">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            DOHaD India Priorities
+            Research Focus Areas
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            Driving research, capacity building, communication, and advocacy to strengthen
-            DOHaD science and policy in India.
+            Our research spans multiple disciplines to understand how early-life exposures affect long-term health outcomes in Indian populations
           </p>
         </div>
 

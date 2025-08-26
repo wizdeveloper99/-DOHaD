@@ -7,6 +7,8 @@ import { DashboardPreview } from "@/components/dashboard-preview"
 import { SocialProof } from "@/components/social-proof"
 import { CTASection } from "@/components/cta-section"
 import { FAQSection } from "@/components/faq-section"
+import { AboutDOHaD } from "@/components/about-DOHaD"
+import  CapacityBuilding  from "@/components/CapacityBuilding"
 
 export default function HomePage() {
   return (
@@ -21,33 +23,51 @@ export default function HomePage() {
             </AnimatedSection>
           </div>
         </main>
-        <AnimatedSection 
-  className="relative z-10 max-w-[1320px] mx-auto px-6 mt-28 md:mt-[320px]" 
-  delay={0.1}
->
-  <SocialProof />
-</AnimatedSection>
-
-        <div className="">
         <AnimatedSection
-          id="testimonials-section"
-          className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
-          delay={0.2}
+          className="relative z-10 max-w-[1320px] mx-auto px-6 mt-28 md:mt-[320px]"
+          delay={0.1}
         >
-          <AboutSection />
+          <SocialProof />
         </AnimatedSection>
+
+        <AnimatedSection
+            id="testimonials-section"
+            className="relative z-10 "
+            delay={0.2}
+          >
+          <AboutDOHaD />
+          </AnimatedSection>
+          
+        <div className="">
+          <AnimatedSection
+            id="testimonials-section"
+            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            delay={0.2}
+          >
+            <AboutSection />
+          </AnimatedSection>
           <AnimatedSection id="features-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
-          <BentoSection />
-        </AnimatedSection>
-        <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-          <FAQSection />
-        </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-          <CTASection />
-        </AnimatedSection>
-        <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
-          <FooterSection />
-        </AnimatedSection>
+            <BentoSection />
+          </AnimatedSection>
+
+           <AnimatedSection
+            id="testimonials-section"
+            className="relative z-10"
+            delay={0.2}
+          >
+          <CapacityBuilding />
+          </AnimatedSection>
+
+
+          <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+            <FAQSection />
+          </AnimatedSection>
+          <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+            <CTASection />
+          </AnimatedSection>
+          <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+            <FooterSection />
+          </AnimatedSection>
         </div>
       </div>
     </div>

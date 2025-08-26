@@ -106,36 +106,57 @@ export default function JoinUsPage() {
       <Header />
 
       <main className="max-w-6xl mx-auto px-6 py-10">
-<section className="relative bg-background py-8 mb-16">
-  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-    
-    {/* Left Content */}
-    <div className="flex flex-col justify-center">
-      <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-        Join Our Community <br /> & Advance DOHaD Research
-      </h1>
+ <section className="relative bg-background py-8 mb-16"> 
+      {/* reduced top padding (py-8 instead of py-16) */}
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        
+        {/* Left Content */}
+        <div>
+          {/* <span className="inline-block bg-secondary/20 text-secondary-foreground px-3 py-1 rounded-full text-sm font-medium mb-4">
+            +1000 Members Across India
+          </span> */}
 
-      <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-        Be part of India’s leading network of researchers and professionals 
-        working on the developmental origins of health and disease. 
-        Collaborate, learn, and grow with us.
-      </p>
-    </div>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+            Join Our Community <br /> & Advance DOHaD Research
+          </h1>
 
-    {/* Right Image (transparent PNG, bigger) */}
-    <div className="relative flex justify-center md:justify-end">
-      <Image
-        src="/young-mother-spending-time-with-baby.png" // Place PNG in /public/images/
-        alt="Join DOHaD Community"
-        width={900}
-        height={900}
-        className="object-contain"
-        priority
-      />
-    </div>
-  </div>
-</section>
+          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            Be part of India’s leading network of researchers and professionals 
+            working on the developmental origins of health and disease. 
+            Collaborate, learn, and grow with us.
+          </p>
 
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Button 
+              size="lg" 
+              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-3"
+            >
+              Start Membership
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="rounded-full px-8 py-3"
+            >
+              Learn More
+            </Button>
+          </div>
+        </div>
+
+        {/* Right Image (transparent PNG) */}
+        <div className="relative w-full h-full flex justify-center md:justify-end">
+          <Image
+            src="/young-mother-spending-time-with-baby.png" // Place PNG in /public/images/
+            style={{ width: '120%', height: 'auto' }} // Make image 20% larger than container
+            alt="Join DOHaD Community"
+            width={800}
+            height={800}
+            className="object-contain"
+            priority
+          />
+        </div>
+      </div>
+    </section>
 
         {/* Benefits Section */}
         <section className="mb-16">
