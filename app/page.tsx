@@ -9,6 +9,8 @@ import { CTASection } from "@/components/cta-section"
 import { FAQSection } from "@/components/faq-section"
 import { AboutDOHaD } from "@/components/about-DOHaD"
 import  CapacityBuilding  from "@/components/CapacityBuilding"
+import FinanceSection from "@/components/FinanceSection"
+import AdvocacySection from "@/components/AdvocacySection"
 
 export default function HomePage() {
   return (
@@ -57,8 +59,20 @@ export default function HomePage() {
           >
           <CapacityBuilding />
           </AnimatedSection>
-
-
+          <AnimatedSection
+            id="testimonials-section"
+            className="relative z-10"
+            delay={0.2}
+          >
+          <FinanceSection />
+          </AnimatedSection>
+          <AnimatedSection
+            id="testimonials-section"
+            className="relative z-10"
+            delay={0.2}
+          >
+          <AdvocacySection />
+          </AnimatedSection>
           <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
             <FAQSection />
           </AnimatedSection>
