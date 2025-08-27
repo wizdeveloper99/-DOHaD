@@ -19,7 +19,7 @@ export function Header() {
     <header className="w-full py-4 px-6 bg-background/95 border-b border-border">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-  <div className="w-10 h-10 relative">
+<div className="w-16 h-16 relative">
     <Image
       src="/logo__1_-removebg-preview.png"       
       alt="DOHaD Logo"
