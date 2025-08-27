@@ -5,7 +5,7 @@ const CapacityBuilding = () => {
   return (
     <section
       id="capacity-building"
-      className="relative overflow-hidden py-16 md:py-24"
+      className="relative overflow-hidden py-16 md:py-24 bg-background"
     >
       {/* Subtle SVG background pattern */}
       <svg
@@ -24,9 +24,25 @@ const CapacityBuilding = () => {
           </linearGradient>
         </defs>
 
-        <rect width="100%" height="100%" fill="currentColor" className="text-muted/20" />
-        <rect width="100%" height="100%" fill="url(#dots)" className="text-muted/20" />
-        <rect width="100%" height="100%" fill="url(#wash)" />
+        {/* Background pattern */}
+        <rect
+          width="100%"
+          height="100%"
+          fill="currentColor"
+          className="text-muted/20"
+        />
+        <rect
+          width="100%"
+          height="100%"
+          fill="url(#dots)"
+          className="text-muted/20"
+        />
+        <rect
+          width="100%"
+          height="100%"
+          fill="url(#wash)"
+          className="fill-background/80"
+        />
       </svg>
 
       {/* Content */}
@@ -41,33 +57,42 @@ const CapacityBuilding = () => {
           </p>
         </div>
 
+        {/* Features Grid */}
         <div className="grid gap-10 md:grid-cols-3">
+          {/* Training Workshops */}
           <div className="text-center">
             <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
-    <BookOpen className="w-8 h-8 text-primary" />
-  </div>
-            <h3 className="font-semibold text-xl">Training Workshops</h3>
+              <BookOpen className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="font-semibold text-xl text-foreground">
+              Training Workshops
+            </h3>
             <p className="text-muted-foreground text-base mt-3">
               Comprehensive courses on DOHaD principles and lifecourse epidemiology.
             </p>
           </div>
 
+          {/* Mentorship Programs */}
           <div className="text-center">
             <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
-            <Users className="w-8 h-8 text-primary" />
-                        </div>
-
-            <h3 className="font-semibold text-xl">Mentorship Programs</h3>
+              <Users className="w-8 h-8 text-primary" />
+            </div>
+            <h3 className="font-semibold text-xl text-foreground">
+              Mentorship Programs
+            </h3>
             <p className="text-muted-foreground text-base mt-3">
               Pairing early-career researchers with senior DOHaD scientists for guidance.
             </p>
           </div>
 
+          {/* Writing Workshops */}
           <div className="text-center">
             <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
-            <PenTool  className="w-8 h-8 text-primary" />
+              <PenTool className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="font-semibold text-xl">Writing Workshops</h3>
+            <h3 className="font-semibold text-xl text-foreground">
+              Writing Workshops
+            </h3>
             <p className="text-muted-foreground text-base mt-3">
               Best practices in scientific writing and communication skills.
             </p>

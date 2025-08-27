@@ -443,7 +443,7 @@ export function HeroSection() {
         <div
           className="relative z-50 space-y-4 md:space-y-5 lg:space-y-6 mb-2 
             max-w-sm md:max-w-[700px] lg:max-w-[800px] 
-            mt-32 md:mt-[120px] lg:mt-[180px] 
+            mt-28 md:mt-[120px] lg:mt-[180px] 
             px-4 md:px-6 text-center mx-auto"
         >
           <h1 className="text-foreground text-3xl sm:text-4xl lg:text-6xl font-semibold leading-snug sm:leading-tight">
@@ -457,21 +457,22 @@ export function HeroSection() {
         </div>
 
         {/* Buttons moved just below the hero text */}
-        <div className="relative z-50 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-4">
+      <div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 px-2">
   {/* Primary Green Button */}
   <Link href="/join-us" target="_self" rel="noopener noreferrer">
-    <button className="w-40 h-12 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition">
+    <button className="px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-green-500 text-white text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-green-600 transition">
       Join the Waitlist
     </button>
   </Link>
 
   {/* White Button with Green Border */}
   <Link href="/watch-video" target="_self" rel="noopener noreferrer">
-    <button className="w-40 h-12 rounded-full bg-white border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">
+    <button className="px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-white border border-green-500 text-green-600 text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-green-50 transition">
       Watch Video
     </button>
   </Link>
 </div>
+
 
 
         {/* Dashboard Preview overlay */}
@@ -481,7 +482,7 @@ export function HeroSection() {
       </section>
 
       {/* Mobile-only preview below hero */}
-      <div className="block md:hidden w-[calc(100%-32px)] mx-auto mt-10">
+      <div className="block md:hidden w-[calc(100%-32px)] mx-auto -mt-14">
         <DashboardPreview />
       </div>
     </>

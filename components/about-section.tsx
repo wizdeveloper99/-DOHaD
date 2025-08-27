@@ -79,9 +79,9 @@ function FeatureCard({
 export default function AboutSection() {
   return (
     <section className="relative overflow-hidden">
--      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
-+      <div className="text-center">
-        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+      <div className="text-center">
+        <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6 pt-3">
           DOHaD India Regional Society
         </h2>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl md:max-w-4xl mx-auto">
