@@ -7,16 +7,31 @@ const CapacityBuilding = () => {
       id="capacity-building"
       className="relative overflow-hidden py-16 md:py-24 bg-background"
     >
-      {/* Subtle SVG background pattern */}
+      {/* Animated SVG background pattern */}
       <svg
         className="absolute inset-0 w-full h-full"
         aria-hidden="true"
         role="img"
       >
         <defs>
-          <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+          {/* Pattern with animated translation */}
+          <pattern
+            id="dots"
+            width="24"
+            height="24"
+            patternUnits="userSpaceOnUse"
+          >
             <circle cx="1.5" cy="1.5" r="1.5" fill="currentColor" />
+            <animateTransform
+              attributeName="patternTransform"
+              type="translate"
+              from="0 0"
+              to="-24 0"
+              dur="3s"
+              repeatCount="indefinite"
+            />
           </pattern>
+
           <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
             <stop offset="0%" stopColor="white" stopOpacity="0.92" />
             <stop offset="60%" stopColor="white" stopOpacity="0.85" />
@@ -24,7 +39,7 @@ const CapacityBuilding = () => {
           </linearGradient>
         </defs>
 
-        {/* Background pattern */}
+        {/* Background layers */}
         <rect
           width="100%"
           height="100%"

@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
-import { BentoSection } from "@/components/four-pillars-section"
 import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
@@ -11,6 +10,8 @@ import { AboutDOHaD } from "@/components/about-DOHaD"
 import  CapacityBuilding  from "@/components/CapacityBuilding"
 import FinanceSection from "@/components/FinanceSection"
 import AdvocacySection from "@/components/AdvocacySection"
+import { BentoSection } from "@/components/bento-section"
+import { BentoCarousel } from "@/components/four-pillars-section"
 
 export default function HomePage() {
   return (
@@ -60,7 +61,7 @@ export default function HomePage() {
             className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
             delay={0.2}
           >
-            <BentoSection />
+            <BentoCarousel />
           </AnimatedSection>
 
           {/* Capacity Building Section */}

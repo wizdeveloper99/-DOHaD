@@ -5,11 +5,13 @@ import Image from "next/image";
 import { Shield, BookOpen, Users, Globe } from "lucide-react";
 
 const softThemes = [
-  { bg: "bg-[#111820]/5", accent: "text-[#111820]" }, // Midnight soft
-  { bg: "bg-[#00645E]/5", accent: "text-[#00645E]" }, // Teal soft
-  { bg: "bg-[#8AD260]/15", accent: "text-[#3F7D20]" }, // Green soft
-  { bg: "bg-[#D3DDBF]/40", accent: "text-[#546b44]" }, // Mint soft
+  { bg: "bg-[#f5f7fa] dark:bg-[#1f1f1f]", accent: "text-[#222222] dark:text-white" }, // Grey soft
+  { bg: "bg-[#e6f7f6] dark:bg-[#003c38]", accent: "text-[#00645E] dark:text-[#8AD260]" }, // Teal
+  { bg: "bg-[#f2faee] dark:bg-[#1d2d1b]", accent: "text-[#3F7D20] dark:text-[#8AD260]" }, // Green
+  { bg: "bg-[#f6f9f3] dark:bg-[#2a3225]", accent: "text-[#546b44] dark:text-[#d6e9c3]" }, // Mint
 ];
+
+
 
 const features = [
   {
@@ -93,9 +95,10 @@ function FeatureCard({
             {title}
           </h3>
         </div>
-        <p className="text-base leading-relaxed text-muted-foreground">
-          {description}
-        </p>
+       <p className="text-base leading-relaxed text-foreground/80">
+  {description}
+</p>
+
       </div>
     </div>
   );
@@ -103,18 +106,21 @@ function FeatureCard({
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden py-12">
+    <section className="relative overflow-hidden">
       {/* Faint background glow blobs */}
-      <div className="absolute top-[-15%] left-[-10%] w-[250px] h-[250px] bg-[#8AD260]/10 blur-3xl rounded-full" />
-      <div className="absolute bottom-[-15%] right-[-10%] w-[250px] h-[250px] bg-[#00645E]/10 blur-3xl rounded-full" />
+      <div className="absolute top-[-15%] left-[-10%] w-[250px] h-[250px] 
+     bg-[#8AD260]/20 dark:bg-[#8AD260]/10 blur-3xl rounded-full" />
+<div className="absolute bottom-[-15%] right-[-10%] w-[250px] h-[250px] 
+     bg-[#00645E]/20 dark:bg-[#00645E]/10 blur-3xl rounded-full" />
+
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
         {/* Heading */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6 pt-3">
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white text-gray-900 mb-4 md:mb-6 pt-3">
             DOHaD India Regional Society
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl md:max-w-4xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-3xl md:max-w-4xl mx-auto">
             The DOHaD India Regional Society is committed to advancing the
             science and evidence-based policies and practices based on the
             Developmental Origins of Health and Disease paradigm, rooted in the
