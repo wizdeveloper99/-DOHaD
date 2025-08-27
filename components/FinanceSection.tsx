@@ -37,7 +37,7 @@ const FinanceSection = () => {
         </div>
         <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow">
           <Image
-            src="/2151663964.jpg"
+            src="/14534.jpg"
             alt="Webinars & Events"
             fill
             className="object-cover"
@@ -47,7 +47,7 @@ const FinanceSection = () => {
         {/* Block 2 */}
         <div className="relative aspect-[4/3] rounded-xl overflow-hidden shadow order-2 md:order-1">
           <Image
-            src="/2151663964.jpg"
+            src="/2150461353.jpg"
             alt="Quarterly Newsletter"
             fill
             className="object-cover"

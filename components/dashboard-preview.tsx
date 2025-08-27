@@ -8,6 +8,7 @@ export function DashboardPreview() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [videoProgress, setVideoProgress] = useState(0);
   const [showControls, setShowControls] = useState(false);
+  const [showPosterOverlay, setShowPosterOverlay] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const hideControlsTimeout = useRef<NodeJS.Timeout | null>(null);
@@ -45,18 +46,16 @@ export function DashboardPreview() {
         videoRef.current.muted = false;
         videoRef.current.play();
         setIsPlaying(true);
+        setShowPosterOverlay(false); // hide overlay once playing
       }
       triggerControls();
     }
   };
 
-  const handleVideoClick = () => {
-    togglePlay();
-  };
-
   const handleVideoEnded = () => {
     setIsPlaying(false);
     setVideoProgress(0);
+    setShowPosterOverlay(true); // show overlay again when finished
     triggerControls();
   };
 
@@ -72,15 +71,11 @@ export function DashboardPreview() {
   };
 
   return (
-    <motion.div 
-      ref={containerRef}
-      className="w-full"
-    >
-      <motion.div 
+    <motion.div ref={containerRef} className="w-full">
+      <motion.div
         className="relative rounded-xl border-2 border-gray-200/10 overflow-hidden 
-  transition-transform duration-300 ease-out 
-  md:hover:scale-110 md:hover:shadow-xl
-"
+        transition-transform duration-300 ease-out 
+        md:hover:scale-110 md:hover:shadow-xl"
         onMouseEnter={triggerControls}
         onMouseLeave={() => setShowControls(false)}
       >
@@ -89,44 +84,62 @@ export function DashboardPreview() {
           <video
             ref={videoRef}
             src="/What is DOHaD.mp4"
-            poster="/12200.jpg"
+            poster="/2151426832.jpg"
             loop
             playsInline
             className="w-full h-full object-cover cursor-pointer"
-            onClick={handleVideoClick}
+            onClick={togglePlay}
             onEnded={handleVideoEnded}
             onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
           />
 
-          {/* Play/Pause Button (auto-hide) */}
+          {/* Black overlay with Play button (only on poster) */}
+         {showPosterOverlay && (
+  <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+    <motion.button
+      onClick={togglePlay}
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.95 }}
+      className="flex items-center justify-center 
+                 w-14 h-14 md:w-20 md:h-20 rounded-full 
+                 bg-white/20 backdrop-blur-md
+                 border border-white/40 
+                 shadow-lg hover:shadow-xl
+                 transition-all duration-300"
+    >
+      <Play className="w-6 h-6 md:w-8 md:h-8 text-white ml-1 drop-shadow-md" />
+    </motion.button>
+  </div>
+)}
+
+
+          {/* Play/Pause Button (auto-hide during playback) */}
           <motion.button
-  className="absolute inset-0 m-auto flex items-center justify-center pointer-events-auto"
-  onClick={handleVideoClick}
-  whileHover={{ scale: 1.1 }}
-  whileTap={{ scale: 0.95 }}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: showControls ? 1 : 0 }}
-  transition={{ duration: 0.3 }}
->
-  {isPlaying ? (
-    <Pause className="w-10 h-10 text-white" />
-  ) : (
-    <Play className="w-10 h-10 text-white" />
-  )}
-</motion.button>
-
-
+            className="absolute inset-0 m-auto flex items-center justify-center pointer-events-auto"
+            onClick={togglePlay}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: showControls && !showPosterOverlay ? 1 : 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {isPlaying ? (
+              <Pause className="w-10 h-10 text-white" />
+            ) : (
+              <Play className="w-10 h-10 text-white" />
+            )}
+          </motion.button>
 
           {/* Progress Bar */}
-          <motion.div 
+          <motion.div
             className="absolute bottom-0 left-0 right-0 h-2 bg-black/30 cursor-pointer"
             initial={{ opacity: 0 }}
-            animate={{ opacity: showControls ? 1 : 0 }}
+            animate={{ opacity: showControls && !showPosterOverlay ? 1 : 0 }}
             transition={{ duration: 0.2 }}
             onClick={handleProgressClick}
           >
-            <motion.div 
+            <motion.div
               className="h-full bg-white rounded-r-full"
               style={{ width: `${videoProgress}%` }}
               transition={{ duration: 0.1 }}

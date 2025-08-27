@@ -102,61 +102,58 @@ export default function JoinUsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       <Header />
 
       <main className="max-w-6xl mx-auto px-6 py-10">
- <section className="relative bg-background py-8 mb-16"> 
-      {/* reduced top padding (py-8 instead of py-16) */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
-        {/* Left Content */}
-        <div>
-          {/* <span className="inline-block bg-secondary/20 text-secondary-foreground px-3 py-1 rounded-full text-sm font-medium mb-4">
-            +1000 Members Across India
-          </span> */}
+<section className="relative bg-background -pt-10 pb-12">
+  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
 
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-            Join Our Community <br /> & Advance DOHaD Research
-          </h1>
+    {/* Right Image (mobile first) */}
+    <div className="relative flex justify-center md:justify-center order-1 md:order-2">
+      <Image
+        src="/family-hanging-out-jetty.png"
+        alt="Join DOHaD Community"
+        width={450}
+        height={450}
+        className="object-contain max-h-[480px] h-auto"
+        priority
+      />
+    </div>
 
-          <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-            Be part of India’s leading network of researchers and professionals 
-            working on the developmental origins of health and disease. 
-            Collaborate, learn, and grow with us.
-          </p>
+    {/* Left Content */}
+    <div className="text-left order-2 md:order-1">
+      <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+        Join Our Community <br /> & Advance DOHaD Research
+      </h1>
 
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button 
-              size="lg" 
-              className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-3"
-            >
-              Start Membership
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="rounded-full px-8 py-3"
-            >
-              Learn More
-            </Button>
-          </div>
-        </div>
+      <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
+        Be part of India’s leading network of researchers and professionals 
+        working on the developmental origins of health and disease. 
+        Collaborate, learn, and grow with us.
+      </p>
 
-        {/* Right Image (transparent PNG) */}
-        <div className="relative w-full h-full flex justify-center md:justify-end">
-          <Image
-            src="/young-mother-spending-time-with-baby.png" // Place PNG in /public/images/
-            style={{ width: '120%', height: 'auto' }} // Make image 20% larger than container
-            alt="Join DOHaD Community"
-            width={800}
-            height={800}
-            className="object-contain"
-            priority
-          />
-        </div>
+      <div className="flex flex-col sm:flex-row gap-4">
+        <Button 
+          size="lg" 
+          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-3"
+        >
+          Start Membership
+        </Button>
+        <Button 
+          size="lg" 
+          variant="outline" 
+          className="rounded-full px-8 py-3"
+        >
+          Learn More
+        </Button>
       </div>
-    </section>
+    </div>
+
+  </div>
+</section>
+
+
 
         {/* Benefits Section */}
         <section className="mb-16">

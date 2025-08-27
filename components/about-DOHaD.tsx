@@ -25,11 +25,12 @@ export const AboutDOHaD = () => {
 
          {/* Right Box - Image */}
          <div className="relative rounded-2xl overflow-hidden">
-           <img
-             src="/12200.jpg"
-             alt="DOHaD Research Professional"
-             className="w-full h-full object-cover"
-           />
+            <img
+    src="/portrait-indian-pregnant-woman.png"
+    alt="DOHaD Research Professional"
+    className="w-full max-w-sm md:max-w-sm mx-auto object-contain"
+  />
+
          </div>
 
        </div>
