@@ -19,16 +19,16 @@ export default function HomePage() {
         <main className="relative z-10">
           <HeroSection />
           {/* Dashboard Preview Wrapper */}
-          <div className="absolute bottom-[-230px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
+          {/* <div className="absolute bottom-[-230px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
             <AnimatedSection>
               <DashboardPreview />
             </AnimatedSection>
-          </div>
+          </div> */}
         </main>
         
         {/* Social Proof with consistent container */}
         <AnimatedSection
-          className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 mt-28 md:mt-[320px]"
+          className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 md:mt-[320px]"
           delay={0.1}
         >
           <SocialProof />

@@ -1,16 +1,18 @@
 import React from "react"
 import { Button } from "@/components/ui/button"
 import { Header } from "./header"
+import { DashboardPreview } from "./dashboard-preview"
 import Link from "next/link"
 
 export function HeroSection() {
   return (
+    <>
     <section
-      className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-hidden py-0 px-4
-         w-full h-[500px] md:w-[1320px] md:h-[600px] lg:h-[810px] md:px-0"
-    >
-      {/* SVG Background */}
-      <div className="absolute inset-0 z-0">
+        className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-visible py-0 px-4
+           w-full h-[500px] md:w-[1320px] md:h-[600px] lg:h-[810px] md:px-0"
+      >
+        {/* SVG Background */}
+        <div className="absolute inset-0 z-0">
         <svg
           width="100%"
           height="100%"
@@ -432,44 +434,56 @@ export function HeroSection() {
         </svg>
       </div>
 
-      {/* Header positioned at top of hero container */}
-      <div className="absolute top-0 left-0 right-0 z-20">
-        <Header />
+        {/* Header positioned at top of hero container */}
+        <div className="absolute top-0 left-0 right-0 z-20">
+          <Header />
+        </div>
+
+        {/* Hero text */}
+        <div
+          className="relative z-50 space-y-4 md:space-y-5 lg:space-y-6 mb-2 
+            max-w-sm md:max-w-[700px] lg:max-w-[800px] 
+            mt-32 md:mt-[120px] lg:mt-[180px] 
+            px-4 md:px-6 text-center mx-auto"
+        >
+          <h1 className="text-foreground text-3xl sm:text-4xl lg:text-6xl font-semibold leading-snug sm:leading-tight">
+            A Healthy Start, A Productive Life
+          </h1>
+          <p className="text-muted-foreground text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+            The DOHaD India Regional Society advances science and policy to
+            improve the health of the Indian population from the earliest stages
+            of life
+          </p>
+        </div>
+
+        {/* Buttons moved just below the hero text */}
+        <div className="relative z-50 flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-4">
+  {/* Primary Green Button */}
+  <Link href="/join-us" target="_self" rel="noopener noreferrer">
+    <button className="w-40 h-12 rounded-full bg-green-500 text-white font-semibold hover:bg-green-600 transition">
+      Join the Waitlist
+    </button>
+  </Link>
+
+  {/* White Button with Green Border */}
+  <Link href="/watch-video" target="_self" rel="noopener noreferrer">
+    <button className="w-40 h-12 rounded-full bg-white border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">
+      Watch Video
+    </button>
+  </Link>
+</div>
+
+
+        {/* Dashboard Preview overlay */}
+        <div className="hidden md:block absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-[60%] z-20 w-[calc(100%-32px)] md:w-[1060px]">
+          <DashboardPreview />
+        </div>
+      </section>
+
+      {/* Mobile-only preview below hero */}
+      <div className="block md:hidden w-[calc(100%-32px)] mx-auto mt-10">
+        <DashboardPreview />
       </div>
-
-     <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-5 
-  max-w-sm md:max-w-[700px] lg:max-w-[800px] 
-  mt-32 md:mt-[120px] lg:mt-[180px] 
-  px-4 md:px-6 text-center mx-auto">
-  <h1 className="text-foreground text-3xl sm:text-4xl lg:text-6xl font-semibold leading-snug sm:leading-tight">
-    A Healthy Start, A Productive Life
-  </h1>
-  <p className="text-muted-foreground text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-    The DOHaD India Regional Society advances science and policy to improve the health of the Indian population from the earliest stages of life
-  </p>
-</div>
-
-
-
-      <Link
-  href="/join-us"
-  target="_self"
-  rel="noopener noreferrer"
->
- <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-6">
-  {/* Primary Filled Button */}
-  <button className="w-full sm:w-auto px-6 py-2 rounded-full bg-green-500 text-white font-semibold shadow hover:bg-green-600 transition">
-    Join the Waitlist
-  </button>
-
-  {/* Outline Button */}
-  <button className="w-full sm:w-auto px-6 py-2 rounded-full border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">
-    Watch Video
-  </button>
-</div>
-
-</Link>
-
-    </section>
+    </>
   )
 }

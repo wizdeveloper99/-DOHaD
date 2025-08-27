@@ -74,7 +74,7 @@ export function DashboardPreview() {
   return (
     <motion.div 
       ref={containerRef}
-      className="w-[calc(100vw-32px)] md:w-[1060px] mx-auto my-20"
+      className="w-full"
     >
       <motion.div 
         className="relative rounded-xl border-2 border-gray-200/10 overflow-hidden 
