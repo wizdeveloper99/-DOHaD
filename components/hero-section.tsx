@@ -475,7 +475,7 @@ export function HeroSection() {
   <Button
     variant="secondary"
     size="fullWidth"
-    className="border-secondary text-secondary"
+    className="border-foreground text-foreground hover:bg-muted hover:text-foreground bg-foreground/5"
   >
     Watch Video
   </Button>
