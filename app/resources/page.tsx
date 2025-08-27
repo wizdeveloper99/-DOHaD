@@ -1,5 +1,6 @@
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
+import { Button } from "@/components/ui/button"
 import { FileText, Users, Shield, Clock } from "lucide-react"
 import Image from "next/image"
 
@@ -109,9 +110,9 @@ export default function ResourcesPage() {
     placeholder="Enter your email"
     className="flex-1 w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
   />
-  <button className="w-full sm:w-auto px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
+  <Button variant="primary" size="md" className="w-full sm:w-auto">
     Subscribe
-  </button>
+  </Button>
 </div>
 
         </div>

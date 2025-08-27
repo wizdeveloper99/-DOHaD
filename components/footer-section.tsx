@@ -1,6 +1,7 @@
 "use client";
 
 import { Twitter, Linkedin, Mail, Heart, Facebook, Youtube, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 import { Button } from "./ui/button";
 
 export function FooterSection() {
@@ -13,9 +14,14 @@ export function FooterSection() {
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary">
-                <Heart className="h-5 w-5 text-primary-foreground" />
-              </div>
+              <Image
+                src="/logo__1_-removebg-preview.png"
+                alt="DOHaD India Logo"
+                width={48}
+                height={48}
+                className="h-12 w-auto"
+                priority
+              />
               <span className="text-xl font-bold text-primary">DOHaD India</span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">

@@ -460,16 +460,16 @@ export function HeroSection() {
         <div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 w-full px-8 max-w-screen-md mx-auto">
           {/* Primary Green Button */}
           <Link href="/join-us" target="_self" rel="noopener noreferrer" className="flex-1">
-            <button className="w-full px-4 py-3 rounded-full bg-green-500 text-white text-base font-semibold whitespace-nowrap hover:bg-green-600 transition">
+            <Button variant="primary" size="fullWidth" className="bg-secondary text-secondary-foreground hover:bg-secondary/90" > 
               Join the Waitlist
-            </button>
+            </Button>
           </Link>
 
           {/* White Button with Green Border */}
           <Link href="/watch-video" target="_self" rel="noopener noreferrer" className="flex-1">
-            <button className="w-full px-4 py-3 rounded-full bg-white border border-green-500 text-green-600 text-base font-semibold whitespace-nowrap hover:bg-green-50 transition">
+            <Button variant="secondary" size="fullWidth" className="border-secondary text-secondary ">
               Watch Video
-            </button>
+            </Button>
           </Link>
         </div>
 

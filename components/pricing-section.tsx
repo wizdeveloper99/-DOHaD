@@ -75,7 +75,7 @@ export function PricingSection() {
         </div>
         <div className="pt-4">
           <div className="p-0.5 bg-muted rounded-lg outline outline-1 outline-[#0307120a] outline-offset-[-1px] flex justify-start items-center gap-1 md:mt-0">
-            <button
+            <Button
               onClick={() => setIsAnnual(true)}
               className={`pl-2 pr-1 py-1 flex justify-start items-start gap-2 rounded-md ${isAnnual ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]" : ""}`}
             >
@@ -84,8 +84,8 @@ export function PricingSection() {
               >
                 Annually
               </span>
-            </button>
-            <button
+            </Button>
+            <Button
               onClick={() => setIsAnnual(false)}
               className={`px-2 py-1 flex justify-start items-start rounded-md ${!isAnnual ? "bg-accent shadow-[0px_1px_1px_-0.5px_rgba(0,0,0,0.08)]" : ""}`}
             >
@@ -94,7 +94,7 @@ export function PricingSection() {
               >
                 Monthly
               </span>
-            </button>
+            </Button>
           </div>
         </div>
       </div>

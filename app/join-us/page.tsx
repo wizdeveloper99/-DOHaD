@@ -136,8 +136,8 @@ export default function JoinUsPage() {
       <div className="flex flex-col sm:flex-row gap-4">
         <Button 
           size="lg" 
-          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-3"
-        >
+          variant="primary" 
+          className="rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3">
           Start Membership
         </Button>
         <Button 

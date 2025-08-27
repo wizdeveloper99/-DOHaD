@@ -3,6 +3,7 @@ import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 import { Calendar, Camera, Clock, Users, ChevronLeft, ChevronRight } from "lucide-react"
 import { useRef, useState } from "react"
+import { Button } from "@/components/ui/button"
 
 export default function EventsPage() {
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -102,18 +103,18 @@ export default function EventsPage() {
               </div>
 
               {/* Navigation Arrows */}
-              <button
+              <Button
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm text-gray-800 p-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition-all duration-200"
                 onClick={scrollLeft}
               >
                 <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
+              </Button>
+              <Button
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm text-gray-800 p-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition-all duration-200"
                 onClick={scrollRight}
               >
                 <ChevronRight className="w-5 h-5" />
-              </button>
+              </Button>
             </div>
 
             {/* Indicator Dots */}
