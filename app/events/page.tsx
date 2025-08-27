@@ -42,7 +42,7 @@ export default function EventsPage() {
           <div className="w-full max-w-5xl mx-auto">
             <div className="relative group">
               {/* Main Carousel Container */}
-              <div className="overflow-hidden rounded-2xl bg-white shadow-xl border border-gray-100">
+              <div className="overflow-hidden rounded-2xl bg-card shadow-xl border border-border">
                 <div
                   ref={carouselRef}
                   className="flex transition-transform ease-out duration-700"
@@ -104,13 +104,13 @@ export default function EventsPage() {
 
               {/* Navigation Arrows */}
               <Button
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm text-gray-800 p-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition-all duration-200"
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-card/90 backdrop-blur-sm text-foreground p-3 rounded-full shadow-lg hover:bg-card hover:scale-105 transition-all duration-200"
                 onClick={scrollLeft}
               >
                 <ChevronLeft className="w-5 h-5" />
               </Button>
               <Button
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-sm text-gray-800 p-3 rounded-full shadow-lg hover:bg-white hover:scale-105 transition-all duration-200"
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-card/90 backdrop-blur-sm text-foreground p-3 rounded-full shadow-lg hover:bg-card hover:scale-105 transition-all duration-200"
                 onClick={scrollRight}
               >
                 <ChevronRight className="w-5 h-5" />
@@ -135,12 +135,12 @@ export default function EventsPage() {
         </section>
 
         {/* Coming Soon Message */}
-        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-2xl p-12 text-center mb-12">
+        <div className="bg-muted border border-border rounded-2xl p-12 text-center mb-12">
           <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
             <Clock className="w-8 h-8 text-blue-600" />
           </div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Coming Soon: Events & Photo Gallery</h2>
-          <p className="text-gray-600 text-lg mb-8 max-w-2xl mx-auto">
+          <h2 className="text-2xl font-bold text-foreground mb-4">Coming Soon: Events & Photo Gallery</h2>
+          <p className="text-muted-foreground text-lg mb-8 max-w-2xl mx-auto">
             We are planning exciting events and workshops for our community. This section will feature upcoming events,
             registration information, and a photo gallery of past activities.
           </p>
@@ -148,45 +148,45 @@ export default function EventsPage() {
 
         {/* Preview of Upcoming Features */}
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="bg-card border border-border rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">
               <Calendar className="w-6 h-6 text-blue-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Upcoming Events</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Upcoming Events</h3>
+            <p className="text-muted-foreground leading-relaxed">
               Annual conferences, research workshops, training sessions, and networking events for the DOHaD India
               community.
             </p>
           </div>
 
-          <div className="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="bg-card border border-border rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">
               <Users className="w-6 h-6 text-green-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Workshops & Training</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Workshops & Training</h3>
+            <p className="text-muted-foreground leading-relaxed">
               Capacity building workshops, methodology training, and skill development sessions for researchers at all
               career stages.
             </p>
           </div>
 
-          <div className="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="bg-card border border-border rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">
               <Camera className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Photo Gallery</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Photo Gallery</h3>
+            <p className="text-muted-foreground leading-relaxed">
               Visual highlights from past events, conferences, and community gatherings showcasing our vibrant research
               community.
             </p>
           </div>
 
-          <div className="bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
+          <div className="bg-card border border-border rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
             <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">
               <Calendar className="w-6 h-6 text-orange-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-800 mb-3">Event Registration</h3>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-xl font-semibold text-foreground mb-3">Event Registration</h3>
+            <p className="text-muted-foreground leading-relaxed">
               Easy online registration system for workshops, conferences, and special events with member discounts and
               early bird pricing.
             </p>
@@ -194,24 +194,24 @@ export default function EventsPage() {
         </div>
 
         {/* Event Types Preview */}
-        <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-10 mt-12">
-          <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Types of Events We'll Host</h3>
+        <div className="bg-muted rounded-2xl p-10 mt-12">
+          <h3 className="text-2xl font-bold text-foreground text-center mb-8">Types of Events We'll Host</h3>
           <div className="grid md:grid-cols-3 gap-8 text-center">
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h4 className="font-semibold text-gray-800 mb-3">Annual Conference</h4>
-              <p className="text-sm text-gray-600">
+            <div className="bg-card rounded-xl p-6 shadow-sm">
+              <h4 className="font-semibold text-foreground mb-3">Annual Conference</h4>
+              <p className="text-sm text-muted-foreground">
                 Multi-day research conference with keynote speakers and poster sessions
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h4 className="font-semibold text-gray-800 mb-3">Research Workshops</h4>
-              <p className="text-sm text-gray-600">
+            <div className="bg-card rounded-xl p-6 shadow-sm">
+              <h4 className="font-semibold text-foreground mb-3">Research Workshops</h4>
+              <p className="text-sm text-muted-foreground">
                 Hands-on training in research methods and data analysis techniques
               </p>
             </div>
-            <div className="bg-white rounded-xl p-6 shadow-sm">
-              <h4 className="font-semibold text-gray-800 mb-3">Networking Events</h4>
-              <p className="text-sm text-gray-600">
+            <div className="bg-card rounded-xl p-6 shadow-sm">
+              <h4 className="font-semibold text-foreground mb-3">Networking Events</h4>
+              <p className="text-sm text-muted-foreground">
                 Informal gatherings to foster collaboration and knowledge sharing
               </p>
             </div>
@@ -219,20 +219,20 @@ export default function EventsPage() {
         </div>
 
         {/* Newsletter Signup */}
-        <div className="bg-white border border-gray-100 rounded-2xl p-10 text-center mt-12 shadow-sm">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">Get Event Updates</h3>
-          <p className="text-gray-600 mb-8">
+        <div className="bg-card border border-border rounded-2xl p-10 text-center mt-12 shadow-sm">
+          <h3 className="text-xl font-semibold text-foreground mb-4">Get Event Updates</h3>
+          <p className="text-muted-foreground mb-8">
             Be the first to know about upcoming events and registration openings
           </p>
           <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="flex-1 px-4 py-3   border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition"
             />
-            <button className="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-medium">
+            <Button className="px-8 py-3 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-medium">
               Subscribe
-            </button>
+            </Button>
           </div>
         </div>
 

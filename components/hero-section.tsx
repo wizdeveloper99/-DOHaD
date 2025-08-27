@@ -466,11 +466,21 @@ export function HeroSection() {
           </Link>
 
           {/* White Button with Green Border */}
-          <Link href="/watch-video" target="_self" rel="noopener noreferrer" className="flex-1">
-            <Button variant="secondary" size="fullWidth" className="border-secondary text-secondary ">
-              Watch Video
-            </Button>
-          </Link>
+        <Link
+  href="https://www.youtube.com/watch?v=ZCvb8hPb8wM"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex-1"
+>
+  <Button
+    variant="secondary"
+    size="fullWidth"
+    className="border-secondary text-secondary"
+  >
+    Watch Video
+  </Button>
+</Link>
+
         </div>
 
 

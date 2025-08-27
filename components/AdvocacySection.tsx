@@ -2,7 +2,7 @@
 
 const AdvocacySection = () => {
   return (
-    <section className="max-w-6xl mx-auto px-6 py-5  text-center">
+    <section className="max-w-6xl mx-auto px-6 py-5 text-center bg-background">
       {/* Heading */}
       <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
         Advocacy & Policy Impact
@@ -15,7 +15,7 @@ const AdvocacySection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Card 1 */}
-        <div className="rounded-2xl bg-muted px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm">
+        <div className="rounded-2xl bg-card border border-border px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm">
           <h3 className="text-xl font-semibold text-foreground mb-3">
             Government Partnerships
           </h3>
@@ -25,7 +25,7 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="rounded-2xl bg-foreground px-8 py-12 flex flex-col items-center justify-center text-center text-background shadow-sm">
+        <div className="rounded-2xl bg-primary px-8 py-12 flex flex-col items-center justify-center text-center text-primary-foreground shadow-sm">
           <h3 className="text-xl font-semibold mb-3">Global Representation</h3>
           <p className="text-sm">
             Representing India's voice in global DOHaD policy dialogues and initiatives
@@ -33,7 +33,7 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="rounded-2xl bg-emerald-100 px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm">
+        <div className="rounded-2xl bg-accent px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm">
           <h3 className="text-xl font-semibold text-foreground mb-3">
             Public Awareness
           </h3>

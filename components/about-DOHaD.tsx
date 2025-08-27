@@ -2,11 +2,11 @@ import React from 'react'
 
 export const AboutDOHaD = () => {
   return (
-    <section id="about" className="relative bg-white pt-12  pb-7 md:py-16">
+    <section id="about" className="relative bg-background pt-12 pb-7 md:py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-7xl mx-auto px-4 md:px-6">
          
          {/* Left Box - Content */}
-         <div className="bg-primary/10 rounded-2xl p-8 md:p-12 flex flex-col justify-center text-center md:text-left">
+         <div className="bg-primary/10 dark:bg-card rounded-2xl p-8 md:p-12 flex flex-col justify-center text-center md:text-left border border-border shadow-sm">
            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
              What is DOHaD?
            </h2>

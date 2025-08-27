@@ -192,7 +192,7 @@ export default function ContactPage() {
             </div>
 
             <div className="text-center">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 px-8">
+              <Button size="lg" className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8">
                 Send Message
               </Button>
             </div>
