@@ -43,37 +43,44 @@ function FeatureCard({
   className?: string;
 }) {
   return (
-    <div
-      className={`w-full bg-card shadow-[0px_4px_12px_rgba(0,0,0,0.08)] 
-        overflow-hidden rounded-xl border border-border
-        transition-all duration-500 ease-out cursor-pointer relative
-        hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.12)]
-        flex flex-col ${className}`}
-    >
-      {/* Subtle overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+  <div
+  className={`w-full bg-card shadow-[0px_4px_12px_rgba(0,0,0,0.08)] 
+    overflow-hidden rounded-xl border border-border
+    transition-all duration-500 ease-out cursor-pointer relative
+    hover:scale-[1.02] hover:shadow-[0px_8px_20px_rgba(0,0,0,0.12)]
+    flex flex-col ${className}`}
+>
+  {/* Subtle overlay */}
+  <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
 
-      {/* Content */}
-      <div className="p-6 flex flex-col gap-4 relative z-10 h-full">
-        <div className="flex items-center gap-3">
-          <div className="flex-shrink-0 p-3 bg-primary/10 rounded-lg">{icon}</div>
-        </div>
-        <h3 className="text-xl font-semibold text-foreground leading-tight">
-          {title}
-        </h3>
-        <p className="text-base leading-relaxed text-muted-foreground flex-1">
-          {description}
-        </p>
+  {/* Content */}
+  <div className="p-6 flex flex-col gap-4 relative z-10 h-full">
+    <div className="flex justify-center md:justify-start">
+      <div className="p-3 bg-primary/10 rounded-lg flex items-center justify-center">
+        {icon}
       </div>
     </div>
+
+    <h3 className="text-xl font-semibold text-foreground leading-tight text-center md:text-left">
+      {title}
+    </h3>
+
+    <p className="text-base leading-relaxed text-muted-foreground flex-1 text-center md:text-left">
+      {description}
+    </p>
+  </div>
+</div>
+
+
   );
 }
 
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden py-12 md:py-20">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
+    <section className="relative overflow-hidden">
+-      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
++      <div className="text-center">
         <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4 md:mb-6">
           DOHaD India Regional Society
         </h2>
@@ -82,8 +89,9 @@ export default function AboutSection() {
           and evidence-based policies and practices based on the Developmental
           Origins of Health and Disease paradigm, rooted in the Indian context
         </p>
+        </div>
 
-       <div className="mt-10 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
+       <div className="mt-10 md:mt-16 mb-10  grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch">
   {/* Left side cards */}
   <div className="flex flex-col h-full gap-6">
     <FeatureCard {...features[0]} className="flex-1" />

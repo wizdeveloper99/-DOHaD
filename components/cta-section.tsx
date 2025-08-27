@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export function CTASection() {
   return (
-    <section className="w-full pt-12 md:pt-20 lg:pt-28 pb-8 md:pb-12 px-5 relative flex flex-col justify-center items-center overflow-visible">
+    <section className="w-full relative flex flex-col justify-center items-center overflow-visible">
       {/* Decorative Background */}
       <div className="absolute inset-0 top-[-90px]">
         <svg
@@ -85,7 +85,7 @@ export function CTASection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-start items-center gap-8 max-w-4xl mx-auto px-4">
+      <div className="relative z-10 flex flex-col justify-start items-center gap-8 max-w-4xl mx-auto">
         {/* Heading and description */}
         <div className="flex flex-col items-center text-center gap-4">
           <h2 className="text-foreground text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight">

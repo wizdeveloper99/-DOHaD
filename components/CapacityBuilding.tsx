@@ -5,7 +5,7 @@ const CapacityBuilding = () => {
   return (
     <section
       id="capacity-building"
-      className="relative overflow-hidden py-20 md:py-28"
+      className="relative overflow-hidden py-16 md:py-24"
     >
       {/* Subtle SVG background pattern */}
       <svg
@@ -30,7 +30,7 @@ const CapacityBuilding = () => {
       </svg>
 
       {/* Content */}
-      <div className="relative max-w-6xl mx-auto px-4 md:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
             Capacity Building
@@ -43,7 +43,9 @@ const CapacityBuilding = () => {
 
         <div className="grid gap-10 md:grid-cols-3">
           <div className="text-center">
-            <BookOpen className="mx-auto w-12 h-12 text-primary mb-5" />
+            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+    <BookOpen className="w-8 h-8 text-primary" />
+  </div>
             <h3 className="font-semibold text-xl">Training Workshops</h3>
             <p className="text-muted-foreground text-base mt-3">
               Comprehensive courses on DOHaD principles and lifecourse epidemiology.
@@ -51,7 +53,10 @@ const CapacityBuilding = () => {
           </div>
 
           <div className="text-center">
-            <Users className="mx-auto w-12 h-12 text-primary mb-5" />
+            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+            <Users className="w-8 h-8 text-primary" />
+                        </div>
+
             <h3 className="font-semibold text-xl">Mentorship Programs</h3>
             <p className="text-muted-foreground text-base mt-3">
               Pairing early-career researchers with senior DOHaD scientists for guidance.
@@ -59,7 +64,9 @@ const CapacityBuilding = () => {
           </div>
 
           <div className="text-center">
-            <PenTool className="mx-auto w-12 h-12 text-primary mb-5" />
+            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+            <PenTool  className="w-8 h-8 text-primary" />
+            </div>
             <h3 className="font-semibold text-xl">Writing Workshops</h3>
             <p className="text-muted-foreground text-base mt-3">
               Best practices in scientific writing and communication skills.

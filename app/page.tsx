@@ -19,67 +19,99 @@ export default function HomePage() {
         <main className="relative z-10">
           <HeroSection />
           {/* Dashboard Preview Wrapper */}
-          <div className="absolute bottom-[-220px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
+          <div className="absolute bottom-[-230px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
             <AnimatedSection>
               <DashboardPreview />
             </AnimatedSection>
           </div>
         </main>
+        
+        {/* Social Proof with consistent container */}
         <AnimatedSection
-          className="relative z-10 max-w-[1320px] mx-auto px-6 mt-28 md:mt-[320px]"
+          className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 mt-28 md:mt-[320px]"
           delay={0.1}
         >
           <SocialProof />
         </AnimatedSection>
 
+        {/* About DOHaD Section */}
         <AnimatedSection
-            id="testimonials-section"
-            className="relative z-10 "
-            delay={0.2}
-          >
+          id="about-section"
+          className="relative z-10"
+          delay={0.2}
+        >
           <AboutDOHaD />
-          </AnimatedSection>
+        </AnimatedSection>
           
-        <div className="">
+        {/* Main content sections with standardized spacing */}
+        <div className="space-y-11 md:space-y-16">
+          {/* About Section */}
           <AnimatedSection
-            id="testimonials-section"
-            className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16"
+            id="about-pillars-section"
+            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6"
             delay={0.2}
           >
             <AboutSection />
           </AnimatedSection>
-          <AnimatedSection id="features-section" className="relative z-10 max-w-[1320px] mx-auto mt-16" delay={0.2}>
+          
+          {/* Four Pillars/Bento Section */}
+          <AnimatedSection 
+            id="features-section" 
+            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            delay={0.2}
+          >
             <BentoSection />
           </AnimatedSection>
 
-           <AnimatedSection
-            id="testimonials-section"
-            className="relative z-10"
-            delay={0.2}
-          >
-          <CapacityBuilding />
-          </AnimatedSection>
+          {/* Capacity Building Section */}
           <AnimatedSection
-            id="testimonials-section"
+            id="capacity-building-section"
             className="relative z-10"
             delay={0.2}
           >
-          <FinanceSection />
+            <CapacityBuilding />
           </AnimatedSection>
+          
+          {/* Communication & Outreach Section */}
           <AnimatedSection
-            id="testimonials-section"
+            id="communication-section"
             className="relative z-10"
             delay={0.2}
           >
-          <AdvocacySection />
+            <FinanceSection />
           </AnimatedSection>
-          <AnimatedSection id="faq-section" className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          
+          {/* Advocacy Section */}
+          <AnimatedSection
+            id="advocacy-section"
+            className="relative z-10"
+            delay={0.2}
+          >
+            <AdvocacySection />
+          </AnimatedSection>
+          
+          {/* FAQ Section */}
+          <AnimatedSection 
+            id="faq-section" 
+            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            delay={0.2}
+          >
             <FAQSection />
           </AnimatedSection>
-          <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          
+          {/* CTA Section */}
+          <AnimatedSection 
+            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            delay={0.2}
+          >
             <CTASection />
           </AnimatedSection>
-          <AnimatedSection className="relative z-10 max-w-[1320px] mx-auto mt-8 md:mt-16" delay={0.2}>
+          
+          {/* Footer Section */}
+          <AnimatedSection 
+            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            delay={0.2}
+          >
             <FooterSection />
           </AnimatedSection>
         </div>

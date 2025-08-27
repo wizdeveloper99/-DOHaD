@@ -437,34 +437,37 @@ export function HeroSection() {
         <Header />
       </div>
 
-      <div className="relative z-10 space-y-6 md:space-y-5 lg:space-y-6 mb-5  max-w-md md:max-w-[500px] lg:max-w-[588px] mt-24 md:mt-[120px] lg:mt-[160px] px-6 md:px-4">
-        <h1 className="text-foreground text-4xl md:text-4xl lg:text-6xl font-semibold leading-tight">
-          A Healthy Start, A Productive Life
-        </h1>
-        <p className="text-muted-foreground text-lg md:text-base lg:text-lg font-medium leading-relaxed max-w-lg mx-auto">
-          The DOHaD India Regional Society advances science and policy to improve the health of the Indian population from the earliest stages of life
-        </p>
-      </div>
+     <div className="relative z-10 space-y-4 md:space-y-5 lg:space-y-6 mb-5 
+  max-w-sm md:max-w-[700px] lg:max-w-[800px] 
+  mt-32 md:mt-[120px] lg:mt-[180px] 
+  px-4 md:px-6 text-center mx-auto">
+  <h1 className="text-foreground text-3xl sm:text-4xl lg:text-6xl font-semibold leading-snug sm:leading-tight">
+    A Healthy Start, A Productive Life
+  </h1>
+  <p className="text-muted-foreground text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
+    The DOHaD India Regional Society advances science and policy to improve the health of the Indian population from the earliest stages of life
+  </p>
+</div>
+
+
 
       <Link
   href="/join-us"
   target="_self"
   rel="noopener noreferrer"
 >
-  <Button
-    className="relative z-10 
-               bg-secondary text-secondary-foreground 
-               hover:bg-secondary/90 
-               px-10 py-4 md:px-8 md:py-3 
-               rounded-full font-semibold text-lg md:text-base 
-               shadow-md 
-               transition-all duration-300 ease-out
-               hover:scale-105 hover:shadow-lg
-               focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2
-               active:scale-95 w-full md:w-auto"
-  >
-    Become a Member
-  </Button>
+ <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-6">
+  {/* Primary Filled Button */}
+  <button className="w-full sm:w-auto px-6 py-2 rounded-full bg-green-500 text-white font-semibold shadow hover:bg-green-600 transition">
+    Join the Waitlist
+  </button>
+
+  {/* Outline Button */}
+  <button className="w-full sm:w-auto px-6 py-2 rounded-full border border-green-500 text-green-600 font-semibold hover:bg-green-50 transition">
+    Watch Video
+  </button>
+</div>
+
 </Link>
 
     </section>
