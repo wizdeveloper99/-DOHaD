@@ -457,21 +457,22 @@ export function HeroSection() {
         </div>
 
         {/* Buttons moved just below the hero text */}
-      <div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 px-2">
+<div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 w-full px-8 max-w-screen-md mx-auto">
   {/* Primary Green Button */}
-  <Link href="/join-us" target="_self" rel="noopener noreferrer">
-    <button className="px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-green-500 text-white text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-green-600 transition">
+<Link href="/join-us" target="_self" rel="noopener noreferrer" className="flex-1">
+<button className="w-full px-4 py-3 rounded-full bg-green-500 text-white text-base font-semibold whitespace-nowrap hover:bg-green-600 transition">
       Join the Waitlist
     </button>
   </Link>
 
   {/* White Button with Green Border */}
-  <Link href="/watch-video" target="_self" rel="noopener noreferrer">
-    <button className="px-5 sm:px-6 py-2 sm:py-3 rounded-full bg-white border border-green-500 text-green-600 text-sm sm:text-base font-semibold whitespace-nowrap hover:bg-green-50 transition">
+<Link href="/watch-video" target="_self" rel="noopener noreferrer" className="flex-1">
+<button className="w-full px-4 py-3 rounded-full bg-white border border-green-500 text-green-600 text-base font-semibold whitespace-nowrap hover:bg-green-50 transition">
       Watch Video
     </button>
   </Link>
 </div>
+
 
 
 

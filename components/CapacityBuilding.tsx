@@ -61,7 +61,7 @@ const CapacityBuilding = () => {
         <div className="grid gap-10 md:grid-cols-3">
           {/* Training Workshops */}
           <div className="text-center">
-            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5">
               <BookOpen className="w-8 h-8 text-primary" />
             </div>
             <h3 className="font-semibold text-xl text-foreground">
@@ -74,7 +74,7 @@ const CapacityBuilding = () => {
 
           {/* Mentorship Programs */}
           <div className="text-center">
-            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5">
               <Users className="w-8 h-8 text-primary" />
             </div>
             <h3 className="font-semibold text-xl text-foreground">
@@ -87,7 +87,7 @@ const CapacityBuilding = () => {
 
           {/* Writing Workshops */}
           <div className="text-center">
-            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5">
               <PenTool className="w-8 h-8 text-primary" />
             </div>
             <h3 className="font-semibold text-xl text-foreground">
