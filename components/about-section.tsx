@@ -117,7 +117,7 @@ export default function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
         {/* Heading */}
         <div className="text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-foreground dark:text-white text-gray-900 mb-4 md:mb-6 pt-3">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             DOHaD India Regional Society
           </h2>
           <p className="text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-3xl md:max-w-4xl mx-auto">
@@ -160,3 +160,4 @@ export default function AboutSection() {
     </section>
   );
 }
+

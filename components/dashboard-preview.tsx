@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Pause, Play } from 'lucide-react';
+import { Pause, Play, X } from 'lucide-react';
 
 export function DashboardPreview() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -70,6 +70,17 @@ export function DashboardPreview() {
     }
   };
 
+  const closeVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+      videoRef.current.load(); // Force reload to show poster
+      setIsPlaying(false);
+    }
+    setShowPosterOverlay(true);
+    setVideoProgress(0);
+  };
+
   return (
     <motion.div ref={containerRef} className="w-full">
       <motion.div
@@ -79,6 +90,24 @@ export function DashboardPreview() {
         onMouseEnter={triggerControls}
         onMouseLeave={() => setShowControls(false)}
       >
+        {/* Close Button */}
+        <motion.button
+          onClick={closeVideo}
+          className="absolute top-2 right-2 z-20 
+                     flex items-center justify-center 
+                     w-8 h-8 rounded-full 
+                     bg-black/50 backdrop-blur-sm
+                     border border-white/20 
+                     hover:bg-black/70 transition-colors"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: showControls || showPosterOverlay ? 1 : 0 }}
+          transition={{ duration: 0.3 }}
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          <X className="w-4 h-4 text-white" />
+        </motion.button>
+
         {/* Main video container */}
         <div className="relative rounded-xl overflow-hidden aspect-video">
           <video

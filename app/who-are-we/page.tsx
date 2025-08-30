@@ -1,3 +1,5 @@
+'use client'
+
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
 import Image from "next/image"
@@ -65,16 +67,74 @@ export default function WhoAreWePage() {
       <Header />
 
       <main className="max-w-6xl mx-auto px-6 py-16">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Who Are We
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Meet the dedicated team of researchers, clinicians, and advocates
-            leading DOHaD India's mission to advance developmental origins of
-            health and disease research across the country.
-          </p>
-        </div>
+        {/* Hero Section */}
+        <section className="relative w-full min-h-[70vh] flex items-center justify-center text-center rounded-3xl overflow-hidden mb-20">
+          {/* Background Image */}
+          <Image
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000&auto=format&fit=crop"
+            alt="Hero background"
+            fill
+            className="object-cover object-center"
+            priority
+          />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-background/90" />
+
+          {/* Content */}
+          <div className="relative z-10 px-6 max-w-4xl mx-auto">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+              Who Are We
+            </h1>
+            <p className="text-xl text-gray-200 leading-relaxed drop-shadow-md mb-12">
+              Meet the dedicated team of researchers, clinicians, and advocates
+              leading DOHaD India's mission to advance developmental origins of
+              health and disease research across the country.
+            </p>
+
+            {/* Horizontal Scrolling Text */}
+            <div className="relative overflow-hidden w-full">
+              <div className="flex gap-6 animate-scroll">
+                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
+                  Research for a Healthier Future
+                </span>
+                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
+                  Empowering Early-Life Health
+                </span>
+                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
+                  Building Stronger Communities
+                </span>
+                {/* duplicate for infinite effect */}
+                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
+                  Research for a Healthier Future
+                </span>
+                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
+                  Empowering Early-Life Health
+                </span>
+                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
+                  Building Stronger Communities
+                </span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Add animation to globals.css */}
+        <style jsx global>{`
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  .animate-scroll {
+    display: flex;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+  }
+`}</style>
+
 
         {/* Executive Council Section */}
         <section className="mb-16">
@@ -107,9 +167,7 @@ export default function WhoAreWePage() {
                 <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
                 {/* Floating pill */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] 
-  bg-white/10 backdrop-blur-lg border border-white/20 
-  rounded-full shadow-lg px-6 py-3 text-center">
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/10 backdrop-blur-lg border border-white/20 rounded-full shadow-lg px-6 py-3 text-center">
                   <h3 className="text-sm font-medium text-gray-200">{member.title}</h3>
                   <p className="text-lg font-semibold text-white">
                     {member.name}
@@ -132,46 +190,50 @@ export default function WhoAreWePage() {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative bg-gradient-to-br from-primary/5 via-background to-accent/5 
-              border border-border/50 rounded-3xl p-12 overflow-hidden">
-              {/* Background decorative elements */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
-              <div className="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
-              
-              <div className="relative z-10 text-center">
-                <div className="relative w-32 h-32 mb-8 mx-auto">
-                  <Image
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=880&auto=format&fit=crop"
-                    alt="Prof. Giridhara R Babu"
-                    fill
-                    className="object-cover rounded-full shadow-2xl"
-                  />
-                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-transparent" />
-                </div>
-                
-                <div className="inline-block bg-primary/10 text-primary px-4 py-2 
-                  rounded-full text-sm font-medium mb-4">
-                  PATRON
-                </div>
-                
-                <h3 className="text-3xl font-bold text-foreground mb-3">
-                  Prof. Giridhara R Babu
-                </h3>
-                <p className="text-lg text-muted-foreground mb-6 font-medium">
-                  Distinguished Professor and Research Leader
-                </p>
-                
-                <div className="max-w-2xl mx-auto">
-                  <p className="text-muted-foreground leading-relaxed text-lg">
-                    Providing strategic oversight and guidance to DOHaD India's
-                    research initiatives, policy advocacy, and capacity building
-                    efforts across the country.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
+         <div className="max-w-4xl mx-auto">
+  <div
+    className={`
+      relative bg-gradient-to-br from-primary/5 via-background to-accent/5
+      border border-border/50 rounded-3xl p-12 overflow-hidden
+    `}
+  >
+    {/* Background decorative elements */}
+    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
+    <div className="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+
+    <div className="relative z-10 text-center">
+      <div className="relative w-32 h-32 mb-8 mx-auto">
+        <Image
+          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=880&auto=format&fit=crop"
+          alt="Prof. Giridhara R Babu"
+          fill
+          className="object-cover rounded-full shadow-2xl"
+        />
+        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-transparent" />
+      </div>
+
+      <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+        PATRON
+      </div>
+
+      <h3 className="text-3xl font-bold text-foreground mb-3">
+        Prof. Giridhara R Babu
+      </h3>
+      <p className="text-lg text-muted-foreground mb-6 font-medium">
+        Distinguished Professor and Research Leader
+      </p>
+
+      <div className="max-w-2xl mx-auto">
+        <p className="text-muted-foreground leading-relaxed text-lg">
+          Providing strategic oversight and guidance to DOHaD India's research
+          initiatives, policy advocacy, and capacity building efforts across
+          the country.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
         </section>
 
         {/* Mission Statement */}

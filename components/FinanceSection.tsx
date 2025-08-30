@@ -9,7 +9,7 @@ const FinanceSection = () => {
       <div className="max-w-6xl mx-auto px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center">
         {/* Heading + Description */}
         <div className="md:col-span-2 text-center mb-8">
-          <h2 className="text-4xl md:text-6xl font-extrabold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Communication & Outreach
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -59,8 +59,9 @@ const FinanceSection = () => {
             className="object-cover"
           />
         </div>
+
         <div className="relative aspect-[4/3] rounded-2xl 
-                        bg-[#fdecef] dark:bg-[#2f2433] 
+                        bg-[#e9f2f8] dark:bg-[#1e293b] 
                         p-6 flex flex-col justify-center space-y-4 order-1 md:order-2">
           <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
             Quarterly Newsletter
@@ -73,8 +74,8 @@ const FinanceSection = () => {
           <a
             href="#"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
-                       text-[#6d2a36] bg-[#e6cfd4] hover:bg-[#d8b8bf] 
-                       dark:text-[#f1f5f9] dark:bg-[#4a3542] dark:hover:bg-[#5c4452]
+                       text-[#1e3a5f] bg-[#c9dbe7] hover:bg-[#b5cedf] 
+                       dark:text-[#cbd5e1] dark:bg-[#334155] dark:hover:bg-[#475569]
                        transition-all duration-200 w-fit"
           >
             Subscribe <ArrowRight className="w-4 h-4" />

@@ -95,10 +95,7 @@ export function FAQSection() {
       <div className="w-[300px] h-[500px] absolute top-[150px] left-1/2 -translate-x-1/2 origin-top-left rotate-[-33.39deg] bg-primary/10 blur-[100px] z-0" />
       <div className="self-stretch  pb-8 md:pt-8 md:pb-14 flex flex-col justify-center items-center gap-2 relative z-10">
         <div className="flex flex-col justify-start items-center gap-4">
-          <h2 className="w-full max-w-[435px] text-center  leading-10 break-words
-          
-          text-4xl md:text-5xl font-bold text-foreground mb-6
-          ">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">

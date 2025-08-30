@@ -446,7 +446,7 @@ export function HeroSection() {
             mt-28 md:mt-[120px] lg:mt-[180px] 
             px-4 md:px-6 text-center mx-auto"
         >
-          <h1 className="text-foreground text-3xl sm:text-4xl lg:text-6xl font-semibold leading-snug sm:leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4">
             A Healthy Start, A Productive Life
           </h1>
           <p className="text-muted-foreground text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mx-auto">

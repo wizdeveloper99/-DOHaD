@@ -63,7 +63,7 @@ const CapacityBuilding = () => {
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Capacity Building
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">

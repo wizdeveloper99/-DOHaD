@@ -4,7 +4,7 @@ const AdvocacySection = () => {
   return (
     <section className="max-w-6xl mx-auto px-6 py-12 text-center bg-background">
       {/* Heading */}
-      <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
+      <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
         Advocacy & Policy Impact
       </h2>
       <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
