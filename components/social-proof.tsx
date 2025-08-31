@@ -1,22 +1,34 @@
-import Image from "next/image"
+"use client"
 
-export function SocialProof() {
+export function SocialProofStats() {
+  const stats = [
+    { number: "100+", label: "Active Members" },
+    { number: "5K+", label: "Website Visitors" },
+    { number: "50+", label: "Research Collaborations" },
+    { number: "20+", label: "Training Sessions" },
+  ]
+
   return (
-    <section className="self-stretch pt-8 md:pt-24 flex flex-col justify-center items-center gap-6 overflow-hidden">
-      <div className="text-center text-gray-300 text-base font-medium leading-tight">
-        Trusted by fast-growing startups
-      </div>
-      <div className="self-stretch grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 justify-items-center">
-        {Array.from({ length: 8 }).map((_, i) => (
-          <Image
-            key={i}
-            src={`/logos/logo0${i + 1}.svg`}
-            alt={`Company Logo ${i + 1}`}
-            width={400}
-            height={120}
-            className="w-full max-w-[400px] h-auto object-contain grayscale opacity-70"
-          />
-        ))}
+    <section className="relative pt-20">
+      <div className="max-w-6xl mx-auto text-center">
+        {/* Heading */}
+        <h2 className="text-center text-foreground text-2xl font-medium leading-tight mb-12 transition-transform duration-200 hover:scale-105">
+          DOHaD India at a Glance
+        </h2>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-12">
+          {stats.map((stat, i) => (
+            <div key={i} className="flex flex-col items-center">
+              <span className="text-4xl md:text-5xl font-bold text-muted-foreground tracking-tight">
+                {stat.number}
+              </span>
+              <span className="text-sm md:text-base text-muted-foreground mt-2">
+                {stat.label}
+              </span>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

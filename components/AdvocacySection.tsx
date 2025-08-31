@@ -15,8 +15,8 @@ const AdvocacySection = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         
         {/* Card 1 */}
-        <div className="rounded-2xl px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm 
-                        bg-[#a9dc75] text-slate-900 
+        <div className="rounded-full px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm 
+                        bg-gray-300 text-slate-900 
                         dark:bg-slate-800 dark:text-slate-100">
           <h3 className="text-xl font-semibold mb-3">
             Government Partnerships
@@ -27,7 +27,7 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 2 */}
-        <div className="rounded-2xl px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm
+        <div className="rounded-full px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm
                         bg-[#006d68] text-white
                         dark:bg-indigo-600 dark:text-white">
           <h3 className="text-xl font-semibold mb-3">
@@ -39,7 +39,7 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 3 */}
-        <div className="rounded-2xl px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm
+        <div className="rounded-full px-8 py-12 flex flex-col items-center justify-center text-center shadow-sm
                         bg-[#d4e2cc] text-slate-900
                         dark:bg-teal-700 dark:text-white">
           <h3 className="text-xl font-semibold mb-3">

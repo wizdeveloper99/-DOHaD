@@ -6,7 +6,7 @@ import { Button } from "./ui/button";
 
 export function FooterSection() {
   return (
-    <footer id="contact" className="border-t bg-card py-12">
+    <footer id="contact" className="w-full border-t bg-gradient-to-br from-primary/10 via-card to-primary/5 py-12">
       <div className="container px-4 md:px-6">
         {/* Main Footer Grid */}
         <div className="grid gap-10 md:grid-cols-4">
@@ -29,7 +29,7 @@ export function FooterSection() {
             </p>
             <div className="flex space-x-3">
               {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
-                <Button key={i} size="sm" variant="ghost" className="h-8 w-8 p-0">
+                <Button key={i} size="sm" variant="ghost" className="h-8 w-8 p-0 hover:bg-primary/10">
                   <Icon className="h-4 w-4" />
                 </Button>
               ))}
@@ -84,7 +84,7 @@ export function FooterSection() {
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>+91 XXX XXX XXXX</span>
+                <span>+91 987 654 3210</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
@@ -95,7 +95,7 @@ export function FooterSection() {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-10 border-t pt-6 text-center">
+        <div className="mt-10 border-t border-primary/10 pt-6 text-center">
           <p className="text-sm text-muted-foreground">
             © 2024 DOHaD India Regional Society. All rights reserved.
           </p>

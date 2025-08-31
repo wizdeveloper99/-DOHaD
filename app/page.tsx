@@ -3,7 +3,7 @@ import AboutSection from "@/components/about-section"
 import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
-import { SocialProof } from "@/components/social-proof"
+import { SocialProofStats } from "@/components/social-proof"
 import { CTASection } from "@/components/cta-section"
 import { FAQSection } from "@/components/faq-section"
 import { AboutDOHaD } from "@/components/about-DOHaD"
@@ -32,7 +32,7 @@ export default function HomePage() {
           className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 md:mt-[320px]"
           delay={0.1}
         >
-          <SocialProof />
+          <SocialProofStats />
         </AnimatedSection>
 
         {/* About DOHaD Section */}
@@ -110,7 +110,7 @@ export default function HomePage() {
           
           {/* Footer Section */}
           <AnimatedSection 
-            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            className="relative z-10  mx-auto" 
             delay={0.2}
           >
             <FooterSection />

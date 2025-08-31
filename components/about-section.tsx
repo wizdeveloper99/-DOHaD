@@ -106,7 +106,7 @@ function FeatureCard({
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden">
+    <section className="relative overflow-hidden py-5 md:py-14">
       {/* Faint background glow blobs */}
       <div className="absolute top-[-15%] left-[-10%] w-[250px] h-[250px] 
      bg-[#8AD260]/20 dark:bg-[#8AD260]/10 blur-3xl rounded-full" />

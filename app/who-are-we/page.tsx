@@ -66,74 +66,73 @@ export default function WhoAreWePage() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="max-w-6xl mx-auto px-6 py-16">
+      <main className="max-w-max mx-auto px-6 pb-16">
         {/* Hero Section */}
-        <section className="relative w-full min-h-[70vh] flex items-center justify-center text-center rounded-3xl overflow-hidden mb-20">
-          {/* Background Image */}
-          <Image
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2000&auto=format&fit=crop"
-            alt="Hero background"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          {/* Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-background/90" />
+     <section className="relative w-full h-[70vh] overflow-hidden flex items-center justify-center">
+  {/* Background */}
+  <Image
+    src="/gloval-ind.png"
+    alt="World map background"
+    fill
+    className="object-cover object-center"
+    priority
+  />
 
-          {/* Content */}
-          <div className="relative z-10 px-6 max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              Who Are We
-            </h1>
-            <p className="text-xl text-gray-200 leading-relaxed drop-shadow-md mb-12">
-              Meet the dedicated team of researchers, clinicians, and advocates
-              leading DOHaD India's mission to advance developmental origins of
-              health and disease research across the country.
-            </p>
+  {/* Overlay to make text readable */}
+  <div className="absolute inset-0 bg-background/80" />
 
-            {/* Horizontal Scrolling Text */}
-            <div className="relative overflow-hidden w-full">
-              <div className="flex gap-6 animate-scroll">
-                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
-                  Research for a Healthier Future
-                </span>
-                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
-                  Empowering Early-Life Health
-                </span>
-                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
-                  Building Stronger Communities
-                </span>
-                {/* duplicate for infinite effect */}
-                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
-                  Research for a Healthier Future
-                </span>
-                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
-                  Empowering Early-Life Health
-                </span>
-                <span className="bg-white/20 text-white px-6 py-2 rounded-full text-lg font-semibold whitespace-nowrap">
-                  Building Stronger Communities
-                </span>
-              </div>
-            </div>
-          </div>
-        </section>
+  {/* Content */}
+  <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 text-center">
+    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+      Who Are We
+    </h1>
+    <p className="text-lg md:text-xl text-muted-foreground mb-10 font-semibold">
+      Meet the dedicated team of researchers, clinicians, and advocates
+      leading DOHaD India's mission to advance developmental origins of
+      health and disease research across the country.
+    </p>
 
-        {/* Add animation to globals.css */}
-        <style jsx global>{`
-  @keyframes scroll {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-  .animate-scroll {
-    display: flex;
-    width: max-content;
-    animation: scroll 20s linear infinite;
-  }
-`}</style>
+    {/* Scrolling tagline */}
+    <div className="overflow-hidden w-full relative">
+      <div className="animate-scroll gap-6">
+    <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 
+  border border-border text-foreground bg-background/40 backdrop-blur-sm">
+  Research for a Healthier Future
+</span>
+
+
+        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
+          Empowering Early-Life Health
+        </span>
+        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
+          Building Stronger Communities
+        </span>
+
+        {/* Duplicate for seamless loop */}
+        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
+          Research for a Healthier Future
+        </span>
+        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
+          Empowering Early-Life Health
+        </span>
+        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
+          Building Stronger Communities
+        </span>
+      </div>
+
+      {/* Optional: fade edges for smooth look */}
+     {/* Optional: fade edges for smooth look (light mode only) */}
+<div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent dark:hidden" />
+<div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent dark:hidden" />
+
+    </div>
+  </div>
+</section>
+
+
+
+
+      
 
 
         {/* Executive Council Section */}
