@@ -1,5 +1,24 @@
 import React from "react";
 import { BookOpen, Users, PenTool } from "lucide-react";
+import Image from "next/image";
+
+const items = [
+    {
+      title: "Training Workshops",
+      desc: "Comprehensive courses on DOHaD principles and lifecourse epidemiology.",
+      icon: "/icons/pen and paper 1 icon.svg",
+    },
+    {
+      title: "Mentorship Programs",
+      desc: "Pairing early-career researchers with senior DOHaD scientists for guidance.",
+      icon: "/icons/last iocn pen feather.svg",
+    },
+    {
+      title: "Writing Workshops",
+      desc: "Best practices in scientific writing and communication skills.",
+      icon: "/icons/mentor middle icon  icon.svg",
+    },
+  ]
 
 const CapacityBuilding = () => {
   return (
@@ -62,58 +81,30 @@ const CapacityBuilding = () => {
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Capacity Building
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            We build expertise in DOHaD principles through comprehensive training
-            programs, mentorship opportunities, and hands-on research experiences.
-          </p>
+  <div className="text-center mb-16">
+    <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+      Capacity Building
+    </h2>
+    <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+      We build expertise in DOHaD principles through comprehensive training
+      programs, mentorship opportunities, and hands-on research experiences.
+    </p>
+  </div>
+
+  {/* Features Grid */}
+   <div className="grid gap-10 md:grid-cols-3">
+      {items.map(({ title, desc, icon }) => (
+        <div key={title} className="text-center">
+          <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-primary/10 mb-5">
+            <Image src={icon} alt={title} width={32} height={32} />
+          </div>
+          <h3 className="font-semibold text-xl text-foreground">{title}</h3>
+          <p className="text-muted-foreground text-base mt-3">{desc}</p>
         </div>
+      ))}
+    </div>
+</div>
 
-        {/* Features Grid */}
-        <div className="grid gap-10 md:grid-cols-3">
-          {/* Training Workshops */}
-          <div className="text-center">
-            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5">
-              <BookOpen className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="font-semibold text-xl text-foreground">
-              Training Workshops
-            </h3>
-            <p className="text-muted-foreground text-base mt-3">
-              Comprehensive courses on DOHaD principles and lifecourse epidemiology.
-            </p>
-          </div>
-
-          {/* Mentorship Programs */}
-          <div className="text-center">
-            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5">
-              <Users className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="font-semibold text-xl text-foreground">
-              Mentorship Programs
-            </h3>
-            <p className="text-muted-foreground text-base mt-3">
-              Pairing early-career researchers with senior DOHaD scientists for guidance.
-            </p>
-          </div>
-
-          {/* Writing Workshops */}
-          <div className="text-center">
-            <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5">
-              <PenTool className="w-8 h-8 text-primary" />
-            </div>
-            <h3 className="font-semibold text-xl text-foreground">
-              Writing Workshops
-            </h3>
-            <p className="text-muted-foreground text-base mt-3">
-              Best practices in scientific writing and communication skills.
-            </p>
-          </div>
-        </div>
-      </div>
     </section>
   );
 };

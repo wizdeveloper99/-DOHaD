@@ -111,7 +111,6 @@ export default function HomePage() {
         </div>
         <AnimatedSection 
         >
-        <ContentDesign />
           <FooterSection />
         </AnimatedSection>
       </div>
