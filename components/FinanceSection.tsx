@@ -20,7 +20,7 @@ const FinanceSection = () => {
 
         {/* Block 1 */}
         <div className="relative aspect-[4/3] rounded-2xl 
-                        bg-[#e9f2f8] dark:bg-[#1e293b] 
+                        bg-accent dark:bg-accent/50 
                         p-6 flex flex-col justify-center space-y-4">
           <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
             Webinars & Events
@@ -34,8 +34,8 @@ const FinanceSection = () => {
           <a
             href="#"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
-                       text-[#1e3a5f] bg-[#c9dbe7] hover:bg-[#b5cedf] 
-                       dark:text-[#cbd5e1] dark:bg-[#334155] dark:hover:bg-[#475569]
+                       text-primary-foreground bg-primary hover:bg-primary/90 
+                       dark:text-primary-foreground dark:bg-primary dark:hover:bg-primary/90
                        transition-all duration-200 w-fit"
           >
             View Events <ArrowRight className="w-4 h-4" />
@@ -61,7 +61,7 @@ const FinanceSection = () => {
         </div>
 
         <div className="relative aspect-[4/3] rounded-2xl 
-                        bg-[#e9f2f8] dark:bg-[#1e293b] 
+                        bg-secondary dark:bg-secondary/50 
                         p-6 flex flex-col justify-center space-y-4 order-1 md:order-2">
           <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
             Quarterly Newsletter
@@ -74,8 +74,8 @@ const FinanceSection = () => {
           <a
             href="#"
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium
-                       text-[#1e3a5f] bg-[#c9dbe7] hover:bg-[#b5cedf] 
-                       dark:text-[#cbd5e1] dark:bg-[#334155] dark:hover:bg-[#475569]
+                       text-primary-foreground bg-primary hover:bg-primary/90 
+                       dark:text-primary-foreground dark:bg-primary dark:hover:bg-primary/90
                        transition-all duration-200 w-fit"
           >
             Subscribe <ArrowRight className="w-4 h-4" />
