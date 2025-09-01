@@ -12,6 +12,7 @@ import FinanceSection from "@/components/FinanceSection"
 import AdvocacySection from "@/components/AdvocacySection"
 import { BentoSection } from "@/components/bento-section"
 import { BentoCarousel } from "@/components/four-pillars-section"
+import ContentDesign from "@/components/ui/contentDesgin"
 
 export default function HomePage() {
   return (
@@ -102,20 +103,17 @@ export default function HomePage() {
           
           {/* CTA Section */}
           <AnimatedSection 
-            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            className="relative z-10 w-full" 
             delay={0.2}
           >
             <CTASection />
           </AnimatedSection>
-          
-          {/* Footer Section */}
-          <AnimatedSection 
-            className="relative z-10  mx-auto" 
-            delay={0.2}
-          >
-            <FooterSection />
-          </AnimatedSection>
         </div>
+        <AnimatedSection 
+        >
+        <ContentDesign />
+          <FooterSection />
+        </AnimatedSection>
       </div>
     </div>
   )

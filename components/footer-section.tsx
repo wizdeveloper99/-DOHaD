@@ -1,16 +1,30 @@
-"use client";
+"use client"
 
-import { Twitter, Linkedin, Mail, Heart, Facebook, Youtube, Phone, MapPin } from "lucide-react";
-import Image from "next/image";
-import { Button } from "./ui/button";
+import { Twitter, Linkedin, Mail, Facebook, Youtube, Phone, MapPin } from "lucide-react"
+import Image from "next/image"
+import { Button } from "./ui/button"
+import ContentDesign from "./ui/contentDesgin"
 
 export function FooterSection() {
   return (
-    <footer id="contact" className="w-full border-t bg-gradient-to-br from-primary/10 via-card to-primary/5 py-12">
+    <div>
+     <div className="mb-0 md:-mb-28">
+
+<ContentDesign />
+      </div>
+    <footer
+      id="contact"
+      className="w-full pb-12 relative pt-12"
+      style={{
+        backgroundColor: "#dde5ce",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container px-4 md:px-6">
         {/* Main Footer Grid */}
         <div className="grid gap-10 md:grid-cols-4">
-          
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
@@ -24,7 +38,7 @@ export function FooterSection() {
               />
               <span className="text-xl font-bold text-primary">DOHaD India</span>
             </div>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className="text-sm text-gray-700 leading-relaxed">
               Advancing health through understanding the early developmental origins of health and disease.
             </p>
             <div className="flex space-x-3">
@@ -38,7 +52,7 @@ export function FooterSection() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-base font-semibold mb-4">Quick Links</h4>
+            <h4 className="text-base font-semibold mb-4 text-gray-800">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { name: "About DOHaD", link: "#about" },
@@ -47,7 +61,7 @@ export function FooterSection() {
                 { name: "Advocacy", link: "#advocacy" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href={item.link} className="text-gray-700 hover:text-primary transition-colors">
                     {item.name}
                   </a>
                 </li>
@@ -57,7 +71,7 @@ export function FooterSection() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-base font-semibold mb-4">Resources</h4>
+            <h4 className="text-base font-semibold mb-4 text-gray-800">Resources</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { name: "Publications", link: "#" },
@@ -66,7 +80,7 @@ export function FooterSection() {
                 { name: "Join Us", link: "#" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href={item.link} className="text-gray-700 hover:text-primary transition-colors">
                     {item.name}
                   </a>
                 </li>
@@ -76,8 +90,8 @@ export function FooterSection() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-base font-semibold mb-4">Contact Info</h4>
-            <div className="space-y-3 text-sm text-muted-foreground">
+            <h4 className="text-base font-semibold mb-4 text-gray-800">Contact Info</h4>
+            <div className="space-y-3 text-sm text-gray-700">
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
                 <span>info@dohadindia.org</span>
@@ -96,10 +110,8 @@ export function FooterSection() {
 
         {/* Bottom Footer */}
         <div className="mt-10 border-t border-primary/10 pt-6 text-center">
-          <p className="text-sm text-muted-foreground">
-            © 2024 DOHaD India Regional Society. All rights reserved.
-          </p>
-          <div className="mt-2 flex justify-center space-x-3 text-xs text-muted-foreground">
+          <p className="text-sm text-gray-700">© 2024 DOHaD India Regional Society. All rights reserved.</p>
+          <div className="mt-2 flex justify-center space-x-3 text-xs text-gray-700">
             <span>Active Members: 150+</span>
             <span>•</span>
             <span>Visitors: 25,000+</span>
@@ -107,5 +119,6 @@ export function FooterSection() {
         </div>
       </div>
     </footer>
-  );
+    </div>
+  )
 }

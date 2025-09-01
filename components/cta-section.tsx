@@ -2,12 +2,13 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { FooterSection } from "./footer-section";
 
 export function CTASection() {
   return (
     <section className="w-full relative flex flex-col justify-center items-center overflow-visible">
       {/* Decorative Background */}
-      <div className="absolute inset-0 top-[-90px]">
+      {/* <div className="absolute inset-0 top-[-90px]">
         <svg
           className="w-full h-full"
           viewBox="0 0 1388 825"
@@ -82,31 +83,10 @@ export function CTASection() {
             </linearGradient>
           </defs>
         </svg>
-      </div>
+      </div> */}
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col justify-start items-center gap-8 max-w-4xl mx-auto">
-        {/* Heading and description */}
-        <div className="flex flex-col items-center text-center gap-4">
-          <h2 className="text-foreground text-3xl md:text-5xl lg:text-6xl font-semibold leading-tight">
-            Building a Healthier Future, Together
-          </h2>
-          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-xl">
-            Join DOHaD India in advancing research, advocacy, and community programs to improve lifelong health
-            by focusing on the earliest stages of life.
-          </p>
-        </div>
-
-        {/* Call to action button */}
-        <Link href="/join-us" passHref>
-          <Button
-            className="px-8 py-3 bg-secondary text-secondary-foreground text-base font-medium rounded-full shadow-[0_0_0_4px_rgba(255,255,255,0.15)] hover:bg-secondary/90 transition-all duration-300"
-            size="lg"
-          >
-            Become a Member Today
-          </Button>
-        </Link>
-      </div>
+      
     </section>
   );
 }
