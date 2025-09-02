@@ -1,6 +1,6 @@
 "use client"
 
-import { Twitter, Linkedin, Mail, Facebook, Youtube, Phone, MapPin } from "lucide-react"
+import { Twitter, Linkedin, Mail, Facebook, Youtube, Phone, MapPin, Instagram } from "lucide-react"
 import Image from "next/image"
 import { Button } from "./ui/button"
 import ContentDesign from "./ui/contentDesgin"
@@ -42,7 +42,7 @@ export function FooterSection() {
               Advancing health through understanding the early developmental origins of health and disease.
             </p>
             <div className="flex space-x-3">
-              {[Facebook, Twitter, Linkedin, Youtube].map((Icon, i) => (
+              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
                 <Button key={i} size="sm" variant="ghost" className="h-8 w-8 p-0 hover:bg-primary/10">
                   <Icon className="h-4 w-4" />
                 </Button>

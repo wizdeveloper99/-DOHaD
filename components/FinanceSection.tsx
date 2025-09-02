@@ -179,7 +179,7 @@ const FeatherCardDemo = () => {
       title="Webinars & Events"
       subtitle=""
       content={
-        <p className="card-hover-text text-muted-foreground text-base mt-3">
+        <p className="card-hover-text text-muted-foreground text-base mt-3 font-normal">
           Regular webinars featuring renowned Indian and international experts
           share emerging insights from DOHaD research, exploring critical topics,
           innovative methodologies, and practical applications to foster
@@ -198,7 +198,7 @@ const FeatherCardDemo = () => {
       title="Quarterly Newsletter"
       subtitle=""
       content={
-        <p className="card-hover-text text-muted-foreground text-base mt-3">
+        <p className="card-hover-text text-muted-foreground text-base mt-3 font-normal">
           Stay updated with carefully curated insights on recent publications,
           significant events, funding opportunities, and valuable member contributions,
           keeping you engaged and connected with the DOHaD community.

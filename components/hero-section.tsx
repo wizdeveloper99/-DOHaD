@@ -16,7 +16,7 @@ export function HeroSection() {
 
       <div className="">
       <div
-        className="absolute inset-0 z-0 opacity-20 bg-center bg-no-repeat bg-contain"
+        className="absolute inset-0 z-0 opacity-25 bg-center bg-no-repeat bg-contain"
         style={{
           backgroundImage: "url('/grey scale logo.svg')",
           backgroundPosition: 'center',
