@@ -1,5 +1,6 @@
 import React from "react";
 import { BookOpen, Users, PenTool } from "lucide-react";
+import Image from "next/image";
 
 const CapacityBuilding = () => {
   return (
@@ -76,25 +77,37 @@ const CapacityBuilding = () => {
         <div className="grid gap-10 md:grid-cols-3">
           {/* Training Workshops */}
           <div className="hover-lift-2 text-center">
-            <div className="card-hover-content">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5 transition-transform duration-300">
-                <BookOpen className="w-8 h-8 text-primary" />
-              </div>
-              <h3 className="card-hover-title font-semibold text-xl text-foreground">
-                Training Workshops
-              </h3>
-              <p className="card-hover-text text-muted-foreground text-base mt-3">
-                Comprehensive courses on DOHaD principles and lifecourse epidemiology.
-              </p>
-            </div>
+   <div className="card-hover-content">
+          {/* Image Container */}
+          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
+            <Image 
+              src="Layer 2.png" 
+              alt="Training Workshops"
+              fill
+              className="object-contain"
+            />
           </div>
+    <h3 className="card-hover-title font-semibold text-xl text-foreground">
+      Training Workshops
+    </h3>
+    <p className="card-hover-text text-muted-foreground text-base mt-3">
+      Comprehensive courses on DOHaD principles and lifecourse epidemiology.
+    </p>
+  </div>
+</div>
 
           {/* Mentorship Programs */}
           <div className="hover-lift-2 text-center">
             <div className="card-hover-content">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5 transition-transform duration-300">
-                <Users className="w-8 h-8 text-primary" />
-              </div>
+             {/* Image Container */}
+          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
+            <Image 
+              src="icon 3.png" 
+              alt="Training Workshops"
+              fill
+              className="object-contain"
+            />
+          </div>
               <h3 className="card-hover-title font-semibold text-xl text-foreground">
                 Mentorship Programs
               </h3>
@@ -107,9 +120,15 @@ const CapacityBuilding = () => {
           {/* Writing Workshops */}
           <div className="hover-lift-2 text-center">
             <div className="card-hover-content">
-              <div className="mx-auto w-16 h-16 flex items-center justify-center rounded-full bg-[#e2ecec] mb-5 transition-transform duration-300">
-                <PenTool className="w-8 h-8 text-primary" />
-              </div>
+             {/* Image Container */}
+          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
+            <Image 
+              src="icon 2(1).png" 
+              alt="Training Workshops"
+              fill
+              className="object-contain"
+            />
+          </div>
               <h3 className="card-hover-title font-semibold text-xl text-foreground">
                 Writing Workshops
               </h3>
