@@ -8,6 +8,7 @@ interface FeatherCardProps {
   content?: React.ReactNode;
   variant?: VariantType;
   image?: string;
+   className?: string;
 }
 
 const FeatherCard: React.FC<FeatherCardProps> = ({
@@ -16,6 +17,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
   content = "Like feathers dancing on a gentle breeze, this card embodies the soft elegance and tranquil beauty found in nature's most delicate creations. Each element flows harmoniously, creating a serene experience that soothes the soul.",
   variant = "primary" as VariantType,
   image = "abstract-geometric-shapes.png", // Default image
+  className,
 }) => {
   const variants = {
     primary: {
@@ -45,13 +47,14 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
 
   return (
     <div
-      className={`
+    className={`
       card-hover relative w-full max-w-lg mx-auto rounded-3xl overflow-hidden
       ${currentVariant.bg} ${currentVariant.darkBg}
       backdrop-blur-sm border border-white/20 dark:border-white/10
       shadow-xl shadow-black/5 dark:shadow-black/20
+      h-full ${className || ''} // full height + optional external class
     `}
-    >
+  >
       <div className="relative h-48 overflow-hidden">
         <img
           src={`/${image}`}
@@ -106,8 +109,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         {/* Title with flowing typography */}
         <h3
           className={`
-          card-hover-title text-3xl font-light mb-4 leading-relaxed
-          tracking-wide
+          card-hover-title mb-4  text-xl font-semibold
           ${currentVariant.title}
         `}
         >
@@ -115,21 +117,21 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         </h3>
 
         {/* Content */}
-        <p
+        <h4
           className={`
-          card-hover-text text-base leading-relaxed font-light mb-6
+          card-hover-text text-sm mb-6
           ${currentVariant.accent}
         `}
         >
           {content}
-        </p>
+        </h4>
 
         {/* Decorative line */}
         <div className="w-16 h-px bg-gradient-to-r from-transparent via-current to-transparent opacity-30 mb-6" />
 
         {/* Action area */}
         <div className="flex items-center justify-between">
-          <span className={`text-sm font-light ${currentVariant.accent} opacity-60`}>Discover more</span>
+          <span className={`text-sm  ${currentVariant.accent} opacity-60`}>Discover more</span>
           <div
             className={`
             w-8 h-8 rounded-full border border-current opacity-40
@@ -170,43 +172,46 @@ const FeatherCardDemo = () => {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+     <div className="grid gap-4 md:grid-cols-2">
   {/* Primary variant */}
-  <FeatherCard
-    title="Webinars & Events"
-    subtitle=""
-    content={
-      <>
+  <div className="flex">
+    <FeatherCard
+      title="Webinars & Events"
+      subtitle=""
+      content={
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
           Regular webinars featuring renowned Indian and international experts
           share emerging insights from DOHaD research, exploring critical topics,
           innovative methodologies, and practical applications to foster
           collaboration and empower researchers, clinicians, and students.
         </p>
-      </>
-    }
-    variant="primary"
-     image="2150461353.jpg"
-  />
+      }
+      variant="primary"
+      image="2150461353.jpg"
+      className="flex-1" // ensures card stretches full height
+    />
+  </div>
 
   {/* Sage variant */}
-  <FeatherCard
-    title="Quarterly Newsletter"
-    subtitle=""
-    content={
-      <>
+  <div className="flex">
+    <FeatherCard
+      title="Quarterly Newsletter"
+      subtitle=""
+      content={
         <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
           Stay updated with carefully curated insights on recent publications,
           significant events, funding opportunities, and valuable member contributions,
           keeping you engaged and connected with the DOHaD community.
         </p>
-      </>
-    }
-    variant="sage"
+      }
+      variant="sage"
       image="14534.jpg"
-
-  />
+      className="flex-1" // ensures card stretches full height
+    />
+  </div>
 </div>
+
+
 
 
     

@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
-import { Mail, MapPin, Twitter, Linkedin, Bell, Facebook, Instagram } from "lucide-react"
+import { Mail, MapPin, Twitter, Linkedin, Bell, Facebook, Instagram, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ContactPage() {
@@ -92,28 +92,28 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-3">
                 <a
                   href="#"
-                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                 >
                   <Facebook className="w-5 h-5 text-blue-600" />
                   <span className="text-sm font-medium text-foreground">Facebook</span>
                 </a>
                 <a
                   href="#"
-                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                 >
-                  <Twitter className="w-5 h-5 text-blue-400" />
-                  <span className="text-sm font-medium text-foreground">Twitter</span>
+                  <Youtube className="w-5 h-5 text-red-700" />
+                   <span className="text-sm font-medium text-foreground">YouTube</span>
                 </a>
                 <a
                   href="#"
-                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                 >
                   <Instagram className="w-5 h-5 text-pink-600" />
                   <span className="text-sm font-medium text-foreground">Instagram</span>
                 </a>
                 <a
                   href="#"
-                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                 >
                   <Linkedin className="w-5 h-5 text-blue-700" />
                   <span className="text-sm font-medium text-foreground">LinkedIn</span>
@@ -139,7 +139,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   placeholder="Enter your email address"
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-sm text-foreground"
+                  className="w-full px-4 py-3 bg-background border border-border rounded-full focus:outline-none focus:ring-2 focus:ring-primary text-sm text-foreground"
                 />
                 <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
                   Subscribe to Newsletter

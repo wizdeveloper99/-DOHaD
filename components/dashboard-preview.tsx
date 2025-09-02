@@ -93,14 +93,14 @@ export function DashboardPreview() {
         {/* Close Button */}
         <motion.button
           onClick={closeVideo}
-          className="absolute top-2 right-2 z-20 
-                     flex items-center justify-center 
-                     w-8 h-8 rounded-full 
+          className="absolute top-2 right-2 z-20
+                     flex items-center justify-center
+                     w-8 h-8 rounded-full
                      bg-black/50 backdrop-blur-sm
-                     border border-white/20 
+                     border border-white/20
                      hover:bg-black/70 transition-colors"
           initial={{ opacity: 0 }}
-          animate={{ opacity: showControls || showPosterOverlay ? 1 : 0 }}
+          animate={{ opacity: isPlaying ? 1 : 0 }}
           transition={{ duration: 0.3 }}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}

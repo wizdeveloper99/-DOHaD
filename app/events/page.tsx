@@ -228,7 +228,7 @@ export default function EventsPage() {
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3   border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition"
+              className="flex-1 w-full px-4 py-2 bg-background border border-border rounded-full focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
             />
             <Button className="px-8 py-3 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-medium">
               Subscribe

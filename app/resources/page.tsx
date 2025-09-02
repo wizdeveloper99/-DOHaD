@@ -110,7 +110,7 @@ export default function ResourcesPage() {
     placeholder="Enter your email"
     className="flex-1 w-full px-4 py-2 bg-background border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary text-foreground"
   />
-  <Button variant="primary" size="md" className="w-full sm:w-auto">
+  <Button variant="primary" size="md" className="w-full sm:w-auto bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm">
     Subscribe
   </Button>
 </div>

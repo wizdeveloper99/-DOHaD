@@ -221,10 +221,10 @@ export default function JoinUsPage() {
     across the country.
   </p>
   <Button
-    size="lg"
+    size="md"
     className="w-full sm:w-auto bg-secondary text-secondary-foreground hover:bg-secondary/90 px-8 py-3"
   >
-    Start Your Membership Application
+    Join
   </Button>
 </section>
 
