@@ -11,8 +11,6 @@ const softThemes = [
   { bg: "bg-[#f6f9f3] dark:bg-[#2a3225]", accent: "text-[#546b44] dark:text-[#d6e9c3]" }, // Mint
 ];
 
-
-
 const features = [
   {
     icon: <BookOpen className="w-7 h-7" />,
@@ -24,7 +22,7 @@ const features = [
     icon: <Shield className="w-7 h-7" />,
     title: "Apply DOHaD in Indian Health Policy",
     description:
-      "Promote DOHaD principles in shaping India’s health strategies, preventing chronic disease origins from very early life",
+      "Promote DOHaD principles in shaping India's health strategies, preventing chronic disease origins from very early life",
   },
   {
     icon: <Globe className="w-7 h-7" />,
@@ -57,9 +55,8 @@ function FeatureCard({
 }) {
   return (
     <div
-      className={`relative w-full rounded-2xl ${bg}
-        backdrop-blur-sm shadow-sm overflow-hidden transition-all
-        duration-400 ease-out cursor-pointer hover:shadow-md hover:-translate-y-[2px]
+      className={`card-hover relative w-full rounded-2xl ${bg}
+        backdrop-blur-sm shadow-sm overflow-hidden
         flex flex-col ${className}`}
     >
       {/* Subtle dotted pattern */}
@@ -84,21 +81,20 @@ function FeatureCard({
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 p-6 flex flex-col items-center sm:items-start text-center sm:text-left gap-4 h-full justify-between">
+      <div className="card-hover-content relative z-10 p-6 flex flex-col items-center sm:items-start text-center sm:text-left gap-4 h-full justify-between">
         <div className="flex flex-col items-center sm:items-start gap-3">
           <div
-            className={`p-3 ${accent}/20 rounded-xl flex items-center justify-center`}
+            className={`p-3 ${accent}/20 rounded-xl flex items-center justify-center transition-transform duration-300`}
           >
             {icon}
           </div>
-          <h3 className={`text-xl font-semibold ${accent} leading-tight`}>
+          <h3 className={`card-hover-title text-xl font-semibold ${accent} leading-tight`}>
             {title}
           </h3>
         </div>
-       <p className="text-base leading-relaxed text-foreground/80">
-  {description}
-</p>
-
+        <p className="card-hover-text text-base leading-relaxed text-foreground/80">
+          {description}
+        </p>
       </div>
     </div>
   );
@@ -108,10 +104,6 @@ export default function AboutSection() {
   return (
     <section className="relative overflow-hidden py-5 md:py-14">
       {/* Faint background glow blobs */}
-      <div className="absolute top-[-15%] left-[-10%] w-[250px] h-[250px] 
-     bg-[#8AD260]/20 dark:bg-[#8AD260]/10 blur-3xl rounded-full" />
-<div className="absolute bottom-[-15%] right-[-10%] w-[250px] h-[250px] 
-     bg-[#00645E]/20 dark:bg-[#00645E]/10 blur-3xl rounded-full" />
 
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
@@ -136,15 +128,15 @@ export default function AboutSection() {
             <FeatureCard {...features[1]} {...softThemes[1]} className="flex-1" />
           </div>
 
-          {/* Center image */}
+          {/* Center image with hover effect */}
           <div className="flex justify-center">
-            <div className="rounded-3xl overflow-hidden shadow-xl w-full max-w-[420px] md:max-w-[520px] h-full bg-white/60 backdrop-blur-md">
+            <div className="card-hover rounded-3xl overflow-hidden shadow-xl w-full max-w-[420px] md:max-w-[520px] h-full bg-white/60 backdrop-blur-md">
               <Image
                 src="/2151663948.jpg"
                 alt="Illustration of DOHaD India activities"
                 width={600}
                 height={800}
-                className="w-full h-full object-cover select-none"
+                className="card-hover-image w-full h-full object-cover select-none"
                 priority
               />
             </div>
@@ -160,4 +152,3 @@ export default function AboutSection() {
     </section>
   );
 }
-

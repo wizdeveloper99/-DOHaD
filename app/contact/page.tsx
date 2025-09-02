@@ -1,11 +1,11 @@
 import { Header } from "@/components/header"
 import { FooterSection } from "@/components/footer-section"
-import { Mail, MapPin, Twitter, Linkedin, Bell } from "lucide-react"
+import { Mail, MapPin, Twitter, Linkedin, Bell, Facebook, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-background">
+     <div className="min-h-screen bg-background">
       <Header />
 
       <main className="max-w-4xl mx-auto px-6 py-16">
@@ -32,8 +32,8 @@ export default function ContactPage() {
                   <p className="text-muted-foreground mb-2">
                     For general inquiries, membership questions, and collaboration opportunities
                   </p>
-                  <a href="mailto:XXXX" className="text-primary hover:text-primary/80 font-medium">
-                    XXXX
+                  <a href="mailto:contact@dohadindia.org" className="text-primary hover:text-primary/80 font-medium">
+                    contact@dohadindia.org
                   </a>
                 </div>
               </div>
@@ -89,19 +89,33 @@ export default function ContactPage() {
                 Follow us on social media for the latest updates, research highlights, and community news
               </p>
 
-              <div className="flex gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 <a
                   href="#"
                   className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
                 >
-                  <Twitter className="w-5 h-5 text-primary" />
+                  <Facebook className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-medium text-foreground">Facebook</span>
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                >
+                  <Twitter className="w-5 h-5 text-blue-400" />
                   <span className="text-sm font-medium text-foreground">Twitter</span>
                 </a>
                 <a
                   href="#"
                   className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
                 >
-                  <Linkedin className="w-5 h-5 text-primary" />
+                  <Instagram className="w-5 h-5 text-pink-600" />
+                  <span className="text-sm font-medium text-foreground">Instagram</span>
+                </a>
+                <a
+                  href="#"
+                  className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-lg hover:bg-muted/50 transition-colors"
+                >
+                  <Linkedin className="w-5 h-5 text-blue-700" />
                   <span className="text-sm font-medium text-foreground">LinkedIn</span>
                 </a>
               </div>
@@ -197,6 +211,38 @@ export default function ContactPage() {
               </Button>
             </div>
           </form>
+        </div>
+
+        <div className="mt-16">
+          <h2 className="text-2xl font-bold text-foreground text-center mb-8">Visit Our Location</h2>
+          <div className="bg-card border border-border rounded-lg p-4 shadow-sm">
+            <div className="aspect-video w-full rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8234567890123!2d77.6413!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzgnMjguNyJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="PHFI Centre for Developmental and Lifecourse Research Location"
+              ></iframe>
+            </div>
+            <div className="mt-4 text-center">
+              <p className="text-sm text-muted-foreground mb-2">
+                Located beside Swami Vivekananda Road Metro Station, Indiranagar
+              </p>
+              <a
+                href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm"
+              >
+                <MapPin className="w-4 h-4" />
+                Open in Google Maps
+              </a>
+            </div>
+          </div>
         </div>
       </main>
 

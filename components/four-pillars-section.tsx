@@ -30,22 +30,24 @@ const FeatureCard = ({ number, title, description, bgLight, bgDark }: FeatureCar
   >
    <Card
   className={clsx(
-    "h-full rounded-xl border border-muted transition-all duration-300 hover:shadow-xl relative z-10", // card stays above fade
+    "card-hover h-full rounded-xl border border-muted relative z-10", // Added card-hover class, removed manual hover styles
     bgLight,
     bgDark
   )}
 >
-
-  <CardContent className="flex flex-col justify-between h-full p-6 overflow-visible"> 
-    {/* ↑ allow shadows to escape */}
+  <CardContent className="card-hover-content flex flex-col justify-between h-full p-6 overflow-visible"> 
+    {/* Added card-hover-content class */}
     <div className="flex flex-col gap-4">
-      <span className="text-xl md:text-2xl font-semibold text-primary">
+      <span className="card-hover-title text-xl md:text-2xl font-semibold text-primary">
+        {/* Added card-hover-title class */}
         {number}
       </span>
-      <h3 className="text-xl md:text-2xl font-semibold text-foreground leading-tight">
+      <h3 className="card-hover-title text-xl md:text-2xl font-semibold text-foreground leading-tight">
+        {/* Added card-hover-title class */}
         {title}
       </h3>
-      <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
+      <p className="card-hover-text text-base md:text-lg text-muted-foreground leading-relaxed">
+        {/* Added card-hover-text class */}
         {description}
       </p>
     </div>
@@ -140,17 +142,13 @@ export function BentoCarousel() {
   />
 </Carousel>
 
-
-
        {/* Left fade */}
 <div className="pointer-events-none absolute top-0 left-0 h-full w-16 
   bg-gradient-to-r from-background via-background/60 to-transparent z-0" /> 
-  {/* ↓ set z-0 */}
 
 {/* Right fade */}
 <div className="pointer-events-none absolute top-0 right-0 h-full w-16 
   bg-gradient-to-l from-background via-background/60 to-transparent z-0" /> 
-  {/* ↓ set z-0 */}
 
         </div>
       </div>

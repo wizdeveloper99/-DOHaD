@@ -121,3 +121,175 @@
   width: max-content;
   animation: scroll 20s linear infinite;
 }
+
+
+/* Main card hover effect */
+.card-hover {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+}
+
+.card-hover:hover {
+  transform: scale(1.01);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Background enhancement */
+.card-hover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card-hover:hover::before {
+  opacity: 0.6;
+  border: 2px solid rgba(var(--foreground), 0.2);
+}
+
+/* Content lift effect */
+.card-hover-content {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.4s ease-out;
+}
+
+.card-hover:hover .card-hover-content {
+  transform: translateY(-1px);
+}
+
+/* Text enhancement */
+.card-hover-text {
+  transition: all 0.4s ease-out;
+}
+
+.card-hover:hover .card-hover-text {
+  color: rgba(var(--foreground), 0.8);
+}
+
+.card-hover-title {
+  transition: all 0.4s ease-out;
+}
+
+.card-hover:hover .card-hover-title {
+  opacity: 0.9;
+}
+
+/* Image hover effect */
+.card-hover-image {
+  transition: all 0.5s ease-out;
+}
+
+.card-hover:hover .card-hover-image {
+  transform: scale(1.02) translateY(-1px);
+  filter: drop-shadow(0 10px 25px rgba(0, 0, 0, 0.15));
+}
+
+/* Background image effect */
+.card-hover-bg {
+  transition: all 0.5s ease-out;
+}
+
+.card-hover:hover .card-hover-bg {
+  transform: scale(1.05);
+  opacity: 0.35;
+}
+
+/* Variants for different intensities */
+
+/* Subtle variant */
+.card-hover-subtle {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.card-hover-subtle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced variant */
+.card-hover-enhanced {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.6s ease-out;
+}
+
+.card-hover-enhanced:hover {
+  transform: scale(1.02) translateY(-3px);
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3);
+}
+
+.card-hover-enhanced::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+  pointer-events: none;
+  z-index: 1;
+  border: 3px solid rgba(var(--foreground), 0.3);
+}
+
+.card-hover-enhanced:hover::before {
+  opacity: 1;
+}
+
+/* Utility classes for easy application */
+.hover-lift-1 {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-lift-1:hover {
+  transform: translateY(-1px);
+}
+
+.hover-lift-2 {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-lift-2:hover {
+  transform: translateY(-2px);
+}
+
+.hover-lift-3 {
+  transition: transform 0.3s ease-out;
+}
+
+.hover-lift-3:hover {
+  transform: translateY(-3px);
+}
+
+.hover-scale-sm {
+  transition: transform 0.4s ease-out;
+}
+
+.hover-scale-sm:hover {
+  transform: scale(1.01);
+}
+
+.hover-scale-md {
+  transition: transform 0.4s ease-out;
+}
+
+.hover-scale-md:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow {
+  transition: box-shadow 0.4s ease-out;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
