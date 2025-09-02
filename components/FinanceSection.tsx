@@ -62,29 +62,9 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         {/* Subtle overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
-
-        {/* Floating feather overlay on image */}
-        <div className="absolute top-4 right-4 opacity-60">
-          <svg className="w-8 h-8" viewBox="0 0 40 60" fill="none">
-            <path
-              d="M20 10 Q25 8, 30 10 Q32 12, 30 18 Q28 24, 25 30 Q22 36, 20 42 Q18 48, 15 54 Q12 50, 15 46 Q17 40, 18 34 Q19 28, 20 22 Q21 16, 20 10 Z"
-              className="fill-white/80 stroke-white/60 stroke-1"
-            />
-            <path d="M20 16 Q22 18, 24 20 M20 22 Q21 24, 22 26" className="stroke-white/60 stroke-1" />
-          </svg>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />       
       </div>
 
-      {/* Feather SVG Background Pattern */}
-     <div className="absolute inset-0 opacity-20 pointer-events-none pt-20">
-  <img
-    src="/grey scale logo.svg" // place your image in the public folder
-     alt="feather background"
-    className="w-full h-full object-cover -translate-y-8" // moves image down slightly
-    style={{ transform: 'translateY(20px)' }} // optional: fine-tune if needed
-  />
-</div>
 
 
       {/* Floating animation elements */}
