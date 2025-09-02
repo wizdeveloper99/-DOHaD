@@ -1,6 +1,16 @@
+import React from 'react';
+
 type VariantType = 'primary' | 'sage' | 'rose';
 
-const FeatherCard = ({
+interface FeatherCardProps {
+  title?: string;
+  subtitle?: string;
+  content?: React.ReactNode;
+  variant?: VariantType;
+  image?: string;
+}
+
+const FeatherCard: React.FC<FeatherCardProps> = ({
   title = "Gentle Whispers",
   subtitle = "Nature's Poetry",
   content = "Like feathers dancing on a gentle breeze, this card embodies the soft elegance and tranquil beauty found in nature's most delicate creations. Each element flows harmoniously, creating a serene experience that soothes the soul.",
@@ -64,38 +74,15 @@ const FeatherCard = ({
       </div>
 
       {/* Feather SVG Background Pattern */}
-      <div className="absolute inset-0 opacity-20 pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 400 600" fill="none">
-          {/* Large floating feather */}
-          <g transform="translate(280, 250) rotate(15)">
-            <path
-              d="M20 10 Q30 5, 40 10 Q45 15, 40 25 Q35 35, 30 45 Q25 55, 20 65 Q15 75, 10 85 Q5 95, 0 105 Q-2 100, 0 95 Q2 85, 5 75 Q8 65, 10 55 Q12 45, 15 35 Q18 25, 20 15 Z"
-              className={`${currentVariant.featherColor} fill-none stroke-1`}
-            />
-            <path
-              d="M20 15 Q25 20, 30 25 M20 25 Q23 28, 26 32 M20 35 Q22 38, 24 42"
-              className={`${currentVariant.featherColor} stroke-1`}
-            />
-          </g>
+     <div className="absolute inset-0 opacity-20 pointer-events-none pt-20">
+  <img
+    src="/grey scale logo.svg" // place your image in the public folder
+     alt="feather background"
+    className="w-full h-full object-cover -translate-y-8" // moves image down slightly
+    style={{ transform: 'translateY(20px)' }} // optional: fine-tune if needed
+  />
+</div>
 
-          {/* Medium feather */}
-          <g transform="translate(50, 400) rotate(-10)">
-            <path
-              d="M15 8 Q22 4, 28 8 Q32 12, 28 20 Q25 28, 20 35 Q15 42, 10 50 Q5 58, 0 65 Q-1 62, 0 58 Q2 50, 4 42 Q6 35, 8 28 Q10 20, 12 12 Z"
-              className={`${currentVariant.featherColor} fill-none stroke-1`}
-            />
-            <path d="M15 12 Q18 15, 21 18 M15 20 Q17 22, 19 25" className={`${currentVariant.featherColor} stroke-1`} />
-          </g>
-
-          {/* Small floating feathers */}
-          <g transform="translate(320, 500) rotate(25)">
-            <path
-              d="M10 5 Q15 3, 18 5 Q20 8, 18 12 Q16 16, 13 20 Q10 24, 7 28 Q4 32, 1 36 Q0 34, 1 32 Q2 28, 3 24 Q4 20, 5 16 Q6 12, 7 8 Z"
-              className={`${currentVariant.featherColor} fill-none stroke-1`}
-            />
-          </g>
-        </svg>
-      </div>
 
       {/* Floating animation elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -169,7 +156,7 @@ const FeatherCard = ({
 // Demo showing multiple variants
 const FeatherCardDemo = () => {
   return (
-    <div className="">
+    <div className="max-w-6xl mx-auto px-6 py-12 text-center bg-background">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">

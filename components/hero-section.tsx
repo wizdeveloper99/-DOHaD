@@ -16,7 +16,7 @@ export function HeroSection() {
        <div className="absolute inset-0 z-0">
   {/* Desktop Background Image */}
   <Image
-    src="freepik_assistant_1756798058367.png"
+    src="freepik_assistant_1756798058367(1).png"
     alt="Family enjoying time together"
     fill
     className="hidden md:block object-cover scale-100 md:scale-90"
