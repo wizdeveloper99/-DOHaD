@@ -93,16 +93,12 @@ export function FooterSection() {
             <h4 className="text-base font-semibold mb-4 text-gray-800">Contact Info</h4>
             <div className="space-y-3 text-sm text-gray-700">
               <div className="flex items-center space-x-2">
-                <Mail className="h-4 w-4" />
-                <span>info@dohadindia.org</span>
+                <Mail className="h-5 w-5" />
+                <span>contact@dohadindia.org</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="h-4 w-4" />
-                <span>+91 987 654 3210</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-4 w-4" />
-                <span>India</span>
+                <MapPin className="h-5 w-5" />
+                <span>Indiranagar, Bengaluru - 560038</span>
               </div>
             </div>
           </div>

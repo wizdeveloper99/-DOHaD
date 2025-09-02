@@ -5,29 +5,29 @@ const FeatherCard = ({
   subtitle = "Nature's Poetry",
   content = "Like feathers dancing on a gentle breeze, this card embodies the soft elegance and tranquil beauty found in nature's most delicate creations. Each element flows harmoniously, creating a serene experience that soothes the soul.",
   variant = "primary" as VariantType,
-  imageQuery = "delicate white feather floating on soft breeze", // Added image query prop
+  image = "abstract-geometric-shapes.png", // Default image
 }) => {
   const variants = {
     primary: {
-      bg: "bg-gradient-to-br from-slate-50 via-blue-50/50 to-purple-50/30",
-      darkBg: "dark:from-slate-900 dark:via-slate-800/50 dark:to-purple-900/20",
-      accent: "text-slate-700 dark:text-slate-300",
-      title: "text-slate-800 dark:text-slate-200",
-      featherColor: "stroke-slate-400/60 dark:stroke-slate-500/40",
+      bg: "bg-gradient-to-br from-primary/8 via-accent/12 to-secondary/6",
+      darkBg: "dark:from-primary/12 dark:via-accent/8 dark:to-secondary/4",
+      accent: "text-foreground",
+      title: "text-foreground",
+      featherColor: "stroke-primary/70 dark:stroke-primary/50",
     },
     sage: {
-      bg: "bg-gradient-to-br from-green-50 via-emerald-50/40 to-teal-50/30",
-      darkBg: "dark:from-emerald-950 dark:via-green-900/50 dark:to-teal-900/20",
-      accent: "text-green-700 dark:text-green-300",
-      title: "text-emerald-800 dark:text-emerald-200",
-      featherColor: "stroke-green-400/50 dark:stroke-green-500/30",
+      bg: "bg-gradient-to-br from-secondary/10 via-primary/8 to-accent/14",
+      darkBg: "dark:from-secondary/15 dark:via-primary/6 dark:to-accent/10",
+      accent: "text-foreground",
+      title: "text-foreground",
+      featherColor: "stroke-secondary/70 dark:stroke-secondary/50",
     },
     rose: {
-      bg: "bg-gradient-to-br from-rose-50 via-pink-50/40 to-orange-50/30",
-      darkBg: "dark:from-rose-950 dark:via-pink-900/50 dark:to-orange-900/20",
-      accent: "text-rose-700 dark:text-rose-300",
-      title: "text-pink-800 dark:text-pink-200",
-      featherColor: "stroke-rose-400/50 dark:stroke-rose-500/30",
+      bg: "bg-gradient-to-br from-accent/12 via-secondary/8 to-primary/10",
+      darkBg: "dark:from-accent/15 dark:via-secondary/6 dark:to-primary/8",
+      accent: "text-foreground",
+      title: "text-foreground",
+      featherColor: "stroke-accent/70 dark:stroke-accent/50",
     },
   }
 
@@ -36,7 +36,7 @@ const FeatherCard = ({
   return (
     <div
       className={`
-      card-hover relative w-full max-w-md mx-auto rounded-3xl overflow-hidden
+      card-hover relative w-full max-w-lg mx-auto rounded-3xl overflow-hidden
       ${currentVariant.bg} ${currentVariant.darkBg}
       backdrop-blur-sm border border-white/20 dark:border-white/10
       shadow-xl shadow-black/5 dark:shadow-black/20
@@ -44,7 +44,7 @@ const FeatherCard = ({
     >
       <div className="relative h-48 overflow-hidden">
         <img
-          src={`/abstract-geometric-shapes.png?height=192&width=384&query=${encodeURIComponent(imageQuery)}`}
+          src={`/${image}`}
           alt={title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
@@ -120,7 +120,7 @@ const FeatherCard = ({
         <h3
           className={`
           card-hover-title text-3xl font-light mb-4 leading-relaxed
-          font-sans tracking-wide
+          tracking-wide
           ${currentVariant.title}
         `}
         >
@@ -172,42 +172,55 @@ const FeatherCardDemo = () => {
     <div className="">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-sans font-light text-slate-800 dark:text-slate-200 mb-4">
-            Feather Card Collection
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+                       Communication & Outreach
+
+
           </h1>
-          <p className="text-lg text-slate-600 dark:text-slate-400 font-light">
-            Elegant cards inspired by the delicate beauty of feathers
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+           We actively disseminate knowledge and raise awareness about DOHaD
+            research through various communication channels
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* Primary variant */}
-          <FeatherCard
-            title="Serenity"
-            subtitle="Peaceful Moments"
-            content="Embrace the gentle rhythm of nature as soft whispers of wind carry dreams across tranquil landscapes, where every breath brings clarity and peace."
-            variant="primary"
-            imageQuery="delicate white feather floating on soft blue sky background"
-          />
+        <div className="grid gap-4 md:grid-cols-2">
+  {/* Primary variant */}
+  <FeatherCard
+    title="Webinars & Events"
+    subtitle=""
+    content={
+      <>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
+          Regular webinars featuring renowned Indian and international experts
+          share emerging insights from DOHaD research, exploring critical topics,
+          innovative methodologies, and practical applications to foster
+          collaboration and empower researchers, clinicians, and students.
+        </p>
+      </>
+    }
+    variant="primary"
+     image="2150461353.jpg"
+  />
 
-          {/* Sage variant */}
-          <FeatherCard
-            title="Growth"
-            subtitle="Natural Wisdom"
-            content="In the quiet spaces between heartbeats, wisdom grows like morning dew on delicate leaves, nurturing the soul with gentle understanding."
-            variant="sage"
-            imageQuery="elegant green feather with dewdrops on natural forest background"
-          />
+  {/* Sage variant */}
+  <FeatherCard
+    title="Quarterly Newsletter"
+    subtitle=""
+    content={
+      <>
+        <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
+          Stay updated with carefully curated insights on recent publications,
+          significant events, funding opportunities, and valuable member contributions,
+          keeping you engaged and connected with the DOHaD community.
+        </p>
+      </>
+    }
+    variant="sage"
+      image="14534.jpg"
 
-          {/* Rose variant */}
-          <FeatherCard
-            title="Warmth"
-            subtitle="Gentle Touch"
-            content="Like the first blush of dawn painting the sky in soft hues, warmth spreads through moments of connection and shared tenderness."
-            variant="rose"
-            imageQuery="soft pink feather against warm sunset golden hour lighting"
-          />
-        </div>
+  />
+</div>
+
 
     
       </div>
