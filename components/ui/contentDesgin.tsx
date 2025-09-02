@@ -18,7 +18,7 @@ const ContentDesign = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pb-8 md:pb-0">
+      <div className="relative z-10 text-center max-w-6xl mx-auto px-6 pb-8 md:pb-0 mt-10">
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 md:mb-4">
           Building a Healthier Future, Together
         </h1>

@@ -456,21 +456,23 @@ export function HeroSection() {
         </div>
 
         {/* Hero text */}
-        <div
-          className="relative z-50 space-y-4 md:space-y-5 lg:space-y-6 mb-2 
-            max-w-sm md:max-w-[700px] lg:max-w-[800px] 
-            mt-28 md:mt-[120px] lg:mt-[180px] 
-            px-4 md:px-6 text-center mx-auto"
-        >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4">
-            A Healthy Start, A Productive Life
-          </h1>
-          <p className="text-muted-foreground text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-2xl mx-auto">
-            The DOHaD India Regional Society advances science and policy to
-            improve the health of the Indian population from the earliest stages
-            of life
-          </p>
-        </div>
+     <div
+  className="relative z-50 space-y-4 md:space-y-5 lg:space-y-6 mb-2
+             max-w-sm md:max-w-[700px] lg:max-w-[800px]
+             mt-28 md:mt-[120px] lg:mt-[180px]
+             px-4 md:px-6 text-center mx-auto
+             opacity-0 translate-y-5 animate-fade-in-up"
+>
+  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4">
+    A Healthy Start, A Productive Life
+  </h1>
+  <p className="text-muted-foreground text-base sm:text-lg lg:text-xl font-medium leading-relaxed max-w-4xl mx-auto">
+    The DOHaD India Regional Society advances science and policy to
+    improve the health of the Indian population from the earliest stages
+    of life
+  </p>
+</div>
+
 
         {/* Buttons moved just below the hero text */}
         <div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 w-full px-8 max-w-screen-md mx-auto">

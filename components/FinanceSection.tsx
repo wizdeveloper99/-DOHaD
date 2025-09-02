@@ -55,7 +55,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
       h-full ${className || ''} // full height + optional external class
     `}
   >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-80 overflow-hidden">
         <img
           src={`/${image}`}
           alt={title}
