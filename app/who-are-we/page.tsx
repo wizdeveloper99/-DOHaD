@@ -62,6 +62,45 @@ export default function WhoAreWePage() {
     },
   ]
 
+  const advisoryGroup = [
+    {
+      title: "PATRON",
+      name: "Prof. Giridhara R Babu",
+      description: "Providing strategic oversight and guidance to DOHaD India's research initiatives, policy advocacy, and capacity building efforts across the country.",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=880&auto=format&fit=crop",
+    },
+    {
+      title: "ADVISOR",
+      name: "Dr. Anjali Gupta",
+      description: "Expert in epidemiology and public health policy, contributing to research methodologies and data analysis frameworks.",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=880&auto=format&fit=crop",
+    },
+    {
+      title: "ADVISOR",
+      name: "Prof. Rajesh Kumar",
+      description: "Specialist in pediatric health and developmental biology, guiding clinical research and intervention studies.",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=880&auto=format&fit=crop",
+    },
+    {
+      title: "ADVISOR",
+      name: "Dr. Priya Sharma",
+      description: "Focus on maternal and child nutrition, leading nutritional epidemiology and intervention programs.",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=880&auto=format&fit=crop",
+    },
+    {
+      title: "ADVISOR",
+      name: "Prof. Sanjay Mehta",
+      description: "Expert in environmental health and epigenetics, advising on environmental factors in developmental outcomes.",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=880&auto=format&fit=crop",
+    },
+    {
+      title: "ADVISOR",
+      name: "Dr. Neha Singh",
+      description: "Specializing in mental health and neurodevelopment, contributing to psychosocial research aspects.",
+      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=880&auto=format&fit=crop",
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -84,7 +123,7 @@ export default function WhoAreWePage() {
   {/* Content */}
   <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 text-center">
     <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
-      Who Are We
+      Who We Are
     </h1>
     <p className="text-lg md:text-xl text-muted-foreground mb-10 font-semibold">
       Meet the dedicated team of researchers, clinicians, and advocates
@@ -189,49 +228,35 @@ export default function WhoAreWePage() {
             </p>
           </div>
 
-         <div className="max-w-4xl mx-auto">
-  <div
-    className={`
-      relative bg-gradient-to-br from-primary/5 via-background to-accent/5
-      border border-border/50 rounded-3xl p-12 overflow-hidden
-    `}
-  >
-    {/* Background decorative elements */}
-    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
-    <div className="absolute bottom-0 left-0 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
+         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+           {advisoryGroup.map((member, index) => (
+             <div
+               key={index}
+               className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition"
+             >
+               {/* Full image */}
+               <div className="relative w-full h-80">
+                 <Image
+                   src={member.image}
+                   alt={member.name}
+                   fill
+                   className="object-cover"
+                 />
+               </div>
 
-    <div className="relative z-10 text-center">
-      <div className="relative w-32 h-32 mb-8 mx-auto">
-        <Image
-          src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=880&auto=format&fit=crop"
-          alt="Prof. Giridhara R Babu"
-          fill
-          className="object-cover rounded-full shadow-2xl"
-        />
-        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 to-transparent" />
-      </div>
+               {/* Gradient overlay */}
+               <div className="absolute bottom-0 w-full h-24 bg-gradient-to-t from-black/60 via-black/30 to-transparent" />
 
-      <div className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
-        PATRON
-      </div>
-
-      <h3 className="text-3xl font-bold text-foreground mb-3">
-        Prof. Giridhara R Babu
-      </h3>
-      <p className="text-lg text-muted-foreground mb-6 font-medium">
-        Distinguished Professor and Research Leader
-      </p>
-
-      <div className="max-w-2xl mx-auto">
-        <p className="text-muted-foreground leading-relaxed text-lg">
-          Providing strategic oversight and guidance to DOHaD India's research
-          initiatives, policy advocacy, and capacity building efforts across
-          the country.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
+               {/* Floating pill */}
+               <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] bg-white/10 backdrop-blur-lg border border-white/20 rounded-full shadow-lg px-6 py-3 text-center">
+                 <h3 className="text-sm font-medium text-gray-200">{member.title}</h3>
+                 <p className="text-lg font-semibold text-white">
+                   {member.name}
+                 </p>
+               </div>
+             </div>
+           ))}
+         </div>
 
         </section>
 
