@@ -260,6 +260,105 @@ export default function WhoAreWePage() {
 
         </section>
 
+        {/* Membership Section */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Membership
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Join DOHaD India and become part of a vibrant community advancing research and policy in developmental origins of health and disease.
+            </p>
+          </div>
+
+          {/* Who Can Be a Member */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+              Who Can Become a Member?
+            </h3>
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto text-center">
+              Membership is open to anyone in India interested in DOHaD research, policy, and practice. This includes researchers, clinicians, policymakers, students, and professionals from related fields. Membership in DOHaD India also includes free membership to the International DOHaD Society, connecting you to a global network.
+            </p>
+          </div>
+
+          {/* Benefits */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+              Benefits of Membership
+            </h3>
+            <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
+              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                <span className="text-primary font-bold text-xl mt-1">✓</span>
+                <span className="text-muted-foreground">Access to the Journal of Developmental Origins of Health and Disease</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                <span className="text-primary font-bold text-xl mt-1">✓</span>
+                <span className="text-muted-foreground">Exclusive newsletters and updates on latest research</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                <span className="text-primary font-bold text-xl mt-1">✓</span>
+                <span className="text-muted-foreground">Resources from workshops, conferences, and training programs</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                <span className="text-primary font-bold text-xl mt-1">✓</span>
+                <span className="text-muted-foreground">Networking opportunities with researchers in India and internationally</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                <span className="text-primary font-bold text-xl mt-1">✓</span>
+                <span className="text-muted-foreground">Capacity building and career advancement support</span>
+              </li>
+              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
+                <span className="text-primary font-bold text-xl mt-1">✓</span>
+                <span className="text-muted-foreground">Participation in policy advocacy and collaborative projects</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* Membership Slabs */}
+          <div>
+            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
+              Membership Tiers and Fees
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+              <div className="bg-card border rounded-xl p-6 text-center shadow-sm hover:shadow-md transition">
+                <h4 className="text-xl font-semibold text-foreground mb-2">Undergraduate Students</h4>
+                <p className="text-3xl font-bold text-primary mb-4">₹250</p>
+                <p className="text-muted-foreground mb-4">Annual Fee</p>
+                <ul className="text-left text-sm space-y-2 mb-6">
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Full access to resources</li>
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Networking events</li>
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Training opportunities</li>
+                </ul>
+              </div>
+              <div className="bg-card border rounded-xl p-6 text-center shadow-sm hover:shadow-md transition">
+                <h4 className="text-xl font-semibold text-foreground mb-2">Early Career/Training Researchers</h4>
+                <p className="text-3xl font-bold text-primary mb-4">₹500</p>
+                <p className="text-muted-foreground mb-4">Annual Fee</p>
+                <ul className="text-left text-sm space-y-2 mb-6">
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> All student benefits</li>
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Journal access</li>
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Research collaboration</li>
+                </ul>
+              </div>
+              <div className="bg-card border rounded-xl p-6 text-center shadow-sm hover:shadow-md transition border-primary/20">
+                <h4 className="text-xl font-semibold text-foreground mb-2">Standard Members</h4>
+                <p className="text-3xl font-bold text-primary mb-4">₹1000</p>
+                <p className="text-muted-foreground mb-4">Annual Fee</p>
+                <ul className="text-left text-sm space-y-2 mb-6">
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Full membership benefits</li>
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Policy involvement</li>
+                  <li className="flex items-center gap-2"><span className="text-primary text-xs">✓</span> Leadership opportunities</li>
+                </ul>
+              </div>
+            </div>
+            <div className="text-center mt-8">
+              <p className="text-muted-foreground mb-4">
+                A portion of membership fees supports regional initiatives in India. To join, visit the International DOHaD Society website and select DOHaD India as your regional society.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Mission Statement */}
         <section className="bg-muted/30 rounded-lg p-8 md:p-12 text-center">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
