@@ -81,18 +81,18 @@ function FeatureCard({
       </svg>
 
       {/* Content */}
-      <div className="card-hover-content relative z-10 p-6 flex flex-col items-center sm:items-start text-center sm:text-left gap-4 h-full justify-between">
-        <div className="flex flex-col items-center sm:items-start gap-3">
+      <div className="card-hover-content relative z-10 p-4 sm:p-6 flex flex-col items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 h-full justify-between">
+        <div className="flex flex-col items-center sm:items-start gap-2 sm:gap-3">
           <div
-            className={`p-3 ${accent}/20 rounded-xl flex items-center justify-center transition-transform duration-300`}
+            className={`p-2 sm:p-3 ${accent}/20 rounded-xl flex items-center justify-center transition-transform duration-300`}
           >
             {icon}
           </div>
-          <h3 className={`card-hover-title text-xl font-semibold ${accent} leading-tight`}>
+          <h3 className={`card-hover-title text-lg sm:text-xl font-semibold ${accent} leading-tight`}>
             {title}
           </h3>
         </div>
-        <p className="card-hover-text text-base leading-relaxed text-foreground/80">
+        <p className="card-hover-text text-sm sm:text-base leading-relaxed text-foreground/80">
           {description}
         </p>
       </div>
@@ -102,17 +102,17 @@ function FeatureCard({
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden py-5 md:py-14">
+    <section className="relative overflow-hidden py-8 sm:py-12 md:py-16 lg:py-20">
       {/* Faint background glow blobs */}
 
 
-      <div className="max-w-7xl mx-auto px-4 md:px-6 text-center relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
         {/* Heading */}
         <div className="text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
             DOHaD India Regional Society
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-3xl md:max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto">
             The DOHaD India Regional Society is committed to advancing the
             science and evidence-based policies and practices based on the
             Developmental Origins of Health and Disease paradigm, rooted in the
@@ -121,16 +121,16 @@ export default function AboutSection() {
         </div>
 
         {/* Grid */}
-        <div className="mt-10 md:mt-16 mb-10 grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-8 items-stretch">
+        <div className="mt-8 sm:mt-12 md:mt-16 mb-8 sm:mb-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-x-6 lg:gap-y-8 items-stretch">
           {/* Left side cards */}
-          <div className="flex flex-col h-full gap-8">
+          <div className="flex flex-col h-full gap-6 sm:gap-8">
             <FeatureCard {...features[0]} {...softThemes[0]} className="flex-1" />
             <FeatureCard {...features[1]} {...softThemes[1]} className="flex-1" />
           </div>
 
           {/* Center image with hover effect */}
-          <div className="flex justify-center">
-            <div className="card-hover rounded-3xl overflow-hidden shadow-xl w-full max-w-[420px] md:max-w-[520px] h-full bg-white/60 backdrop-blur-md">
+          <div className="flex justify-center px-4 md:px-0">
+            <div className="card-hover rounded-3xl overflow-hidden shadow-xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-full bg-white/60 backdrop-blur-md">
               <Image
                 src="/2151663948.jpg"
                 alt="Illustration of DOHaD India activities"
@@ -143,7 +143,7 @@ export default function AboutSection() {
           </div>
 
           {/* Right side cards */}
-          <div className="flex flex-col h-full gap-8">
+          <div className="flex flex-col h-full gap-6 sm:gap-8">
             <FeatureCard {...features[2]} {...softThemes[2]} className="flex-1" />
             <FeatureCard {...features[3]} {...softThemes[3]} className="flex-1" />
           </div>

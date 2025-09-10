@@ -16,7 +16,7 @@ export function Header() {
   ]
 
   return (
-    <header className="w-full py-4 px-6 bg-background/95 border-b border-border">
+    <header className="sticky top-0 z-50 w-full py-4 px-6 bg-background/95 border-b border-border backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
 <div className="w-16 h-16 relative">

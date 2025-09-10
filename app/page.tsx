@@ -6,20 +6,22 @@ import { DashboardPreview } from "@/components/dashboard-preview"
 import { SocialProofStats } from "@/components/social-proof"
 import { CTASection } from "@/components/cta-section"
 import { FAQSection } from "@/components/faq-section"
-import { AboutDOHaD } from "@/components/about-DOHaD"
 import  CapacityBuilding  from "@/components/CapacityBuilding"
 import FinanceSection from "@/components/FinanceSection"
 import AdvocacySection from "@/components/AdvocacySection"
 import { BentoSection } from "@/components/bento-section"
 import { BentoCarousel } from "@/components/four-pillars-section"
 import ContentDesign from "@/components/ui/contentDesgin"
+import { Header } from "@/components/header"
+import AboutDOHaD from "@/components/about-DOHaD"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
+    <div className="min-h-screen bg-background relative">
+      <Header />
       <div className="relative z-10">
         <main className="relative z-10">
-          <HeroSection />
+          {/* <HeroSection /> */}
           {/* Dashboard Preview Wrapper */}
           {/* <div className="absolute bottom-[-230px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
             <AnimatedSection>
@@ -29,12 +31,12 @@ export default function HomePage() {
         </main>
         
         {/* Social Proof with consistent container */}
-        <AnimatedSection
+        {/* <AnimatedSection
           className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 md:mt-[320px]"
           delay={0.1}
         >
           <SocialProofStats />
-        </AnimatedSection>
+        </AnimatedSection> */}
 
         {/* About DOHaD Section */}
         <AnimatedSection
