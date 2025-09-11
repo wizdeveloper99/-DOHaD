@@ -173,35 +173,52 @@ export default function AboutDOHaD() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Section - Content */}
-            <div className="flex flex-col justify-center space-y-8">
-              {/* Heading */}
-              <div className="text-left">
-                <div className="inline-block px-4 py-2 bg-green-100 text-green-700 text-sm font-medium rounded-full mb-6">
-                  Health & Development Research
-                </div>
-                <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
-                  <span className="text-green-600 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">What is</span>{" "}
-                  <span className="text-gray-900">DOHaD?</span>
-                </h1>
-                <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto">
-                  The Developmental Origins of Health and Disease (DOHaD) explores how early-life experiences, from conception through childhood, influence long-term health outcomes and disease risk.
-                </p>
-              </div>
-              
-              {/* Input Field */}
-              <div className="flex w-full max-w-md bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg border border-white/20">
-                <input
-                  type="email"
-                  placeholder="Enter your Email"
-                  value={email}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                  className="flex-grow bg-transparent outline-none px-5 py-4 text-gray-700 text-lg"
-                />
-                <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105">
-                  Get Started
-                </button>
-              </div>
-            </div>
+            <div className="flex flex-col justify-center items-center lg:items-start space-y-8">
+  {/* Heading */}
+  <div className="text-center lg:text-left w-full sm:max-w-2xl">
+    <div className="inline-block px-4 py-2 bg-green-100 text-green-700 text-sm font-medium rounded-full mb-6">
+      Health & Development Research
+    </div>
+    <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900">
+      <span className="text-green-600 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">
+        What is
+      </span>{" "}
+      <span className="text-gray-900">DOHaD?</span>
+    </h1>
+    <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto lg:mx-0">
+      The Developmental Origins of Health and Disease (DOHaD) explores how early-life experiences, from conception through childhood, influence long-term health outcomes and disease risk.
+    </p>
+  </div>
+
+  {/* Desktop / Tablet: Big pill (shows from sm). Centered until lg, then left. */}
+  <div className="hidden sm:flex w-full max-w-md bg-white/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg border border-white/20 justify-center mx-auto lg:mx-0">
+    <input
+      type="email"
+      placeholder="Enter your Email"
+      value={email}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+      className="flex-grow bg-transparent outline-none px-5 py-4 text-gray-700 text-lg"
+    />
+    <button className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105">
+      Get Started
+    </button>
+  </div>
+
+  {/* Mobile: Two pills stacked (centered) */}
+  <div className="flex sm:hidden flex-col w-full max-w-md gap-3 mx-auto">
+    <input
+      type="email"
+      placeholder="Enter your Email"
+      value={email}
+      onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
+      className="w-full bg-white rounded-full px-4 py-3 text-gray-700 text-base outline-none shadow"
+    />
+    <button className="w-full px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-full hover:from-green-700 hover:to-emerald-700 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 text-sm">
+      Get Started
+    </button>
+  </div>
+</div>
+
 
             {/* Right Section - Video with Custom Controls */}
             <div className="flex justify-center lg:justify-end">
