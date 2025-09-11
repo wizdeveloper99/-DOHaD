@@ -119,37 +119,31 @@ export function BentoCarousel() {
 
         {/* Carousel */}
         <div className="relative">
-        <Carousel className="w-full px-4 md:px-8">
-  <CarouselContent className="-ml-4 overflow-visible">
-    {features.map((f) => (
-      <CarouselItem
-        key={f.number}
-        className="pl-4 basis-[95%] md:basis-[45%] lg:basis-[30%]"
-        // mobile → almost full width
-        // tablet/desktop → smaller to show peek
-      >
-        <FeatureCard {...f} />
-      </CarouselItem>
-    ))}
-  </CarouselContent>
-
-  {/* Buttons */}
-  <CarouselPrevious 
-    className="absolute -left-6 md:-left-16 lg:-left-20 top-1/2 -translate-y-1/2 z-20" 
-  />
-  <CarouselNext 
-    className="absolute -right-6 md:-right-16 lg:-right-20 top-1/2 -translate-y-1/2 z-20" 
-  />
-</Carousel>
-
-       {/* Left fade */}
-<div className="pointer-events-none absolute top-0 left-0 h-full w-16 
-  bg-gradient-to-r from-background via-background/60 to-transparent z-0" /> 
-
-{/* Right fade */}
-<div className="pointer-events-none absolute top-0 right-0 h-full w-16 
-  bg-gradient-to-l from-background via-background/60 to-transparent z-0" /> 
-
+          <Carousel className="w-full px-4 md:px-8">
+            <CarouselContent className="-ml-4 overflow-visible">
+              {features.map((f) => (
+                <CarouselItem
+                  key={f.number}
+                  className="pl-4 basis-[95%] md:basis-[45%] lg:basis-[30%]"
+                  // mobile → almost full width
+                  // tablet/desktop → smaller to show peek
+                >
+                  <FeatureCard {...f} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {/* Navigation buttons positioned below the carousel */}
+            <div className="flex justify-center items-center gap-4 mt-8 -mt-8 pt-8">
+              <CarouselPrevious className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out" />
+              
+              <div className="flex gap-2">
+                {/* Optional: Add dots indicator here if needed */}
+              </div>
+              
+              <CarouselNext className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out" />
+            </div>
+          </Carousel>
         </div>
       </div>
     </section>
