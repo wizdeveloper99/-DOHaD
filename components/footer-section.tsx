@@ -10,7 +10,6 @@ export function FooterSection() {
     <div>
      <div className="mb-0 md:-mb-28">
 
-<ContentDesign />
       </div>
     <footer
       id="contact"
