@@ -1,7 +1,6 @@
 'use client'
 
 import { Header } from "@/components/header"
-import { FooterSection } from "@/components/footer-section"
 import Image from "next/image"
 
 export default function WhoAreWePage() {
@@ -374,8 +373,6 @@ export default function WhoAreWePage() {
           </p>
         </section>
       </main>
-
-      <FooterSection />
     </div>
   )
 }

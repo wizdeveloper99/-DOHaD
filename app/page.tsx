@@ -1,6 +1,5 @@
 import { HeroSection } from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
-import { FooterSection } from "@/components/footer-section"
 import { AnimatedSection } from "@/components/animated-section"
 import { DashboardPreview } from "@/components/dashboard-preview"
 import { SocialProofStats } from "@/components/social-proof"
@@ -111,10 +110,6 @@ export default function HomePage() {
             <CTASection />
           </AnimatedSection>
         </div>
-        <AnimatedSection 
-        >
-          <FooterSection />
-        </AnimatedSection>
       </div>
     </div>
   )

@@ -7,10 +7,6 @@ import ContentDesign from "./ui/contentDesgin"
 
 export function FooterSection() {
   return (
-    <div>
-     <div className="mb-0 md:-mb-28">
-
-      </div>
     <footer
       id="contact"
       className="w-full pb-12 relative pt-12 bg-green-100 dark:bg-gray-900"
@@ -108,6 +104,5 @@ export function FooterSection() {
         </div>
       </div>
     </footer>
-    </div>
   )
 }

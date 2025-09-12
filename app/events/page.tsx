@@ -1,6 +1,5 @@
 "use client" 
 import { Header } from "@/components/header"
-import { FooterSection } from "@/components/footer-section"
 import { Calendar, Camera, Clock, Users, ChevronLeft, ChevronRight } from "lucide-react"
 import { useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
@@ -237,8 +236,6 @@ export default function EventsPage() {
         </div>
 
       </main>
-
-      <FooterSection />
     </div>
   )
 }

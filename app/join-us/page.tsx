@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { FooterSection } from "@/components/footer-section"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { CheckCircle, Users, BookOpen, Network, Calendar } from "lucide-react"
@@ -226,11 +225,9 @@ export default function JoinUsPage() {
   >
     Join
   </Button>
-</section>
+        </section>
 
       </main>
-
-      <FooterSection />
     </div>
   )
 }

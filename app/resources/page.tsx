@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { FooterSection } from "@/components/footer-section"
 import { Button } from "@/components/ui/button"
 import { FileText, Users, Shield, Clock } from "lucide-react"
 import Image from "next/image"
@@ -117,8 +116,6 @@ export default function ResourcesPage() {
 
         </div>
       </main>
-
-      <FooterSection />
     </div>
   )
 }

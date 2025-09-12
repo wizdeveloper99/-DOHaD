@@ -1,5 +1,4 @@
 import { Header } from "@/components/header"
-import { FooterSection } from "@/components/footer-section"
 import { Mail, MapPin, Twitter, Linkedin, Bell, Facebook, Instagram, Youtube } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -245,8 +244,6 @@ export default function ContactPage() {
           </div>
         </div>
       </main>
-
-      <FooterSection />
     </div>
   )
 }

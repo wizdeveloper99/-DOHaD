@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { Hind_Siliguri } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { FooterSection } from "@/components/footer-section"
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin"],
@@ -24,9 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${hindSiliguri.variable} antialiased`} suppressHydrationWarning>
-      <body className="font-sans">
+      <body className="font-sans min-h-screen flex flex-col">
         <ThemeProvider>
-          {children}
+          <main className="flex-1">
+            {children}
+          </main>
+          <FooterSection />
         </ThemeProvider>
       </body>
     </html>
