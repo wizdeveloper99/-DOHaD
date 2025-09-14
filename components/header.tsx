@@ -8,6 +8,7 @@ import Image from "next/image"
 
 export function Header() {
   const navItems = [
+    { name: "Home", href: "/" },
     { name: "Who We Are", href: "/who-are-we" },
     { name: "Join Us", href: "/join-us" },
     { name: "Resources", href: "/resources" },

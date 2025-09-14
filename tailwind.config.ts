@@ -32,8 +32,8 @@ const config = {
           light: "hsl(var(--primary-light))", // Added primary-light
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "#00645E",
+          foreground: "#ffffff",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -54,6 +54,10 @@ const config = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        button: {
+          DEFAULT: "#00645E",
+          foreground: "hsl(var(--button-foreground, #ffffff))",
         },
       },
       borderRadius: {
