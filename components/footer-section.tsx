@@ -9,7 +9,7 @@ export function FooterSection() {
   return (
     <footer
       id="contact"
-      className="w-full pb-12 relative pt-12 bg-green-100 dark:bg-gray-900"
+      className="w-full pb-12 relative pt-12 bg-secondary dark:bg-black"
     >
       <div className="container px-4 md:px-6">
         {/* Main Footer Grid */}
@@ -25,15 +25,15 @@ export function FooterSection() {
                 className="h-12 w-auto"
                 priority
               />
-              <span className="text-xl font-bold text-primary dark:text-white">DOHaD India</span>
+              <span className="text-xl font-bold text-white">DOHaD India</span>
             </div>
-            <p className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+            <p className="text-sm text-white leading-relaxed">
               Advancing health through understanding the early developmental origins of health and disease.
             </p>
             <div className="flex space-x-3">
               {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                <Button key={i} size="sm" variant="ghost" className="h-8 w-8 p-0 hover:bg-primary/10 dark:hover:bg-primary/90">
-                  <Icon className="h-4 w-4 text-gray-700 dark:text-gray-300" />
+                <Button key={i} size="sm" variant="ghost" className="h-8 w-8 p-0 hover:bg-white/20">
+                  <Icon className="h-4 w-4 text-white" />
                 </Button>
               ))}
             </div>
@@ -41,7 +41,7 @@ export function FooterSection() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-base font-semibold mb-4 text-gray-800 dark:text-gray-100">Quick Links</h4>
+            <h4 className="text-base font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { name: "About DOHaD", link: "#about" },
@@ -50,7 +50,7 @@ export function FooterSection() {
                 { name: "Advocacy", link: "#advocacy" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                  <a href={item.link} className="text-white hover:text-gray-300 transition-colors">
                     {item.name}
                   </a>
                 </li>
@@ -60,7 +60,7 @@ export function FooterSection() {
 
           {/* Resources */}
           <div>
-            <h4 className="text-base font-semibold mb-4 text-gray-800 dark:text-gray-100">Resources</h4>
+            <h4 className="text-base font-semibold mb-4 text-white">Resources</h4>
             <ul className="space-y-2 text-sm">
               {[
                 { name: "Publications", link: "#" },
@@ -69,7 +69,7 @@ export function FooterSection() {
                 { name: "Join Us", link: "#" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">
+                  <a href={item.link} className="text-white hover:text-gray-300 transition-colors">
                     {item.name}
                   </a>
                 </li>
@@ -79,24 +79,24 @@ export function FooterSection() {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-base font-semibold mb-4 text-gray-800 dark:text-gray-100">Contact Info</h4>
-            <div className="space-y-3 text-sm text-gray-700 dark:text-gray-300">
-              <div className="flex items-center space-x-2">
-                <Mail className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-                <span className="text-gray-700 dark:text-gray-300">contact@dohadindia.org</span>
+            <h4 className="text-base font-semibold mb-4 text-white">Contact Info</h4>
+              <div className="space-y-3 text-sm text-white">
+                <div className="flex items-center space-x-2">
+                  <Mail className="h-5 w-5 text-white" />
+                  <span className="text-white">contact@dohadindia.org</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-5 w-5 text-white" />
+                  <span className="text-white">Indiranagar, Bengaluru - 560038</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <MapPin className="h-5 w-5 text-gray-700 dark:text-gray-300" />
-                <span className="text-gray-700 dark:text-gray-300">Indiranagar, Bengaluru - 560038</span>
-              </div>
-            </div>
           </div>
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-10 border-t border-primary/10 pt-6 text-center">
-          <p className="text-sm text-gray-700 dark:text-gray-300">© 2024 DOHaD India Regional Society. All rights reserved.</p>
-          <div className="mt-2 flex justify-center space-x-3 text-xs text-gray-700 dark:text-gray-300">
+        <div className="mt-10 border-t border-white/20 pt-6 text-center">
+          <p className="text-sm text-white">© 2024 DOHaD India Regional Society. All rights reserved.</p>
+          <div className="mt-2 flex justify-center space-x-3 text-xs text-white">
             <span>Active Members: 150+</span>
             <span>•</span>
             <span>Visitors: 25,000+</span>
