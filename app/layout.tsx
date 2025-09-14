@@ -27,9 +27,7 @@ export default function RootLayout({
     <html lang="en" className={`${hindSiliguri.variable} antialiased`} suppressHydrationWarning>
       <body className="font-sans min-h-screen flex flex-col">
         <ThemeProvider>
-          <main className="flex-1">
-            {children}
-          </main>
+          <main className="flex-1">{children}</main>
           <FooterSection />
         </ThemeProvider>
       </body>
