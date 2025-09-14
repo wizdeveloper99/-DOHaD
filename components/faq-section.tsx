@@ -47,17 +47,17 @@ interface FAQItemProps {
 
 const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQItemProps) => {
   return (
-    <div className="group w-full bg-white/60 backdrop-blur-sm border border-gray-200/50 shadow-sm overflow-hidden rounded-xl transition-all duration-300 ease-out">
+    <div className="group w-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-sm overflow-hidden rounded-xl transition-all duration-300 ease-out">
       {/* Question with toggle button */}
       <div 
-        className="w-full px-6 py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 transition-colors duration-200"
+        className="w-full px-6 py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors duration-200"
         onClick={onToggleAnswers}
       >
         <div className="flex items-center gap-3 flex-1">
           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold">
             {index + 1}
           </div>
-          <div className="flex-1 font-medium leading-6 break-words text-gray-800">
+          <div className="flex-1 font-medium leading-6 break-words text-gray-800 dark:text-gray-200">
             {question}
           </div>
         </div>
@@ -65,7 +65,7 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
           <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
             showAnswers 
               ? "bg-primary/10 text-primary rotate-180" 
-              : "text-gray-400 group-hover:bg-gray-100 group-hover:text-primary"
+              : "text-gray-400 dark:text-gray-500 group-hover:bg-gray-100 dark:group-hover:bg-gray-800 group-hover:text-primary"
           }`}>
             <ChevronDown className="w-5 h-5" />
           </div>
@@ -80,7 +80,7 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
       >
         <div className="px-6 pb-5 pt-0">
           <div className="pl-11 pr-4">
-            <div className="text-gray-600 text-sm leading-relaxed border-l-3 border-primary/20 pl-4 py-3 bg-gradient-to-r from-primary/5 to-transparent rounded-3xl">
+            <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-3xl">
               {answer}
             </div>
           </div>
@@ -98,11 +98,11 @@ export function FAQSection() {
   }
   
   return (
-    <section className="w-full py-16 px-5 relative flex flex-col justify-center items-center bg-gradient-to-br from-gray-50 via-white to-gray-50 overflow-hidden">
+    <section className="w-full py-16 px-5 relative flex flex-col justify-center items-center  overflow-hidden">
       {/* Decorative background elements */}
-      <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/3 to-transparent rounded-full blur-2xl" />
+      <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/3 dark:from-primary/5 to-transparent rounded-full blur-2xl" />
       
       {/* Header Section */}
       <div className="relative z-10 text-center mb-12 max-w-4xl mx-auto">
@@ -110,11 +110,11 @@ export function FAQSection() {
           <HelpCircle className="w-8 h-8 text-white" />
         </div>
         
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent mb-4">
+        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent mb-4">
           Frequently Asked Questions
         </h2>
         
-        <p className="text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
           Everything you need to know about DOHaD India and how we are working to promote a healthy start to life
         </p>
         
