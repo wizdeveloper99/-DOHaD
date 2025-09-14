@@ -212,37 +212,24 @@ export default function ContactPage() {
           </form>
         </div>
 
-        <div className="mt-16">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-8">Visit Our Location</h2>
-          <div className="bg-card border border-border rounded-lg p-4 shadow-sm">
-            <div className="aspect-video w-full rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.8234567890123!2d77.6413!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzgnMjguNyJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="PHFI Centre for Developmental and Lifecourse Research Location"
-              ></iframe>
-            </div>
-            <div className="mt-4 text-center">
-              <p className="text-sm text-muted-foreground mb-2">
-                Located beside Swami Vivekananda Road Metro Station, Indiranagar
-              </p>
-              <a
-                href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium text-sm"
-              >
-                <MapPin className="w-4 h-4" />
-                Open in Google Maps
-              </a>
-            </div>
-          </div>
-        </div>
+       <div className="mt-16">
+  <h2 className="text-2xl font-bold text-foreground text-center mb-8">Visit Our Location</h2>
+  <div className="bg-card border border-border rounded-lg p-6 shadow-sm text-center">
+    <p className="text-sm text-muted-foreground mb-4">
+      Located beside Swami Vivekananda Road Metro Station, Indiranagar
+    </p>
+    <a
+      href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center gap-2 px-5 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+    >
+      <MapPin className="w-5 h-5" />
+      Open in Google Maps
+    </a>
+  </div>
+</div>
+
       </main>
     </div>
   )
