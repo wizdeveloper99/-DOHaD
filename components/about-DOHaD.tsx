@@ -85,10 +85,36 @@ export default function AboutDOHaD() {
     const video = videoRef.current;
     if (!video) return;
 
+    // Check if mobile device
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+
+    if (isMobile && !isPlaying) {
+      // Ensure video is playing for iOS fullscreen
+      video.play().then(() => {
+        toggleFullscreenInternal(video);
+      }).catch(() => {
+        // If play fails, try fullscreen anyway
+        toggleFullscreenInternal(video);
+      });
+    } else {
+      toggleFullscreenInternal(video);
+    }
+  };
+
+  const toggleFullscreenInternal = (video: HTMLVideoElement) => {
     if (video.requestFullscreen) {
       video.requestFullscreen();
     } else if ((video as any).webkitRequestFullscreen) {
       (video as any).webkitRequestFullscreen();
+    } else if ((video as any).webkitEnterFullscreen) {
+      // iOS Safari specific
+      (video as any).webkitEnterFullscreen();
+    } else if ((video as any).msRequestFullscreen) {
+      // IE/Edge
+      (video as any).msRequestFullscreen();
+    } else if ((video as any).mozRequestFullScreen) {
+      // Firefox
+      (video as any).mozRequestFullScreen();
     }
   };
 
@@ -99,7 +125,7 @@ export default function AboutDOHaD() {
   };
 
   return (
-    <section className="w-full py-12 md:py-20 relative overflow-hidden flex items-center">
+    <section className="w-full px-4 py-12 md:px-0 md:py-20 relative overflow-hidden flex items-center">
       {/* Modern SVG Background */}
 
       <div className="relative z-10 w-full">
@@ -155,9 +181,9 @@ export default function AboutDOHaD() {
 
             {/* Right Section - Video with Custom Controls */}
             <div className="flex justify-center">
-              <div className="relative w-full max-w-2xl">
+              <div className="relative w-full max-w-full sm:max-w-2xl">
                 <div
-                  className="relative group"
+                  className="relative group aspect-video sm:aspect-[16/9]"
                   onMouseEnter={() => setShowControls(true)}
                   onMouseLeave={() => setShowControls(false)}
                 >
@@ -166,7 +192,7 @@ export default function AboutDOHaD() {
                     muted={isMuted}
                     loop
                     playsInline
-                    className="w-full object-cover rounded-2xl"
+                    className="w-full h-auto object-contain rounded-2xl"
                     onPlay={() => setIsPlaying(true)}
                     onPause={() => setIsPlaying(false)}
                   >
@@ -179,11 +205,11 @@ export default function AboutDOHaD() {
                     {/* Progress Bar */}
                     <div className="mb-3">
                       <div
-                        className="w-full h-1 bg-white/30 dark:bg-slate-700/30 rounded-full cursor-pointer"
+                        className="w-full h-2 bg-white/20 rounded-full cursor-pointer relative overflow-hidden"
                         onClick={handleSeek}
                       >
                         <div
-                          className="h-full bg-secondary-500 dark:bg-secondary-400 rounded-full transition-all duration-150"
+                          className="absolute inset-0 bg-white/80 dark:bg-white/60 rounded-full"
                           style={{ width: `${duration ? (currentTime / duration) * 100 : 0}%` }}
                         />
                       </div>
@@ -195,7 +221,7 @@ export default function AboutDOHaD() {
                         {/* Play/Pause */}
                         <button
                           onClick={togglePlay}
-                          className="bg-white/20 dark:bg-secondary-900/20 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/30 dark:hover:bg-secondary-800/30 transition-all duration-200"
+                          className="bg-white/20 backdrop-blur-sm p-2 rounded-full text-white hover:bg-white/30 transition-all duration-200"
                         >
                           {isPlaying ? <Pause size={20} /> : <Play size={20} />}
                         </button>
@@ -204,7 +230,7 @@ export default function AboutDOHaD() {
                         <div className="flex items-center space-x-2">
                           <button
                             onClick={toggleMute}
-                            className="text-white hover:text-secondary-400 transition-colors duration-200"
+                            className="text-white/80 hover:text-white p-1 rounded-full hover:bg-white/10 transition-all duration-200"
                           >
                             {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
                           </button>
@@ -212,12 +238,12 @@ export default function AboutDOHaD() {
                             type="range"
                             min="0"
                             max="1"
-                            step="0.1"
+                            step="0.01"
                             value={volume}
                             onChange={handleVolumeChange}
-                            className="w-16 h-1 bg-white/30 dark:bg-slate-700/30 rounded-full appearance-none cursor-pointer slider"
+                            className="w-20 h-2 bg-white/20 rounded-full appearance-none cursor-pointer volume-slider"
                             style={{
-                              background: `linear-gradient(to right, #00645E 0%, #00645E ${volume * 100}%, rgba(255,255,255,0.3) ${volume * 100}%, rgba(255,255,255,0.3) 100%)`
+                              background: `linear-gradient(to right, white 0%, white ${volume * 100}%, rgba(255,255,255,0.2) ${volume * 100}%, rgba(255,255,255,0.2) 100%)`
                             }}
                           />
                         </div>
@@ -231,7 +257,7 @@ export default function AboutDOHaD() {
                       {/* Fullscreen */}
                       <button
                         onClick={toggleFullscreen}
-                        className="text-white hover:text-secondary-400 transition-colors duration-200"
+                        className="text-white/80 hover:text-white p-1 rounded-full hover:bg-white/10 transition-all duration-200"
                       >
                         <Maximize size={18} />
                       </button>
@@ -257,22 +283,24 @@ export default function AboutDOHaD() {
       </div>
 
       <style jsx>{`
-        .slider::-webkit-slider-thumb {
+        .volume-slider::-webkit-slider-thumb {
           appearance: none;
-          width: 12px;
-          height: 12px;
-          background: #00645E;
+          width: 14px;
+          height: 14px;
+          background: white;
           border-radius: 50%;
           cursor: pointer;
+          border: 2px solid rgba(255,255,255,0.3);
         }
         
-        .slider::-moz-range-thumb {
-          width: 12px;
-          height: 12px;
-          background: #00645E;
+        .volume-slider::-moz-range-thumb {
+          width: 14px;
+          height: 14px;
+          background: white;
           border-radius: 50%;
           cursor: pointer;
           border: none;
+          border: 2px solid rgba(255,255,255,0.3);
         }
       `}</style>
     </section>
