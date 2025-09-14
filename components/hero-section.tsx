@@ -9,8 +9,8 @@ export function HeroSection() {
   return (
     <>
       <section
-        className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-visible py-0 px-4
-           w-full h-[500px] md:w-[1380px] md:h-[600px] lg:h-[810px] md:px-0 "
+        className="flex flex-col items-center text-center relative mx-auto rounded-2xl overflow-visible py-0
+           w-full h-[500px] md:w-[1380px] md:h-[600px] lg:h-[810px]"
       >
 
 
@@ -458,9 +458,9 @@ export function HeroSection() {
         {/* Hero text */}
      <div
   className="relative z-50 space-y-4 md:space-y-5 lg:space-y-6 mb-2
-             max-w-sm md:max-w-[700px] lg:max-w-[800px]
+             max-w-md md:max-w-[700px] lg:max-w-[800px]
              mt-28 md:mt-[120px] lg:mt-[180px]
-             px-4 md:px-6 text-center mx-auto
+             text-center mx-auto
              opacity-0 translate-y-5 animate-fade-in-up"
 >
   <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-4">
@@ -475,7 +475,7 @@ export function HeroSection() {
 
 
         {/* Buttons moved just below the hero text */}
-        <div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 w-full px-8 max-w-screen-md mx-auto">
+        <div className="relative z-50 flex flex-row justify-center items-center gap-3 sm:gap-5 mt-4 w-full max-w-screen-md mx-auto">
           {/* Primary Green Button */}
           <Link href="/join-us" target="_self" rel="noopener noreferrer" className="flex-1">
             <Button variant="primary" size="fullWidth" className="bg-secondary text-secondary-foreground hover:bg-secondary/90" > 

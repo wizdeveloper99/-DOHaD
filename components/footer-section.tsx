@@ -87,7 +87,7 @@ export function FooterSection() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-5 w-5 text-white" />
-                  <span className="text-white">Indiranagar, Bengaluru - 560038</span>
+                  <span className="text-white">Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038</span>
                 </div>
               </div>
           </div>

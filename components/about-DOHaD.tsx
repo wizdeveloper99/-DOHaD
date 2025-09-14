@@ -99,16 +99,16 @@ export default function AboutDOHaD() {
   };
 
   return (
-    <section className="w-full px-8 md:px-12 py-12 md:py-20 relative overflow-hidden flex items-center">
+    <section className="w-full py-12 md:py-20 relative overflow-hidden flex items-center">
       {/* Modern SVG Background */}
 
       <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto mx-4 md:mx-8">
+        <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Section - Content */}
-            <div className="flex flex-col justify-center items-center lg:items-start space-y-8">
+            <div className="flex flex-col justify-center items-center space-y-8">
               {/* Heading */}
-              <div className="text-center lg:text-left w-full sm:max-w-2xl">
+              <div className="text-center w-full sm:max-w-2xl">
                 <div className="inline-block px-4 py-2 bg-secondary-100 dark:bg-secondary-900/20 text-secondary-700 dark:text-secondary-300 text-sm font-medium rounded-full mb-6">
                   Health & Development Research
                 </div>
@@ -118,13 +118,13 @@ export default function AboutDOHaD() {
                   </span>{" "}
                   <span className="text-gray-900 dark:text-gray-100">DOHaD?</span>
                 </h1>
-                <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 dark:text-gray-300 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto lg:mx-0">
+                <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
                   The Developmental Origins of Health and Disease (DOHaD) explores how early-life experiences, from conception through childhood, influence long-term health outcomes and disease risk.
                 </p>
               </div>
 
               {/* Desktop / Tablet: Big pill (shows from sm). Centered until lg, then left. */}
-              <div className="hidden sm:flex w-full max-w-md bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg border border-white/20 dark:border-secondary-500/20 justify-center mx-auto lg:mx-0">
+              <div className="hidden sm:flex w-full max-w-md bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg border border-white/20 dark:border-secondary-500/20 justify-center mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your Email"
@@ -138,7 +138,7 @@ export default function AboutDOHaD() {
               </div>
 
               {/* Mobile: Two pills stacked (centered) */}
-              <div className="flex sm:hidden flex-col w-full max-w-md gap-3 mx-auto">
+            <div className="flex sm:hidden flex-col w-full max-w-md gap-3 mx-auto">
                 <input
                   type="email"
                   placeholder="Enter your Email"
@@ -154,7 +154,7 @@ export default function AboutDOHaD() {
 
 
             {/* Right Section - Video with Custom Controls */}
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center">
               <div className="relative w-full max-w-2xl">
                 <div
                   className="relative group"
