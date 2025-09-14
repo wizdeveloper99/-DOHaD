@@ -99,11 +99,11 @@ export default function AboutDOHaD() {
   };
 
   return (
-    <section className="w-full px-4 py-12 md:py-20 relative overflow-hidden flex items-center">
+    <section className="w-full px-8 md:px-12 py-12 md:py-20 relative overflow-hidden flex items-center">
       {/* Modern SVG Background */}
 
       <div className="relative z-10 w-full">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto mx-4 md:mx-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* Left Section - Content */}
             <div className="flex flex-col justify-center items-center lg:items-start space-y-8">

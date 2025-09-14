@@ -72,7 +72,7 @@ export default function WhoAreWePage() {
       title: "ADVISOR",
       name: "Dr. Anjali Gupta",
       description: "Expert in epidemiology and public health policy, contributing to research methodologies and data analysis frameworks.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=880&auto=format&fit=crop",
+      image: "/images/avatars/annette-black.png",
     },
     {
       title: "ADVISOR",
@@ -96,7 +96,7 @@ export default function WhoAreWePage() {
       title: "ADVISOR",
       name: "Dr. Neha Singh",
       description: "Specializing in mental health and neurodevelopment, contributing to psychosocial research aspects.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=880&auto=format&fit=crop",
+      image: "/images/avatars/robert-fox.png",
     },
   ]
 
