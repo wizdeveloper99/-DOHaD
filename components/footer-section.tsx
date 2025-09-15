@@ -78,19 +78,41 @@ export function FooterSection() {
           </div>
 
           {/* Contact Info */}
-          <div>
-            <h4 className="text-base font-semibold mb-4 text-white">Contact Info</h4>
-              <div className="space-y-3 text-sm text-white">
-                <div className="flex items-center space-x-2">
-                  <Mail className="h-5 w-5 text-white" />
-                  <span className="text-white">contact@dohadindia.org</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin className="h-5 w-5 text-white" />
-                  <span className="text-white">Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038</span>
-                </div>
-              </div>
-          </div>
+        <div>
+  <h4 className="text-base font-semibold mb-4 text-white">Contact Info</h4>
+
+  <div className="space-y-4 text-sm text-white">
+    {/* Email row */}
+    <a
+      href="mailto:contact@dohadindia.org"
+      className="flex items-center gap-3 text-white hover:text-blue-300 hover:underline cursor-pointer transition-colors"
+      title="Send an email to contact@dohadindia.org"
+    >
+      <Mail className="h-5 w-5 text-white" aria-hidden="true" />
+      <span>
+        contact@dohadindia.org
+        {/* <span className="ml-1 text-xs text-gray-300">(Click to email)</span> */}
+      </span>
+    </a>
+
+    {/* Address row */}
+    <a
+      href="https://maps.app.goo.gl/u7sJkMifTnUTE2w77"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-start gap-3 text-white hover:text-blue-300 hover:underline cursor-pointer transition-colors"
+      title="Open in Google Maps"
+    >
+      <MapPin className="h-10 w-10 text-white mt-0.5" aria-hidden="true" />
+      <span>
+        Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
+        <span className="ml-1 text-xs text-gray-300">(View on map)</span>
+      </span>
+    </a>
+  </div>
+</div>
+
+
         </div>
 
         {/* Bottom Footer */}

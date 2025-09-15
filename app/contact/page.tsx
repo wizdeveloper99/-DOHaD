@@ -121,7 +121,7 @@ export default function ContactPage() {
             </div>
 
             {/* Newsletter Subscription */}
-            <div className="bg-muted/30 rounded-lg p-6 border border-border">
+            <div className="bg-card border border-border rounded-lg p-6 mb-8 shadow-sm">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
                   <Bell className="w-5 h-5 text-secondary" />
@@ -211,24 +211,42 @@ export default function ContactPage() {
             </div>
           </form>
         </div>
+<div className="mt-16">
+  <h2 className="text-2xl font-bold text-foreground text-center mb-8">
+    Visit Our Location
+  </h2>
 
-       <div className="mt-16">
-  <h2 className="text-2xl font-bold text-foreground text-center mb-8">Visit Our Location</h2>
-  <div className="bg-card border border-border rounded-lg p-6 shadow-sm text-center">
-    <p className="text-sm text-muted-foreground mb-4">
+  <div className="bg-card border border-border rounded-lg p-6 shadow-sm text-center space-y-4">
+    <p className="text-sm text-muted-foreground">
       Located beside Swami Vivekananda Road Metro Station, Indiranagar
     </p>
+
+    {/* Embedded Map */}
+    <div className="w-full h-56 rounded-lg overflow-hidden shadow-md">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7960433723644!2d77.63702427507695!3d12.923620887389387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d8d3f9a7f1%3A0xceb32e2ed5d2fcd2!2sSwami%20Vivekananda%20Rd%20Metro%20Station!5e0!3m2!1sen!2sin!4v1691234567890!5m2!1sen!2sin"
+        width="100%"
+        height="100%"
+        style={{ border: 0 }}
+        allowFullScreen={true}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </div>
+
+    {/* Button */}
     <a
       href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 px-5 py-3 bg-secondary text-secondary-foreground rounded-lg font-medium hover:bg-secondary/90 transition-colors"
+      className="inline-flex items-center gap-2 px-5 py-3 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-secondary/90 transition-colors"
     >
       <MapPin className="w-5 h-5" />
       Open in Google Maps
     </a>
   </div>
 </div>
+
 
       </main>
     </div>
