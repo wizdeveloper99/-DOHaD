@@ -124,13 +124,11 @@ export default function JoinUsPage() {
     {/* Left Content */}
     <div className="text-left order-2 md:order-1">
       <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
-        Join Our Community <br /> & Advance DOHaD Research
+        Join Our Community & Advance DOHaD Research
       </h1>
 
       <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-xl">
-        Be part of India’s leading network of researchers and professionals 
-        working on the developmental origins of health and disease. 
-        Collaborate, learn, and grow with us.
+Unlock exclusive resources and opportunities as a DOHaD India member
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">

@@ -16,13 +16,13 @@ const features = [
     icon: <BookOpen className="w-7 h-7" />,
     title: "Advance Collaborative Research in India",
     description:
-      "Support research on early-life influences by linking Indian scientists and institutions within diverse environments and communities",
+      "Collaborative research on early-life influences on later health outcomes by linking Indian scientists and institutions working in diverse environments and communities",
   },
   {
     icon: <Shield className="w-7 h-7" />,
-    title: "Apply DOHaD in Indian Health Policy",
+    title: "Apply DOHaD principles in Indian Health Policy",
     description:
-      "Promote DOHaD principles in shaping India's health strategies, preventing chronic disease origins from very early life",
+      "Promote DOHaD principles in shaping India's health policies, especially the primary prevention of chronic diseases by focusing on promoting health at the earliest life stages",
   },
   {
     icon: <Globe className="w-7 h-7" />,
@@ -34,7 +34,7 @@ const features = [
     icon: <Users className="w-7 h-7" />,
     title: "Build Inclusive Participation in India",
     description:
-      "Encourage students, researchers, and professionals from underserved Indian regions to join DOHaD initiatives and activities",
+      "Encourage students, early career researchers, and professionals across Indian regions to join DOHaD initiatives and activities",
   },
 ];
 

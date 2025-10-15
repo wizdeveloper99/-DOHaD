@@ -47,7 +47,7 @@ const FeatureCard = ({ title, image }: FeatureCardProps) => (
 export function BentoCarousel() {
   const features = [
     {
-      title: "Maternal Health",
+      title: "Adolescent and maternal health",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
@@ -55,19 +55,19 @@ export function BentoCarousel() {
       image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      title: "Multiomics Research",
+      title: "Lifecourse research",
       image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      title: "Nutrition & Lifestyle",
+      title: "Multiomics Research",
       image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      title: "Policy & Public Health",
+      title: "Nutrition & Lifestyle",
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
     {
-      title: "Community Engagement",
+      title: "Health policy research",
       image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
     },
   ]

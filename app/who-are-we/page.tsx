@@ -106,7 +106,7 @@ export default function WhoAreWePage() {
 
       <main className="max-w-max mx-auto px-6 pb-16">
         {/* Hero Section */}
-     <section className="relative w-full h-[70vh] overflow-hidden flex items-center justify-center">
+     <section className="relative w-full min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden flex items-center justify-center">
   {/* Background */}
   <Image
     src="/gloval-ind.png"
@@ -120,14 +120,12 @@ export default function WhoAreWePage() {
   <div className="absolute inset-0 bg-background/80" />
 
   {/* Content */}
-  <div className="relative z-10 max-w-6xl mx-auto px-6 py-16 text-center">
-    <h1 className="text-4xl md:text-6xl font-bold mb-6 text-foreground">
+  <div className="relative z-10 max-w-5xl mx-auto px-4 py-6 sm:py-8 md:py-12 lg:py-16 text-center">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-foreground">
       Who We Are
     </h1>
-    <p className="text-lg md:text-xl text-muted-foreground mb-10 font-semibold">
-      Meet the dedicated team of researchers, clinicians, and advocates
-      leading DOHaD India's mission to advance developmental origins of
-      health and disease research across the country.
+    <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 font-semibold leading-relaxed max-w-4xl mx-auto">
+      Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India's mission to advance developmental origins of health and disease research across the country.
     </p>
 
     {/* Scrolling tagline */}
@@ -322,12 +320,7 @@ export default function WhoAreWePage() {
             Our Mission
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            DOHaD India is committed to fostering excellence in research,
-            education, and policy related to the developmental origins of health
-            and disease. We work to build a collaborative network of
-            researchers, clinicians, and policymakers dedicated to improving
-            health outcomes through understanding early life influences on
-            lifelong health.
+DOHaD India is committed to fostering excellence in research, education, dissemination, and advance evidence-based policies and practices related to the Developmental Origins of Health and Disease (DOHaD). We work to build a collaborative network of researchers, clinicians, educators, policymakers, and other relevant stakeholders dedicated to improving health outcomes through understanding early life influences on lifelong health.
           </p>
         </section>
       </main>

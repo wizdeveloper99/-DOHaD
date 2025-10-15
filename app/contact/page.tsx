@@ -11,7 +11,7 @@ export default function ContactPage() {
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Contact</h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            For enquiries, collaborations, or membership, please reach out to us
+            For general inquiries, membership questions, and collaboration opportunities reach out to us at : contact@dohadindia.org
           </p>
         </div>
 
@@ -46,12 +46,8 @@ export default function ContactPage() {
                   <h3 className="font-semibold text-foreground mb-2">Address</h3>
                   <p className="text-muted-foreground leading-relaxed">
                     PHFI Centre for Developmental and Lifecourse Research
-                    <br />
-                    Epidemic Diseases Hospital Compound
-                    <br />
-                    Old Madras Road, Beside Swami Vivekananda Road Metro Station
-                    <br />
-                    Indiranagar, Bengaluru - 560038
+                    -
+                    Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
                   </p>
                 </div>
               </div>
@@ -67,7 +63,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Saturday</span>
-                  <span className="text-foreground">10:00 AM - 2:00 PM IST</span>
+                  <span className="text-foreground">Closed</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Sunday</span>
