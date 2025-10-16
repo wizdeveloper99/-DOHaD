@@ -106,70 +106,63 @@ export default function WhoAreWePage() {
 
       <main className="max-w-max mx-auto px-6 pb-16">
         {/* Hero Section */}
-     <section className="relative w-full min-h-[50vh] sm:min-h-[60vh] md:min-h-[70vh] lg:min-h-[80vh] overflow-hidden flex items-center justify-center">
-  {/* Background */}
-  <Image
-    src="/gloval-ind.png"
-    alt="World map background"
-    fill
-    className="object-cover object-center"
-    priority
-  />
+        <section className="relative w-full min-h-[60vh] overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0">
+            <Image
+              src="/gloval-ind.png"
+              alt="World map background"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-background/80" />
+          </div>
 
-  {/* Overlay to make text readable */}
-  <div className="absolute inset-0 bg-background/80" />
+          {/* Content Container */}
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div className="max-w-4xl mx-auto text-center space-y-8">
+              {/* Heading */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground">
+                Who We Are
+              </h1>
+              
+              {/* Description */}
+              <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-semibold leading-relaxed">
+                Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India's mission to advance developmental origins of health and disease research across the country.
+              </p>
 
-  {/* Content */}
-  <div className="relative z-10 max-w-5xl mx-auto px-4 py-6 sm:py-8 md:py-12 lg:py-16 text-center">
-    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6 text-foreground">
-      Who We Are
-    </h1>
-    <p className="text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 sm:mb-8 md:mb-10 font-semibold leading-relaxed max-w-4xl mx-auto">
-      Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India's mission to advance developmental origins of health and disease research across the country.
-    </p>
-
-    {/* Scrolling tagline */}
-    <div className="overflow-hidden w-full relative">
-      <div className="animate-scroll gap-6">
-    <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 
-  border border-border text-foreground bg-background/40 backdrop-blur-sm">
-  Research for a Healthier Future
-</span>
-
-
-        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
-          Empowering Early-Life Health
-        </span>
-        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
-          Building Stronger Communities
-        </span>
-
-        {/* Duplicate for seamless loop */}
-        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
-          Research for a Healthier Future
-        </span>
-        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
-          Empowering Early-Life Health
-        </span>
-        <span className="px-6 py-2 rounded-full text-lg font-semibold mx-2 bg-muted text-foreground">
-          Building Stronger Communities
-        </span>
-      </div>
-
-      {/* Optional: fade edges for smooth look */}
-     {/* Optional: fade edges for smooth look (light mode only) */}
-<div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent dark:hidden" />
-<div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent dark:hidden" />
-
-    </div>
-  </div>
-</section>
-
-
-
-
-      
-
+              {/* Scrolling Tags */}
+              <div className="overflow-hidden relative py-4">
+                <div className="flex animate-scroll gap-4">
+                  <span className="whitespace-nowrap px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold border border-border text-foreground bg-background/40 backdrop-blur-sm">
+                    Research for a Healthier Future
+                  </span>
+                  <span className="whitespace-nowrap px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold bg-muted text-foreground">
+                    Empowering Early-Life Health
+                  </span>
+                  <span className="whitespace-nowrap px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold bg-muted text-foreground">
+                    Building Stronger Communities
+                  </span>
+                  {/* Duplicates for seamless loop */}
+                  <span className="whitespace-nowrap px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold border border-border text-foreground bg-background/40 backdrop-blur-sm">
+                    Research for a Healthier Future
+                  </span>
+                  <span className="whitespace-nowrap px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold bg-muted text-foreground">
+                    Empowering Early-Life Health
+                  </span>
+                  <span className="whitespace-nowrap px-6 py-2 rounded-full text-sm sm:text-base md:text-lg font-semibold bg-muted text-foreground">
+                    Building Stronger Communities
+                  </span>
+                </div>
+                
+                {/* Fade edges */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-background to-transparent dark:hidden" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-background to-transparent dark:hidden" />
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Executive Council Section */}
         <section className="mb-16">
@@ -214,7 +207,6 @@ export default function WhoAreWePage() {
         </section>
 
         {/* Advisory Group Section */}
-        {/* Advisory Group Section */}
         <section className="mb-16">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
@@ -256,73 +248,7 @@ export default function WhoAreWePage() {
          </div>
 
         </section>
-
-        {/* Membership Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Membership
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Join DOHaD India and become part of a vibrant community advancing research and policy in developmental origins of health and disease.
-            </p>
-          </div>
-
-          {/* Who Can Be a Member */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-              Who Can Become a Member?
-            </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto text-center">
-              Membership is open to anyone in India interested in DOHaD research, policy, and practice. This includes researchers, clinicians, policymakers, students, and professionals from related fields. Membership in DOHaD India also includes free membership to the International DOHaD Society, connecting you to a global network.
-            </p>
-          </div>
-
-          {/* Benefits */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
-              Benefits of Membership
-            </h3>
-            <ul className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto text-left">
-              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
-                <span className="text-primary font-bold text-xl mt-1">✓</span>
-                <span className="text-muted-foreground">Access to the Journal of Developmental Origins of Health and Disease</span>
-              </li>
-              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
-                <span className="text-primary font-bold text-xl mt-1">✓</span>
-                <span className="text-muted-foreground">Exclusive newsletters and updates on latest research</span>
-              </li>
-              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
-                <span className="text-primary font-bold text-xl mt-1">✓</span>
-                <span className="text-muted-foreground">Resources from workshops, conferences, and training programs</span>
-              </li>
-              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
-                <span className="text-primary font-bold text-xl mt-1">✓</span>
-                <span className="text-muted-foreground">Networking opportunities with researchers in India and internationally</span>
-              </li>
-              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
-                <span className="text-primary font-bold text-xl mt-1">✓</span>
-                <span className="text-muted-foreground">Capacity building and career advancement support</span>
-              </li>
-              <li className="flex items-start gap-4 p-4 bg-muted/50 rounded-lg">
-                <span className="text-primary font-bold text-xl mt-1">✓</span>
-                <span className="text-muted-foreground">Participation in policy advocacy and collaborative projects</span>
-              </li>
-            </ul>
-          </div>
-
-         
-        </section>
-
-        {/* Mission Statement */}
-        <section className="bg-muted/30 rounded-lg p-8 md:p-12 text-center">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
-            Our Mission
-          </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-DOHaD India is committed to fostering excellence in research, education, dissemination, and advance evidence-based policies and practices related to the Developmental Origins of Health and Disease (DOHaD). We work to build a collaborative network of researchers, clinicians, educators, policymakers, and other relevant stakeholders dedicated to improving health outcomes through understanding early life influences on lifelong health.
-          </p>
-        </section>
+       
       </main>
     </div>
   )

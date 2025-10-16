@@ -107,24 +107,8 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         </h4>
 
         {/* Decorative line */}
-        <div className="w-16 h-px bg-gradient-to-r from-transparent via-current to-transparent opacity-30 mb-6" />
 
-        {/* Action area */}
-        <div className="flex items-center justify-between">
-          <span className={`text-sm  ${currentVariant.accent} opacity-60`}>Discover more</span>
-          <div
-            className={`
-            w-8 h-8 rounded-full border border-current opacity-40
-            flex items-center justify-center transition-all duration-300
-            hover:opacity-80 hover:scale-110 cursor-pointer
-            ${currentVariant.accent}
-          `}
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
+      
       </div>
 
       {/* Subtle glow effect */}

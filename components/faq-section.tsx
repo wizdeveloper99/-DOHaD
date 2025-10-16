@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { useState } from "react"
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
 
@@ -23,7 +23,7 @@ const faqData = [
   {
     question: "What are the benefits of becoming a member?",
     answer:
-      "Becoming a member of DOHaD India gives you access to the Journal of Developmental Origins of Health and Disease, newsletters, and other resources. You can register for workshops and conferences organised by international or regional DOHaD societies at a reduced cost. You also get opportunities for training, capacity building, and career advancement, as well as the chance to network and collaborate with researchers in India and internationally.",
+      "Becoming a member of DOHaD India gives you access to the Journal of Developmental Origins of Health and Disease, newsletters, and other resources. You can register for workshops and conferences organized by international or regional DOHaD societies at a reduced cost. You also get opportunities for training, capacity building, and career advancement, as well as the chance to network and collaborate with researchers in India and internationally.",
   },
   {
     question: "How do I become a member?",
@@ -81,7 +81,12 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
         <div className="px-6 pb-5 pt-0">
           <div className="pl-11 pr-4">
             <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-3xl">
-              {answer}
+              {answer.split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < answer.split('\n').length - 1 && <br />}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>
