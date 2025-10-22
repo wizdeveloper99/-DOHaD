@@ -11,8 +11,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Leading DOHaD research initiatives and strategic direction for the organization.",
-      image:
-        "https://images.unsplash.com/photo-1633332755192-727a05c4013d?q=80&w=880&auto=format&fit=crop",
+      image: "/people/Debarati.jpg",
     },
     {
       title: "Secretary and Strategic Partnerships Lead",
@@ -20,8 +19,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Managing organizational operations and member communications.",
-      image:
-        "https://plus.unsplash.com/premium_photo-1690407617542-2f210cf20d7e?q=80&w=687&auto=format&fit=crop",
+      image: "/people/Eunice.jpg",
     },
     {
       title: "Research Lead",
@@ -29,8 +27,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Coordinating research activities and collaborative projects across India.",
-      image:
-        "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=880&auto=format&fit=crop",
+      image: "/people/Deepa.png",
     },
     {
       title: "Education Lead",
@@ -38,8 +35,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Developing educational programs and capacity building initiatives.",
-      image:
-        "https://plus.unsplash.com/premium_photo-1689551670902-19b441a6afde?q=80&w=687&auto=format&fit=crop",
+      image: "/people/Prafulla.jpeg",
     },
     {
       title: "Communications Lead",
@@ -47,8 +43,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Managing external communications and knowledge dissemination.",
-      image:
-        "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=687&auto=format&fit=crop",
+      image: "/people/Kiruthika.jpeg",
     },
     {
       title: "Treasurer",
@@ -56,47 +51,58 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Overseeing financial management and resource allocation.",
-      image:
-        "https://plus.unsplash.com/premium_photo-1693258698597-1b2b1bf943cc?q=80&w=687&auto=format&fit=crop",
+      image: "/people/Suganya.jpg",
     },
   ]
 
   const advisoryGroup = [
     {
-      title: "PATRON",
-      name: "Prof. Giridhara R Babu",
-      description: "Providing strategic oversight and guidance to DOHaD India's research initiatives, policy advocacy, and capacity building efforts across the country.",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=880&auto=format&fit=crop",
+      title: "ADVISOR",
+      name: "Prof Giridhara R. Babu",
+      description: "Professor, College of Medicine, Qatar University - Providing strategic oversight and guidance to DOHaD research initiatives.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
     },
     {
       title: "ADVISOR",
-      name: "Dr. Anjali Gupta",
-      description: "Expert in epidemiology and public health policy, contributing to research methodologies and data analysis frameworks.",
-      image: "/images/avatars/annette-black.png",
+      name: "Prof Kalyanaraman Kumaran",
+      description: "Professor, University of Southampton, UK - Expert in developmental origins research and policy.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
     },
     {
       title: "ADVISOR",
-      name: "Prof. Rajesh Kumar",
-      description: "Specialist in pediatric health and developmental biology, guiding clinical research and intervention studies.",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=880&auto=format&fit=crop",
+      name: "Prof Stephen Mathew",
+      description: "Professor, University of Toronto & Director of Research at the Alliance for Human Development, Lunenfeld-Tanenbaum Research Institute, Canada - Leading research in human development.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
     },
     {
       title: "ADVISOR",
-      name: "Dr. Priya Sharma",
-      description: "Focus on maternal and child nutrition, leading nutritional epidemiology and intervention programs.",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=880&auto=format&fit=crop",
+      name: "Prof Sadhana Joshi",
+      description: "Professor, Bharati Vidyapeeth, Pune, India - Guiding research and educational initiatives.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
     },
     {
       title: "ADVISOR",
-      name: "Prof. Sanjay Mehta",
-      description: "Expert in environmental health and epigenetics, advising on environmental factors in developmental outcomes.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=880&auto=format&fit=crop",
+      name: "Dr Prof. Sue Ozanne",
+      description: "University of Cambridge, United Kingdom - Expert in developmental programming and metabolism.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
     },
     {
       title: "ADVISOR",
-      name: "Dr. Neha Singh",
-      description: "Specializing in mental health and neurodevelopment, contributing to psychosocial research aspects.",
-      image: "/images/avatars/robert-fox.png",
+      name: "SAS",
+      description: "Advisor providing specialized expertise.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
+    },
+    {
+      title: "ADVISOR",
+      name: "Advisor to be confirmed",
+      description: "Position available for confirmation.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
+    },
+    {
+      title: "ADVISOR",
+      name: "Advisor to be confirmed",
+      description: "Position available for confirmation.",
+      image: "https://img.freepik.com/premium-vector/vector-flat-illustration-grayscale-avatar-user-profile-person-icon-gender-neutral-silhouette-profile-picture-suitable-social-media-profiles-icons-screensavers-as-templatex9xa_719432-2201.jpg",
     },
   ]
 
