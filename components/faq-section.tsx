@@ -1,6 +1,6 @@
 "use client"
 
-import type React from "react"
+import React from "react"
 import { useState } from "react"
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
 
@@ -18,22 +18,22 @@ const faqData = [
   {
     question: "Who can become a member of DOHaD India?",
     answer:
-      "Membership is open to anyone in India who is interested in DOHaD research, policy, and practice. Membership in DOHaD India also includes a free membership for the International DOHaD Society.",
+      "Membership is open to anyone interested  in DOHaD research, policy, and practice in India and the South Asian region. Membership in DOHaD India also includes a free membership for the International DOHaD Society.",
   },
   {
     question: "What are the benefits of becoming a member?",
     answer:
-      "Becoming a member of DOHaD India gives you access to the Journal of Developmental Origins of Health and Disease, newsletters, and resources from workshops and conferences. You also get opportunities for training, capacity building, and career advancement, as well as the chance to network and collaborate with researchers in India and internationally.",
+      "Becoming a member of DOHaD India gives you access to the Journal of Developmental Origins of Health and Disease, newsletters, and other resources. You can register for workshops and conferences organized by international or regional DOHaD societies at a reduced cost. You also get opportunities for training, capacity building, and career advancement, as well as the chance to network and collaborate with researchers in India and internationally.",
   },
   {
     question: "How do I become a member?",
     answer:
-      "To become a member, you need to join the International DOHaD Society and select DOHaD India as your regional society. After that, DOHaD India will contact you with details on how to pay the annual membership fee.",
+      "To become a member, you need to join the International DOHaD Society and select DOHaD India as your regional society. DOHaD India will then share a welcome note to formally invite you as a member of DOHaD India, and share payment details for the nominal annual membership fee.",
   },
   {
     question: "How much does a membership cost?",
     answer:
-      "The annual membership fees vary based on your career stage. Standard members are Rs. 1000, training/early career researchers are Rs. 500, and undergraduate students are Rs. 250. A portion of your fee will support regional initiatives in India.",
+      "The annual membership fees vary based on your career stage. \n\nMembership category\tAnnual fee (INR)\tStandard (for established researchers)\tRs 1000\tTraining / early career researchers (within 5 years of PhD)\tRs 500\tMasters and undergraduate students\tRs 250\n\nMembership fees will be solely utilized to support regional society activities in India",
   },
 ]
 
@@ -81,7 +81,12 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
         <div className="px-6 pb-5 pt-0">
           <div className="pl-11 pr-4">
             <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-3xl">
-              {answer}
+              {answer.split('\n').map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  {index < answer.split('\n').length - 1 && <br />}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </div>

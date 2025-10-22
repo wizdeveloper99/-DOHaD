@@ -68,20 +68,19 @@ const CapacityBuilding = () => {
             Capacity Building
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            We build expertise in DOHaD principles through comprehensive training
-            programs, mentorship opportunities, and hands-on research experiences.
+            We build expertise in DOHaD principles through comprehensive training programs, mentorship opportunities, and hands-on research experiences.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Training Workshops */}
           <div className="hover-lift-2 text-center">
    <div className="card-hover-content">
           {/* Image Container */}
           <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image 
-              src="Layer 2.png" 
+            <Image
+              src="Layer 2.png"
               alt="Training Workshops"
               fill
               className="object-contain"
@@ -91,7 +90,7 @@ const CapacityBuilding = () => {
       Training Workshops
     </h3>
     <p className="card-hover-text text-muted-foreground text-base mt-3">
-      Comprehensive courses on DOHaD principles and lifecourse epidemiology.
+      Comprehensive courses on the theory of DOHaD and lifecourse epidemiology.
     </p>
   </div>
 </div>
@@ -101,8 +100,8 @@ const CapacityBuilding = () => {
             <div className="card-hover-content">
              {/* Image Container */}
           <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image 
-              src="icon 3.png" 
+            <Image
+              src="icon 3.png"
               alt="Training Workshops"
               fill
               className="object-contain"
@@ -112,7 +111,7 @@ const CapacityBuilding = () => {
                 Mentorship Programs
               </h3>
               <p className="card-hover-text text-muted-foreground text-base mt-3">
-                Pairing early-career researchers with senior DOHaD scientists for guidance.
+                Pairing early-career researchers with senior DOHaD scientists.
               </p>
             </div>
           </div>
@@ -122,8 +121,8 @@ const CapacityBuilding = () => {
             <div className="card-hover-content">
              {/* Image Container */}
           <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image 
-              src="icon 2(1).png" 
+            <Image
+              src="icon 2(1).png"
               alt="Training Workshops"
               fill
               className="object-contain"
@@ -132,8 +131,29 @@ const CapacityBuilding = () => {
               <h3 className="card-hover-title font-semibold text-xl text-foreground">
                 Writing Workshops
               </h3>
+    <p className="card-hover-text text-muted-foreground text-base mt-3">
+      Best practices in scientific writing, presentation, and communication skills.
+    </p>
+            </div>
+          </div>
+
+          {/* INTERNSHIP programs */}
+          <div className="hover-lift-2 text-center">
+            <div className="card-hover-content">
+             {/* Image Container */}
+          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
+            <Image
+              src="icon 2(1).png"
+              alt="Intership Programs"
+              fill
+              className="object-contain"
+            />
+          </div>
+              <h3 className="card-hover-title font-semibold text-xl text-foreground">
+                INTERNSHIP programs
+              </h3>
               <p className="card-hover-text text-muted-foreground text-base mt-3">
-                Best practices in scientific writing and communication skills.
+                Short-term hands-on experience with research groups working on DOHaD related research.
               </p>
             </div>
           </div>

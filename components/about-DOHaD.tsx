@@ -145,7 +145,7 @@ export default function AboutDOHaD() {
                   <span className="text-gray-900 dark:text-gray-100">DOHaD?</span>
                 </h1>
                 <p className="mt-6 text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                  The Developmental Origins of Health and Disease (DOHaD) explores how early-life experiences, from conception through childhood, influence long-term health outcomes and disease risk.
+                  The Developmental Origins of Health and Disease (DOHaD) explore how early-life experiences from preconception through childhood, influence long-term health outcomes and disease risk in adulthood.
                 </p>
               </div>
 

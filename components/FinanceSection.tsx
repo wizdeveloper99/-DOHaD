@@ -107,24 +107,8 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         </h4>
 
         {/* Decorative line */}
-        <div className="w-16 h-px bg-gradient-to-r from-transparent via-current to-transparent opacity-30 mb-6" />
 
-        {/* Action area */}
-        <div className="flex items-center justify-between">
-          <span className={`text-sm  ${currentVariant.accent} opacity-60`}>Discover more</span>
-          <div
-            className={`
-            w-8 h-8 rounded-full border border-current opacity-40
-            flex items-center justify-center transition-all duration-300
-            hover:opacity-80 hover:scale-110 cursor-pointer
-            ${currentVariant.accent}
-          `}
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
-        </div>
+      
       </div>
 
       {/* Subtle glow effect */}
@@ -147,8 +131,7 @@ const FeatherCardDemo = () => {
 
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-           We actively disseminate knowledge and raise awareness about DOHaD
-            research through various communication channels
+           We actively promote and disseminate DOHaD research across India and globally through multiple communication platforms
           </p>
         </div>
 
@@ -160,10 +143,7 @@ const FeatherCardDemo = () => {
       subtitle=""
       content={
         <p className="card-hover-text text-muted-foreground text-base mt-3 font-normal">
-          Regular webinars featuring renowned Indian and international experts
-          share emerging insights from DOHaD research, exploring critical topics,
-          innovative methodologies, and practical applications to foster
-          collaboration and empower researchers, clinicians, and students.
+          Regular webinars featuring renowned Indian and international experts to share emerging insights from DOHaD research, innovative methods, and practical applications to empower researchers, clinicians, and students, and to foster multi-disciplinary collaboration
         </p>
       }
       variant="primary"
@@ -179,9 +159,7 @@ const FeatherCardDemo = () => {
       subtitle=""
       content={
         <p className="card-hover-text text-muted-foreground text-base mt-3 font-normal">
-          Stay updated with carefully curated insights on recent publications,
-          significant events, funding opportunities, and valuable member contributions,
-          keeping you engaged and connected with the DOHaD community.
+          Stay updated with carefully curated insights on recent publications, events, funding opportunities, and valuable member contributions, keeping you engaged and connected with the DOHaD community.
         </p>
       }
       variant="sage"

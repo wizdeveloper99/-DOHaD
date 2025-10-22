@@ -31,7 +31,7 @@ export default function HomePage() {
         
         {/* Social Proof with consistent container */}
         {/* <AnimatedSection
-          className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 md:mt-[320px]"
+          className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 md:mt-[320px]"
           delay={0.1}
         >
           <SocialProofStats />
@@ -40,7 +40,7 @@ export default function HomePage() {
         {/* About DOHaD Section */}
         <AnimatedSection
           id="about-section"
-          className="relative z-10"
+          className="relative max-w-7xl mx-auto px-8 md:px-12"
           delay={0.2}
         >
           <AboutDOHaD />
@@ -51,7 +51,7 @@ export default function HomePage() {
           {/* About Section */}
           <AnimatedSection
             id="about-pillars-section"
-            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6"
+            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12"
             delay={0.2}
           >
             <AboutSection />
@@ -60,7 +60,7 @@ export default function HomePage() {
           {/* Four Pillars/Bento Section */}
           <AnimatedSection 
             id="features-section" 
-            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12" 
             delay={0.2}
           >
             <BentoCarousel />
@@ -96,7 +96,7 @@ export default function HomePage() {
           {/* FAQ Section */}
           <AnimatedSection 
             id="faq-section" 
-            className="relative z-10 max-w-7xl mx-auto px-4 md:px-6" 
+            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12" 
             delay={0.2}
           >
             <FAQSection />
