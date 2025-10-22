@@ -85,10 +85,15 @@ export function FooterSection() {
                   <Mail className="h-5 w-5 text-white" />
                   <span className="text-white">contact@dohadindia.org</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <MapPin className="h-5 w-5 text-white" />
-                  <span className="text-white">Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038</span>
-                </div>
+                <a
+                  href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
+                >
+                  <MapPin className="h-20 w-20 text-white" />
+                  <span className="text-white">PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038</span>
+                </a>
               </div>
           </div>
         </div>

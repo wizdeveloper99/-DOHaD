@@ -38,7 +38,12 @@ export default function ContactPage() {
               </div>
 
               {/* Address */}
-              <div className="flex items-start gap-4">
+              <a
+                href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
+              >
                 <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-secondary" />
                 </div>
@@ -54,7 +59,7 @@ export default function ContactPage() {
                     Indiranagar, Bengaluru - 560038
                   </p>
                 </div>
-              </div>
+              </a>
             </div>
 
             {/* Office Hours */}
