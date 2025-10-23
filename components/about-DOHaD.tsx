@@ -136,7 +136,7 @@ export default function AboutDOHaD() {
               {/* Heading */}
               <div className="text-center w-full sm:max-w-2xl">
                 <div className="inline-block px-4 py-2 bg-secondary-100 dark:bg-secondary-900/20 text-secondary-700 dark:text-secondary-300 text-sm font-medium rounded-full mb-6">
-                  Health & Development Research
+                  Developmental Origin of Health and Disease
                 </div>
                 <h1 className="text-5xl md:text-6xl font-bold leading-tight text-gray-900 dark:text-gray-100">
                   <span className="text-secondary ">
@@ -149,33 +149,6 @@ export default function AboutDOHaD() {
                 </p>
               </div>
 
-              {/* Desktop / Tablet: Big pill (shows from sm). Centered until lg, then left. */}
-              <div className="hidden sm:flex w-full max-w-md bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-full p-1.5 shadow-lg border border-white/20 dark:border-secondary-500/20 justify-center mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your Email"
-                  value={email}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                  className="flex-grow bg-transparent outline-none px-5 py-4 text-gray-700 dark:text-gray-300 text-lg"
-                />
-                <button className="px-8 py-4 bg-secondary dark:to-secondary-300 text-white rounded-full hover:from-secondary-700 dark:hover:from-secondary-500 hover:to-secondary-600 dark:hover:to-secondary-400 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105">
-                  Get Started
-                </button>
-              </div>
-
-              {/* Mobile: Two pills stacked (centered) */}
-            <div className="flex sm:hidden flex-col w-full max-w-md gap-3 mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your Email"
-                  value={email}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-                  className="w-full bg-white dark:bg-slate-800 rounded-full px-4 py-3 text-gray-700 dark:text-gray-300 text-base outline-none shadow"
-                />
-                <button className="w-full px-6 py-3 bg-secondary text-white rounded-full hover:from-secondary-700 dark:hover:from-secondary-500 hover:to-secondary-600 dark:hover:to-secondary-400 transition-all duration-300 font-medium shadow-lg hover:shadow-xl transform hover:scale-105 text-sm">
-                  Get Started
-                </button>
-              </div>
             </div>
 
 

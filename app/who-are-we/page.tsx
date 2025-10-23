@@ -11,7 +11,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Leading DOHaD research initiatives and strategic direction for the organization.",
-      image: "/people/Debarati.jpg",
+      image: "/people/Debaratinew.jpg",
     },
     {
       title: "Secretary and Strategic Partnerships Lead",
