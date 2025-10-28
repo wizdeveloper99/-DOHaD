@@ -35,7 +35,7 @@ export default async function EventsPage() {
               
               {/* Image Section */}
               <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg">
-                {event.fields.image && (
+                {event.fields.image && event.fields.image.fields && event.fields.image.fields.file && (
                   <Image
                     src={`https:${event.fields.image.fields.file.url}`}
                     alt={event.fields.image.fields.title || event.fields.title}
