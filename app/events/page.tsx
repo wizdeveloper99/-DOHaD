@@ -35,17 +35,15 @@ export default async function EventsPage() {
               
               {/* Image Section */}
               <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg">
-                {event.fields.image && event.fields.image.fields && event.fields.image.fields.file && (
-                  <Image
-                    src={`https:${event.fields.image.fields.file.url}`}
-                    alt={event.fields.image.fields.title || event.fields.title}
-                    width={1600}
-                    height={900}
-                    className="w-full h-auto object-contain bg-transparent"
-                    priority={index === 0}
-                    sizes="100vw"
-                  />
-                )}
+                <Image
+                  src={event.fields.image?.fields?.file?.url ? `https:${event.fields.image.fields.file.url}` : '/placeholder.jpg'}
+                  alt={event.fields.image?.fields?.file?.url ? (event.fields.image.fields.title || event.fields.title) : 'Event placeholder'}
+                  width={1600}
+                  height={900}
+                  className="w-full h-[400px] sm:h-[600px] object-cover sm:object-contain bg-transparent"
+                  priority={index === 0}
+                  sizes="100vw"
+                />
               </div>
 
               {/* Content Below */}
