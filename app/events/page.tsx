@@ -1,3 +1,5 @@
+export const revalidate = 300; // Revalidate every 5 minutes
+
 import { Header } from "@/components/header"
 import { Calendar, Users, Camera, Mail, Sparkles, BookOpen, Handshake } from "lucide-react"
 import Image from "next/image"
@@ -23,7 +25,6 @@ export default async function EventsPage() {
           </p>
         </div>
 
- {/* Full Screen Hero Image Gallery from Contentful */}
 {/* Full Screen Hero Image Gallery from Contentful */}
 <div className="w-full mb-16 px-4 sm:px-6 lg:px-12">
   {events && events.length > 0 ? (
