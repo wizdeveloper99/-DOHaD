@@ -48,11 +48,18 @@ export function FooterSection() {
                 { name: "Research", link: "#research" },
                 { name: "Capacity Building", link: "#capacity" },
                 { name: "Advocacy", link: "#advocacy" },
+                { name: "Download", link: "/sample.txt", download: true },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-white hover:text-gray-300 transition-colors">
-                    {item.name}
-                  </a>
+                  {item.download ? (
+                    <a href={item.link} download className="text-white hover:text-gray-300 transition-colors">
+                      {item.name}
+                    </a>
+                  ) : (
+                    <a href={item.link} className="text-white hover:text-gray-300 transition-colors">
+                      {item.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>

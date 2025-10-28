@@ -14,6 +14,7 @@ export function Header() {
     { name: "Resources", href: "/resources" },
     { name: "Events", href: "/events" },
     { name: "Contact", href: "/contact" },
+    { name: "Download", href: "/sample.txt", download: true },
   ]
 
   return (
@@ -35,13 +36,24 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-2">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
-            >
-              {item.name}
-            </Link>
+            item.download ? (
+              <a
+                key={item.name}
+                href={item.href}
+                download
+                className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
+              >
+                {item.name}
+              </Link>
+            )
           ))}
         </nav>
 
@@ -73,13 +85,24 @@ export function Header() {
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-6">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="text-muted-foreground hover:text-foreground text-base sm:text-lg py-2"
-                  >
-                    {item.name}
-                  </Link>
+                  item.download ? (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      download
+                      className="text-muted-foreground hover:text-foreground text-base sm:text-lg py-2"
+                    >
+                      {item.name}
+                    </a>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="text-muted-foreground hover:text-foreground text-base sm:text-lg py-2"
+                    >
+                      {item.name}
+                    </Link>
+                  )
                 ))}
                 <Link href="/join-us" className="w-full mt-4">
                   <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm w-full">
