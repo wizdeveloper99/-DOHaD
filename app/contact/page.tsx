@@ -40,21 +40,23 @@ export default function ContactPage() {
 
               {/* Address */}
               <a
-                href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
-              >
-                <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">Address</h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
-                  </p>
-                </div>
-              </a>
+  href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
+>
+  <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
+    <MapPin className="w-6 h-6 text-secondary" />
+  </div>
+  <div>
+    <h3 className="font-semibold text-foreground mb-1">Address</h3>
+    <p className="text-muted-foreground text-sm leading-relaxed">
+      PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
+      <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
+    </p>
+  </div>
+</a>
+
             </div>
 
             <div className="bg-card border border-border rounded-lg p-5 shadow-sm mt-5">
