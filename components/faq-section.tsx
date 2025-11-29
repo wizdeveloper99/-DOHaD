@@ -18,7 +18,9 @@ const faqData = [
   {
     question: "Who can become a member of DOHaD India?",
     answer:
-      "Membership is open to anyone interested  in DOHaD research, policy, and practice in India and the South Asian region. Membership in DOHaD India also includes a free membership for the International DOHaD Society.",
+      "Membership is open to anyone interested in DOHaD research, policy, and practice in India and the South Asian region.",
+    hasHighlight: true,
+    highlightText: "🎁 Membership in DOHaD India includes free membership in the International DOHaD Society!",
   },
   {
     question: "What are the benefits of becoming a member?",
@@ -32,26 +34,48 @@ const faqData = [
   },
   {
     question: "How much does a membership cost?",
-    answer:
-      "The annual membership fees vary based on your career stage. \n\nMembership category\tAnnual fee (INR)\tStandard (for established researchers)\tRs 1000\tTraining / early career researchers (within 5 years of PhD)\tRs 500\tMasters and undergraduate students\tRs 250\n\nMembership fees will be solely utilized to support regional society activities in India",
+    answer: "",
+    hasTable: true,
+    tableData: [
+      { category: "Standard (for established researchers)", fee: "Rs 1,000" },
+      { category: "Training / early career researchers (within 5 years of PhD)", fee: "Rs 500" },
+      { category: "Masters and undergraduate students", fee: "Rs 250" },
+    ],
+    tableFooter: "Membership fees will be solely utilized to support regional society activities in India.",
   },
 ]
 
 interface FAQItemProps {
   question: string
-  answer: string
+  answer?: string
   index: number
-  showAnswers: boolean
-  onToggleAnswers: () => void
+  isOpen: boolean
+  onToggle: () => void
+  hasHighlight?: boolean
+  highlightText?: string
+  hasTable?: boolean
+  tableData?: Array<{ category: string; fee: string }>
+  tableFooter?: string
 }
 
-const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQItemProps) => {
+const FAQItem = ({ 
+  question, 
+  answer, 
+  index, 
+  isOpen, 
+  onToggle, 
+  hasHighlight, 
+  highlightText,
+  hasTable,
+  tableData,
+  tableFooter 
+}: FAQItemProps) => {
   return (
     <div className="group w-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-sm overflow-hidden rounded-xl transition-all duration-300 ease-out">
       {/* Question with toggle button */}
       <div 
         className="w-full px-6 py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors duration-200"
-        onClick={onToggleAnswers}
+        onClick={onToggle}
       >
         <div className="flex items-center gap-3 flex-1">
           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold">
@@ -63,7 +87,7 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
         </div>
         <div className="flex justify-center items-center">
           <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-            showAnswers 
+            isOpen 
               ? "bg-primary/10 text-primary rotate-180" 
               : "text-gray-400 dark:text-gray-500 group-hover:bg-gray-100 dark:group-hover:bg-gray-800 group-hover:text-primary"
           }`}>
@@ -75,18 +99,64 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
       {/* Answer */}
       <div
         className={`overflow-hidden transition-all duration-500 ease-out ${
-          showAnswers ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="px-6 pb-5 pt-0">
           <div className="pl-11 pr-4">
-            <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-3xl">
-              {answer.split('\n').map((line, index) => (
-                <React.Fragment key={index}>
-                  {line}
-                  {index < answer.split('\n').length - 1 && <br />}
-                </React.Fragment>
-              ))}
+            <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-lg">
+              {answer && (
+                <p className="mb-3">{answer}</p>
+              )}
+              
+              {/* Highlight box for International DOHaD membership */}
+              {hasHighlight && highlightText && (
+                <div className="mt-3 p-4 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 border-l-4 border-primary rounded-lg">
+                  <p className="text-primary dark:text-primary-light font-semibold text-base">
+                    {highlightText}
+                  </p>
+                </div>
+              )}
+              
+              {/* Table for membership fees */}
+              {hasTable && tableData && (
+                <div className="mt-2">
+                  <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="bg-primary/10 dark:bg-primary/20 border-b border-gray-200 dark:border-gray-700">
+                          <th className="px-4 py-3 text-left font-semibold text-gray-800 dark:text-gray-200">
+                            Category
+                          </th>
+                          <th className="px-4 py-3 text-left font-semibold text-gray-800 dark:text-gray-200">
+                            Annual Fee (INR)
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {tableData.map((row, idx) => (
+                          <tr 
+                            key={idx}
+                            className="border-b border-gray-100 dark:border-gray-800 last:border-b-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors"
+                          >
+                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300">
+                              {row.category}
+                            </td>
+                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300 font-medium">
+                              {row.fee}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  {tableFooter && (
+                    <p className="mt-3 text-xs text-gray-500 dark:text-gray-400 italic">
+                      {tableFooter}
+                    </p>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -96,10 +166,15 @@ const FAQItem = ({ question, answer, index, showAnswers, onToggleAnswers }: FAQI
 }
 
 export function FAQSection() {
-  const [showAnswers, setShowAnswers] = useState(false)
+  // Each FAQ item tracks its own open/closed state
+  const [openItems, setOpenItems] = useState<number[]>([])
   
-  const toggleAnswers = () => {
-    setShowAnswers(!showAnswers)
+  const toggleItem = (index: number) => {
+    setOpenItems(prev => 
+      prev.includes(index) 
+        ? prev.filter(i => i !== index)
+        : [...prev, index]
+    )
   }
   
   return (
@@ -126,7 +201,7 @@ export function FAQSection() {
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-6" />
       </div>
       
-      {/* FAQ Items - Always visible */}
+      {/* FAQ Items - Each can expand/collapse independently */}
       <div className="w-full max-w-4xl relative z-10 space-y-4">
         {faqData.map((faq, index) => (
           <FAQItem 
@@ -134,8 +209,13 @@ export function FAQSection() {
             question={faq.question}
             answer={faq.answer}
             index={index}
-            showAnswers={showAnswers}
-            onToggleAnswers={toggleAnswers}
+            isOpen={openItems.includes(index)}
+            onToggle={() => toggleItem(index)}
+            hasHighlight={faq.hasHighlight}
+            highlightText={faq.highlightText}
+            hasTable={faq.hasTable}
+            tableData={faq.tableData}
+            tableFooter={faq.tableFooter}
           />
         ))}
       </div>
