@@ -1,9 +1,7 @@
 "use client"
 
-import { Twitter, Linkedin, Mail, Facebook, Youtube, Phone, MapPin, Instagram } from "lucide-react"
+import { Twitter, Linkedin, Mail, Youtube, MapPin } from "lucide-react"
 import Image from "next/image"
-import { Button } from "./ui/button"
-import ContentDesign from "./ui/contentDesgin"
 
 export function FooterSection() {
   return (
@@ -31,11 +29,34 @@ export function FooterSection() {
               Advancing health through understanding the early developmental origins of health and disease.
             </p>
             <div className="flex space-x-3">
-              {[Facebook, Instagram, Linkedin, Youtube].map((Icon, i) => (
-                <Button key={i} size="sm" variant="ghost" className="h-8 w-8 p-0 hover:bg-white/20">
-                  <Icon className="h-4 w-4 text-white" />
-                </Button>
-              ))}
+              {/* Social Media Links */}
+              <a 
+                href="https://twitter.com/dohadindia" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Follow us on X (Twitter)"
+                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+              >
+                <Twitter className="h-4 w-4 text-white" />
+              </a>
+              <a 
+                href="https://www.linkedin.com/company/dohad-india" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Connect with us on LinkedIn"
+                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+              >
+                <Linkedin className="h-4 w-4 text-white" />
+              </a>
+              <a 
+                href="https://www.youtube.com/@dohadindia" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Subscribe to our YouTube channel"
+                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+              >
+                <Youtube className="h-4 w-4 text-white" />
+              </a>
             </div>
           </div>
 
@@ -88,10 +109,14 @@ export function FooterSection() {
           <div>
             <h4 className="text-base font-semibold mb-4 text-white">Contact Info</h4>
               <div className="space-y-3 text-sm text-white">
-                <div className="flex items-center space-x-2">
-                  <Mail className="h-5 w-5 text-white" />
-                  <span className="text-white">contact@dohadindia.org</span>
-                </div>
+                {/* Email as styled button */}
+                <a
+                  href="mailto:contact@dohadindia.org"
+                  className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-all border border-white/20 hover:border-white/40 group"
+                >
+                  <Mail className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
+                  <span className="text-white font-medium">contact@dohadindia.org</span>
+                </a>
                <a
   href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
   target="_blank"
