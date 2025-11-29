@@ -1,152 +1,124 @@
-// components/AboutSection.tsx
 "use client";
-
+import React from "react";
 import Image from "next/image";
-import { Shield, BookOpen, Users, Globe } from "lucide-react";
-
-const softThemes = [
-  { bg: "bg-[#f5f7fa] dark:bg-[#1f1f1f]", accent: "text-[#222222] dark:text-white" }, // Grey soft
-  { bg: "bg-[#e6f7f6] dark:bg-[#003c38]", accent: "text-[#00645E] dark:text-[#8AD260]" }, // Teal
-  { bg: "bg-[#f2faee] dark:bg-[#1d2d1b]", accent: "text-[#3F7D20] dark:text-[#8AD260]" }, // Green
-  { bg: "bg-[#f6f9f3] dark:bg-[#2a3225]", accent: "text-[#546b44] dark:text-[#d6e9c3]" }, // Mint
-];
-
-const features = [
-  {
-    icon: <BookOpen className="w-7 h-7" />,
-    title: "Advance Collaborative Research in India",
-    description:
-      "Collaborative research on early-life influences on later health outcomes by linking Indian scientists and institutions working in diverse environments and communities",
-  },
-  {
-    icon: <Shield className="w-7 h-7" />,
-    title: "Apply DOHaD principles in Indian Health Policy",
-    description:
-      "Promote DOHaD principles in shaping India's health policies, especially the primary prevention of chronic diseases by focusing on promoting health at the earliest life stages",
-  },
-  {
-    icon: <Globe className="w-7 h-7" />,
-    title: "Strengthen Regional Dialogues Across India",
-    description:
-      "Organize forums and meetings across India, sharing DOHaD research insights while engaging professionals from multiple relevant sectors",
-  },
-  {
-    icon: <Users className="w-7 h-7" />,
-    title: "Build Inclusive Participation in India",
-    description:
-      "Encourage students, early career researchers, and professionals across Indian regions to join DOHaD initiatives and activities",
-  },
-];
-
-function FeatureCard({
-  icon,
-  title,
-  description,
-  bg,
-  accent,
-  className = "",
-}: {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  bg: string;
-  accent: string;
-  className?: string;
-}) {
-  return (
-    <div
-      className={`card-hover relative w-full rounded-2xl ${bg}
-        backdrop-blur-sm shadow-sm overflow-hidden
-        flex flex-col ${className}`}
-    >
-      {/* Subtle dotted pattern */}
-      <svg
-        className="absolute inset-0 opacity-[0.05] pointer-events-none"
-        xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio="xMidYMid slice"
-      >
-        <defs>
-          <pattern
-            id="dotsLight"
-            x="0"
-            y="0"
-            width="20"
-            height="20"
-            patternUnits="userSpaceOnUse"
-          >
-            <circle cx="2" cy="2" r="1.5" fill="currentColor" />
-          </pattern>
-        </defs>
-        <rect width="100%" height="100%" fill="url(#dotsLight)" />
-      </svg>
-
-      {/* Content */}
-      <div className="card-hover-content relative z-10 p-4 sm:p-6 flex flex-col items-center sm:items-start text-center sm:text-left gap-3 sm:gap-4 h-full justify-between">
-        <div className="flex flex-col items-center sm:items-start gap-2 sm:gap-3">
-          <div
-            className={`p-2 sm:p-3 ${accent}/20 rounded-xl flex items-center justify-center transition-transform duration-300`}
-          >
-            {icon}
-          </div>
-          <h3 className={`card-hover-title text-lg sm:text-xl font-semibold ${accent} leading-tight`}>
-            {title}
-          </h3>
-        </div>
-        <p className="card-hover-text text-sm sm:text-base leading-relaxed text-foreground/80">
-          {description}
-        </p>
-      </div>
-    </div>
-  );
-}
+import { Users, Globe, Activity, BookOpen, Network, Lightbulb, ArrowRight } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section className="relative overflow-hidden py-8 sm:py-12 md:py-16 lg:py-20">
-      {/* Faint background glow blobs */}
-
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-        {/* Heading */}
-        <div className="text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 leading-tight">
-            DOHaD India Regional Society
-          </h2>
-          <p className="text-sm sm:text-base md:text-lg text-muted-foreground dark:text-gray-300 text-gray-700 leading-relaxed max-w-full sm:max-w-2xl md:max-w-3xl lg:max-w-4xl mx-auto">
-            The DOHaD India Regional Society is committed to advancing the
-            science and evidence-based policies and practices based on the
-            Developmental Origins of Health and Disease paradigm, rooted in the
-            Indian context.
-          </p>
-        </div>
-
-        {/* Grid */}
-        <div className="mt-8 sm:mt-12 md:mt-16 mb-8 sm:mb-12 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-x-6 lg:gap-y-8 items-stretch">
-          {/* Left side cards */}
-          <div className="flex flex-col h-full gap-6 sm:gap-8">
-            <FeatureCard {...features[0]} {...softThemes[0]} className="flex-1" />
-            <FeatureCard {...features[1]} {...softThemes[1]} className="flex-1" />
+    <section className="w-full py-12 md:py-20 bg-background">
+      <div className="container mx-auto px-4 md:px-0">
+        {/* Top Section: 2 Columns */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+          
+          {/* Left Column: Who We Are */}
+            
+          <div className="space-y-8">
+            <div className="space-y-4">
+              <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary-700 dark:text-secondary-300 text-sm font-semibold rounded-full tracking-wide">
+                Who We Are
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
+              DOHaD India Regional Society
+              </h2>
+            </div>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              We are a premier scientific society dedicated to understanding how early-life environment interacts with genetics to shape lifelong health. By bringing together researchers, clinicians, and policymakers, we aim to transform healthcare paradigms through the Developmental Origins of Health and Disease (DOHaD) approach.
+            </p>
+            
+            <ul className="space-y-4">
+              {[
+                "Promote collaborative research across disciplines",
+                "Disseminate scientific knowledge to stakeholders",
+                "Advocate for evidence-based health policies",
+                "Foster capacity building for young researchers"
+              ].map((aim, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <div className="mt-1.5 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-secondary" />
+                  </div>
+                  <span className="text-gray-700 dark:text-gray-300 font-medium">{aim}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Center image with hover effect */}
-          <div className="flex justify-center px-4 md:px-0">
-            <div className="card-hover rounded-3xl overflow-hidden shadow-xl w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-full bg-white/60 backdrop-blur-md">
-              <Image
-                src="/2151663948.jpg"
-                alt="Illustration of DOHaD India activities"
-                width={600}
-                height={800}
-                className="card-hover-image w-full h-full object-cover select-none"
-                priority
+          {/* Right Column: Stats & Map */}
+          <div className="relative h-full min-h-[500px] rounded-3xl overflow-hidden bg-slate-50 dark:bg-slate-900/50 border border-slate-100 dark:border-slate-800 group">
+            {/* Map Background */}
+            <div className="absolute inset-0 w-full h-full transition-transform duration-700 group-hover:scale-105">
+              <Image 
+                src="/dohad-india-network-map.png" 
+                alt="DOHaD India Network Map" 
+                fill 
+                className="object-cover object-center opacity-90 dark:opacity-60"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent dark:from-slate-950 dark:via-slate-950/20" />
+            </div>
+
+            {/* Stats Overlay */}
+            <div className="relative z-10 h-full flex flex-col justify-end p-6 md:p-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-5 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-md transition-all">
+                  <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">150+</div>
+                  <div className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Active Members</div>
+                </div>
+                <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-5 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-md transition-all">
+                  <div className="text-3xl md:text-4xl font-bold text-secondary mb-1">25,000+</div>
+                  <div className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Visitors</div>
+                </div>
+                <div className="sm:col-span-2 bg-secondary/95 backdrop-blur-md p-5 rounded-2xl shadow-lg text-white border border-white/10 hover:bg-secondary transition-colors">
+                  <div className="flex items-center gap-4">
+                    <div className="p-2.5 bg-white/20 rounded-xl shrink-0">
+                      <Globe className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="text-lg font-bold leading-none mb-1">National Network</div>
+                      <p className="text-secondary-100 text-sm leading-snug font-medium">
+                        Connecting researchers & clinicians across India
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          {/* Right side cards */}
-          <div className="flex flex-col h-full gap-6 sm:gap-8">
-            <FeatureCard {...features[2]} {...softThemes[2]} className="flex-1" />
-            <FeatureCard {...features[3]} {...softThemes[3]} className="flex-1" />
-          </div>
+        {/* Bottom Section: Benefits Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[
+            {
+              title: "Advance Collaborative Research",
+              desc: "Facilitating multi-disciplinary studies to uncover developmental origins of disease and develop preventive strategies.",
+              icon: <Network className="w-6 h-6" />
+            },
+            {
+              title: "Knowledge Dissemination",
+              desc: "Sharing cutting-edge findings through annual conferences, workshops, and high-impact publications.",
+              icon: <BookOpen className="w-6 h-6" />
+            },
+            {
+              title: "Capacity Building",
+              desc: "Training the next generation of scientists with specialized workshops, mentorship programs, and grants.",
+              icon: <Lightbulb className="w-6 h-6" />
+            }
+          ].map((card, index) => (
+            <div key={index} className="group p-8 bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:shadow-secondary/5 transition-all duration-300 hover:-translate-y-1">
+              <div className="w-14 h-14 bg-secondary/10 rounded-2xl flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-all duration-300 group-hover:scale-110">
+                {card.icon}
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 group-hover:text-secondary transition-colors">
+                {card.title}
+              </h3>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                {card.desc}
+              </p>
+              {/* <div className="flex items-center text-sm font-semibold text-secondary opacity-0 group-hover:opacity-100 transition-opacity -translate-x-2 group-hover:translate-x-0 duration-300">
+                Learn more <ArrowRight className="w-4 h-4 ml-1" />
+              </div> */}
+            </div>
+          ))}
         </div>
       </div>
     </section>
