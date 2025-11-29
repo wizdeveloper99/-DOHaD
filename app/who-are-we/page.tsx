@@ -27,7 +27,7 @@ export default function WhoAreWePage() {
       affiliation: "[Institution]",
       description:
         "Coordinating research activities and collaborative projects across India.",
-      image: "/people/Deepa.png",
+      image: "/people/Deepa.jpg",
     },
     {
       title: "Education Lead",
