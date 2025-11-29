@@ -1,6 +1,28 @@
 import React from "react";
-import { BookOpen, Users, PenTool } from "lucide-react";
 import Image from "next/image";
+
+const capacityBuildingItems = [
+  {
+    title: "Training Workshops",
+    description: "Comprehensive courses on the theory of DOHaD and lifecourse epidemiology.",
+    image: "/Layer 2.png",
+  },
+  {
+    title: "Mentorship Programs",
+    description: "Pairing early-career researchers with senior DOHaD scientists.",
+    image: "/icon 3.png",
+  },
+  {
+    title: "Writing Workshops",
+    description: "Best practices in scientific writing, presentation, and communication skills.",
+    image: "/icon 2(1).png",
+  },
+  {
+    title: "Internship Programs",
+    description: "Short-term hands-on experience with research groups working on DOHaD related research.",
+    image: "/icon 2(1).png",
+  },
+];
 
 const CapacityBuilding = () => {
   return (
@@ -68,95 +90,43 @@ const CapacityBuilding = () => {
             Capacity Building
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            We build expertise in DOHaD principles through comprehensive training programs, mentorship opportunities, and hands-on research experiences.
+            We support the next generation of DOHaD researchers through structured training and hands-on experience.
           </p>
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-          {/* Training Workshops */}
-          <div className="hover-lift-2 text-center">
-   <div className="card-hover-content">
-          {/* Image Container */}
-          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image
-              src="Layer 2.png"
-              alt="Training Workshops"
-              fill
-              className="object-contain"
-            />
-          </div>
-    <h3 className="card-hover-title font-semibold text-xl text-foreground">
-      Training Workshops
-    </h3>
-    <p className="card-hover-text text-muted-foreground text-base mt-3">
-      Comprehensive courses on the theory of DOHaD and lifecourse epidemiology.
-    </p>
-  </div>
-</div>
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {capacityBuildingItems.map((item, index) => (
+            <div
+              key={index}
+              className="group relative bg-card rounded-3xl p-6 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 border border-primary/10 hover:border-primary/30 overflow-hidden"
+            >
+              {/* Decorative gradient background on hover */}
+              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-          {/* Mentorship Programs */}
-          <div className="hover-lift-2 text-center">
-            <div className="card-hover-content">
-             {/* Image Container */}
-          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image
-              src="icon 3.png"
-              alt="Training Workshops"
-              fill
-              className="object-contain"
-            />
-          </div>
-              <h3 className="card-hover-title font-semibold text-xl text-foreground">
-                Mentorship Programs
-              </h3>
-              <p className="card-hover-text text-muted-foreground text-base mt-3">
-                Pairing early-career researchers with senior DOHaD scientists.
-              </p>
-            </div>
-          </div>
+              <div className="relative z-10 flex flex-col items-center text-center">
+                {/* Icon Container with soft background */}
+                <div className="w-20 h-20 mb-5 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
+                  <div className="relative w-12 h-12">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      className="object-contain drop-shadow-sm"
+                    />
+                  </div>
+                </div>
 
-          {/* Writing Workshops */}
-          <div className="hover-lift-2 text-center">
-            <div className="card-hover-content">
-             {/* Image Container */}
-          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image
-              src="icon 2(1).png"
-              alt="Training Workshops"
-              fill
-              className="object-contain"
-            />
-          </div>
-              <h3 className="card-hover-title font-semibold text-xl text-foreground">
-                Writing Workshops
-              </h3>
-    <p className="card-hover-text text-muted-foreground text-base mt-3">
-      Best practices in scientific writing, presentation, and communication skills.
-    </p>
+                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                  {item.title}
+                </h3>
+                
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
             </div>
-          </div>
-
-          {/* INTERNSHIP programs */}
-          <div className="hover-lift-2 text-center">
-            <div className="card-hover-content">
-             {/* Image Container */}
-          <div className="mx-auto w-32 h-32 mb-5 transition-transform duration-300 relative">
-            <Image
-              src="icon 2(1).png"
-              alt="Intership Programs"
-              fill
-              className="object-contain"
-            />
-          </div>
-              <h3 className="card-hover-title font-semibold text-xl text-foreground">
-                INTERNSHIP programs
-              </h3>
-              <p className="card-hover-text text-muted-foreground text-base mt-3">
-                Short-term hands-on experience with research groups working on DOHaD related research.
-              </p>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
     </section>
