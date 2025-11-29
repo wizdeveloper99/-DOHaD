@@ -9,11 +9,22 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { 
+  ArrowLeft, 
+  ArrowRight, 
+  Baby, 
+  Blocks, 
+  TrendingUp, 
+  Dna, 
+  Apple, 
+  FileText 
+} from "lucide-react"
 
 interface FeatureCardProps {
   title: string
   image: string
   description: string
+  icon?: React.ElementType
 }
 
 const FeatureCard = ({ title, image, description }: FeatureCardProps) => (
@@ -35,24 +46,14 @@ const FeatureCard = ({ title, image, description }: FeatureCardProps) => (
       {/* Dark overlay for better text readability */}
       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors duration-300"></div>
       
-      {/* Desktop: Heading & Description on Hover */}
-      <div className="absolute inset-0 p-6 hidden md:flex flex-col items-center justify-center">
-        <h3 className="text-2xl lg:text-3xl font-bold text-white text-center leading-tight mb-3 transition-all duration-300">
-          {title}
-        </h3>
-        <p className="text-sm lg:text-base text-white/90 text-center leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-300 max-h-0 group-hover:max-h-40 overflow-hidden">
-          {description}
-        </p>
-      </div>
-
       {/* Mobile: Title at bottom, tap to expand */}
-      <div className="absolute inset-0 md:hidden flex flex-col">
+      <div className="absolute inset-0 flex flex-col">
         <div className="flex-1"></div>
         <div className="bg-gradient-to-t from-black/80 to-transparent p-4">
           <h3 className="text-xl font-bold text-white mb-2">
             {title}
           </h3>
-          <p className="text-sm text-white/90 leading-relaxed">
+          <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
             {description}
           </p>
         </div>
@@ -61,42 +62,70 @@ const FeatureCard = ({ title, image, description }: FeatureCardProps) => (
   </motion.div>
 )
 
+const GridFeatureCard = ({ title, description, icon: Icon }: FeatureCardProps) => (
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.4 }}
+    className="group relative flex flex-col items-start p-6 h-full bg-white dark:bg-card rounded-2xl border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+  >
+    <div className="mb-4 p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+      {Icon && <Icon className="w-8 h-8" />}
+    </div>
+    
+    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+      {title}
+    </h3>
+    
+    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+      {description}
+    </p>
+  </motion.div>
+)
+
 export function BentoCarousel() {
   const features = [
     {
-      title: "Adolescent and maternal health",
+      title: "Adolescent & Maternal Health",
       image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      description: "Comprehensive research on maternal nutrition, prenatal care, and adolescent health factors that influence lifelong wellbeing and disease risk."
+      description: "Comprehensive research on maternal nutrition, prenatal care, and adolescent health factors that influence lifelong wellbeing and disease risk.",
+      icon: Baby
     },
     {
       title: "Early Childhood",
       image: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      description: "Investigating critical early childhood development factors and their impact on physical and cognitive health outcomes throughout life."
+      description: "Investigating critical early childhood development factors and their impact on physical and cognitive health outcomes throughout life.",
+      icon: Blocks
     },
     {
-      title: "Lifecourse research",
+      title: "Lifecourse Research",
       image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      description: "Longitudinal studies tracking health trajectories from conception through adulthood to understand cumulative life experiences."
+      description: "Longitudinal studies tracking health trajectories from conception through adulthood to understand cumulative life experiences.",
+      icon: TrendingUp
     },
     {
       title: "Multiomics Research",
       image: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      description: "Advanced molecular analysis integrating genomics, proteomics, and metabolomics to understand disease mechanisms at multiple biological levels."
+      description: "Advanced molecular analysis integrating genomics, proteomics, and metabolomics to understand disease mechanisms at multiple biological levels.",
+      icon: Dna
     },
     {
       title: "Nutrition & Lifestyle",
       image: "https://images.unsplash.com/photo-1584515933487-779824d29309?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      description: "Research on dietary patterns, lifestyle factors, and their role in modulating developmental programming and long-term health outcomes."
+      description: "Research on dietary patterns, lifestyle factors, and their role in modulating developmental programming and long-term health outcomes.",
+      icon: Apple
     },
     {
-      title: "Health policy research",
+      title: "Health Policy Research",
       image: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      description: "Evidence-based policy research to translate scientific findings into actionable health policies and interventions for population health."
+      description: "Evidence-based policy research to translate scientific findings into actionable health policies and interventions for population health.",
+      icon: FileText
     },
   ]
 
   return (
-    <section className="relative w-full px-5 md:px-6 lg:px-8 bg-background">
+    <section className="relative w-full px-5 md:px-6 lg:px-8 bg-background pb-12 md:pb-16 pt-0">
       <div className="w-full max-w-7xl mx-auto relative">
         {/* Main Heading */}
         <div className="text-center mb-12">
@@ -109,26 +138,45 @@ export function BentoCarousel() {
           </p>
         </div>
 
-        {/* Carousel */}
-        <div className="relative">
-          <Carousel className="w-full px-4 md:px-8">
+        {/* Mobile Carousel */}
+        <div className="relative block md:hidden">
+          <Carousel
+            opts={{
+              align: "start",
+              slidesToScroll: "auto",
+            }}
+            className="w-full px-4"
+          >
             {/* Navigation buttons - positioned above carousel content */}
             <div className="flex justify-center items-center gap-4 mb-8">
-              <CarouselPrevious className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static" />
-              <CarouselNext className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static" />
+              <CarouselPrevious className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
+                <ArrowLeft className="w-6 h-6" />
+                <span className="sr-only">Previous slide</span>
+              </CarouselPrevious>
+              <CarouselNext className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
+                <ArrowRight className="w-6 h-6" />
+                <span className="sr-only">Next slide</span>
+              </CarouselNext>
             </div>
             
             <CarouselContent className="-ml-4">
               {features.map((feature, index) => (
                 <CarouselItem
                   key={index}
-                  className="pl-4 basis-[95%] md:basis-[45%] lg:basis-[30%]"
+                  className="pl-4 basis-full"
                 >
                   <FeatureCard {...feature} />
                 </CarouselItem>
               ))}
             </CarouselContent>
           </Carousel>
+        </div>
+
+        {/* Desktop Grid */}
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {features.map((feature, index) => (
+            <GridFeatureCard key={index} {...feature} />
+          ))}
         </div>
       </div>
     </section>

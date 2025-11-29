@@ -106,7 +106,6 @@
   }
 }
 
-
 @keyframes scroll {
   0% {
     transform: translateX(0%);
@@ -120,7 +119,6 @@
   width: max-content;
   animation: scroll 20s linear infinite;
 }
-
 
 /* Main card hover effect */
 .card-hover {
@@ -137,7 +135,7 @@
 
 /* Background enhancement */
 .card-hover::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -229,7 +227,7 @@
 }
 
 .card-hover-enhanced::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
@@ -295,4 +293,16 @@
 
 .b {
   border: 1px solid rgb(255, 0, 0);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

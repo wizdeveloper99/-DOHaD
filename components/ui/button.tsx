@@ -17,6 +17,7 @@ const buttonVariants = cva(
         md: "px-4 py-2 text-base",
         lg: "px-6 py-3 text-lg",
         fullWidth: "w-full px-4 py-3 text-base",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {
