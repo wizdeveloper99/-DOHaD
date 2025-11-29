@@ -137,7 +137,12 @@ export function FooterSection() {
         {/* Bottom Footer */}
         <div className="mt-10 border-t border-white/20 pt-6 text-center">
           <p className="text-sm text-white">© 2024 DOHaD India Regional Society. All rights reserved.</p>
-          <div className="mt-2 flex justify-center space-x-3 text-xs text-white">
+          <div className="mt-2 flex justify-center space-x-4 text-xs text-white/80">
+            <a href="/terms" className="hover:text-white hover:underline transition-colors">Terms & Conditions</a>
+            <span>•</span>
+            <a href="/privacy" className="hover:text-white hover:underline transition-colors">Privacy Policy</a>
+          </div>
+          <div className="mt-2 flex justify-center space-x-3 text-xs text-white/60">
             <span>Active Members: 150+</span>
             <span>•</span>
             <span>Visitors: 25,000+</span>
