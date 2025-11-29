@@ -13,8 +13,8 @@ const hindSiliguri = Hind_Siliguri({
 })
 
 export const metadata: Metadata = {
-  title: "DOHaD India - Developmental Origins of Health and Disease",
-  description: "DOHaD India Regional Society - Research, Capacity Building, Communication, and Advocacy",
+  title: "DOHaD India – Developmental Origins of Health and Disease Regional Society",
+  description: "DOHaD India Regional Society advances research, training, and policy on the developmental origins of health and disease in India, connecting researchers, clinicians, and policymakers.",
   generator: "v0.app",
 }
 

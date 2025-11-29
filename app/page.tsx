@@ -47,7 +47,7 @@ export default function HomePage() {
         </AnimatedSection>
           
         {/* Main content sections with standardized spacing */}
-        <div className="space-y-11 md:space-y-16">
+        <div className="space-y-24 md:space-y-32">
           {/* About Section */}
           <AnimatedSection
             id="about-pillars-section"

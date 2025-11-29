@@ -1,33 +1,42 @@
 "use client";
 import { Play } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function AboutDOHaD() {
   return (
-    <section className="w-full px-4 py-12 md:px-0 md:py-20 relative overflow-hidden flex items-center bg-background">
+    <section className="w-full px-4 py-12 md:px-0 md:py-24 relative overflow-hidden flex items-center bg-background" aria-label="Introduction to DOHaD India">
       <div className="relative z-10 w-full">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Section - Content */}
-            <div className="flex flex-col justify-center items-start space-y-6 text-left">
+            <div className="flex flex-col justify-center items-start space-y-8 text-left">
               {/* Heading */}
-              <div className="w-full">
+              <div className="w-full space-y-6">
                 <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary-700 dark:text-secondary-300 text-sm font-semibold rounded-full tracking-wide">
-                  Developmental Origin of Health and Disease
+                  What is DOHaD?
                 </div>
-                <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight tracking-tighter text-gray-900 dark:text-gray-100">
-                  Advancing Health from the Very Beginning of Life
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tighter text-gray-900 dark:text-gray-100">
+                  Advancing Health by Understanding the Earliest Stages of Life
                 </h1>
-                <p className="mt-6 text-lg text-muted-foreground dark:text-gray-300 leading-relaxed max-w-xl">
-                  The Developmental Origins of Health and Disease (DOHaD) explore how early-life experiences from preconception through childhood, influence long-term health outcomes and disease risk in adulthood.
+                <p className="text-lg md:text-xl text-muted-foreground dark:text-gray-300 leading-relaxed max-w-xl">
+                  The DOHaD India Regional Society brings together researchers, clinicians, and policymakers to study how early-life environments shape lifelong health—and to translate this evidence into action across India.
                 </p>
                 
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="flex flex-wrap gap-4 pt-2">
+                  <Link 
+                    href="/join-us"
+                    className="px-8 py-3.5 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold rounded-full transition-all shadow-lg hover:shadow-xl inline-flex items-center justify-center min-w-[180px]"
+                    aria-label="Become a Member of DOHaD India"
+                  >
+                    Become a Member
+                  </Link>
                   <a 
                     href="#about-pillars-section"
-                    className="px-8 py-3 bg-secondary text-secondary-foreground hover:bg-secondary/90 font-semibold rounded-full transition-all shadow-lg hover:shadow-xl inline-block"
+                    className="px-8 py-3.5 bg-white dark:bg-gray-800 border-2 border-secondary text-secondary hover:bg-secondary/5 font-semibold rounded-full transition-all inline-flex items-center justify-center min-w-[180px]"
+                    aria-label="Learn more about DOHaD"
                   >
-                    Learn More
+                    Learn About DOHaD
                   </a>
                 </div>
               </div>
@@ -35,16 +44,17 @@ export default function AboutDOHaD() {
 
             {/* Right Section - Video Thumbnail Link */}
             <div className="flex flex-col items-center w-full">
-              <div className="relative w-full max-w-full sm:max-w-2xl shadow-2xl rounded-2xl overflow-hidden bg-gray-900">
+              <div className="relative w-full max-w-full sm:max-w-2xl shadow-2xl rounded-2xl overflow-hidden bg-gray-900 aspect-video">
                 <a 
                   href="https://www.youtube.com/watch?v=ZCvb8hPb8wM&t=1s" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="relative group aspect-video block w-full h-full"
+                  className="relative group block w-full h-full"
+                  aria-label="Watch introduction video about DOHaD"
                 >
                   <Image
                     src="/video-thumbnail.jpg"
-                    alt="DOHaD Introduction Video Thumbnail"
+                    alt="Illustration representing adolescent and maternal health research in India"
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
@@ -56,6 +66,7 @@ export default function AboutDOHaD() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div
                       className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-full text-secondary-600 dark:text-secondary-400 group-hover:bg-white dark:group-hover:bg-slate-700 group-hover:scale-110 transition-all duration-300 shadow-2xl"
+                      aria-hidden="true"
                     >
                       <Play size={32} className="ml-1" />
                     </div>
