@@ -12,7 +12,7 @@ export default function AboutDOHaD() {
             <div className="flex flex-col justify-center items-start space-y-6 text-left">
               {/* Heading */}
               <div className="w-full">
-                <div className="inline-block px-4 py-2 bg-secondary-100 dark:bg-secondary-900/20 text-secondary-700 dark:text-secondary-300 text-sm font-medium rounded-full mb-6">
+                <div className="inline-block px-4 py-1.5 bg-secondary/10 text-secondary-700 dark:text-secondary-300 text-sm font-semibold rounded-full tracking-wide">
                   Developmental Origin of Health and Disease
                 </div>
                 <h1 className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight tracking-tighter text-gray-900 dark:text-gray-100">

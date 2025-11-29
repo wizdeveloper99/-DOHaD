@@ -31,29 +31,6 @@ export default function JoinUsPage() {
     },
   ]
 
-  const steps = [
-    {
-      step: "1",
-      title: "Link to International DOHaD",
-      description: "Link to be a member of International DOHaD. Select DOHaD India for regional society membership",
-    },
-    {
-      step: "2",
-      title: "Membership Fee Request",
-      description: "DOHaD India will reach out to you with a formal invitation to join the regional society along with a membership fee request and payment instructions",
-    },
-    {
-      step: "3",
-      title: "Annual Renewal",
-      description: "Memberships to DOHaD India are renewed on an annual basis",
-    },
-    {
-      step: "4",
-      title: "Confirmation of membership",
-      description: "Receive email confirmation through DOHaD India and start accessing member benefits immediately",
-    },
-  ]
-
   return (
     <div className="bg-background">
       <Header />
@@ -88,63 +65,17 @@ export default function JoinUsPage() {
           </div>
         </section>
 
-        {/* Benefits Section */}
+        {/* 1. Join Us (Formerly How to Become a Member) */}
         <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why become a member?</h2>
-            <p className="text-muted-foreground text-lg">
-              Unlock exclusive resources and opportunities as a DOHaD India member
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Join Us</h2>
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+              All new members register through the main International DOHaD website. During registration, simply select DOHaD India as your Regional Society to complete your affiliation.
             </p>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="bg-card border border-border rounded-lg p-6 text-center hover:shadow-lg transition-shadow shadow-sm"
-              >
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
-                  {benefit.icon}
-                </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3">{benefit.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
         </section>
 
-        {/* Other Benefits Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Other benefits of Membership</h2>
-          </div>
-          <div className="bg-card border border-border rounded-lg p-8 md:p-12 shadow-sm">
-            <ul className="text-left text-muted-foreground text-lg space-y-4 max-w-4xl mx-auto">
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">●</span>
-                <span>Access to the Journal of Developmental Origins of Health and Disease (open access available for a reduced fee)</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">●</span>
-                <span>Exclusive newsletters and updates on the latest research</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">●</span>
-                <span>Reduced cost to attend workshops, conferences, and training programs</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">●</span>
-                <span>Capacity building and career advancement support</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <span className="text-primary mt-1">●</span>
-                <span>Participation in policy advocacy and collaborative projects</span>
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        {/* Who Can Be a Member */}
+        {/* 2. Who Can Become a Member */}
         <section className="mb-16">
           <div className="bg-card border border-border rounded-lg p-8 md:p-12 text-center shadow-sm">
             <h2 className="text-3xl font-bold text-foreground mb-6">Who Can Become a Member?</h2>
@@ -154,7 +85,7 @@ export default function JoinUsPage() {
           </div>
         </section>
 
-        {/* Membership Slabs */}
+        {/* 3. Membership Tiers and Fees */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold text-foreground mb-6 text-center">
             Membership Tiers and Fees
@@ -198,26 +129,61 @@ export default function JoinUsPage() {
           </div>
         </div>
 
-        {/* How to Become a Member */}
+        {/* 4. Benefits Section (Why become a member?) */}
         <section className="mb-16">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">How to become a member</h2>
-            <p className="text-muted-foreground text-lg">Simple steps to join our community</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Why become a member?</h2>
+            <p className="text-muted-foreground text-lg">
+              Unlock exclusive resources and opportunities as a DOHaD India member
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {steps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 bg-secondary text-secondary-foreground rounded-full flex items-center justify-center mx-auto mb-4 font-bold text-lg">
-                  {step.step}
+            {benefits.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-card border border-border rounded-lg p-6 text-center hover:shadow-lg transition-shadow shadow-sm"
+              >
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+                  {benefit.icon}
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-3">{step.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
+                <h3 className="text-lg font-semibold text-foreground mb-3">{benefit.title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>
         </section>
 
+        {/* 5. Other Benefits Section */}
+        <section className="mb-16">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Other benefits of Membership</h2>
+          </div>
+          <div className="bg-card border border-border rounded-lg p-8 md:p-12 shadow-sm">
+            <ul className="text-left text-muted-foreground text-lg space-y-4 max-w-4xl mx-auto">
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1">●</span>
+                <span>Access to the Journal of Developmental Origins of Health and Disease (open access available for a reduced fee)</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1">●</span>
+                <span>Exclusive newsletters and updates on the latest research</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1">●</span>
+                <span>Reduced cost to attend workshops, conferences, and training programs</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1">●</span>
+                <span>Capacity building and career advancement support</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <span className="text-primary mt-1">●</span>
+                <span>Participation in policy advocacy and collaborative projects</span>
+              </li>
+            </ul>
+          </div>
+        </section>
 
       </main>
     </div>
