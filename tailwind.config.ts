@@ -32,16 +32,16 @@ const config = {
           light: "hsl(var(--primary-light))", // Added primary-light
         },
         secondary: {
-          50: "#f0fdf4",
+          50: "#D3DDBF",
           100: "#dcfce7",
           200: "#bbf7d0",
           300: "#86efac",
           400: "#4ade80",
-          500: "#22c55e",
+          500: "#8AD260",
           600: "#16a34a",
           700: "#15803d",
           800: "#166534",
-          900: "#14532d",
+          900: "#111820",
           DEFAULT: "#00645E",
           foreground: "#ffffff",
         },
@@ -68,6 +68,18 @@ const config = {
         button: {
           DEFAULT: "#00645E",
           foreground: "hsl(var(--button-foreground, #ffffff))",
+        },
+        green: {
+          50: "#f0fdf4",
+          100: "#dcfce7",
+          200: "#bbf7d0",
+          300: "#86efac",
+          400: "#4ade80",
+          500: "#8AD260",
+          600: "#7ab854",
+          700: "#15803d",
+          800: "#166534",
+          900: "#111820",
         },
       },
       borderRadius: {
