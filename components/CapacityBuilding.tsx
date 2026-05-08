@@ -4,23 +4,23 @@ import Image from "next/image";
 const capacityBuildingItems = [
   {
     title: "Training Workshops",
-    description: "Comprehensive courses on the theory of DOHaD and lifecourse epidemiology.",
+    description: "Hands-on sessions covering lifecourse epidemiology, research methodologies, and specialized DOHaD study designs.",
     image: "/Layer 2.png",
   },
   {
     title: "Mentorship Programs",
-    description: "Pairing early-career researchers with senior DOHaD scientists.",
+    description: "Connecting early-career researchers with senior DOHaD scientists to foster professional growth and collaboration.",
     image: "/icon 3.png",
   },
   {
     title: "Writing Workshops",
-    description: "Best practices in scientific writing, presentation, and communication skills.",
+    description: "Structured sessions to strengthen scientific writing, grant applications, and publication skills for DOHaD researchers.",
     image: "/icon 2(1).png",
   },
   {
     title: "Internship Programs",
-    description: "Short-term hands-on experience with research groups working on DOHaD related research.",
-    image: "/icon 2(1).png",
+    description: "Providing students and early-career professionals with hands-on research experience within DOHaD India's network.",
+    image: "/Layer 2.png",
   },
 ];
 
@@ -32,12 +32,11 @@ const CapacityBuilding = () => {
     >
       {/* Animated SVG background pattern */}
       <svg
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full opacity-30 dark:opacity-10"
         aria-hidden="true"
         role="img"
       >
         <defs>
-          {/* Pattern with animated translation */}
           <pattern
             id="dots"
             width="24"
@@ -50,41 +49,16 @@ const CapacityBuilding = () => {
               type="translate"
               from="0 0"
               to="-24 0"
-              dur="3s"
+              dur="10s"
               repeatCount="indefinite"
             />
           </pattern>
-
-          <linearGradient id="wash" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="white" stopOpacity="0.92" />
-            <stop offset="60%" stopColor="white" stopOpacity="0.85" />
-            <stop offset="100%" stopColor="white" stopOpacity="0.92" />
-          </linearGradient>
         </defs>
-
-        {/* Background layers */}
-        <rect
-          width="100%"
-          height="100%"
-          fill="currentColor"
-          className="text-muted/20"
-        />
-        <rect
-          width="100%"
-          height="100%"
-          fill="url(#dots)"
-          className="text-muted/20"
-        />
-        <rect
-          width="100%"
-          height="100%"
-          fill="url(#wash)"
-          className="fill-background/80"
-        />
+        <rect width="100%" height="100%" fill="url(#dots)" className="text-secondary/20" />
       </svg>
 
       {/* Content */}
-      <div className="relative max-w-7xl mx-auto px-4 md:px-6">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
             Capacity Building
@@ -95,38 +69,46 @@ const CapacityBuilding = () => {
         </div>
 
         {/* Features Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4 mb-16">
           {capacityBuildingItems.map((item, index) => (
             <div
               key={index}
-              className="group relative bg-card rounded-3xl p-6 shadow-[0_2px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 border border-primary/10 hover:border-primary/30 overflow-hidden"
+              className="group relative bg-card rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-border overflow-hidden"
             >
-              {/* Decorative gradient background on hover */}
-              <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10 flex flex-col items-center text-center">
-                {/* Icon Container with soft background */}
-                <div className="w-20 h-20 mb-5 rounded-full bg-accent/20 flex items-center justify-center group-hover:bg-accent/30 transition-all duration-500 group-hover:scale-110 group-hover:rotate-3">
-                  <div className="relative w-12 h-12">
+                <div className="w-20 h-20 mb-6 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-all duration-500 group-hover:scale-110">
+                  <div className="relative w-10 h-10">
                     <Image
                       src={item.image}
                       alt={item.title}
                       fill
-                      className="object-contain drop-shadow-sm"
+                      className="object-contain opacity-80 group-hover:opacity-100"
                     />
                   </div>
                 </div>
 
-                <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                <h3 className="text-xl font-bold text-foreground mb-3">
                   {item.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Action Button */}
+        <div className="text-center">
+          <a
+            href="/events"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-secondary text-white font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all text-lg"
+          >
+            View Upcoming Events &amp; Workshops
+          </a>
         </div>
       </div>
     </section>

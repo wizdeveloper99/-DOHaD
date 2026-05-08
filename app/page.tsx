@@ -1,63 +1,65 @@
-import { HeroSection } from "@/components/hero-section"
 import AboutSection from "@/components/about-section"
 import { AnimatedSection } from "@/components/animated-section"
-import { DashboardPreview } from "@/components/dashboard-preview"
-import { SocialProofStats } from "@/components/social-proof"
-import { CTASection } from "@/components/cta-section"
 import { FAQSection } from "@/components/faq-section"
-import  CapacityBuilding  from "@/components/CapacityBuilding"
-import FinanceSection from "@/components/FinanceSection"
+import CapacityBuilding from "@/components/CapacityBuilding"
+import CommunicationOutreach from "@/components/CommunicationOutreach"
 import AdvocacySection from "@/components/AdvocacySection"
-import { BentoSection } from "@/components/bento-section"
 import { BentoCarousel } from "@/components/four-pillars-section"
-import ContentDesign from "@/components/ui/contentDesgin"
 import { Header } from "@/components/header"
-import AboutDOHaD from "@/components/about-DOHaD"
+import Hero from "@/components/about-DOHaD"
+import LearnAboutDOHaD from "@/components/learn-dohad"
 
-export default function HomePage() {
+import dbConnect from "@/lib/mongodb"
+import SiteSettings from "@/lib/models/SiteSettings"
+
+async function getSiteSettings() {
+  try {
+    await dbConnect();
+    const settings = await SiteSettings.findOne();
+    return JSON.parse(JSON.stringify(settings));
+  } catch (error) {
+    return null;
+  }
+}
+
+export default async function HomePage() {
+  const settings = await getSiteSettings();
+
   return (
     <div className="min-h-screen bg-background relative">
       <Header />
       <div className="relative z-10">
         <main className="relative z-10">
-          {/* <HeroSection /> */}
-          {/* Dashboard Preview Wrapper */}
-          {/* <div className="absolute bottom-[-230px] md:bottom-[-420px] left-1/2 transform -translate-x-1/2 z-30">
-            <AnimatedSection>
-              <DashboardPreview />
-            </AnimatedSection>
-          </div> */}
+          <AnimatedSection
+            id="hero-section"
+            className="relative"
+            delay={0.1}
+          >
+            <Hero settings={settings?.hero} />
+          </AnimatedSection>
         </main>
         
-        {/* Social Proof with consistent container */}
-        {/* <AnimatedSection
-          className="relative z-10 max-w-7xl mx-auto px-8 md:px-12 md:mt-[320px]"
-          delay={0.1}
-        >
-          <SocialProofStats />
-        </AnimatedSection> */}
-
-        {/* About DOHaD Section */}
+        {/* Learn About DOHaD Section */}
         <AnimatedSection
-          id="about-section"
+          id="learn-section"
           className="relative max-w-7xl mx-auto px-8 md:px-12"
           delay={0.2}
         >
-          <AboutDOHaD />
+          <LearnAboutDOHaD />
         </AnimatedSection>
           
         {/* Main content sections with standardized spacing */}
         <div className="space-y-24 md:space-y-32">
-          {/* About Section */}
+          {/* About Section (Who We Are) */}
           <AnimatedSection
             id="about-pillars-section"
             className="relative z-10 max-w-7xl mx-auto px-8 md:px-12"
             delay={0.2}
           >
-            <AboutSection />
+            <AboutSection settings={settings?.about} />
           </AnimatedSection>
           
-          {/* Four Pillars/Bento Section */}
+          {/* Four Pillars/Bento Section (Research Focus) */}
           <AnimatedSection 
             id="features-section" 
             className="relative z-10 max-w-7xl mx-auto px-8 md:px-12" 
@@ -81,7 +83,7 @@ export default function HomePage() {
             className="relative z-10"
             delay={0.2}
           >
-            <FinanceSection />
+            <CommunicationOutreach />
           </AnimatedSection>
           
           {/* Advocacy Section */}
@@ -102,13 +104,6 @@ export default function HomePage() {
             <FAQSection />
           </AnimatedSection>
           
-          {/* CTA Section */}
-          <AnimatedSection 
-            className="relative z-10 w-full" 
-            delay={0.2}
-          >
-            <CTASection />
-          </AnimatedSection>
         </div>
       </div>
     </div>

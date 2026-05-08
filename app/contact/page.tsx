@@ -1,5 +1,5 @@
 import { Header } from "@/components/header"
-import { Mail, MapPin, Facebook, Instagram, Youtube, Linkedin, Bell } from "lucide-react"
+import { Mail, MapPin, MessageCircle, Camera, Video, Users, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function ContactPage() {
@@ -93,28 +93,28 @@ export default function ContactPage() {
                     href="#"
                     className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                   >
-                    <Facebook className="w-5 h-5 text-blue-600" />
+                    <MessageCircle className="w-5 h-5 text-blue-600" />
                     <span className="text-sm font-medium text-foreground">Facebook</span>
                   </a>
                   <a
                     href="#"
                     className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                   >
-                    <Youtube className="w-5 h-5 text-red-700" />
+                    <Video className="w-5 h-5 text-red-700" />
                     <span className="text-sm font-medium text-foreground">YouTube</span>
                   </a>
                   <a
                     href="#"
                     className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                   >
-                    <Instagram className="w-5 h-5 text-pink-600" />
+                    <Camera className="w-5 h-5 text-pink-600" />
                     <span className="text-sm font-medium text-foreground">Instagram</span>
                   </a>
                   <a
                     href="#"
                     className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                   >
-                    <Linkedin className="w-5 h-5 text-blue-700" />
+                    <Users className="w-5 h-5 text-blue-700" />
                     <span className="text-sm font-medium text-foreground">LinkedIn</span>
                   </a>
                 </div>

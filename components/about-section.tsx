@@ -3,7 +3,10 @@ import React from "react";
 import Image from "next/image";
 import { Users, Globe, Activity, BookOpen, Network, Lightbulb, ArrowRight } from "lucide-react";
 
-export default function AboutSection() {
+export default function AboutSection({ settings }: { settings?: any }) {
+  const title = settings?.title || "DOHaD India Regional Society";
+  const content = settings?.content || "The DOHaD India Regional Society is a premier scientific body dedicated to understanding how early-life environments shape lifelong health. We connect researchers, clinicians, and policymakers to transform healthcare through the Developmental Origins of Health and Disease (DOHaD) approach.";
+
   return (
     <section className="w-full pt-12 md:pt-20  bg-background">
       <div className="container mx-auto px-4 md:px-0">
@@ -18,20 +21,20 @@ export default function AboutSection() {
                 Who We Are
               </div>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-gray-100 leading-tight">
-              DOHaD India Regional Society
+                {title}
               </h2>
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              We are a premier scientific society dedicated to understanding how early-life environment interacts with genetics to shape lifelong health. By bringing together researchers, clinicians, and policymakers, we aim to transform healthcare paradigms through the Developmental Origins of Health and Disease (DOHaD) approach.
+              {content}
             </p>
             
             <ul className="space-y-4">
               {[
-                "Promote collaborative research across disciplines",
-                "Disseminate scientific knowledge to stakeholders",
-                "Advocate for evidence-based health policies",
-                "Foster capacity building for young researchers"
+                "Promote multi-disciplinary collaborative research",
+                "Disseminate scientific evidence to healthcare stakeholders",
+                "Advocate for evidence-based maternal and child health policies",
+                "Foster capacity building and mentorship for young researchers"
               ].map((aim, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <div className="mt-1.5 w-5 h-5 rounded-full bg-secondary/20 flex items-center justify-center shrink-0">

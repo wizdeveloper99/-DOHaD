@@ -4,6 +4,8 @@ import { Hind_Siliguri } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { FooterSection } from "@/components/footer-section"
+import dbConnect from "@/lib/mongodb"
+import SiteSettings from "@/lib/models/SiteSettings"
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin"],
@@ -18,17 +20,29 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
-export default function RootLayout({
+async function getSiteSettings() {
+  try {
+    await dbConnect();
+    const settings = await SiteSettings.findOne();
+    return settings ? JSON.parse(JSON.stringify(settings)) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const settings = await getSiteSettings();
+
   return (
     <html lang="en" className={`${hindSiliguri.variable} antialiased`} suppressHydrationWarning>
       <body className="font-sans min-h-screen flex flex-col">
         <ThemeProvider>
           <main className="flex-1">{children}</main>
-          <FooterSection />
+          <FooterSection settings={settings} />
         </ThemeProvider>
       </body>
     </html>

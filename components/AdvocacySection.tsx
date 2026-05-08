@@ -4,11 +4,11 @@ const AdvocacySection = () => {
   return (
     <section className="max-w-6xl mx-auto px-6 py-12 text-center bg-background">
       {/* Heading */}
-      <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-        Advocacy & Policy
+      <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        National Impact through Engagement
       </h2>
-      <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-12">
-        We aim to work with government agencies, NGOs, and civil society to integrate DOHaD-informed strategies into national health programs.
+      <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-16 leading-relaxed">
+        We bridge the gap between scientific discovery and public health action, collaborating with stakeholders across India to ensure early-life health is a national priority.
       </p>
 
       {/* Policy Cards - 2×2 Grid */}

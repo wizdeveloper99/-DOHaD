@@ -11,10 +11,8 @@ export function Header() {
     { name: "Home", href: "/" },
     { name: "Who We Are", href: "/who-are-we" },
     { name: "Join Us", href: "/join-us" },
-    { name: "Resources", href: "/resources" },
     { name: "Events", href: "/events" },
     { name: "Contact", href: "/contact" },
-    { name: "Download", href: "/sample.txt", download: true },
   ]
 
   return (
@@ -22,54 +20,34 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/" className="relative shrink-0 w-12 h-12 sm:w-14 sm:h-14 hover:opacity-80 transition-opacity">
+          <Link href="/" className="relative shrink-0 w-14 h-14 md:w-16 md:h-16 hover:opacity-80 transition-opacity">
             <Image
               src="/logo__1_-removebg-preview.png"
               alt="DOHaD India Logo"
               fill
-              className="object-contain rounded-full"
+              className="object-contain"
             />
           </Link>
           <div className="flex flex-col">
-            <Link href="/" className="text-foreground text-base sm:text-lg font-semibold hover:opacity-80 transition-opacity">
+            <Link href="/" className="text-foreground text-lg md:text-xl font-bold hover:opacity-80 transition-opacity tracking-tight">
               DOHaD India
             </Link>
             <p className="text-[10px] sm:text-xs text-muted-foreground max-w-[200px] sm:max-w-[320px] leading-tight">
-              The DOHaD India Regional Society is a regional society of the{" "}
-              <a
-                href="https://dohadsoc.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-foreground"
-              >
-                International DOHaD Society
-              </a>
-              . We are committed...
-            </p>
+                Advancing health through the developmental origins of health and disease research in India.
+              </p>
           </div>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-2">
           {navItems.map((item) => (
-            item.download ? (
-              <a
-                key={item.name}
-                href={item.href}
-                download
-                className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
-              >
-                {item.name}
-              </Link>
-            )
+            <Link
+              key={item.name}
+              href={item.href}
+              className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
+            >
+              {item.name}
+            </Link>
           ))}
         </nav>
 
@@ -98,50 +76,30 @@ export function Header() {
                 <div className="flex flex-col items-start gap-3 text-left">
                   <SheetTitle className="sr-only">Navigation</SheetTitle>
                   <div className="flex items-center gap-3">
-                    <div className="relative w-12 h-12 shrink-0">
+                    <div className="relative w-14 h-14 shrink-0">
                       <Image
                         src="/logo__1_-removebg-preview.png"
                         alt="DOHaD India Logo"
                         fill
-                        className="object-contain rounded-full"
+                        className="object-contain"
                       />
                     </div>
-                    <span className="text-lg font-semibold">DOHaD India</span>
+                    <span className="text-xl font-bold">DOHaD India</span>
                   </div>
                   <p className="text-xs text-muted-foreground leading-tight">
-                    The DOHaD India Regional Society is a regional society of the{" "}
-                    <a
-                      href="https://dohadsoc.org/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-foreground"
-                    >
-                      International DOHaD Society
-                    </a>
-                    . We are committed...
+                    Advancing health through the developmental origins of health and disease research in India.
                   </p>
                 </div>
               </SheetHeader>
               <nav className="flex flex-col gap-4 mt-6">
                 {navItems.map((item) => (
-                  item.download ? (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      download
-                      className="text-muted-foreground hover:text-foreground text-base sm:text-lg py-2"
-                    >
-                      {item.name}
-                    </a>
-                  ) : (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className="text-muted-foreground hover:text-foreground text-base sm:text-lg py-2"
-                    >
-                      {item.name}
-                    </Link>
-                  )
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="text-muted-foreground hover:text-foreground text-base sm:text-lg py-2"
+                  >
+                    {item.name}
+                  </Link>
                 ))}
                 <Link href="/join-us" className="w-full mt-4">
                   <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-6 py-2 rounded-full font-medium shadow-sm w-full">

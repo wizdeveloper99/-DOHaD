@@ -1,1 +1,0 @@
-This is a sample download file. It demonstrates the download functionality for the DOHaD website.

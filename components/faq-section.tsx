@@ -2,7 +2,7 @@
 
 import React from "react"
 import { useState } from "react"
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
+import { ChevronDown, HelpCircle } from "lucide-react"
 
 const faqData = [
   {
@@ -29,8 +29,9 @@ const faqData = [
   },
   {
     question: "How do I become a member?",
+    hasLink: true,
     answer:
-      "To become a member, you need to join the International DOHaD Society and select DOHaD India as your regional society. DOHaD India will then share a welcome note to formally invite you as a member of DOHaD India, and share payment details for the nominal annual membership fee.",
+      "To become a member, you need to join the International DOHaD Society and select DOHaD India as your regional society. DOHaD India will then share a welcome note to formally invite you as a member, and share payment details for the nominal annual membership fee.",
   },
   {
     question: "How much does a membership cost?",
@@ -54,28 +55,36 @@ interface FAQItemProps {
   hasHighlight?: boolean
   highlightText?: string
   hasTable?: boolean
+  hasLink?: boolean
   tableData?: Array<{ category: string; fee: string }>
   tableFooter?: string
 }
 
-const FAQItem = ({ 
-  question, 
-  answer, 
-  index, 
-  isOpen, 
-  onToggle, 
-  hasHighlight, 
+const FAQItem = ({
+  question,
+  answer,
+  index,
+  isOpen,
+  onToggle,
+  hasHighlight,
   highlightText,
   hasTable,
+  hasLink,
   tableData,
-  tableFooter 
+  tableFooter,
 }: FAQItemProps) => {
+  const answerId = `faq-answer-${index}`
+  const triggerId = `faq-trigger-${index}`
+
   return (
     <div className="group w-full bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 shadow-sm overflow-hidden rounded-xl transition-all duration-300 ease-out">
-      {/* Question with toggle button */}
-      <div 
-        className="w-full px-6 py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors duration-200"
+      {/* Question — accessible button */}
+      <button
+        id={triggerId}
+        aria-expanded={isOpen}
+        aria-controls={answerId}
         onClick={onToggle}
+        className="w-full px-6 py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
       >
         <div className="flex items-center gap-3 flex-1">
           <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold">
@@ -87,17 +96,20 @@ const FAQItem = ({
         </div>
         <div className="flex justify-center items-center">
           <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
-            isOpen 
-              ? "bg-primary/10 text-primary rotate-180" 
+            isOpen
+              ? "bg-primary/10 text-primary rotate-180"
               : "text-gray-400 dark:text-gray-500 group-hover:bg-gray-100 dark:group-hover:bg-gray-800 group-hover:text-primary"
           }`}>
             <ChevronDown className="w-5 h-5" />
           </div>
         </div>
-      </div>
-      
+      </button>
+
       {/* Answer */}
       <div
+        id={answerId}
+        role="region"
+        aria-labelledby={triggerId}
         className={`overflow-hidden transition-all duration-500 ease-out ${
           isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
@@ -105,11 +117,27 @@ const FAQItem = ({
         <div className="px-6 pb-5 pt-0">
           <div className="pl-11 pr-4">
             <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-lg">
-              {answer && (
+              {answer && !hasLink && (
                 <p className="mb-3">{answer}</p>
               )}
-              
-              {/* Highlight box for International DOHaD membership */}
+
+              {/* Q5: How do I become a member — with hyperlink */}
+              {hasLink && (
+                <p className="mb-3">
+                  To become a member, you need to join the{" "}
+                  <a
+                    href="https://dohadsoc.org/membership/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary underline hover:text-primary/80 font-medium transition-colors"
+                  >
+                    International DOHaD Society
+                  </a>{" "}
+                  and select DOHaD India as your regional society. DOHaD India will then share a welcome note to formally invite you as a member, and share payment details for the nominal annual membership fee.
+                </p>
+              )}
+
+              {/* Highlight box */}
               {hasHighlight && highlightText && (
                 <div className="mt-3 p-4 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 border-l-4 border-primary rounded-lg">
                   <p className="text-primary dark:text-primary-light font-semibold text-base">
@@ -117,8 +145,8 @@ const FAQItem = ({
                   </p>
                 </div>
               )}
-              
-              {/* Table for membership fees */}
+
+              {/* Fee table */}
               {hasTable && tableData && (
                 <div className="mt-2">
                   <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
@@ -135,7 +163,7 @@ const FAQItem = ({
                       </thead>
                       <tbody>
                         {tableData.map((row, idx) => (
-                          <tr 
+                          <tr
                             key={idx}
                             className="border-b border-gray-100 dark:border-gray-800 last:border-b-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors"
                           >
@@ -166,46 +194,44 @@ const FAQItem = ({
 }
 
 export function FAQSection() {
-  // Each FAQ item tracks its own open/closed state
   const [openItems, setOpenItems] = useState<number[]>([])
-  
+
   const toggleItem = (index: number) => {
-    setOpenItems(prev => 
-      prev.includes(index) 
+    setOpenItems(prev =>
+      prev.includes(index)
         ? prev.filter(i => i !== index)
         : [...prev, index]
     )
   }
-  
+
   return (
-    <section className="w-full py-16 px-5 relative flex flex-col justify-center items-center  overflow-hidden">
+    <section className="w-full py-16 px-5 relative flex flex-col justify-center items-center overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-primary/3 dark:from-primary/5 to-transparent rounded-full blur-2xl" />
-      
+
       {/* Header Section */}
       <div className="relative z-10 text-center mb-12 max-w-4xl mx-auto">
         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full mb-6 shadow-lg">
           <HelpCircle className="w-8 h-8 text-white" />
         </div>
-        
+
         <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent mb-4">
           Frequently Asked Questions
         </h2>
-        
+
         <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
           Everything you need to know about DOHaD India and how we are working to promote a healthy start to life
         </p>
-        
+
         <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-6" />
       </div>
-      
-      {/* FAQ Items - Each can expand/collapse independently */}
+
+      {/* FAQ Items */}
       <div className="w-full max-w-4xl relative z-10 space-y-4">
         {faqData.map((faq, index) => (
-          <FAQItem 
-            key={index} 
+          <FAQItem
+            key={index}
             question={faq.question}
             answer={faq.answer}
             index={index}
@@ -214,12 +240,12 @@ export function FAQSection() {
             hasHighlight={faq.hasHighlight}
             highlightText={faq.highlightText}
             hasTable={faq.hasTable}
+            hasLink={faq.hasLink}
             tableData={faq.tableData}
             tableFooter={faq.tableFooter}
           />
         ))}
       </div>
-     
     </section>
   )
 }

@@ -1,0 +1,54 @@
+import { NextResponse } from 'next/server';
+import dbConnect from '@/lib/mongodb';
+import AdminUser from '@/lib/models/AdminUser';
+import bcrypt from 'bcryptjs';
+import { encrypt } from '@/lib/auth';
+import { cookies } from 'next/headers';
+
+export async function POST(request: Request) {
+  try {
+    await dbConnect();
+    const { email, password } = await request.json();
+
+    if (typeof email !== 'string' || typeof password !== 'string') {
+      return NextResponse.json({ error: 'Invalid input format' }, { status: 400 });
+    }
+
+    const admin = await AdminUser.findOne({ email });
+
+    if (!admin) {
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
+    }
+
+    const isMatch = await bcrypt.compare(password, admin.password);
+
+    if (!isMatch) {
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
+    }
+
+    // Create session
+    const expires = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    const session = await encrypt({ 
+      user: { 
+        id: admin._id, 
+        email: admin.email, 
+        name: admin.name,
+        role: admin.role 
+      }, 
+      expires 
+    });
+
+    // Set cookie
+    cookies().set('session', session, { 
+      expires, 
+      httpOnly: true, 
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict',
+      path: '/' 
+    });
+
+    return NextResponse.json({ message: 'Login successful' });
+  } catch (error: any) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
+  }
+}
