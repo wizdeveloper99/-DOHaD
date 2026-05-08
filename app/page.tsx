@@ -8,6 +8,7 @@ import { BentoCarousel } from "@/components/four-pillars-section"
 import { Header } from "@/components/header"
 import Hero from "@/components/about-DOHaD"
 import LearnAboutDOHaD from "@/components/learn-dohad"
+import FinanceSection from "@/components/FinanceSection"
 
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"
@@ -84,6 +85,15 @@ export default async function HomePage() {
             delay={0.2}
           >
             <CommunicationOutreach />
+          </AnimatedSection>
+
+          {/* Finance Section */}
+          <AnimatedSection
+            id="finance-section"
+            className="relative z-10"
+            delay={0.2}
+          >
+            <FinanceSection />
           </AnimatedSection>
           
           {/* Advocacy Section */}

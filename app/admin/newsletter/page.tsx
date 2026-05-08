@@ -95,8 +95,8 @@ export default function NewsletterAdminPage() {
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Newsletter</h1>
-          <p className="text-muted-foreground mt-1">Manage your mailing list and subscribers.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Newsletter</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Manage your mailing list and subscribers.</p>
         </div>
         <Button 
           variant="outline" 
@@ -136,52 +136,63 @@ export default function NewsletterAdminPage() {
             <p className="text-muted-foreground">Your mailing list is currently empty.</p>
           </div>
         ) : (
-          <Table>
-            <TableHeader className="bg-muted/30">
-              <TableRow>
-                <TableHead>Subscriber</TableHead>
-                <TableHead>Affiliation</TableHead>
-                <TableHead>Joined Date</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+          <>
+            {/* Desktop Table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-muted/30 border-b">
+                  <tr>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Subscriber</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Affiliation</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Joined Date</th>
+                    <th className="text-right px-4 py-3 text-sm font-medium text-muted-foreground">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {filteredSubscribers.map((subscriber) => (
+                    <tr key={subscriber._id} className="border-b last:border-0 hover:bg-muted/10 transition-colors">
+                      <td className="px-4 py-3">
+                        <p className="font-semibold text-foreground">{subscriber.name}</p>
+                        <p className="text-sm text-muted-foreground">{subscriber.email}</p>
+                      </td>
+                      <td className="px-4 py-3 text-sm text-muted-foreground">{subscriber.affiliation || '—'}</td>
+                      <td className="px-4 py-3 text-sm">
+                        {new Date(subscriber.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </td>
+                      <td className="px-4 py-3 text-right">
+                        <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-full" onClick={() => handleDelete(subscriber._id)}>
+                          <Trash2 size={16} />
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Card List */}
+            <div className="md:hidden divide-y">
               {filteredSubscribers.map((subscriber) => (
-                <TableRow key={subscriber._id} className="hover:bg-muted/10 transition-colors">
-                  <TableCell>
-                    <div>
-                      <p className="font-semibold text-foreground">{subscriber.name}</p>
-                      <p className="text-sm text-muted-foreground">{subscriber.email}</p>
+                <div key={subscriber._id} className="p-4 flex items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <p className="font-semibold text-foreground text-sm">{subscriber.name}</p>
+                    <p className="text-xs text-muted-foreground truncate">{subscriber.email}</p>
+                    <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                      {subscriber.affiliation && (
+                        <span className="text-[10px] px-2 py-0.5 bg-muted rounded-full text-muted-foreground">{subscriber.affiliation}</span>
+                      )}
+                      <span className="text-[10px] text-muted-foreground">
+                        {new Date(subscriber.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </span>
                     </div>
-                  </TableCell>
-                  <TableCell>
-                    <span className="text-sm text-muted-foreground">
-                      {subscriber.affiliation || '—'}
-                    </span>
-                  </TableCell>
-                  <TableCell>
-                    <p className="text-sm">
-                      {new Date(subscriber.createdAt).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric'
-                      })}
-                    </p>
-                  </TableCell>
-                  <TableCell className="text-right">
-                    <Button 
-                      variant="ghost" 
-                      size="icon" 
-                      className="text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-full"
-                      onClick={() => handleDelete(subscriber._id)}
-                    >
-                      <Trash2 size={16} />
-                    </Button>
-                  </TableCell>
-                </TableRow>
+                  </div>
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-full shrink-0" onClick={() => handleDelete(subscriber._id)}>
+                    <Trash2 size={16} />
+                  </Button>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </div>
+          </>
         )}
       </div>
     </div>

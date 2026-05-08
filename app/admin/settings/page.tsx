@@ -88,13 +88,13 @@ export default function SettingsAdminPage() {
 
   return (
     <div className="space-y-6 max-w-4xl mx-auto pb-20">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Site Settings</h1>
-          <p className="text-muted-foreground mt-1">Manage homepage content and global site details.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Site Settings</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Manage homepage content and global site details.</p>
         </div>
         <Button 
-          className="rounded-full bg-secondary hover:bg-secondary/90 gap-2 px-6"
+          className="rounded-full bg-secondary hover:bg-secondary/90 gap-2 px-6 w-full sm:w-auto"
           onClick={handleSave}
           disabled={isSaving}
         >
@@ -134,7 +134,7 @@ export default function SettingsAdminPage() {
                 })} 
               />
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label>CTA Button Text</Label>
                 <Input 
@@ -277,7 +277,7 @@ export default function SettingsAdminPage() {
 
       <div className="flex justify-end pt-4">
         <Button 
-          className="rounded-full bg-secondary hover:bg-secondary/90 gap-2 px-8 py-6 text-lg"
+          className="rounded-full bg-secondary hover:bg-secondary/90 gap-2 px-8 py-6 text-base sm:text-lg w-full sm:w-auto"
           onClick={handleSave}
           disabled={isSaving}
         >

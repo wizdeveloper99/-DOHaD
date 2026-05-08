@@ -141,20 +141,20 @@ export default function MediaAdminPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center flex-wrap gap-4">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Media Management</h1>
-          <p className="text-muted-foreground mt-1">Manage all your Cloudinary assets in one place.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Media Management</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Manage all your Cloudinary assets in one place.</p>
         </div>
         
-        <div className="flex items-center gap-3">
-          <div className="relative">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
+          <div className="relative flex-1 sm:flex-initial">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" size={16} />
             <Input 
               placeholder="Search media..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-9 w-64 rounded-full"
+              className="pl-9 w-full sm:w-64 rounded-full"
             />
           </div>
           <input 
@@ -166,11 +166,11 @@ export default function MediaAdminPage() {
           />
           <Button 
             onClick={() => fileInputRef.current?.click()} 
-            className="rounded-full bg-secondary hover:bg-secondary/90 gap-2"
+            className="rounded-full bg-secondary hover:bg-secondary/90 gap-2 shrink-0"
             disabled={isUploading}
           >
             {isUploading ? <Loader2 className="animate-spin" size={18} /> : <UploadCloud size={18} />}
-            Upload File
+            <span className="hidden sm:inline">Upload File</span>
           </Button>
         </div>
       </div>
@@ -207,7 +207,7 @@ export default function MediaAdminPage() {
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
             {filteredMedia.map((item) => (
               <div key={item.public_id} className="group relative border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow bg-card">
                 <div className="aspect-square relative bg-muted flex items-center justify-center overflow-hidden">

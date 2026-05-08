@@ -183,6 +183,10 @@ export function FooterSection({ settings }: { settings?: any }) {
             <a href="/privacy" className="hover:text-white hover:underline transition-colors">
               Privacy Policy
             </a>
+            <span>•</span>
+            <a href="/admin/login" className="hover:text-white hover:underline transition-colors">
+              Admin
+            </a>
           </div>
         </div>
       </div>

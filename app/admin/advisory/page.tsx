@@ -165,10 +165,10 @@ export default function AdvisoryAdminPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Advisory Council</h1>
-          <p className="text-muted-foreground mt-1">Manage executive and advisory members.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Advisory Council</h1>
+          <p className="text-muted-foreground mt-1 text-sm">Manage executive and advisory members.</p>
         </div>
         <Dialog open={isOpen} onOpenChange={setIsOpen}>
           <DialogTrigger asChild>
@@ -177,7 +177,7 @@ export default function AdvisoryAdminPage() {
               Add Member
             </Button>
           </DialogTrigger>
-          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto mx-4">
             <DialogHeader>
               <DialogTitle>{formData._id ? 'Edit Member' : 'Add New Member'}</DialogTitle>
             </DialogHeader>
@@ -206,7 +206,7 @@ export default function AdvisoryAdminPage() {
                 </div>
               </div>
               
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-2">
                   <Label>Full Name</Label>
                   <Input value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} required />
@@ -263,48 +263,89 @@ export default function AdvisoryAdminPage() {
             <h3 className="text-lg font-semibold">No members found</h3>
           </div>
         ) : (
-          <Table>
-            <TableHeader className="bg-muted/30">
-              <TableRow>
-                <TableHead>Order</TableHead>
-                <TableHead>Member</TableHead>
-                <TableHead>Designation</TableHead>
-                <TableHead>Organization</TableHead>
-                <TableHead>Featured</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
+          <>
+            {/* Desktop Table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-muted/30 border-b">
+                  <tr>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground w-16">#</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Member</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Designation</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Organization</th>
+                    <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Featured</th>
+                    <th className="text-right px-4 py-3 text-sm font-medium text-muted-foreground">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {members.map((member) => (
+                    <tr key={member._id} className="border-b last:border-0 hover:bg-muted/10 transition-colors">
+                      <td className="px-4 py-3 font-mono text-muted-foreground">{member.displayOrder}</td>
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          <div className="relative w-10 h-10 rounded-full overflow-hidden bg-muted flex-shrink-0">
+                            {member.profileImage ? (
+                               <Image src={member.profileImage} alt={member.name} fill className="object-cover" />
+                            ) : (
+                               <Users className="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-muted-foreground" />
+                            )}
+                          </div>
+                          <span className="font-semibold">{member.name}</span>
+                        </div>
+                      </td>
+                      <td className="px-4 py-3 text-sm">{member.designation}</td>
+                      <td className="px-4 py-3 text-sm">{member.organization || '\u2014'}</td>
+                      <td className="px-4 py-3 text-sm">{member.featured ? 'Yes' : 'No'}</td>
+                      <td className="px-4 py-3 text-right">
+                        <Button variant="ghost" size="icon" className="rounded-full" onClick={() => handleOpenEdit(member)}>
+                          <Edit size={16} />
+                        </Button>
+                        <Button variant="ghost" size="icon" className="rounded-full text-destructive" onClick={() => handleDelete(member._id)}>
+                          <Trash2 size={16} />
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile Card List */}
+            <div className="md:hidden divide-y">
               {members.map((member) => (
-                <TableRow key={member._id}>
-                  <TableCell className="font-mono text-muted-foreground">{member.displayOrder}</TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-3">
-                      <div className="relative w-10 h-10 rounded-full overflow-hidden bg-muted flex-shrink-0">
-                        {member.profileImage ? (
-                           <Image src={member.profileImage} alt={member.name} fill className="object-cover" />
-                        ) : (
-                           <Users className="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-muted-foreground" />
-                        )}
-                      </div>
-                      <span className="font-semibold">{member.name}</span>
+                <div key={member._id} className="p-4 flex items-start gap-3">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden bg-muted flex-shrink-0">
+                    {member.profileImage ? (
+                      <Image src={member.profileImage} alt={member.name} fill className="object-cover" />
+                    ) : (
+                      <Users className="w-5 h-5 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-muted-foreground" />
+                    )}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-foreground text-sm">{member.name}</p>
+                    <p className="text-xs text-muted-foreground">{member.designation}</p>
+                    {member.organization && (
+                      <p className="text-[10px] text-muted-foreground mt-0.5">{member.organization}</p>
+                    )}
+                    <div className="flex items-center gap-2 mt-1.5">
+                      <span className="text-[10px] font-mono text-muted-foreground">#{member.displayOrder}</span>
+                      {member.featured && (
+                        <span className="text-[10px] px-2 py-0.5 bg-secondary/10 text-secondary rounded-full font-medium">Featured</span>
+                      )}
                     </div>
-                  </TableCell>
-                  <TableCell>{member.designation}</TableCell>
-                  <TableCell>{member.organization || '—'}</TableCell>
-                  <TableCell>{member.featured ? 'Yes' : 'No'}</TableCell>
-                  <TableCell className="text-right">
-                    <Button variant="ghost" size="icon" className="rounded-full" onClick={() => handleOpenEdit(member)}>
-                      <Edit size={16} />
+                  </div>
+                  <div className="flex gap-1 shrink-0">
+                    <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" onClick={() => handleOpenEdit(member)}>
+                      <Edit size={14} />
                     </Button>
-                    <Button variant="ghost" size="icon" className="rounded-full text-destructive" onClick={() => handleDelete(member._id)}>
-                      <Trash2 size={16} />
+                    <Button variant="ghost" size="icon" className="rounded-full h-8 w-8 text-destructive" onClick={() => handleDelete(member._id)}>
+                      <Trash2 size={14} />
                     </Button>
-                  </TableCell>
-                </TableRow>
+                  </div>
+                </div>
               ))}
-            </TableBody>
-          </Table>
+            </div>
+          </>
         )}
       </div>
     </div>
