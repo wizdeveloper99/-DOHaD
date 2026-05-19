@@ -106,6 +106,22 @@
   }
 }
 
+@layer components {
+  .heading-main {
+    @apply text-xl md:text-2xl xl:text-3xl font-bold text-foreground leading-tight;
+  }
+  @media (min-width: 1280px) and (min-height: 768px) {
+    .heading-main {
+      @apply text-5xl;
+    }
+  }
+  @media (min-width: 1536px) and (min-height: 850px) {
+    .heading-main {
+      @apply text-6xl;
+    }
+  }
+}
+
 @keyframes scroll {
   0% {
     transform: translateX(0%);

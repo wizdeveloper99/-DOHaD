@@ -1,6 +1,7 @@
 import { Header } from "@/components/header"
 import { Mail, MapPin, MessageCircle, Camera, Video, Users, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { headingStyles } from "@/lib/utils"
 
 export default function ContactPage() {
   return (
@@ -20,7 +21,7 @@ export default function ContactPage() {
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
           <div>
-            <h2 className="text-2xl font-bold text-foreground mb-6">Get in Touch</h2>
+            <h2 className={`${headingStyles} mb-6`}>Get in Touch</h2>
 
             <div className="space-y-5">
               <div className="flex items-start gap-4">
@@ -66,20 +67,12 @@ export default function ContactPage() {
                   <span className="text-muted-foreground">Monday - Friday</span>
                   <span className="text-foreground">9:00 AM - 6:00 PM IST</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Saturday</span>
-                  <span className="text-foreground">10:00 AM - 2:00 PM IST</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Sunday</span>
-                  <span className="text-foreground">Closed</span>
-                </div>
               </div>
             </div>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold text-foreground mb-6">Find us</h2>
+            <h2 className={`${headingStyles} mb-6`}>Find us</h2>
 
             <div className="space-y-5">
               <div className="bg-card border border-border rounded-lg p-5 shadow-sm">
@@ -125,7 +118,7 @@ export default function ContactPage() {
                 <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
                   <Bell className="w-5 h-5 text-secondary" />
                 </div>
-                <h3 className="font-semibold text-foreground">Newsletter Subscription</h3>
+                <h3 className="font-semibold text-foreground">Subscribe</h3>
               </div>
 
               <p className="text-muted-foreground text-sm mb-6">
@@ -140,7 +133,7 @@ export default function ContactPage() {
                   className="w-full px-4 py-3 bg-background border border-border rounded-full focus:outline-none focus:ring-2 focus:ring-primary text-sm text-foreground"
                 />
                 <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                  Subscribe to Newsletter
+                  Subscribe
                 </Button>
               </div>
 
@@ -151,7 +144,7 @@ export default function ContactPage() {
         </div>
 
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm mb-12">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-6">Send Us a Message</h2>
+          <h2 className={`${headingStyles} text-center mb-6`}>Send Us a Message</h2>
 
           <div className="max-w-3xl mx-auto space-y-5">
             <div className="grid md:grid-cols-2 gap-5">
@@ -212,7 +205,7 @@ export default function ContactPage() {
         </div>
 
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
-          <h2 className="text-2xl font-bold text-foreground text-center mb-4">
+          <h2 className={`${headingStyles} text-center mb-4`}>
             Visit Our Location
           </h2>
 
