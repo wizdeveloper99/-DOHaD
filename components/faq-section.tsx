@@ -84,23 +84,23 @@ const FAQItem = ({
         aria-expanded={isOpen}
         aria-controls={answerId}
         onClick={onToggle}
-        className="w-full px-6 py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+        className="w-full px-4 py-3.5 sm:px-6 sm:py-5 flex justify-between items-center gap-4 text-left cursor-pointer hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
       >
-        <div className="flex items-center gap-3 flex-1">
-          <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-sm font-semibold">
+        <div className="flex items-center gap-2.5 sm:gap-3 flex-1">
+          <div className="flex-shrink-0 w-6 h-6 xl:w-8 xl:h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs xl:text-sm font-bold">
             {index + 1}
           </div>
-          <div className="flex-1 font-medium leading-6 break-words text-gray-800 dark:text-gray-200">
+          <div className="flex-1 font-bold text-xs sm:text-sm xl:text-base 2xl:text-lg leading-snug sm:leading-6 break-words text-gray-800 dark:text-gray-200">
             {question}
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
+          <div className={`w-6 h-6 xl:w-8 xl:h-8 rounded-full flex items-center justify-center transition-all duration-300 ${
             isOpen
               ? "bg-primary/10 text-primary rotate-180"
               : "text-gray-400 dark:text-gray-500 group-hover:bg-gray-100 dark:group-hover:bg-gray-800 group-hover:text-primary"
           }`}>
-            <ChevronDown className="w-5 h-5" />
+            <ChevronDown className="w-4 h-4 xl:w-5 xl:h-5" />
           </div>
         </div>
       </button>
@@ -114,22 +114,22 @@ const FAQItem = ({
           isOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <div className="px-6 pb-5 pt-0">
-          <div className="pl-11 pr-4">
-            <div className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-l-3 border-primary/20 dark:border-primary/10 pl-4 py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-lg">
+        <div className="px-4 pb-3.5 sm:px-6 sm:pb-5 pt-0">
+          <div className="pl-8 sm:pl-11 pr-2 sm:pr-4">
+            <div className="text-gray-600 dark:text-gray-400 text-[11px] sm:text-xs xl:text-sm 2xl:text-base leading-relaxed border-l-2 xl:border-l-3 border-primary/20 dark:border-primary/10 pl-3 sm:pl-4 py-2 sm:py-3 bg-gradient-to-r from-primary/5 dark:from-primary/10 to-transparent rounded-lg">
               {answer && !hasLink && (
-                <p className="mb-3">{answer}</p>
+                <p className="mb-2.5 sm:mb-3">{answer}</p>
               )}
 
               {/* Q5: How do I become a member — with hyperlink */}
               {hasLink && (
-                <p className="mb-3">
+                <p className="mb-2.5 sm:mb-3">
                   To become a member, you need to join the{" "}
                   <a
                     href="https://dohadsoc.org/membership/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary underline hover:text-primary/80 font-medium transition-colors"
+                    className="text-primary underline hover:text-primary/80 font-semibold transition-colors"
                   >
                     International DOHaD Society
                   </a>{" "}
@@ -139,8 +139,8 @@ const FAQItem = ({
 
               {/* Highlight box */}
               {hasHighlight && highlightText && (
-                <div className="mt-3 p-4 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 border-l-4 border-primary rounded-lg">
-                  <p className="text-primary dark:text-primary-light font-semibold text-base">
+                <div className="mt-2.5 sm:mt-3 p-3 sm:p-4 bg-gradient-to-r from-primary/10 to-secondary/10 dark:from-primary/20 dark:to-secondary/20 border-l-4 border-primary rounded-lg">
+                  <p className="text-primary dark:text-primary-light font-bold text-xs sm:text-sm xl:text-base 2xl:text-lg">
                     {highlightText}
                   </p>
                 </div>
@@ -150,13 +150,13 @@ const FAQItem = ({
               {hasTable && tableData && (
                 <div className="mt-2">
                   <div className="overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-700">
-                    <table className="w-full text-sm">
+                    <table className="w-full text-[11px] sm:text-xs xl:text-sm 2xl:text-base">
                       <thead>
                         <tr className="bg-primary/10 dark:bg-primary/20 border-b border-gray-200 dark:border-gray-700">
-                          <th className="px-4 py-3 text-left font-semibold text-gray-800 dark:text-gray-200">
+                          <th className="px-3 py-2 xl:px-4 xl:py-3 text-left font-bold text-gray-800 dark:text-gray-200">
                             Category
                           </th>
-                          <th className="px-4 py-3 text-left font-semibold text-gray-800 dark:text-gray-200">
+                          <th className="px-3 py-2 xl:px-4 xl:py-3 text-left font-bold text-gray-800 dark:text-gray-200">
                             Annual Fee (INR)
                           </th>
                         </tr>
@@ -167,10 +167,10 @@ const FAQItem = ({
                             key={idx}
                             className="border-b border-gray-100 dark:border-gray-800 last:border-b-0 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-colors"
                           >
-                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300">
+                            <td className="px-3 py-2 xl:px-4 xl:py-3 text-gray-700 dark:text-gray-300">
                               {row.category}
                             </td>
-                            <td className="px-4 py-3 text-gray-700 dark:text-gray-300 font-medium">
+                            <td className="px-3 py-2 xl:px-4 xl:py-3 text-gray-700 dark:text-gray-300 font-semibold">
                               {row.fee}
                             </td>
                           </tr>
@@ -179,7 +179,7 @@ const FAQItem = ({
                     </table>
                   </div>
                   {tableFooter && (
-                    <p className="mt-3 text-xs text-gray-500 dark:text-gray-400 italic">
+                    <p className="mt-2.5 sm:mt-3 text-[10px] sm:text-xs xl:text-sm 2xl:text-base text-gray-500 dark:text-gray-400 italic">
                       {tableFooter}
                     </p>
                   )}
@@ -205,30 +205,30 @@ export function FAQSection() {
   }
 
   return (
-    <section className="w-full py-16 px-5 relative flex flex-col justify-center items-center overflow-hidden">
+    <section className="w-full py-8 md:py-10 xl:py-20 2xl:py-28 px-4 sm:px-6 relative flex flex-col justify-center items-center overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute top-20 left-1/4 w-72 h-72 bg-primary/5 dark:bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-500/10 rounded-full blur-3xl" />
 
       {/* Header Section */}
-      <div className="relative z-10 text-center mb-12 max-w-4xl mx-auto">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full mb-6 shadow-lg">
-          <HelpCircle className="w-8 h-8 text-white" />
+      <div className="relative z-10 text-center mb-4 md:mb-5 xl:mb-6 [@media(min-height:768px)]:mb-12 [@media(min-height:850px)]:2xl:mb-20 max-w-4xl mx-auto">
+        <div className="inline-flex items-center justify-center w-12 h-12 xl:w-16 xl:h-16 bg-gradient-to-br from-primary to-primary/80 rounded-full mb-4 xl:mb-6 shadow-lg">
+          <HelpCircle className="w-6 h-6 xl:w-8 xl:h-8 text-white" />
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent mb-4">
+        <h2 className="text-xl md:text-2xl xl:text-3xl [@media(min-height:768px)]:xl:text-5xl [@media(min-height:850px)]:2xl:text-6xl font-bold text-foreground mb-1 xl:mb-2 [@media(min-height:768px)]:mb-4 [@media(min-height:850px)]:mb-6">
           Frequently Asked Questions
         </h2>
 
-        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-2xl mx-auto">
+        <p className="text-[10px] sm:text-xs xl:text-sm [@media(min-height:768px)]:xl:text-lg [@media(min-height:850px)]:2xl:text-xl text-muted-foreground max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
           Everything you need to know about DOHaD India and how we are working to promote a healthy start to life
         </p>
 
-        <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-6" />
+        <div className="w-16 xl:w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-3 xl:mt-4" />
       </div>
 
       {/* FAQ Items */}
-      <div className="w-full max-w-4xl relative z-10 space-y-4">
+      <div className="w-full max-w-4xl relative z-10 space-y-3 xl:space-y-5">
         {faqData.map((faq, index) => (
           <FAQItem
             key={index}

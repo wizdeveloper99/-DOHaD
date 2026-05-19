@@ -50,7 +50,7 @@ export default async function HomePage() {
         </AnimatedSection>
           
         {/* Main content sections with standardized spacing */}
-        <div className="space-y-24 md:space-y-32">
+        <div className="relative">
           {/* About Section (Who We Are) */}
           <AnimatedSection
             id="about-pillars-section"

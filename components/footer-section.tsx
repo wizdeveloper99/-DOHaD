@@ -35,34 +35,34 @@ export function FooterSection({ settings }: { settings?: any }) {
     "Registered non-profit society in India. Advancing health through understanding the early developmental origins of health and disease."
 
   return (
-    <footer id="contact" className="w-full pb-12 relative pt-12 bg-secondary dark:bg-black">
-      <div className="container mx-auto px-4 md:px-6">
+    <footer id="contact" className="w-full pt-8 pb-8 xl:pt-16 xl:pb-16 2xl:pt-24 2xl:pb-24 relative bg-secondary dark:bg-black overflow-hidden">
+      <div className="container mx-auto px-6 md:px-12">
         {/* Main Footer Grid */}
-        <div className="grid gap-10 md:grid-cols-4">
+        <div className="grid gap-6 md:gap-8 xl:gap-12 2xl:gap-16 grid-cols-1 md:grid-cols-4">
           {/* Brand Section */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 xl:space-x-3">
               <Image
-                src="/logo__1_-removebg-preview.png"
+                src="/dohad-india-rgb.png"
                 alt="DOHaD India Logo"
-                width={48}
-                height={48}
-                className="h-12 w-auto"
+                width={72}
+                height={72}
+                className="h-10 xl:h-14 2xl:h-18 w-auto"
                 priority
               />
-              <span className="text-xl font-bold text-white">DOHaD India</span>
+              <span className="text-base xl:text-xl 2xl:text-2xl font-bold text-white tracking-tight">DOHaD India</span>
             </div>
-            <p className="text-sm text-white leading-relaxed">{footerText}</p>
+            <p className="text-[11px] sm:text-xs xl:text-sm 2xl:text-base text-white/90 leading-relaxed">{footerText}</p>
 
             {/* Social Media Links */}
-            <div className="flex space-x-3">
+            <div className="flex space-x-2.5 sm:space-x-3">
               {/* X / Twitter */}
               <a
                 href={socialLinks.twitter || "https://x.com/dohadindia"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow DOHaD India on X (Twitter)"
-                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+                className="h-7 w-7 xl:h-9 xl:w-9 2xl:h-10 2xl:w-10 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
               >
                 <XIcon />
               </a>
@@ -73,7 +73,7 @@ export function FooterSection({ settings }: { settings?: any }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Connect with DOHaD India on LinkedIn"
-                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+                className="h-7 w-7 xl:h-9 xl:w-9 2xl:h-10 2xl:w-10 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
               >
                 <LinkedInIcon />
               </a>
@@ -84,7 +84,7 @@ export function FooterSection({ settings }: { settings?: any }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Watch DOHaD India on YouTube"
-                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+                className="h-7 w-7 xl:h-9 xl:w-9 2xl:h-10 2xl:w-10 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
               >
                 <YouTubeIcon />
               </a>
@@ -95,7 +95,7 @@ export function FooterSection({ settings }: { settings?: any }) {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Follow DOHaD India on Bluesky"
-                className="h-8 w-8 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
+                className="h-7 w-7 xl:h-9 xl:w-9 2xl:h-10 2xl:w-10 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
               >
                 <BlueskyIcon />
               </a>
@@ -104,8 +104,8 @@ export function FooterSection({ settings }: { settings?: any }) {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-base font-semibold mb-4 text-white">Quick Links</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-sm xl:text-base 2xl:text-lg font-bold mb-3 xl:mb-5 text-white tracking-wide">Quick Links</h4>
+            <ul className="space-y-2 xl:space-y-3 text-[11px] sm:text-xs xl:text-sm 2xl:text-base">
               {[
                 { name: "About DOHaD", link: "/#about-pillars-section" },
                 { name: "Research", link: "/#features-section" },
@@ -114,7 +114,7 @@ export function FooterSection({ settings }: { settings?: any }) {
                 { name: "FAQ", link: "/#faq-section" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-white hover:text-gray-300 transition-colors">
+                  <a href={item.link} className="text-white/90 hover:text-white hover:underline transition-all">
                     {item.name}
                   </a>
                 </li>
@@ -124,8 +124,8 @@ export function FooterSection({ settings }: { settings?: any }) {
 
           {/* Engagement */}
           <div>
-            <h4 className="text-base font-semibold mb-4 text-white">Engagement</h4>
-            <ul className="space-y-2 text-sm">
+            <h4 className="text-sm xl:text-base 2xl:text-lg font-bold mb-3 xl:mb-5 text-white tracking-wide">Engagement</h4>
+            <ul className="space-y-2 xl:space-y-3 text-[11px] sm:text-xs xl:text-sm 2xl:text-base">
               {[
                 { name: "Become a Member", link: "/join-us" },
                 { name: "Newsletter", link: "/#communication-section" },
@@ -133,7 +133,7 @@ export function FooterSection({ settings }: { settings?: any }) {
                 { name: "Contact Us", link: "/contact" },
               ].map((item, i) => (
                 <li key={i}>
-                  <a href={item.link} className="text-white hover:text-gray-300 transition-colors">
+                  <a href={item.link} className="text-white/90 hover:text-white hover:underline transition-all">
                     {item.name}
                   </a>
                 </li>
@@ -143,15 +143,15 @@ export function FooterSection({ settings }: { settings?: any }) {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-base font-semibold mb-4 text-white">Contact Info</h4>
-            <div className="space-y-3 text-sm text-white">
+            <h4 className="text-sm xl:text-base 2xl:text-lg font-bold mb-3 xl:mb-5 text-white tracking-wide">Contact Info</h4>
+            <div className="space-y-3 text-[11px] sm:text-xs xl:text-sm 2xl:text-base text-white">
               {/* Email */}
               <a
                 href="mailto:contact@dohadindia.org"
-                className="inline-flex items-center space-x-2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-all border border-white/20 hover:border-white/40 group"
+                className="inline-flex items-center space-x-2 px-3 py-1.5 sm:px-4 sm:py-2 2xl:px-6 2xl:py-3 bg-white/10 hover:bg-white/20 rounded-full transition-all border border-white/20 hover:border-white/40 group"
               >
-                <Mail className="h-5 w-5 text-white group-hover:scale-110 transition-transform" />
-                <span className="text-white font-medium">contact@dohadindia.org</span>
+                <Mail className="h-4 w-4 xl:h-5 xl:w-5 text-white group-hover:scale-110 transition-transform" />
+                <span className="text-white font-semibold">contact@dohadindia.org</span>
               </a>
 
               {/* Address */}
@@ -159,10 +159,10 @@ export function FooterSection({ settings }: { settings?: any }) {
                 href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start space-x-2 hover:opacity-80 transition-opacity cursor-pointer mt-3"
+                className="flex items-start space-x-2 hover:opacity-80 transition-opacity cursor-pointer mt-2.5 sm:mt-3"
               >
-                <MapPin className="h-5 w-5 text-white shrink-0 mt-0.5" />
-                <span className="text-white leading-snug">
+                <MapPin className="h-4 w-4 xl:h-5 xl:w-5 text-white shrink-0 mt-0.5" />
+                <span className="text-white/90 leading-snug">
                   PHFI Centre for Developmental and Lifecourse Research, Indiranagar, Bengaluru, Karnataka 560038
                 </span>
               </a>
@@ -171,11 +171,11 @@ export function FooterSection({ settings }: { settings?: any }) {
         </div>
 
         {/* Bottom Footer */}
-        <div className="mt-10 border-t border-white/20 pt-6 text-center">
-          <p className="text-sm text-white">
+        <div className="mt-8 xl:mt-16 border-t border-white/20 pt-4 xl:pt-6 text-center">
+          <p className="text-[11px] sm:text-xs xl:text-sm 2xl:text-base text-white/95">
             © {new Date().getFullYear()} DOHaD India Regional Society. All rights reserved.
           </p>
-          <div className="mt-2 flex justify-center space-x-4 text-xs text-white/80">
+          <div className="mt-2 flex justify-center space-x-3 sm:space-x-4 text-[10px] sm:text-xs xl:text-sm 2xl:text-base text-white/80">
             <a href="/terms" className="hover:text-white hover:underline transition-colors">
               Terms &amp; Conditions
             </a>

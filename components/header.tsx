@@ -16,23 +16,23 @@ export function Header() {
   ]
 
   return (
-    <header className="sticky top-0 z-50 w-full py-3 sm:py-4 px-4 sm:px-6 bg-background/95 border-b border-border backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full py-2 sm:py-2.5 xl:py-4 px-4 sm:px-6 bg-background/95 border-b border-border backdrop-blur-sm">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/" className="relative shrink-0 w-14 h-14 md:w-16 md:h-16 hover:opacity-80 transition-opacity">
+          <Link href="/" className="relative shrink-0 w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 hover:opacity-80 transition-opacity">
             <Image
-              src="/logo__1_-removebg-preview.png"
+              src="/dohad-india-rgb.png"
               alt="DOHaD India Logo"
               fill
               className="object-contain"
             />
           </Link>
           <div className="flex flex-col">
-            <Link href="/" className="text-foreground text-lg md:text-xl font-bold hover:opacity-80 transition-opacity tracking-tight">
+            <Link href="/" className="text-foreground text-base md:text-lg xl:text-xl font-bold hover:opacity-80 transition-opacity tracking-tight">
               DOHaD India
             </Link>
-            <p className="text-[10px] sm:text-xs text-muted-foreground max-w-[200px] sm:max-w-[320px] leading-tight">
+            <p className="hidden xl:block text-[10px] sm:text-xs xl:text-sm text-muted-foreground max-w-[200px] sm:max-w-[320px] xl:max-w-[380px] leading-tight">
                 Advancing health through the developmental origins of health and disease research in India.
               </p>
           </div>
@@ -44,7 +44,7 @@ export function Header() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base"
+              className="text-muted-foreground hover:text-foreground px-3 py-2 rounded-full font-medium transition-colors text-sm xl:text-base whitespace-nowrap"
             >
               {item.name}
             </Link>
@@ -56,7 +56,7 @@ export function Header() {
           <ThemeToggle />
           {/* CTA visible on medium+ screens */}
           <Link href="/join-us" className="hidden md:block">
-            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-4 sm:px-6 py-2 rounded-full font-medium shadow-sm text-sm sm:text-base">
+            <Button className="bg-secondary text-secondary-foreground hover:bg-secondary/90 px-4 sm:px-6 xl:px-8 py-2 xl:py-3 rounded-full font-medium shadow-sm text-sm sm:text-base xl:text-lg">
               Become a Member
             </Button>
           </Link>
@@ -76,9 +76,9 @@ export function Header() {
                 <div className="flex flex-col items-start gap-3 text-left">
                   <SheetTitle className="sr-only">Navigation</SheetTitle>
                   <div className="flex items-center gap-3">
-                    <div className="relative w-14 h-14 shrink-0">
+                    <div className="relative w-18 h-18 shrink-0">
                       <Image
-                        src="/logo__1_-removebg-preview.png"
+                        src="/dohad-india-rgb.png"
                         alt="DOHaD India Logo"
                         fill
                         className="object-contain"

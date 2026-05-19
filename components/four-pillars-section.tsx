@@ -49,11 +49,11 @@ const FeatureCard = ({ title, image, description }: FeatureCardProps) => (
       {/* Mobile: Title at bottom, tap to expand */}
       <div className="absolute inset-0 flex flex-col">
         <div className="flex-1"></div>
-        <div className="bg-gradient-to-t from-black/80 to-transparent p-4">
-          <h3 className="text-xl font-bold text-white mb-2">
+        <div className="bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 xl:p-6">
+          <h3 className="text-base sm:text-lg xl:text-xl font-bold text-white mb-1 xl:mb-2">
             {title}
           </h3>
-          <p className="text-sm text-white/90 leading-relaxed line-clamp-3">
+          <p className="text-[11px] sm:text-xs xl:text-sm text-white/90 leading-relaxed line-clamp-3">
             {description}
           </p>
         </div>
@@ -68,17 +68,17 @@ const GridFeatureCard = ({ title, description, icon: Icon }: FeatureCardProps) =
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.4 }}
-    className="group relative flex flex-col items-start p-6 h-full bg-white dark:bg-card rounded-2xl border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+    className="group relative flex flex-col items-start p-4 sm:p-5 xl:p-8 2xl:p-10 h-full bg-white dark:bg-card rounded-2xl border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
   >
-    <div className="mb-4 p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-      {Icon && <Icon className="w-8 h-8" />}
+    <div className="mb-2.5 xl:mb-4 2xl:mb-6 p-2 xl:p-3 2xl:p-4 rounded-lg xl:rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+      {Icon && <Icon className="w-5 h-5 sm:w-6 sm:h-6 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10" />}
     </div>
     
-    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-300">
+    <h3 className="text-sm sm:text-base xl:text-xl 2xl:text-2xl font-bold text-foreground mb-1.5 xl:mb-3 2xl:mb-4 group-hover:text-primary transition-colors duration-300">
       {title}
     </h3>
     
-    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+    <p className="text-[11px] sm:text-xs md:text-sm xl:text-base 2xl:text-lg text-muted-foreground leading-relaxed line-clamp-3">
       {description}
     </p>
   </motion.div>
@@ -125,16 +125,15 @@ export function BentoCarousel() {
   ]
 
   return (
-    <section className="relative w-full px-5 md:px-6 lg:px-8 bg-background pb-12 md:pb-16 pt-0">
+    <section className="relative w-full px-5 md:px-6 lg:px-8 bg-background py-8 md:py-10 xl:py-20 2xl:py-28">
       <div className="w-full max-w-7xl mx-auto relative">
         {/* Main Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center mb-4 md:mb-5 xl:mb-6 [@media(min-height:768px)]:mb-12 [@media(min-height:850px)]:2xl:mb-20">
+          <h2 className="text-xl md:text-2xl xl:text-3xl [@media(min-height:768px)]:xl:text-5xl [@media(min-height:850px)]:2xl:text-6xl font-bold text-foreground mb-1 xl:mb-2 [@media(min-height:768px)]:mb-4 [@media(min-height:850px)]:mb-6">
             Research Focus Areas
           </h2>
-          <p className="text-lg text-muted-foreground leading-relaxed max-w-4xl mx-auto">
-            Our research spans multiple disciplines to understand how early-life
-            exposures affect long-term health outcomes in Indian populations
+          <p className="text-[10px] sm:text-xs xl:text-sm [@media(min-height:768px)]:xl:text-lg [@media(min-height:850px)]:2xl:text-xl text-muted-foreground max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
+            Our research spans multiple disciplines to understand how early-life exposures affect long-term health outcomes in Indian populations
           </p>
         </div>
 
@@ -148,13 +147,13 @@ export function BentoCarousel() {
             className="w-full px-4"
           >
             {/* Navigation buttons - positioned above carousel content */}
-            <div className="flex justify-center items-center gap-4 mb-8">
-              <CarouselPrevious className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
-                <ArrowLeft className="w-6 h-6" />
+            <div className="flex justify-center items-center gap-4 mb-4">
+              <CarouselPrevious className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
+                <ArrowLeft className="w-5 h-5" />
                 <span className="sr-only">Previous slide</span>
               </CarouselPrevious>
-              <CarouselNext className="w-12 h-12 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg hover:scale-110 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
-                <ArrowRight className="w-6 h-6" />
+              <CarouselNext className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
+                <ArrowRight className="w-5 h-5" />
                 <span className="sr-only">Next slide</span>
               </CarouselNext>
             </div>
@@ -173,7 +172,7 @@ export function BentoCarousel() {
         </div>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="hidden md:grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5 xl:gap-8 2xl:gap-10">
           {features.map((feature, index) => (
             <GridFeatureCard key={index} {...feature} />
           ))}

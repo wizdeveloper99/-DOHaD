@@ -1,5 +1,6 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
 
 type VariantType = 'primary' | 'sage' | 'rose';
@@ -18,6 +19,150 @@ interface FeatherCardProps {
   ctaText?: string;
   onCTAClick?: () => void;
 }
+
+const WebinarsVector: React.FC = () => {
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10 relative overflow-hidden group select-none">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-20">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-primary/20" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
+      </div>
+
+      {/* Glow balls */}
+      <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary/20 rounded-full blur-2xl animate-pulse" />
+      <div className="absolute bottom-1/4 right-1/4 w-32 h-32 bg-accent/20 rounded-full blur-2xl animate-pulse delay-1000" />
+
+      {/* Main Illustration: A modern abstract webinar setup */}
+      <svg
+        viewBox="0 0 400 240"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full max-h-[85%] object-contain transition-transform duration-700 group-hover:scale-105 z-10"
+      >
+        {/* Modern monitor/screen */}
+        <rect x="80" y="40" width="240" height="130" rx="12" fill="currentColor" className="text-background/80" stroke="currentColor" strokeWidth="2" />
+        <rect x="85" y="45" width="230" height="120" rx="8" fill="currentColor" className="text-muted/10" />
+        
+        {/* Video stream container */}
+        <rect x="95" y="55" width="130" height="100" rx="6" fill="currentColor" className="text-secondary/15" />
+        {/* Lecturer silhouette/avatar */}
+        <circle cx="160" cy="90" r="18" fill="currentColor" className="text-primary/40" />
+        <path d="M 135 130 C 135 112, 185 112, 185 130 Z" fill="currentColor" className="text-primary/40" />
+        {/* Virtual Presentation slides */}
+        <rect x="235" y="55" width="70" height="45" rx="4" fill="currentColor" className="text-accent/20" />
+        <line x1="242" y1="65" x2="280" y2="65" stroke="currentColor" strokeWidth="2" className="text-accent" />
+        <line x1="242" y1="75" x2="295" y2="75" stroke="currentColor" strokeWidth="2" className="text-accent/60" />
+        <line x1="242" y1="85" x2="265" y2="85" stroke="currentColor" strokeWidth="2" className="text-accent/40" />
+
+        {/* Live chat / notes */}
+        <rect x="235" y="110" width="70" height="45" rx="4" fill="currentColor" className="text-primary/10" />
+        <rect x="242" y="118" width="56" height="6" rx="2" fill="currentColor" className="text-primary/30" />
+        <rect x="242" y="128" width="40" height="6" rx="2" fill="currentColor" className="text-primary/30" />
+        <rect x="242" y="138" width="48" height="6" rx="2" fill="currentColor" className="text-primary/20" />
+
+        {/* Stand and base for screen */}
+        <path d="M 180 170 L 170 195 L 230 195 L 220 170 Z" fill="currentColor" className="text-muted-foreground/30" />
+        <rect x="150" y="195" width="100" height="6" rx="3" fill="currentColor" className="text-muted-foreground/30" />
+
+        {/* Floating elements */}
+        {/* Play Icon/Signal */}
+        <circle cx="160" cy="90" r="22" stroke="currentColor" strokeWidth="1.5" className="text-primary animate-ping opacity-25" />
+        
+        {/* Sparkles / Connection lines */}
+        <path d="M 60 70 A 15 15 0 0 1 75 85" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-primary/40 animate-pulse" />
+        <path d="M 50 65 A 25 25 0 0 1 75 90" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="text-primary/20 animate-pulse delay-500" />
+        
+        {/* Audio/Mic waves */}
+        <path d="M 330 75 A 15 15 0 0 1 330 105" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-secondary/40 animate-pulse delay-300" />
+        <path d="M 340 70 A 25 25 0 0 1 340 110" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="text-secondary/20 animate-pulse delay-700" />
+      </svg>
+    </div>
+  );
+};
+
+const NewsletterVector: React.FC = () => {
+  return (
+    <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-secondary/10 via-primary/5 to-accent/10 relative overflow-hidden group select-none">
+      {/* Background patterns */}
+      <div className="absolute inset-0 opacity-20">
+        <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="2" cy="2" r="1.5" fill="currentColor" className="text-secondary/20" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid-dots)" />
+        </svg>
+      </div>
+
+      {/* Glow balls */}
+      <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-secondary/20 rounded-full blur-2xl animate-pulse" />
+      <div className="absolute bottom-1/4 left-1/4 w-32 h-32 bg-accent/20 rounded-full blur-2xl animate-pulse delay-1000" />
+
+      {/* Main Illustration: A modern envelope with floating news pages */}
+      <svg
+        viewBox="0 0 400 240"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="w-full h-full max-h-[85%] object-contain transition-transform duration-700 group-hover:scale-105 z-10"
+      >
+        {/* Floating Page 2 (behind) */}
+        <g className="animate-bounce" style={{ animationDuration: '4s' }}>
+          <rect x="210" y="35" width="80" height="110" rx="8" transform="rotate(8 210 35)" fill="currentColor" className="text-background/90" stroke="currentColor" strokeWidth="2" />
+          <path d="M 225 55 L 275 62" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-secondary/40" />
+          <path d="M 223 68 L 263 74" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-muted-foreground/30" />
+          <path d="M 221 81 L 266 87" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-muted-foreground/30" />
+        </g>
+
+        {/* Floating Page 1 (main newsletter sheet) */}
+        <g className="animate-bounce" style={{ animationDuration: '3s', animationDelay: '0.5s' }}>
+          <rect x="120" y="25" width="90" height="120" rx="8" fill="currentColor" className="text-background" stroke="currentColor" strokeWidth="2" />
+          {/* Header block of page */}
+          <rect x="132" y="38" width="66" height="16" rx="4" fill="currentColor" className="text-primary/15" />
+          <circle cx="142" cy="46" r="4" fill="currentColor" className="text-primary" />
+          <line x1="152" y1="46" x2="188" y2="46" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="text-primary" />
+          
+          {/* Article lines */}
+          <line x1="132" y1="68" x2="198" y2="68" stroke="currentColor" strokeWidth="2.5" className="text-foreground/80" />
+          <line x1="132" y1="78" x2="190" y2="78" stroke="currentColor" strokeWidth="2.5" className="text-foreground/80" />
+          
+          <rect x="132" y="88" width="66" height="12" rx="2" fill="currentColor" className="text-accent/15" />
+          <line x1="138" y1="94" x2="188" y2="94" stroke="currentColor" strokeWidth="2" className="text-accent" />
+          
+          <line x1="132" y1="112" x2="185" y2="112" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-muted-foreground/40" />
+          <line x1="132" y1="120" x2="175" y2="120" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-muted-foreground/30" />
+          <line x1="132" y1="128" x2="192" y2="128" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="text-muted-foreground/20" />
+        </g>
+
+        {/* Envelope back panel */}
+        <path d="M 100 130 L 100 200 C 100 205, 105 210, 110 210 L 290 210 C 295 210, 300 205, 300 200 L 300 130 Z" fill="currentColor" className="text-secondary/20" stroke="currentColor" strokeWidth="2" />
+        
+        {/* Envelope flap open behind pages */}
+        <path d="M 100 130 L 200 70 L 300 130 Z" fill="currentColor" className="text-secondary/10" stroke="currentColor" strokeWidth="2" />
+
+        {/* Envelope front fold (isometric overlap) */}
+        <path d="M 100 135 L 200 175 L 300 135" stroke="currentColor" strokeWidth="2" className="text-secondary/40" />
+        <path d="M 100 210 L 200 175 L 300 210" stroke="currentColor" strokeWidth="2" className="text-secondary/40" />
+
+        {/* Sparkles / dynamic floaties */}
+        {/* Sparkle 1 */}
+        <path d="M 90 60 L 95 65 L 90 70 L 85 65 Z" fill="currentColor" className="text-accent animate-pulse" />
+        {/* Sparkle 2 */}
+        <path d="M 315 45 L 318 48 L 315 51 L 312 48 Z" fill="currentColor" className="text-primary animate-pulse delay-500" />
+        {/* Circle accent */}
+        <circle cx="310" cy="110" r="3.5" fill="currentColor" className="text-secondary animate-ping opacity-40" />
+        <circle cx="75" cy="120" r="4.5" fill="currentColor" className="text-accent animate-ping opacity-45" />
+      </svg>
+    </div>
+  );
+};
 
 const FeatherCard: React.FC<FeatherCardProps> = ({
   title = "Gentle Whispers",
@@ -63,7 +208,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
     <div
       onClick={isClickable ? onClick : undefined}
       className={`
-        card-hover relative w-full max-w-lg mx-auto rounded-3xl overflow-hidden
+        card-hover relative w-full max-w-lg mx-auto rounded-2xl sm:rounded-3xl overflow-hidden
         ${currentVariant.bg} ${currentVariant.darkBg}
         backdrop-blur-sm border border-white/20 dark:border-white/10
         shadow-xl shadow-black/5 dark:shadow-black/20
@@ -71,12 +216,18 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         ${isClickable ? 'cursor-pointer hover:shadow-2xl hover:scale-[1.02] transition-all duration-300' : ''}
       `}
     >
-      <div className="relative h-80 overflow-hidden">
-        <img
-          src={`/${image}`}
-          alt={title}
-          className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-        />
+      <div className="relative h-24 sm:h-28 lg:h-32 xl:h-64 2xl:h-72 [@media(max-height:640px)]:h-20 [@media(max-height:640px)]:xl:h-24 [@media(max-height:640px)]:2xl:h-28 overflow-hidden">
+        {image === 'webinars-vector' ? (
+          <WebinarsVector />
+        ) : image === 'newsletter-vector' ? (
+          <NewsletterVector />
+        ) : (
+          <img
+            src={image?.startsWith('http') ? image : `/${image}`}
+            alt={title}
+            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+          />
+        )}
         {/* Subtle overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
       </div>
@@ -89,12 +240,12 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
       </div>
 
       {/* Content */}
-      <div className="card-hover-content relative z-10 p-8">
+      <div className="card-hover-content relative z-10 p-4 sm:p-5 xl:p-6 [@media(min-height:768px)]:xl:p-8 [@media(min-height:850px)]:2xl:p-10">
         {/* Subtitle */}
         {subtitle && (
           <p
             className={`
-              text-sm font-light tracking-widest uppercase mb-2 opacity-70
+              text-[9px] xl:text-xs [@media(min-height:768px)]:xl:text-sm [@media(min-height:850px)]:2xl:text-base font-light tracking-widest uppercase mb-1 [@media(min-height:768px)]:xl:mb-2 [@media(min-height:850px)]:2xl:mb-3 opacity-70
               ${currentVariant.accent}
             `}
           >
@@ -105,7 +256,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         {/* Title with flowing typography */}
         <h3
           className={`
-            card-hover-title mb-4 text-xl font-semibold
+            card-hover-title mb-1 [@media(min-height:768px)]:xl:mb-3 [@media(min-height:850px)]:2xl:mb-4 text-xs sm:text-sm xl:text-base [@media(min-height:768px)]:xl:text-xl [@media(min-height:850px)]:2xl:text-2xl font-bold
             ${currentVariant.title}
           `}
         >
@@ -115,7 +266,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         {/* Content */}
         <div
           className={`
-            card-hover-text text-sm mb-4
+            card-hover-text text-[10px] sm:text-[11px] xl:text-xs [@media(min-height:768px)]:xl:text-sm [@media(min-height:850px)]:2xl:text-base mb-2 [@media(min-height:768px)]:xl:mb-3 [@media(min-height:850px)]:2xl:mb-4
             ${currentVariant.accent}
           `}
         >
@@ -124,11 +275,11 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
 
         {/* Bullet Points */}
         {bulletPoints.length > 0 && (
-          <ul className="space-y-2 mb-6 ml-4">
+          <ul className="space-y-1 xl:space-y-1.5 mb-2 [@media(min-height:768px)]:xl:mb-4 [@media(min-height:850px)]:2xl:mb-6 ml-4">
             {bulletPoints.map((point, index) => (
               <li key={index} className="flex items-start">
-                <span className="text-primary dark:text-primary/80 mr-2">•</span>
-                <span className="text-sm text-muted-foreground">{point}</span>
+                <span className="text-primary dark:text-primary/80 mr-2 shrink-0">•</span>
+                <span className="text-[10px] sm:text-[11px] xl:text-xs [@media(min-height:768px)]:xl:text-sm [@media(min-height:850px)]:2xl:text-base text-muted-foreground leading-relaxed">{point}</span>
               </li>
             ))}
           </ul>
@@ -141,9 +292,9 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
               e.stopPropagation();
               onCTAClick?.();
             }}
-            className="mt-4 px-8 py-3 bg-primary text-primary-foreground rounded-full 
+            className="mt-1.5 [@media(min-height:768px)]:xl:mt-3 px-4 py-2 sm:px-5 sm:py-2.5 xl:px-6 xl:py-2.5 [@media(min-height:768px)]:xl:px-8 [@media(min-height:768px)]:xl:py-3 [@media(min-height:850px)]:2xl:px-10 [@media(min-height:850px)]:2xl:py-4 bg-primary text-primary-foreground rounded-full 
                      hover:bg-primary/90 transition-all duration-300 
-                     shadow-lg hover:shadow-xl font-medium text-sm
+                     shadow-md hover:shadow-xl font-medium text-[10px] sm:text-xs xl:text-sm 2xl:text-base
                      transform hover:-translate-y-0.5"
           >
             {ctaText}
@@ -159,164 +310,173 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
   )
 }
 
-// Newsletter Subscription Modal
+// Social & Official Links Connect Modal
 interface NewsletterModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
 const NewsletterModal: React.FC<NewsletterModalProps> = ({ isOpen, onClose }) => {
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [affiliation, setAffiliation] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    try {
-      const res = await fetch('/api/newsletter', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, affiliation }),
-      });
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-      if (res.ok) {
-        setIsSubmitting(false);
-        setSubmitted(true);
-        setTimeout(() => {
-          setSubmitted(false);
-          setEmail('');
-          setName('');
-          setAffiliation('');
-          onClose();
-        }, 2000);
-      } else {
-        const error = await res.json();
-        alert(error.error || 'Failed to subscribe');
-        setIsSubmitting(false);
-      }
-    } catch (error) {
-      alert('An error occurred. Please try again.');
-      setIsSubmitting(false);
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-  };
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
+  const links = [
+    {
+      title: "Official Website",
+      subtitle: "dohadsoc.org",
+      href: "https://dohadsoc.org/",
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9-9c1.657 0 3 4.03 3 9s-1.343 9-3 9m0-18c-1.657 0-3 4.03-3 9s1.343 9 3 9m-9-9a9 9 0 019-9" />
+        </svg>
+      ),
+      color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/15",
+    },
+    {
+      title: "Send an Email",
+      subtitle: "contact@dohadindia.org",
+      href: "mailto:contact@dohadindia.org",
+      icon: (
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      ),
+      color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:bg-blue-500/15",
+    },
+    {
+      title: "Follow on X",
+      subtitle: "@dohadindia",
+      href: "https://x.com/dohadindia",
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      ),
+      color: "bg-neutral-800/10 text-neutral-800 dark:bg-neutral-200/10 dark:text-neutral-200 border-neutral-800/20 hover:bg-neutral-800/15 dark:hover:bg-neutral-200/15",
+    },
+    {
+      title: "Connect on LinkedIn",
+      subtitle: "DOHaD India",
+      href: "https://www.linkedin.com/company/dohad-india",
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        </svg>
+      ),
+      color: "bg-sky-600/10 text-sky-600 dark:text-sky-400 border-sky-600/20 hover:bg-sky-600/15",
+    },
+    {
+      title: "Watch on YouTube",
+      subtitle: "@dohadindia",
+      href: "https://www.youtube.com/@dohadindia",
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.107C19.528 3.545 12 3.545 12 3.545s-7.528 0-9.388.511a3.002 3.002 0 00-2.11 2.107C0 8.021 0 12 0 12s0 3.979.502 5.837a3.002 3.002 0 002.11 2.107c1.86.511 9.388.511 9.388.511s7.528 0 9.388-.511a3.002 3.002 0 002.11-2.107c.502-1.858.502-5.837.502-5.837s0-3.979-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      ),
+      color: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20 hover:bg-red-500/15",
+    },
+    {
+      title: "Follow on Bluesky",
+      subtitle: "dohadindia.bsky.social",
+      href: "https://bsky.app/profile/dohadindia.bsky.social",
+      icon: (
+        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+          <path d="M12 10.8c-1.687-3.14-5.263-5.328-8.232-6.528A4.27 4.27 0 000 8.52c0 2.213.9 7.784 5.378 10.518C8.835 20.895 10.875 22.8 12 24c1.125-1.2 3.165-3.105 6.622-4.962C23.1 16.304 24 10.733 24 8.52a4.27 4.27 0 00-3.768-4.248c-2.969 1.2-6.545 3.388-8.232 6.528z" />
+        </svg>
+      ),
+      color: "bg-blue-400/10 text-blue-500 dark:text-blue-300 border-blue-400/20 hover:bg-blue-400/15",
+    },
+  ];
+
+  return createPortal(
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-md p-4 overflow-y-auto transition-opacity duration-300"
       onClick={onClose}
     >
       <div 
-        className="bg-background border border-border rounded-2xl shadow-2xl p-8 max-w-md w-full mx-4 relative"
+        className="bg-background/95 border border-white/20 dark:border-white/10 rounded-2xl sm:rounded-3xl shadow-2xl p-4 sm:p-6 [@media(min-height:640px)]:p-8 max-w-xl w-full relative overflow-y-auto max-h-[92vh] sm:max-h-[90vh] backdrop-blur-xl animate-in fade-in zoom-in duration-300 flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
+          className="absolute top-3 right-3 [@media(min-height:640px)]:top-5 [@media(min-height:640px)]:right-5 text-muted-foreground hover:text-foreground bg-secondary/15 hover:bg-secondary/30 rounded-full p-1.5 transition-all z-10"
           aria-label="Close modal"
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg className="w-4 h-4 [@media(min-height:640px)]:w-5 [@media(min-height:640px)]:h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
 
-        {!submitted ? (
-          <>
-            <h3 className="text-2xl font-bold text-foreground mb-2">
-              Subscribe to Our Newsletter
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Get quarterly updates on DOHaD research, events, and opportunities.
-            </p>
-
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1 text-left">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                  placeholder="John Doe"
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-                           text-foreground placeholder:text-muted-foreground transition-all"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="affiliation" className="block text-sm font-medium text-foreground mb-1 text-left">
-                  Affiliation
-                </label>
-                <input
-                  type="text"
-                  id="affiliation"
-                  value={affiliation}
-                  onChange={(e) => setAffiliation(e.target.value)}
-                  required
-                  placeholder="Institution or Organization"
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-                           text-foreground placeholder:text-muted-foreground transition-all"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1 text-left">
-                  Email Address
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                  placeholder="your.email@example.com"
-                  className="w-full px-4 py-3 bg-background border border-border rounded-lg 
-                           focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent
-                           text-foreground placeholder:text-muted-foreground transition-all"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full px-8 py-3 bg-primary text-primary-foreground rounded-full 
-                         hover:bg-primary/90 transition-all duration-300 
-                         shadow-lg hover:shadow-xl font-medium
-                         disabled:opacity-50 disabled:cursor-not-allowed
-                         transform hover:-translate-y-0.5"
-              >
-                {isSubmitting ? 'Subscribing...' : 'Subscribe Now'}
-              </button>
-            </form>
-          </>
-        ) : (
-          <div className="text-center py-8">
-            <div className="mb-4">
-              <svg className="w-16 h-16 mx-auto text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h3 className="text-2xl font-bold text-foreground mb-2">
-              Successfully Subscribed!
-            </h3>
-            <p className="text-muted-foreground">
-              Thank you for subscribing to our newsletter.
-            </p>
+        <div className="text-center mb-4 [@media(min-height:640px)]:mb-6 [@media(min-height:768px)]:mb-8 pr-6 [@media(min-height:640px)]:pr-0">
+          <div className="hidden [@media(min-height:600px)]:inline-flex p-2.5 [@media(min-height:768px)]:p-3 rounded-2xl bg-primary/10 text-primary mb-2 [@media(min-height:768px)]:mb-3 animate-bounce" style={{ animationDuration: '3s' }}>
+            <svg className="w-6 h-6 [@media(min-height:768px)]:w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
           </div>
-        )}
+          <h3 className="text-lg [@media(min-height:640px)]:text-xl [@media(min-height:768px)]:text-2xl font-bold text-foreground mb-1 [@media(min-height:640px)]:mb-1.5 tracking-tight">
+            Connect With DOHaD India
+          </h3>
+          <p className="text-[11px] [@media(min-height:640px)]:text-xs [@media(min-height:768px)]:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
+            Follow our updates, explore our international portal, or message our core society members directly.
+          </p>
+        </div>
+
+        <div className="grid gap-2 [@media(min-height:640px)]:gap-3 grid-cols-1 sm:grid-cols-2">
+          {links.map((link, idx) => (
+            <a
+              key={idx}
+              href={link.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`
+                flex items-center space-x-2.5 [@media(min-height:640px)]:space-x-3.5 p-2.5 [@media(min-height:640px)]:p-3.5 rounded-xl [@media(min-height:768px)]:rounded-2xl border transition-all duration-300
+                ${link.color} hover:shadow-md hover:scale-[1.01] group
+              `}
+            >
+              <div className="p-1.5 [@media(min-height:640px)]:p-2 [@media(min-height:768px)]:p-2.5 rounded-lg [@media(min-height:768px)]:rounded-xl bg-background shadow-sm border border-black/5 dark:border-white/5 transition-transform group-hover:scale-110 flex-shrink-0">
+                {link.icon}
+              </div>
+              <div className="text-left overflow-hidden flex-1">
+                <p className="text-xs [@media(min-height:640px)]:text-xs [@media(min-height:768px)]:text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
+                  {link.title}
+                </p>
+                <p className="text-[10px] [@media(min-height:640px)]:text-[10px] [@media(min-height:768px)]:text-xs text-muted-foreground truncate font-mono">
+                  {link.subtitle}
+                </p>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <div className="mt-4 [@media(min-height:640px)]:mt-6 [@media(min-height:768px)]:mt-8 pt-3 [@media(min-height:640px)]:pt-4 [@media(min-height:768px)]:pt-6 border-t border-white/10 dark:border-white/5 text-center flex-shrink-0">
+          <button
+            onClick={onClose}
+            className="px-5 py-2 [@media(min-height:640px)]:px-6 [@media(min-height:640px)]:py-2.5 bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full font-medium text-xs [@media(min-height:640px)]:text-sm transition-all"
+          >
+            Close Portal
+          </button>
+        </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
@@ -327,25 +487,25 @@ const CommunicationOutreach = () => {
 
   return (
     <>
-      <div className="max-w-6xl mx-auto px-6 py-12 text-center bg-background">
+      <div className="max-w-6xl mx-auto px-6 py-8 md:py-10 xl:py-20 2xl:py-28 text-center bg-background">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+          <div className="text-center mb-4 md:mb-5 xl:mb-6 [@media(min-height:768px)]:mb-12 [@media(min-height:850px)]:2xl:mb-20">
+            <h2 className="text-xl md:text-2xl xl:text-3xl [@media(min-height:768px)]:xl:text-5xl [@media(min-height:850px)]:2xl:text-6xl font-bold text-foreground mb-1 xl:mb-2 [@media(min-height:768px)]:mb-4 [@media(min-height:850px)]:mb-6">
               Communication & Outreach
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-[10px] sm:text-xs xl:text-sm [@media(min-height:768px)]:xl:text-lg [@media(min-height:850px)]:2xl:text-xl text-muted-foreground max-w-2xl xl:max-w-3xl 2xl:max-w-4xl mx-auto">
               We actively promote and disseminate DOHaD research across India and globally through multiple communication platforms
             </p>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-3 sm:gap-4 xl:gap-8 2xl:gap-10 md:grid-cols-2">
             {/* Card 1: Webinars & Events - Clickable */}
             <div className="flex">
               <FeatherCard
                 title="Webinars & Events"
                 subtitle=""
                 content={
-                  <p className="text-muted-foreground text-base mt-3 font-normal">
+                  <p className="text-muted-foreground text-xs sm:text-sm xl:text-base 2xl:text-lg mt-3 font-normal">
                     Regular webinars featuring renowned Indian and international experts to share emerging insights from DOHaD research.
                   </p>
                 }
@@ -355,7 +515,7 @@ const CommunicationOutreach = () => {
                   "Policy roundtables for collaborative discussions"
                 ]}
                 variant="primary"
-                image="2150461353.jpg"
+                image="webinars-vector"
                 className="flex-1"
                 isClickable={true}
                 onClick={() => router.push('/events')}
@@ -365,18 +525,18 @@ const CommunicationOutreach = () => {
             {/* Card 2: Quarterly Newsletter - with CTA */}
             <div className="flex">
               <FeatherCard
-                title="Quarterly Newsletter"
+                title="Subscribe"
                 subtitle=""
                 content={
-                  <p className="text-muted-foreground text-base mt-3 font-normal">
+                  <p className="text-muted-foreground text-xs sm:text-sm xl:text-base 2xl:text-lg mt-3 font-normal">
                     Stay updated with carefully curated insights on recent publications, events, funding opportunities, and valuable member contributions.
                   </p>
                 }
                 variant="sage"
-                image="14534.jpg"
+                image="newsletter-vector"
                 className="flex-1"
                 showCTA={true}
-                ctaText="Subscribe to Newsletter"
+                ctaText="Subscribe"
                 onCTAClick={() => setIsNewsletterModalOpen(true)}
               />
             </div>
