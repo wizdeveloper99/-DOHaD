@@ -39,7 +39,7 @@ export default async function HomePage() {
             <Hero settings={settings?.hero} />
           </AnimatedSection>
         </main>
-        
+
         {/* Learn About DOHaD Section */}
         <AnimatedSection
           id="learn-section"
@@ -48,7 +48,7 @@ export default async function HomePage() {
         >
           <LearnAboutDOHaD />
         </AnimatedSection>
-          
+
         {/* Main content sections with standardized spacing */}
         <div className="relative">
           {/* About Section (Who We Are) */}
@@ -59,11 +59,11 @@ export default async function HomePage() {
           >
             <AboutSection settings={settings?.about} />
           </AnimatedSection>
-          
+
           {/* Four Pillars/Bento Section (Research Focus) */}
-          <AnimatedSection 
-            id="features-section" 
-            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12" 
+          <AnimatedSection
+            id="features-section"
+            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12"
             delay={0.2}
           >
             <BentoCarousel />
@@ -77,7 +77,7 @@ export default async function HomePage() {
           >
             <CapacityBuilding />
           </AnimatedSection>
-          
+
           {/* Communication & Outreach Section */}
           <AnimatedSection
             id="communication-section"
@@ -87,15 +87,6 @@ export default async function HomePage() {
             <CommunicationOutreach />
           </AnimatedSection>
 
-          {/* Finance Section */}
-          <AnimatedSection
-            id="finance-section"
-            className="relative z-10"
-            delay={0.2}
-          >
-            <FinanceSection />
-          </AnimatedSection>
-          
           {/* Advocacy Section */}
           <AnimatedSection
             id="advocacy-section"
@@ -104,16 +95,16 @@ export default async function HomePage() {
           >
             <AdvocacySection />
           </AnimatedSection>
-          
+
           {/* FAQ Section */}
-          <AnimatedSection 
-            id="faq-section" 
-            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12" 
+          <AnimatedSection
+            id="faq-section"
+            className="relative z-10 max-w-7xl mx-auto px-8 md:px-12"
             delay={0.2}
           >
             <FAQSection />
           </AnimatedSection>
-          
+
         </div>
       </div>
     </div>

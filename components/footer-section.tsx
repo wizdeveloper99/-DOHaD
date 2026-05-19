@@ -1,6 +1,6 @@
 "use client"
 
-import { Mail, MapPin } from "lucide-react"
+import { Mail, MapPin, FileText } from "lucide-react"
 import Image from "next/image"
 
 // Brand SVG icons
@@ -38,7 +38,7 @@ export function FooterSection({ settings }: { settings?: any }) {
     <footer id="contact" className="w-full pt-8 pb-8 xl:pt-16 xl:pb-16 2xl:pt-24 2xl:pb-24 relative bg-secondary dark:bg-black overflow-hidden">
       <div className="container mx-auto px-6 md:px-12">
         {/* Main Footer Grid */}
-        <div className="grid gap-6 md:gap-8 xl:gap-12 2xl:gap-16 grid-cols-1 md:grid-cols-4">
+        <div className="grid gap-6 md:gap-8 xl:gap-12 2xl:gap-16 grid-cols-1 md:grid-cols-2 lg:grid-cols-5">
           {/* Brand Section */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2 xl:space-x-3">
@@ -119,6 +119,21 @@ export function FooterSection({ settings }: { settings?: any }) {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Governance & Policies */}
+          <div>
+            <h4 className="text-sm xl:text-base 2xl:text-lg font-bold mb-3 xl:mb-5 text-white tracking-wide">Governance</h4>
+            <ul className="space-y-2 xl:space-y-3 text-[11px] sm:text-xs xl:text-sm 2xl:text-base">
+              <li>
+                <a 
+                  href="/governance-and-policies"
+                  className="text-white/90 hover:text-white hover:underline transition-all"
+                >
+                  Governance &amp; Policies
+                </a>
+              </li>
             </ul>
           </div>
 
