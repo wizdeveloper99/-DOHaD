@@ -256,7 +256,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         {/* Title with flowing typography */}
         <h3
           className={`
-            card-hover-title mb-1 [@media(min-height:768px)]:xl:mb-3 [@media(min-height:850px)]:2xl:mb-4 text-xs sm:text-sm xl:text-base [@media(min-height:768px)]:xl:text-xl [@media(min-height:850px)]:2xl:text-2xl font-bold
+            card-hover-title mb-1 [@media(min-height:768px)]:xl:mb-3 [@media(min-height:850px)]:2xl:mb-4 text-sm sm:text-base xl:text-xl font-bold
             ${currentVariant.title}
           `}
         >
@@ -266,7 +266,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         {/* Content */}
         <div
           className={`
-            card-hover-text text-[10px] sm:text-[11px] xl:text-xs [@media(min-height:768px)]:xl:text-sm [@media(min-height:850px)]:2xl:text-base mb-2 [@media(min-height:768px)]:xl:mb-3 [@media(min-height:850px)]:2xl:mb-4
+            card-hover-text text-[11px] sm:text-xs xl:text-sm mb-2 [@media(min-height:768px)]:xl:mb-3 [@media(min-height:850px)]:2xl:mb-4
             ${currentVariant.accent}
           `}
         >
@@ -279,7 +279,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
             {bulletPoints.map((point, index) => (
               <li key={index} className="flex items-start">
                 <span className="text-primary dark:text-primary/80 mr-2 shrink-0">•</span>
-                <span className="text-[10px] sm:text-[11px] xl:text-xs [@media(min-height:768px)]:xl:text-sm [@media(min-height:850px)]:2xl:text-base text-muted-foreground leading-relaxed">{point}</span>
+                <span className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">{point}</span>
               </li>
             ))}
           </ul>
@@ -505,7 +505,7 @@ const CommunicationOutreach = () => {
                 title="Webinars & Events"
                 subtitle=""
                 content={
-                  <p className="text-muted-foreground text-xs sm:text-sm xl:text-base 2xl:text-lg mt-3 font-normal">
+                  <p className="text-muted-foreground text-[11px] sm:text-xs xl:text-sm mt-3 font-normal">
                     Regular webinars featuring renowned Indian and international experts to share emerging insights from DOHaD research.
                   </p>
                 }
@@ -528,7 +528,7 @@ const CommunicationOutreach = () => {
                 title="Subscribe"
                 subtitle=""
                 content={
-                  <p className="text-muted-foreground text-xs sm:text-sm xl:text-base 2xl:text-lg mt-3 font-normal">
+                  <p className="text-muted-foreground text-[11px] sm:text-xs xl:text-sm mt-3 font-normal">
                     Stay updated with carefully curated insights on recent publications, events, funding opportunities, and valuable member contributions.
                   </p>
                 }

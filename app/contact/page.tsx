@@ -29,8 +29,8 @@ export default function ContactPage() {
                   <Mail className="w-6 h-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">Email</h3>
-                  <p className="text-muted-foreground text-sm mb-2">
+                  <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Email</h3>
+                  <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground mb-2">
                     For general inquiries, membership questions, and collaboration opportunities
                   </p>
                   <a href="mailto:contact@dohadindia.org" className="text-primary hover:text-primary/80 font-medium">
@@ -50,8 +50,8 @@ export default function ContactPage() {
     <MapPin className="w-6 h-6 text-secondary" />
   </div>
   <div>
-    <h3 className="font-semibold text-foreground mb-1">Address</h3>
-    <p className="text-muted-foreground text-sm leading-relaxed">
+    <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Address</h3>
+    <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
       PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
       <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
     </p>
@@ -61,8 +61,8 @@ export default function ContactPage() {
             </div>
 
             <div className="bg-card border border-border rounded-lg p-5 shadow-sm mt-5">
-              <h3 className="font-semibold text-foreground mb-4">Office Hours</h3>
-              <div className="space-y-2 text-sm">
+              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-4">Office Hours</h3>
+              <div className="space-y-2 text-[11px] sm:text-xs xl:text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Monday - Friday</span>
                   <span className="text-foreground">9:00 AM - 6:00 PM IST</span>
@@ -76,8 +76,8 @@ export default function ContactPage() {
 
             <div className="space-y-5">
               <div className="bg-card border border-border rounded-lg p-5 shadow-sm">
-                <h3 className="font-semibold text-foreground mb-3">Social Media</h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3">Social Media</h3>
+                <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground mb-4">
                   Follow us on social media for the latest updates, research highlights, and community news
                 </p>
 
@@ -118,10 +118,10 @@ export default function ContactPage() {
                 <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
                   <Bell className="w-5 h-5 text-secondary" />
                 </div>
-                <h3 className="font-semibold text-foreground">Subscribe</h3>
+                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground">Subscribe</h3>
               </div>
 
-              <p className="text-muted-foreground text-sm mb-6">
+              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground mb-6">
                 Stay updated with the latest DOHaD research, events, and community news. Subscribe to our monthly
                 newsletter.
               </p>

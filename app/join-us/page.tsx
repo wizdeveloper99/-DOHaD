@@ -158,8 +158,8 @@ export default function JoinUsPage() {
                 <div className="w-12 h-12 xl:w-16 xl:h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 xl:mb-6 text-secondary transform rotate-3 hover:rotate-0 transition-transform">
                   {benefit.icon}
                 </div>
-                <h3 className="text-lg xl:text-xl font-bold text-foreground mb-2 xl:mb-4">{benefit.title}</h3>
-                <p className="text-[11px] md:text-sm xl:text-base text-muted-foreground leading-relaxed">{benefit.description}</p>
+                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2 xl:mb-4">{benefit.title}</h3>
+                <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">{benefit.description}</p>
               </div>
             ))}
           </div>

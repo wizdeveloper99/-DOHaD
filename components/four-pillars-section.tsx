@@ -50,7 +50,7 @@ const FeatureCard = ({ title, image, description }: FeatureCardProps) => (
       <div className="absolute inset-0 flex flex-col">
         <div className="flex-1"></div>
         <div className="bg-gradient-to-t from-black/80 to-transparent p-3 sm:p-4 xl:p-6">
-          <h3 className="text-base sm:text-lg xl:text-xl font-bold text-white mb-1 xl:mb-2">
+          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-white mb-1 xl:mb-2">
             {title}
           </h3>
           <p className="text-[11px] sm:text-xs xl:text-sm text-white/90 leading-relaxed line-clamp-3">
@@ -70,15 +70,15 @@ const GridFeatureCard = ({ title, description, icon: Icon }: FeatureCardProps) =
     transition={{ duration: 0.4 }}
     className="group relative flex flex-col items-start p-4 sm:p-5 xl:p-8 2xl:p-10 h-full bg-white dark:bg-card rounded-2xl border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
   >
-    <div className="mb-2.5 xl:mb-4 2xl:mb-6 p-2 xl:p-3 2xl:p-4 rounded-lg xl:rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
-      {Icon && <Icon className="w-5 h-5 sm:w-6 sm:h-6 xl:w-8 xl:h-8 2xl:w-10 2xl:h-10" />}
+    <div className="w-10 h-10 xl:w-14 xl:h-14 bg-secondary/10 text-secondary group-hover:bg-secondary group-hover:text-white flex items-center justify-center rounded-xl xl:rounded-2xl mb-3 xl:mb-6 transition-all duration-300 group-hover:scale-110 shrink-0">
+      {Icon && <Icon className="w-5 h-5 xl:w-6 xl:h-6" />}
     </div>
     
-    <h3 className="text-sm sm:text-base xl:text-xl 2xl:text-2xl font-bold text-foreground mb-1.5 xl:mb-3 2xl:mb-4 group-hover:text-primary transition-colors duration-300">
+    <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1.5 xl:mb-3 2xl:mb-4 group-hover:text-secondary transition-colors duration-300">
       {title}
     </h3>
     
-    <p className="text-[11px] sm:text-xs md:text-sm xl:text-base 2xl:text-lg text-muted-foreground leading-relaxed line-clamp-3">
+    <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed line-clamp-3">
       {description}
     </p>
   </motion.div>

@@ -20,7 +20,7 @@ export function Header() {
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <Link href="/" className="relative shrink-0 w-12 h-12 md:w-14 md:h-14 xl:w-16 xl:h-16 hover:opacity-80 transition-opacity">
+          <Link href="/" className="relative shrink-0 w-14 h-14 md:w-16 md:h-16 xl:w-20 xl:h-20 hover:opacity-80 transition-opacity">
             <Image
               src="/dohad-india-rgb.png"
               alt="DOHaD India Logo"
@@ -32,7 +32,7 @@ export function Header() {
             <Link href="/" className="text-foreground text-base md:text-lg xl:text-xl font-bold hover:opacity-80 transition-opacity tracking-tight">
               DOHaD India
             </Link>
-            <p className="hidden xl:block text-[10px] sm:text-xs xl:text-sm text-muted-foreground max-w-[200px] sm:max-w-[320px] xl:max-w-[380px] leading-tight">
+            <p className="text-[9px] sm:text-xs lg:text-[10px] xl:text-sm text-muted-foreground max-w-[180px] sm:max-w-[320px] lg:max-w-[200px] xl:max-w-[380px] leading-tight">
                 Advancing health through the developmental origins of health and disease research in India.
               </p>
           </div>
@@ -76,7 +76,7 @@ export function Header() {
                 <div className="flex flex-col items-start gap-3 text-left">
                   <SheetTitle className="sr-only">Navigation</SheetTitle>
                   <div className="flex items-center gap-3">
-                    <div className="relative w-18 h-18 shrink-0">
+                    <div className="relative w-20 h-20 shrink-0">
                       <Image
                         src="/dohad-india-rgb.png"
                         alt="DOHaD India Logo"

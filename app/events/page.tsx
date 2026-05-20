@@ -139,41 +139,41 @@ export default async function EventsPage() {
           
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-card border border-border rounded-xl p-8 hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary" />
                 Annual Conferences
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
                 Flagship gatherings bringing together DOHaD researchers from across India for knowledge sharing and networking.
               </p>
             </div>
 
             <div className="bg-card border border-border rounded-xl p-8 hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary" />
                 Workshops & Training
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
                 Capacity building workshops, methodology training, and skill development sessions for researchers at all career stages.
               </p>
             </div>
 
             <div className="bg-card border border-border rounded-xl p-8 hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary" />
                 Networking Events
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
                 Opportunities to connect with fellow researchers, build collaborations, and strengthen the DOHaD community.
               </p>
             </div>
 
             <div className="bg-card border border-border rounded-xl p-8 hover:shadow-md transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-foreground mb-3 flex items-center gap-2">
+              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-secondary" />
                 Event Registration
               </h3>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
                 Easy online registration system for workshops and conferences with member discounts and early bird pricing.
               </p>
             </div>

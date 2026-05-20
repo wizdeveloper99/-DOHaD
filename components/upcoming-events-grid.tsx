@@ -17,8 +17,8 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
           <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
             <Calendar className="w-6 h-6 text-secondary" />
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2">Annual DOHaD Conference</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2">Annual DOHaD Conference</h3>
+          <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
             Join researchers from across India for our flagship gathering.
           </p>
         </div>
@@ -27,8 +27,8 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
           <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
             <BookOpen className="w-6 h-6 text-secondary" />
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2">Research Methods Workshop</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2">Research Methods Workshop</h3>
+          <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
             Hands-on training sessions for developmental research.
           </p>
         </div>
@@ -37,8 +37,8 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
           <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
             <Users className="w-6 h-6 text-secondary" />
           </div>
-          <h3 className="text-lg font-semibold text-foreground mb-2">Community Networking</h3>
-          <p className="text-sm text-muted-foreground leading-relaxed">
+          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2">Community Networking</h3>
+          <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
             Building connections across scientific disciplines.
           </p>
         </div>
@@ -84,8 +84,8 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
                   })}
                 </span>
               </div>
-              <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-2">{event.title}</h3>
-              <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2 line-clamp-2">{event.title}</h3>
+              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
                 {event.shortDescription}
               </p>
               <div className="pt-4 border-t flex items-center justify-between mt-auto">

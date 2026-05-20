@@ -89,11 +89,11 @@ const CapacityBuilding = () => {
                   </div>
                 </div>
 
-                <h3 className="text-sm sm:text-base xl:text-xl 2xl:text-2xl font-bold text-foreground mb-1.5 xl:mb-3 2xl:mb-4">
+                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1.5 xl:mb-3 2xl:mb-4">
                   {item.title}
                 </h3>
 
-                <p className="text-[11px] sm:text-xs xl:text-sm 2xl:text-base text-muted-foreground leading-relaxed">
+                <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
               </div>
