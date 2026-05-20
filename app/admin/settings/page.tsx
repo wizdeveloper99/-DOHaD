@@ -7,7 +7,9 @@ import {
   Globe, 
   MessageSquare, 
   Share2,
-  Info
+  Info,
+  FileText,
+  Upload
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -36,8 +38,55 @@ export default function SettingsAdminPage() {
       facebook: '',
       instagram: '',
     },
+    policies: {
+      constitution: '',
+      governance: '',
+      codeOfConduct: '',
+      edi: '',
+      safeguarding: '',
+    },
     footerText: '',
   });
+
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>, policyKey: string) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    
+    // Check file size (5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error('File size must be less than 5MB');
+      return;
+    }
+
+    const toastId = toast.loading('Uploading document...');
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+      formData.append('folder', 'policies');
+
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.error || 'Upload failed');
+      }
+
+      const data = await res.json();
+      setSettings((prev: any) => ({
+        ...prev,
+        policies: {
+          ...prev.policies,
+          [policyKey]: data.secure_url,
+        }
+      }));
+      toast.success('Document uploaded successfully', { id: toastId });
+    } catch (error: any) {
+      toast.error(error.message || 'Upload failed', { id: toastId });
+    }
+  };
 
   useEffect(() => {
     fetchSettings();
@@ -247,6 +296,53 @@ export default function SettingsAdminPage() {
                 placeholder="https://instagram.com/..."
               />
             </div>
+          </CardContent>
+        </Card>
+
+        {/* Policy Documents */}
+        <Card className="border-border shadow-sm">
+          <CardHeader>
+            <div className="flex items-center gap-2">
+              <FileText className="text-secondary" size={20} />
+              <CardTitle>Policy Documents</CardTitle>
+            </div>
+            <CardDescription>Upload PDF or Word documents for society policies.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-6">
+            {[
+              { key: 'constitution', label: 'Constitution' },
+              { key: 'governance', label: 'Governance Guidelines' },
+              { key: 'codeOfConduct', label: 'Code of Conduct' },
+              { key: 'edi', label: 'EDI Policy' },
+              { key: 'safeguarding', label: 'Safeguarding Policy' },
+            ].map((policy) => (
+              <div key={policy.key} className="space-y-2">
+                <Label>{policy.label}</Label>
+                <div className="flex items-center gap-4">
+                  <Input
+                    value={settings.policies?.[policy.key] || ''}
+                    onChange={(e) => setSettings({
+                      ...settings,
+                      policies: { ...settings.policies, [policy.key]: e.target.value }
+                    })}
+                    placeholder={`URL for ${policy.label}`}
+                    className="flex-1"
+                  />
+                  <div className="relative">
+                    <input
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={(e) => handleFileUpload(e, policy.key)}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+                    />
+                    <Button type="button" variant="outline" className="gap-2">
+                      <Upload size={16} />
+                      Upload
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            ))}
           </CardContent>
         </Card>
 

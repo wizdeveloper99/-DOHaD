@@ -8,13 +8,13 @@ import { cookies } from 'next/headers';
 export async function POST(request: Request) {
   try {
     await dbConnect();
-    const { email, password } = await request.json();
+    const { username, password } = await request.json();
 
-    if (typeof email !== 'string' || typeof password !== 'string') {
+    if (typeof username !== 'string' || typeof password !== 'string') {
       return NextResponse.json({ error: 'Invalid input format' }, { status: 400 });
     }
 
-    const admin = await AdminUser.findOne({ email });
+    const admin = await AdminUser.findOne({ username });
 
     if (!admin) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
@@ -31,7 +31,7 @@ export async function POST(request: Request) {
     const session = await encrypt({ 
       user: { 
         id: admin._id, 
-        email: admin.email, 
+        username: admin.username, 
         name: admin.name,
         role: admin.role 
       }, 

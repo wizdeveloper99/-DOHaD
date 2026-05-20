@@ -28,9 +28,14 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'File size exceeds 5MB limit' }, { status: 400 });
     }
 
-    const allowedMimeTypes = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'application/pdf'];
+    const allowedMimeTypes = [
+      'image/jpeg', 'image/png', 'image/webp', 'image/gif', 
+      'application/pdf', 
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 
+      'application/msword'
+    ];
     if (!allowedMimeTypes.includes(file.type)) {
-      return NextResponse.json({ error: 'Invalid file type. Only JPG, PNG, WEBP, GIF, and PDF are allowed.' }, { status: 400 });
+      return NextResponse.json({ error: 'Invalid file type. Only JPG, PNG, WEBP, GIF, PDF, and Word docs are allowed.' }, { status: 400 });
     }
 
     const bytes = await file.arrayBuffer();
@@ -39,10 +44,13 @@ export async function POST(request: NextRequest) {
     // Upload to Cloudinary
     const result = await new Promise((resolve, reject) => {
       cloudinary.uploader.upload_stream(
-        { folder },
+        { folder, resource_type: 'auto' },
         (error, result) => {
-          if (error) reject(error);
-          else resolve(result);
+          if (error) {
+            reject(error);
+          } else {
+            resolve(result);
+          }
         }
       ).end(buffer);
     });

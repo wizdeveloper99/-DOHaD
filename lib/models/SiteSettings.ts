@@ -17,6 +17,13 @@ const SiteSettingsSchema = new Schema({
     facebook: { type: String },
     instagram: { type: String },
   },
+  policies: {
+    constitution: { type: String },
+    governance: { type: String },
+    codeOfConduct: { type: String },
+    edi: { type: String },
+    safeguarding: { type: String },
+  },
   footerText: { type: String },
 }, { timestamps: true });
 

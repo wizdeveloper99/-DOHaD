@@ -1,9 +1,9 @@
 import mongoose, { Schema, model, models } from 'mongoose';
 
 const AdminUserSchema = new Schema({
-  email: {
+  username: {
     type: String,
-    required: [true, 'Please provide an email'],
+    required: [true, 'Please provide a username'],
     unique: true,
     lowercase: true,
     trim: true,

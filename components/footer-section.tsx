@@ -2,6 +2,7 @@
 
 import { Mail, MapPin, FileText } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
 // Brand SVG icons
 const XIcon = () => (
@@ -122,17 +123,33 @@ export function FooterSection({ settings }: { settings?: any }) {
             </ul>
           </div>
 
-          {/* Governance & Policies */}
+          {/* Who We Are */}
           <div>
-            <h4 className="text-sm xl:text-base 2xl:text-lg font-bold mb-3 xl:mb-5 text-white tracking-wide">Governance</h4>
+            <h4 className="text-sm xl:text-base 2xl:text-lg font-bold mb-3 xl:mb-5 text-white tracking-wide">Who We Are</h4>
             <ul className="space-y-2 xl:space-y-3 text-[11px] sm:text-xs xl:text-sm 2xl:text-base">
               <li>
-                <a 
-                  href="/governance-and-policies"
+                <Link 
+                  href="/who-are-we"
                   className="text-white/90 hover:text-white hover:underline transition-all"
                 >
-                  Governance &amp; Policies
-                </a>
+                  Our Team
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/who-are-we/equity-diversity"
+                  className="text-white/90 hover:text-white hover:underline transition-all"
+                >
+                  Equity &amp; Diversity
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/who-are-we/governance"
+                  className="text-white/90 hover:text-white hover:underline transition-all"
+                >
+                  Governance
+                </Link>
               </li>
             </ul>
           </div>
