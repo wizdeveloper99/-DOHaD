@@ -46,7 +46,7 @@ export default async function HomePage() {
           className="relative max-w-7xl mx-auto px-8 md:px-12"
           delay={0.2}
         >
-          <LearnAboutDOHaD />
+          <LearnAboutDOHaD settings={settings?.learnDohad} />
         </AnimatedSection>
 
         {/* Main content sections with standardized spacing */}
