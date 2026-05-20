@@ -41,14 +41,14 @@ export default function JoinUsPage() {
           <div className="relative z-10 w-full">
             <div className="max-w-7xl mx-auto px-6 md:px-12">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-16 2xl:gap-24 items-center">
-                
+
                 {/* Right Image (mobile first, but visual order 2) */}
                 <div className="flex flex-col items-center justify-center w-full order-1 lg:order-2">
                   <Image
-                    src="/family-hanging-out-jetty.png" alt="Join DOHaD Community"
+                    src="/join-us-community.png" alt="Join DOHaD Community"
                     width={600}
                     height={600}
-                    className="object-contain w-auto h-auto max-h-[250px] md:max-h-[300px] lg:max-h-[380px] xl:max-h-[450px] drop-shadow-2xl"
+                    className="object-contain w-auto h-auto max-h-[250px] md:max-h-[300px] lg:max-h-[380px] xl:max-h-[450px]"
                     priority
                   />
                 </div>
