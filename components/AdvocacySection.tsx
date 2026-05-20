@@ -1,5 +1,7 @@
 "use client"
 
+import { FileHeart, Handshake, Globe, Megaphone } from "lucide-react"
+
 const AdvocacySection = () => {
   return (
     <section className="max-w-6xl mx-auto px-6 py-8 md:py-10 xl:py-20 2xl:py-28 text-center bg-background">
@@ -17,9 +19,13 @@ const AdvocacySection = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-5 xl:gap-8 2xl:gap-10">
 
         {/* Card 1: Policy & Practice */}
-        <div className="rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-lg transition-shadow
+        <div className="group rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300
                         bg-gradient-to-br from-gray-200 to-gray-300 text-slate-900
                         dark:from-slate-800 dark:to-slate-900 dark:text-slate-100">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 xl:mb-6 transition-transform duration-300 group-hover:scale-110 shrink-0
+                          bg-slate-900/10 dark:bg-slate-100/10 text-slate-900 dark:text-slate-100">
+            <FileHeart className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
           <h3 className="text-sm sm:text-base xl:text-xl font-bold mb-2 xl:mb-4 2xl:mb-6">
             Policy & Practice
           </h3>
@@ -29,9 +35,13 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 2: Government Partnerships */}
-        <div className="rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-lg transition-shadow
+        <div className="group rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300
                         bg-gradient-to-br from-[#006d68] to-[#004d4a] text-white
                         dark:from-indigo-600 dark:to-indigo-800 dark:text-white">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 xl:mb-6 transition-transform duration-300 group-hover:scale-110 shrink-0
+                          bg-white/15 text-white">
+            <Handshake className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
           <h3 className="text-sm sm:text-base xl:text-xl font-bold mb-2 xl:mb-4 2xl:mb-6">
             Government Partnerships
           </h3>
@@ -41,9 +51,13 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 3: Global Representation */}
-        <div className="rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-lg transition-shadow
+        <div className="group rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300
                         bg-gradient-to-br from-[#d4e2cc] to-[#c0d4b5] text-slate-900
                         dark:from-teal-700 dark:to-teal-900 dark:text-white">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 xl:mb-6 transition-transform duration-300 group-hover:scale-110 shrink-0
+                          bg-slate-900/10 dark:bg-white/15 text-slate-900 dark:text-white">
+            <Globe className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
           <h3 className="text-sm sm:text-base xl:text-xl font-bold mb-2 xl:mb-4 2xl:mb-6">
             Global Representation
           </h3>
@@ -53,9 +67,13 @@ const AdvocacySection = () => {
         </div>
 
         {/* Card 4: Public Awareness */}
-        <div className="rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-lg transition-shadow
+        <div className="group rounded-3xl px-4 py-5 sm:px-5 sm:py-6 xl:px-8 xl:py-10 2xl:px-10 2xl:py-12 flex flex-col text-left shadow-md hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300
                         bg-gradient-to-br from-[#e6f7f6] to-[#d0ebe9] text-slate-900
                         dark:from-slate-700 dark:to-slate-800 dark:text-white">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl flex items-center justify-center mb-3 sm:mb-4 xl:mb-6 transition-transform duration-300 group-hover:scale-110 shrink-0
+                          bg-slate-900/10 dark:bg-white/15 text-slate-900 dark:text-white">
+            <Megaphone className="w-5 h-5 sm:w-6 sm:h-6" />
+          </div>
           <h3 className="text-sm sm:text-base xl:text-xl font-bold mb-2 xl:mb-4 2xl:mb-6">
             Public Awareness
           </h3>

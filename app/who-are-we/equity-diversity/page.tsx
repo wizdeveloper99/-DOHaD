@@ -1,5 +1,5 @@
 import { Header } from "@/components/header"
-import { Users, ShieldCheck, Download, ExternalLink, ArrowRight } from "lucide-react"
+import { Users, ShieldCheck, Download, ExternalLink, ArrowRight, Scale, GraduationCap } from "lucide-react"
 import Link from "next/link"
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"
@@ -74,15 +74,21 @@ export default async function EquityDiversityPage() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 bg-card border border-border rounded-2xl">
-                <h3 className="font-bold text-lg mb-2 text-foreground">Gender &amp; Regional Parity</h3>
+              <div className="group p-6 bg-card border border-border rounded-2xl flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl flex items-center justify-center shrink-0 mb-4 transition-transform duration-300 group-hover:scale-105 bg-purple-500/10 text-purple-500 border border-purple-500/20">
+                  <Scale className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">Gender &amp; Regional Parity</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   We actively promote balanced representation in our leadership councils, panels, and expert advisory boards to elevate all voices.
                 </p>
               </div>
 
-              <div className="p-6 bg-card border border-border rounded-2xl">
-                <h3 className="font-bold text-lg mb-2 text-foreground">Early-Career Support</h3>
+              <div className="group p-6 bg-card border border-border rounded-2xl flex flex-col hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                <div className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl flex items-center justify-center shrink-0 mb-4 transition-transform duration-300 group-hover:scale-105 bg-rose-500/10 text-rose-500 border border-rose-500/20">
+                  <GraduationCap className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="font-bold text-lg mb-2 text-foreground group-hover:text-primary transition-colors">Early-Career Support</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Providing equitable resources, workshops, and travel fellowships specifically designed to uplift young researchers and scientists.
                 </p>
