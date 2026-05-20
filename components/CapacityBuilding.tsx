@@ -1,26 +1,26 @@
 import React from "react";
-import Image from "next/image";
+import { GraduationCap, Users, FileText, Briefcase } from "lucide-react";
 
 const capacityBuildingItems = [
   {
     title: "Training Workshops",
     description: "Hands-on sessions covering lifecourse epidemiology, research methodologies, and specialized DOHaD study designs.",
-    image: "/Layer 2.png",
+    icon: GraduationCap,
   },
   {
     title: "Mentorship Programs",
     description: "Connecting early-career researchers with senior DOHaD scientists to foster professional growth and collaboration.",
-    image: "/icon 3.png",
+    icon: Users,
   },
   {
     title: "Writing Workshops",
     description: "Structured sessions to strengthen scientific writing, grant applications, and publication skills for DOHaD researchers.",
-    image: "/icon 2(1).png",
+    icon: FileText,
   },
   {
     title: "Internship Programs",
     description: "Providing students and early-career professionals with hands-on research experience within DOHaD India's network.",
-    image: "/Layer 2.png",
+    icon: Briefcase,
   },
 ];
 
@@ -78,15 +78,8 @@ const CapacityBuilding = () => {
               <div className="absolute inset-0 bg-gradient-to-b from-secondary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-12 h-12 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 mb-3 xl:mb-6 2xl:mb-8 rounded-full bg-secondary/10 flex items-center justify-center group-hover:bg-secondary/20 transition-all duration-500 group-hover:scale-110">
-                  <div className="relative w-6 h-6 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12">
-                    <Image
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      className="object-contain opacity-80 group-hover:opacity-100"
-                    />
-                  </div>
+                <div className="w-12 h-12 xl:w-20 xl:h-20 2xl:w-24 2xl:h-24 mb-3 xl:mb-6 2xl:mb-8 rounded-full bg-secondary/10 text-secondary flex items-center justify-center group-hover:bg-secondary group-hover:text-white transition-all duration-500 group-hover:scale-110 shrink-0">
+                  <item.icon className="w-6 h-6 xl:w-10 xl:h-10 2xl:w-12 2xl:h-12" />
                 </div>
 
                 <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1.5 xl:mb-3 2xl:mb-4">

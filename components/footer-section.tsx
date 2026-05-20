@@ -31,9 +31,6 @@ const BlueskyIcon = () => (
 
 export function FooterSection({ settings }: { settings?: any }) {
   const socialLinks = settings?.socialLinks || {}
-  const footerText =
-    settings?.footerText ||
-    "Registered non-profit society in India. Advancing health through understanding the early developmental origins of health and disease."
 
   return (
     <footer id="contact" className="w-full pt-8 pb-8 xl:pt-16 xl:pb-16 2xl:pt-24 2xl:pb-24 relative bg-secondary dark:bg-black overflow-hidden">
@@ -53,7 +50,6 @@ export function FooterSection({ settings }: { settings?: any }) {
               />
               <span className="text-base xl:text-xl 2xl:text-2xl font-bold text-white tracking-tight">DOHaD India</span>
             </div>
-            <p className="text-[11px] sm:text-xs xl:text-sm 2xl:text-base text-white/90 leading-relaxed">{footerText}</p>
 
             {/* Social Media Links */}
             <div className="flex space-x-2.5 sm:space-x-3">

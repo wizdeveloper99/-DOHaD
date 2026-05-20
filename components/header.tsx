@@ -48,8 +48,8 @@ export function Header() {
           </Link>
           <div className="flex flex-col">
             <p className="text-[9px] sm:text-xs lg:text-[10px] xl:text-sm text-muted-foreground max-w-[180px] sm:max-w-[320px] lg:max-w-[200px] xl:max-w-[380px] leading-tight">
-                Advancing health through the developmental origins of health and disease research in India.
-              </p>
+              Advancing health through the developmental origins of health and disease research in India.
+            </p>
           </div>
         </div>
 
