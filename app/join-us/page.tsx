@@ -89,7 +89,7 @@ export default function JoinUsPage() {
             <h2 className={`${headingStyles} mb-4`}>Membership Tiers and Fees</h2>
             <div className="w-24 h-1 bg-secondary mx-auto rounded-full" />
           </div>
-          <div className="grid md:grid-cols-2 gap-6 xl:gap-8 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-6 xl:gap-8 max-w-6xl mx-auto">
             <div className="bg-card border rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
               <h4 className="text-xl font-bold text-foreground mb-2">Undergraduate Students</h4>
               <p className="text-4xl font-extrabold text-secondary mb-4">₹250</p>
@@ -98,6 +98,16 @@ export default function JoinUsPage() {
                 <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Full access to resources</li>
                 <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Networking events</li>
                 <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Training opportunities</li>
+              </ul>
+            </div>
+            <div className="bg-card border rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+              <h4 className="text-xl font-bold text-foreground mb-2">Early Career Researchers</h4>
+              <p className="text-4xl font-extrabold text-secondary mb-4">₹500</p>
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">Annual Fee</p>
+              <ul className="text-left text-sm space-y-3 mb-8 flex-grow">
+                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> All student benefits</li>
+                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Journal access</li>
+                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Research collaboration</li>
               </ul>
             </div>
             <div className="bg-card border rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
