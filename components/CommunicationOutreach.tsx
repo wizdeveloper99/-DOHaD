@@ -338,70 +338,16 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({ isOpen, onClose }) =>
 
   const links = [
     {
-      title: "Official Website",
-      subtitle: "dohadsoc.org",
-      href: "https://dohadsoc.org/",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9-9c1.657 0 3 4.03 3 9s-1.343 9-3 9m0-18c-1.657 0-3 4.03-3 9s1.343 9 3 9m-9-9a9 9 0 019-9" />
-        </svg>
-      ),
-      color: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20 hover:bg-emerald-500/15",
-    },
-    {
-      title: "Send an Email",
-      subtitle: "contact@dohadindia.org",
-      href: "mailto:contact@dohadindia.org",
-      icon: (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      ),
-      color: "bg-blue-500/10 text-blue-600 dark:text-blue-400 border-blue-500/20 hover:bg-blue-500/15",
-    },
-    {
-      title: "Follow on X",
-      subtitle: "@dohadindia",
-      href: "https://x.com/dohadindia",
-      icon: (
-        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-        </svg>
-      ),
-      color: "bg-neutral-800/10 text-neutral-800 dark:bg-neutral-200/10 dark:text-neutral-200 border-neutral-800/20 hover:bg-neutral-800/15 dark:hover:bg-neutral-200/15",
-    },
-    {
       title: "Connect on LinkedIn",
-      subtitle: "DOHaD India",
-      href: "https://www.linkedin.com/company/dohad-india",
+      subtitle: "DOHaD India Regional Society",
+      href: "https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/",
       icon: (
-        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+        <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
+          <rect width="24" height="24" rx="4" fill="#0A66C2" />
+          <path fill="#FFFFFF" d="M7.5 8.5h2.2v7.4H7.5V8.5zm1.1-3.5c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3-1.3-.6-1.3-1.3.6-1.3 1.3-1.3zm3.4 3.5h2.1v1c.5-.8 1.4-1.3 2.4-1.3 2.5 0 3 1.6 3 3.7v4H14.3v-3.6c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.6h-2.2V8.5z" />
         </svg>
       ),
       color: "bg-sky-600/10 text-sky-600 dark:text-sky-400 border-sky-600/20 hover:bg-sky-600/15",
-    },
-    {
-      title: "Watch on YouTube",
-      subtitle: "@dohadindia",
-      href: "https://www.youtube.com/@dohadindia",
-      icon: (
-        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M23.498 6.163a3.003 3.003 0 00-2.11-2.107C19.528 3.545 12 3.545 12 3.545s-7.528 0-9.388.511a3.002 3.002 0 00-2.11 2.107C0 8.021 0 12 0 12s0 3.979.502 5.837a3.002 3.002 0 002.11 2.107c1.86.511 9.388.511 9.388.511s7.528 0 9.388-.511a3.002 3.002 0 002.11-2.107c.502-1.858.502-5.837.502-5.837s0-3.979-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
-      ),
-      color: "bg-red-500/10 text-red-600 dark:text-red-400 border-red-500/20 hover:bg-red-500/15",
-    },
-    {
-      title: "Follow on Bluesky",
-      subtitle: "dohadindia.bsky.social",
-      href: "https://bsky.app/profile/dohadindia.bsky.social",
-      icon: (
-        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M12 10.8c-1.687-3.14-5.263-5.328-8.232-6.528A4.27 4.27 0 000 8.52c0 2.213.9 7.784 5.378 10.518C8.835 20.895 10.875 22.8 12 24c1.125-1.2 3.165-3.105 6.622-4.962C23.1 16.304 24 10.733 24 8.52a4.27 4.27 0 00-3.768-4.248c-2.969 1.2-6.545 3.388-8.232 6.528z" />
-        </svg>
-      ),
-      color: "bg-blue-400/10 text-blue-500 dark:text-blue-300 border-blue-400/20 hover:bg-blue-400/15",
     },
   ];
 
@@ -432,14 +378,14 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({ isOpen, onClose }) =>
             </svg>
           </div>
           <h3 className="text-lg [@media(min-height:640px)]:text-xl [@media(min-height:768px)]:text-2xl font-bold text-foreground mb-1 [@media(min-height:640px)]:mb-1.5 tracking-tight">
-            Connect With DOHaD India
+            Follow Us
           </h3>
           <p className="text-[11px] [@media(min-height:640px)]:text-xs [@media(min-height:768px)]:text-sm text-muted-foreground max-w-md mx-auto leading-relaxed">
-            Follow our updates, explore our international portal, or message our core society members directly.
+            Follow DOHaD India on LinkedIn for the latest updates.
           </p>
         </div>
 
-        <div className="grid gap-2 [@media(min-height:640px)]:gap-3 grid-cols-1 sm:grid-cols-2">
+        <div className="grid gap-2 [@media(min-height:640px)]:gap-3 grid-cols-1 max-w-sm mx-auto">
           {links.map((link, idx) => (
             <a
               key={idx}
@@ -525,7 +471,7 @@ const CommunicationOutreach = () => {
             {/* Card 2: Quarterly Newsletter - with CTA */}
             <div className="flex">
               <FeatherCard
-                title="Subscribe"
+                title="Follow Us"
                 subtitle=""
                 content={
                   <p className="text-muted-foreground text-[11px] sm:text-xs xl:text-sm mt-3 font-normal">
@@ -536,7 +482,7 @@ const CommunicationOutreach = () => {
                 image="newsletter-vector"
                 className="flex-1"
                 showCTA={true}
-                ctaText="Subscribe"
+                ctaText="Follow Us"
                 onCTAClick={() => setIsNewsletterModalOpen(true)}
               />
             </div>

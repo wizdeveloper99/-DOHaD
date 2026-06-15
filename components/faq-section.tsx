@@ -126,7 +126,7 @@ const FAQItem = ({
                 <p className="mb-2.5 sm:mb-3">
                   To become a member, you need to join the{" "}
                   <a
-                    href="https://dohadsoc.org/membership/"
+                    href="https://dohadsoc.org/join-us/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary underline hover:text-primary/80 font-semibold transition-colors"

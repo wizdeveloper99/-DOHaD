@@ -2,7 +2,12 @@
 
 import { Header } from "@/components/header"
 import Image from "next/image"
-import { Linkedin } from "lucide-react"
+const LinkedInLogo = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" aria-hidden="true">
+    <rect width="24" height="24" rx="4" fill="#0A66C2" />
+    <path fill="#FFFFFF" d="M7.5 8.5h2.2v7.4H7.5V8.5zm1.1-3.5c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3-1.3-.6-1.3-1.3.6-1.3 1.3-1.3zm3.4 3.5h2.1v1c.5-.8 1.4-1.3 2.4-1.3 2.5 0 3 1.6 3 3.7v4H14.3v-3.6c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.6h-2.2V8.5z" />
+  </svg>
+)
 import {
   Dialog,
   DialogContent,
@@ -24,7 +29,7 @@ export default function WhoAreWePage() {
     },
     {
       title: "Secretary and Strategic Partnerships Lead",
-      name: "Eunice Lobo",
+      name: "Dr. Eunice Lobo",
       description:
         "Managing organizational operations and member communications.",
       image: "/people/Eunice.jpg",
@@ -149,6 +154,18 @@ export default function WhoAreWePage() {
               <p className="text-sm md:text-base xl:text-lg 2xl:text-xl text-muted-foreground font-medium leading-relaxed">
                 Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India's mission to advance developmental origins of health and disease research across the country.
               </p>
+              <p className="text-sm md:text-base xl:text-lg 2xl:text-xl text-muted-foreground font-medium leading-relaxed">
+                The current secretariat is at the PHFI-Centre for Developmental and Lifecourse Research (PHFI-CDLR)
+              </p>
+              <a
+                href="https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm md:text-base text-primary hover:text-primary/80 font-medium"
+              >
+                <LinkedInLogo className="w-5 h-5" />
+                DOHaD India Regional Society on LinkedIn
+              </a>
             </div>
           </div>
         </section>
@@ -191,7 +208,7 @@ export default function WhoAreWePage() {
                     </h3>
                     {member.linkedin && (
                       <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>
-                        <Linkedin className="w-5 h-5" />
+                        <LinkedInLogo className="w-5 h-5" />
                       </a>
                     )}
                   </div>
@@ -237,7 +254,7 @@ export default function WhoAreWePage() {
                         </h3>
                         {member.linkedin && (
                           <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>
-                            <Linkedin className="w-4 h-4" />
+                            <LinkedInLogo className="w-4 h-4" />
                           </a>
                         )}
                       </div>
@@ -265,7 +282,7 @@ export default function WhoAreWePage() {
                           {member.name}
                           {member.linkedin && (
                             <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition-colors" onClick={(e) => e.stopPropagation()}>
-                              <Linkedin className="w-5 h-5" />
+                              <LinkedInLogo className="w-5 h-5" />
                             </a>
                           )}
                         </DialogTitle>

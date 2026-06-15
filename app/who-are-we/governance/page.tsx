@@ -1,5 +1,5 @@
 import { Header } from "@/components/header"
-import { Landmark, Scale, FileCheck, Download, ExternalLink, ArrowRight } from "lucide-react"
+import { Landmark, Scale, FileCheck, Download, ArrowRight, Users } from "lucide-react"
 import Link from "next/link"
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"
@@ -35,6 +35,15 @@ export default async function GovernancePage() {
       color: "text-emerald-500",
       bgColor: "bg-emerald-500/10",
       borderColor: "border-emerald-500/20",
+    },
+    {
+      title: "Inclusivity",
+      description: "Our Equity, Diversity, and Inclusion framework guarantees equal opportunities, ensures gender balance, and cultivates a welcoming, collaborative environment for all members.",
+      link: settings?.policies?.edi || "/policies/EDI.docx",
+      icon: Users,
+      color: "text-purple-500",
+      bgColor: "bg-purple-500/10",
+      borderColor: "border-purple-500/20",
     },
   ]
 

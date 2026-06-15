@@ -13,7 +13,7 @@ export default function LearnAboutDOHaD({ settings }: { settings?: any }) {
   const title = settings?.title || "What is DOHaD?";
   const contentParagraph1 = settings?.contentParagraph1 || "The Developmental Origins of Health and Disease (DOHaD) is a multidisciplinary field that examines how the environment during early development (conception, fetal life, infancy, and early childhood) interacts with genetic and other factors to shape lifelong health and the risk of non-communicable diseases (NCDs) like diabetes, heart disease, and obesity.";
   const contentParagraph2 = settings?.contentParagraph2 || "This paradigm shift moves health focus from adult lifestyle choices alone to the critical importance of early-life environments, providing a powerful framework for preventing chronic diseases across generations.";
-  const ctaText = settings?.ctaText || "Learn More at the International Society";
+  const ctaText = settings?.ctaText || "Learn more about the International Society.";
   const ctaLink = settings?.ctaLink || "https://dohadsoc.org/";
 
   return (

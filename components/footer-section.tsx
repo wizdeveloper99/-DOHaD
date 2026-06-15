@@ -66,7 +66,7 @@ export function FooterSection({ settings }: { settings?: any }) {
 
               {/* LinkedIn */}
               <a
-                href={socialLinks.linkedin || "https://www.linkedin.com/company/dohad-india"}
+                href={socialLinks.linkedin || "https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Connect with DOHaD India on LinkedIn"
@@ -181,6 +181,11 @@ export function FooterSection({ settings }: { settings?: any }) {
                 <Mail className="h-4 w-4 xl:h-5 xl:w-5 text-white group-hover:scale-110 transition-transform" />
                 <span className="text-white font-semibold">contact@dohadindia.org</span>
               </a>
+
+              {/* Secretariat */}
+              <p className="text-white/90 leading-snug mt-2.5 sm:mt-3">
+                Secretariat: PHFI-Centre for Developmental and Lifecourse Research
+              </p>
 
               {/* Address */}
               <a

@@ -137,10 +137,10 @@ export default function JoinUsPage() {
                 Join the DOHaD India community and help advance research, collaboration, and awareness across the region.
               </p>
               <p className="text-xs md:text-sm xl:text-lg 2xl:text-xl opacity-80 mb-8 md:mb-12">
-                To join, visit the <a href="https://dohadsoc.org/membership/" target="_blank" rel="noopener noreferrer" className="underline font-bold hover:text-white transition-colors">International DOHaD Society</a> website and select <strong>DOHaD India</strong> as your Regional Society. A nominal membership fee applies.
+                To join, visit the <a href="https://dohadsoc.org/join-us/" target="_blank" rel="noopener noreferrer" className="underline font-bold hover:text-white transition-colors">International DOHaD Society</a> website and select <strong>DOHaD India</strong> as your Regional Society. A nominal membership fee applies.
               </p>
               <a
-                href="https://dohadsoc.org/membership/"
+                href="https://dohadsoc.org/join-us/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 md:px-10 py-3 md:py-5 bg-white text-secondary hover:bg-white/90 font-black rounded-full transition-all shadow-xl hover:scale-105 text-sm md:text-lg uppercase tracking-wider"

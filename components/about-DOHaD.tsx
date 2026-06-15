@@ -17,26 +17,26 @@ export default function Hero({ settings }: { settings?: any }) {
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-16 2xl:gap-24 items-center">
             {/* Left Section - Content */}
-            <div className="flex flex-col justify-center items-start text-left">
+            <div className="flex flex-col justify-center items-center text-center lg:items-start lg:text-left">
               <div className="w-full space-y-3 sm:space-y-4 xl:space-y-6">
                 <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold leading-tight tracking-tighter text-foreground">
                   {headline}
                 </h1>
-                <p className="text-xs sm:text-sm md:text-base xl:text-lg 2xl:text-xl text-muted-foreground leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl">
+                <p className="text-xs sm:text-sm md:text-base xl:text-lg 2xl:text-xl text-muted-foreground leading-relaxed max-w-xl xl:max-w-2xl 2xl:max-w-3xl mx-auto lg:mx-0">
                   {subheadline}
                 </p>
                 
-                <div className="flex flex-wrap gap-3 sm:gap-4 xl:gap-6 2xl:gap-8 pt-1 sm:pt-2 xl:pt-4 2xl:pt-6">
+                <div className="flex flex-col md:flex-row md:flex-nowrap w-full gap-3 sm:gap-4 md:w-auto md:items-center xl:gap-6 2xl:gap-8 pt-1 sm:pt-2 xl:pt-4 2xl:pt-6">
                   <Link 
                      href={ctaLink}
-                     className="px-4 py-2 sm:px-5 sm:py-2.5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 bg-secondary text-white hover:bg-secondary/90 font-bold rounded-full transition-all shadow-md hover:shadow-lg hover:scale-105 inline-flex items-center justify-center min-w-[130px] sm:min-w-[150px] xl:min-w-[200px] 2xl:min-w-[240px] text-xs sm:text-sm xl:text-base 2xl:text-lg whitespace-nowrap"
+                     className="w-full md:w-auto shrink-0 px-4 py-2.5 sm:px-5 sm:py-2.5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 bg-secondary text-white hover:bg-secondary/90 font-bold rounded-full transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center justify-center text-xs sm:text-sm xl:text-base 2xl:text-lg whitespace-nowrap"
                      aria-label={ctaText}
                   >
                     {ctaText}
                   </Link>
                   <a 
                     href="#learn-section"
-                    className="px-4 py-2 sm:px-5 sm:py-2.5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 bg-white dark:bg-gray-900 border-2 border-secondary text-secondary hover:bg-secondary/5 font-bold rounded-full transition-all hover:scale-105 inline-flex items-center justify-center min-w-[130px] sm:min-w-[150px] xl:min-w-[200px] 2xl:min-w-[240px] text-xs sm:text-sm xl:text-base 2xl:text-lg whitespace-nowrap"
+                    className="w-full md:w-auto shrink-0 px-4 py-2.5 sm:px-5 sm:py-2.5 xl:px-8 xl:py-4 2xl:px-10 2xl:py-5 bg-white dark:bg-gray-900 border-2 border-secondary text-secondary hover:bg-secondary/5 font-bold rounded-full transition-all hover:scale-105 flex items-center justify-center text-xs sm:text-sm xl:text-base 2xl:text-lg whitespace-nowrap"
                     aria-label="Learn more about DOHaD"
                   >
                     Learn About DOHaD

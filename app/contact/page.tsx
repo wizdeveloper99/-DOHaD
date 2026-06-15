@@ -1,5 +1,5 @@
 import { Header } from "@/components/header"
-import { Mail, MapPin, MessageCircle, Camera, Video, Users, Bell } from "lucide-react"
+import { Mail, MapPin, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { headingStyles } from "@/lib/utils"
 
@@ -40,23 +40,35 @@ export default function ContactPage() {
               </div>
 
               {/* Address */}
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Secretariat</h3>
+                  <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
+                    PHFI-Centre for Developmental and Lifecourse Research
+                  </p>
+                </div>
+              </div>
+
               <a
-  href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
->
-  <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
-    <MapPin className="w-6 h-6 text-secondary" />
-  </div>
-  <div>
-    <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Address</h3>
-    <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-      PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
-      <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
-    </p>
-  </div>
-</a>
+                href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
+              >
+                <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-6 h-6 text-secondary" />
+                </div>
+                <div>
+                  <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Address</h3>
+                  <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
+                    PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
+                    <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
+                  </p>
+                </div>
+              </a>
 
             </div>
 
@@ -76,41 +88,23 @@ export default function ContactPage() {
 
             <div className="space-y-5">
               <div className="bg-card border border-border rounded-lg p-5 shadow-sm">
-                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3">Social Media</h3>
+                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3">Follow Us</h3>
                 <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground mb-4">
-                  Follow us on social media for the latest updates, research highlights, and community news
+                  Connect with DOHaD India on LinkedIn for the latest updates, research highlights, and community news.
                 </p>
 
-                <div className="grid grid-cols-2 gap-3">
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
-                  >
-                    <MessageCircle className="w-5 h-5 text-blue-600" />
-                    <span className="text-sm font-medium text-foreground">Facebook</span>
-                  </a>
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
-                  >
-                    <Video className="w-5 h-5 text-red-700" />
-                    <span className="text-sm font-medium text-foreground">YouTube</span>
-                  </a>
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
-                  >
-                    <Camera className="w-5 h-5 text-pink-600" />
-                    <span className="text-sm font-medium text-foreground">Instagram</span>
-                  </a>
-                  <a
-                    href="#"
-                    className="flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
-                  >
-                    <Users className="w-5 h-5 text-blue-700" />
-                    <span className="text-sm font-medium text-foreground">LinkedIn</span>
-                  </a>
-                </div>
+                <a
+                  href="https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
+                >
+                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect width="24" height="24" rx="4" fill="#0A66C2" />
+                    <path fill="#FFFFFF" d="M7.5 8.5h2.2v7.4H7.5V8.5zm1.1-3.5c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3-1.3-.6-1.3-1.3.6-1.3 1.3-1.3zm3.4 3.5h2.1v1c.5-.8 1.4-1.3 2.4-1.3 2.5 0 3 1.6 3 3.7v4H14.3v-3.6c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.6h-2.2V8.5z" />
+                  </svg>
+                  <span className="text-sm font-medium text-foreground">DOHaD India Regional Society</span>
+                </a>
               </div>
 
                <div className="bg-card border border-border rounded-lg p-6 mb-8 shadow-sm">
@@ -137,7 +131,7 @@ export default function ContactPage() {
                 </Button>
               </div>
 
-                <p className="text-xs text-muted-foreground mt-3">We respect your privacy. Unsubscribe at any time.</p>
+                <p className="text-xs text-muted-foreground mt-3">We respect your privacy. You may unsubscribe from our newsletter at any time by using the unsubscribe link included in each email, or by contacting us at contact@dohadindia.org to request removal from our mailing list.</p>
               </div>
             </div>
           </div>
@@ -210,12 +204,12 @@ export default function ContactPage() {
           </h2>
 
           <p className="text-sm text-muted-foreground text-center mb-4">
-            Located beside Swami Vivekananda Road Metro Station, Indiranagar
+            PHFI Centre for Developmental and Lifecourse Research, Indiranagar, Bengaluru, Karnataka 560038
           </p>
 
           <div className="w-full h-64 rounded-lg overflow-hidden shadow-md mb-4">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.7960433723644!2d77.63702427507695!3d12.923620887389387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae15d8d3f9a7f1%3A0xceb32e2ed5d2fcd2!2sSwami%20Vivekananda%20Rd%20Metro%20Station!5e0!3m2!1sen!2sin!4v1691234567890!5m2!1sen!2sin"
+              src="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -227,7 +221,7 @@ export default function ContactPage() {
 
           <div className="text-center">
             <a
-              href="https://maps.app.goo.gl/JA3PrY2vCjXo9uHB7"
+              href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-secondary/90 transition-colors"

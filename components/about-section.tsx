@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { Users, Globe, Activity, BookOpen, Network, Lightbulb, ArrowRight, Megaphone, FileHeart, GraduationCap, ChevronRight } from "lucide-react";
+import { Globe, Network, Megaphone, FileHeart, GraduationCap } from "lucide-react";
 
 export default function AboutSection({ settings }: { settings?: any }) {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(0);
@@ -35,7 +35,7 @@ export default function AboutSection({ settings }: { settings?: any }) {
     <section className="w-full py-8 md:py-10 xl:py-20 2xl:py-28 bg-background">
       <div className="w-full">
         {/* Top Section: 2 Columns */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-16 2xl:gap-20 items-center mb-8 md:mb-10 xl:mb-16 2xl:mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 xl:gap-16 2xl:gap-20 items-center">
           
           {/* Left Column: Who We Are */}
           <div className="space-y-4">
@@ -145,39 +145,6 @@ export default function AboutSection({ settings }: { settings?: any }) {
               </div>
             </div>
           </div>
-        </div>
-
-        {/* Bottom Section: Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6 xl:gap-8">
-          {[
-            {
-              title: "Advance Collaborative Research",
-              desc: "Facilitating multi-disciplinary studies to uncover developmental origins of disease and develop preventive strategies.",
-              icon: <Network className="w-5 h-5" />
-            },
-            {
-              title: "Knowledge Dissemination",
-              desc: "Sharing cutting-edge findings through annual conferences, workshops, and high-impact publications.",
-              icon: <BookOpen className="w-5 h-5" />
-            },
-            {
-              title: "Capacity Building",
-              desc: "Training the next generation of scientists with specialized workshops, mentorship programs, and grants.",
-              icon: <Lightbulb className="w-5 h-5" />
-            }
-          ].map((card, index) => (
-            <div key={index} className="group p-4 sm:p-5 xl:p-8 bg-white dark:bg-slate-900 rounded-2xl border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:shadow-secondary/5 transition-all duration-300 hover:-translate-y-1">
-              <div className="w-10 h-10 xl:w-14 xl:h-14 bg-secondary/10 rounded-xl xl:rounded-2xl flex items-center justify-center text-secondary mb-3 xl:mb-6 group-hover:bg-secondary group-hover:text-white transition-all duration-300 group-hover:scale-110">
-                {card.icon}
-              </div>
-              <h3 className="text-sm sm:text-base xl:text-xl font-bold text-gray-900 dark:text-gray-100 mb-1.5 xl:mb-3 group-hover:text-secondary transition-colors">
-                {card.title}
-              </h3>
-              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-                {card.desc}
-              </p>
-            </div>
-          ))}
         </div>
       </div>
     </section>
