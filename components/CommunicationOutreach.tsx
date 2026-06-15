@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { useRouter } from 'next/navigation';
+import { LinkedInIcon } from '@/components/linkedin-icon';
 
 type VariantType = 'primary' | 'sage' | 'rose';
 
@@ -341,12 +342,7 @@ const NewsletterModal: React.FC<NewsletterModalProps> = ({ isOpen, onClose }) =>
       title: "Connect on LinkedIn",
       subtitle: "DOHaD India Regional Society",
       href: "https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/",
-      icon: (
-        <svg className="w-5 h-5" viewBox="0 0 24 24" aria-hidden="true">
-          <rect width="24" height="24" rx="4" fill="#0A66C2" />
-          <path fill="#FFFFFF" d="M7.5 8.5h2.2v7.4H7.5V8.5zm1.1-3.5c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3-1.3-.6-1.3-1.3.6-1.3 1.3-1.3zm3.4 3.5h2.1v1c.5-.8 1.4-1.3 2.4-1.3 2.5 0 3 1.6 3 3.7v4H14.3v-3.6c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.6h-2.2V8.5z" />
-        </svg>
-      ),
+      icon: <LinkedInIcon className="w-5 h-5" />,
       color: "bg-sky-600/10 text-sky-600 dark:text-sky-400 border-sky-600/20 hover:bg-sky-600/15",
     },
   ];

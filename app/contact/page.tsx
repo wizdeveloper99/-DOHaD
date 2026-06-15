@@ -1,4 +1,5 @@
 import { Header } from "@/components/header"
+import { LinkedInIcon } from "@/components/linkedin-icon"
 import { Mail, MapPin, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { headingStyles } from "@/lib/utils"
@@ -99,10 +100,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                 >
-                  <svg className="w-5 h-5 shrink-0" viewBox="0 0 24 24" aria-hidden="true">
-                    <rect width="24" height="24" rx="4" fill="#0A66C2" />
-                    <path fill="#FFFFFF" d="M7.5 8.5h2.2v7.4H7.5V8.5zm1.1-3.5c.7 0 1.3.6 1.3 1.3s-.6 1.3-1.3 1.3-1.3-.6-1.3-1.3.6-1.3 1.3-1.3zm3.4 3.5h2.1v1c.5-.8 1.4-1.3 2.4-1.3 2.5 0 3 1.6 3 3.7v4H14.3v-3.6c0-.9 0-2-1.2-2s-1.4 1-1.4 2v3.6h-2.2V8.5z" />
-                  </svg>
+                  <LinkedInIcon className="w-5 h-5 shrink-0" />
                   <span className="text-sm font-medium text-foreground">DOHaD India Regional Society</span>
                 </a>
               </div>
