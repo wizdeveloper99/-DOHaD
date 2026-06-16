@@ -1,5 +1,4 @@
 import { NextRequest } from 'next/server';
-import { revalidateTag } from 'next/cache';
 import cloudinary from '@/lib/cloudinary';
 import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
 
@@ -50,7 +49,6 @@ export async function POST(request: NextRequest) {
         .end(buffer);
     });
 
-    revalidateTag('media');
     return jsonOk(result);
   } catch (error: any) {
     console.error('Upload error:', error);

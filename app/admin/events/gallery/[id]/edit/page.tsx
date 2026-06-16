@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter, useParams } from 'next/navigation';
-import { ArrowLeft, Upload, X, Loader2, Save } from 'lucide-react';
+import { ArrowLeft, X, Loader2, Plus, Save } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import Image from 'next/image';
 
-export default function EditEventPage() {
+export default function EditGalleryEntryPage() {
   const router = useRouter();
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -21,11 +21,9 @@ export default function EditEventPage() {
     title: '',
     slug: '',
     shortDescription: '',
-    featuredImage: '',
-    galleryImages: [] as string[],
     startDate: '',
     location: '',
-    registrationLink: '',
+    galleryImages: [] as string[],
     eventType: 'conference',
     published: true,
   });
@@ -39,24 +37,21 @@ export default function EditEventPage() {
     try {
       const res = await fetch(`/api/events/${id}`);
       const data = await res.json();
-
       if (data) {
         if (data.startDate) data.startDate = data.startDate.split('T')[0];
         setFormData({
           title: data.title ?? '',
           slug: data.slug ?? '',
           shortDescription: data.shortDescription ?? '',
-          featuredImage: data.featuredImage ?? '',
-          galleryImages: data.galleryImages ?? [],
           startDate: data.startDate ?? '',
           location: data.location ?? '',
-          registrationLink: data.registrationLink ?? '',
+          galleryImages: data.galleryImages ?? [],
           eventType: data.eventType ?? 'conference',
           published: data.published ?? true,
         });
       }
     } catch {
-      toast.error('Failed to fetch event details');
+      toast.error('Failed to load gallery entry');
     } finally {
       setIsLoading(false);
     }
@@ -81,10 +76,13 @@ export default function EditEventPage() {
       if (!res.ok) throw new Error('Upload failed');
 
       const data = await res.json();
-      setFormData((prev) => ({ ...prev, featuredImage: data.secure_url }));
-      toast.success('Image uploaded');
+      setFormData((prev) => ({
+        ...prev,
+        galleryImages: [...prev.galleryImages, data.secure_url],
+      }));
+      toast.success('Photo uploaded');
     } catch {
-      toast.error('Image upload failed');
+      toast.error('Photo upload failed');
     } finally {
       setIsUploading(false);
       e.target.value = '';
@@ -93,8 +91,13 @@ export default function EditEventPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSaving(true);
 
+    if (formData.galleryImages.length === 0) {
+      toast.error('Upload at least one photo');
+      return;
+    }
+
+    setIsSaving(true);
     try {
       const res = await fetch(`/api/events/${id}`, {
         method: 'PUT',
@@ -103,12 +106,12 @@ export default function EditEventPage() {
       });
 
       if (res.ok) {
-        toast.success('Event updated');
+        toast.success('Gallery updated');
         router.push('/admin/events');
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.error || 'Failed to update event');
+        toast.error(error.error || 'Failed to update');
       }
     } catch {
       toast.error('An error occurred');
@@ -137,9 +140,9 @@ export default function EditEventPage() {
           <ArrowLeft size={16} />
           Back to Events
         </Button>
-        <h1 className="text-3xl font-bold text-foreground">Edit Upcoming Event</h1>
+        <h1 className="text-3xl font-bold text-foreground">Edit Gallery Entry</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Update details for an upcoming event card on your events page.
+          Update photos and details for this past event in the gallery carousel.
         </p>
       </div>
 
@@ -157,7 +160,7 @@ export default function EditEventPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="startDate">Date*</Label>
+            <Label htmlFor="startDate">Event date*</Label>
             <Input
               id="startDate"
               name="startDate"
@@ -179,7 +182,7 @@ export default function EditEventPage() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="shortDescription">Description*</Label>
+            <Label htmlFor="shortDescription">Caption*</Label>
             <Textarea
               id="shortDescription"
               name="shortDescription"
@@ -189,55 +192,51 @@ export default function EditEventPage() {
               required
             />
           </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="registrationLink">Registration link (optional)</Label>
-            <Input
-              id="registrationLink"
-              name="registrationLink"
-              value={formData.registrationLink}
-              onChange={handleInputChange}
-              placeholder="https://..."
-            />
-            <p className="text-xs text-muted-foreground">
-              Leave blank if no online registration.
-            </p>
-          </div>
         </div>
 
         <div className="bg-white p-6 rounded-2xl border shadow-sm space-y-4">
-          <Label>Cover image (optional)</Label>
-          <div className="relative aspect-video bg-muted rounded-xl border-2 border-dashed flex flex-col items-center justify-center overflow-hidden">
-            {formData.featuredImage ? (
-              <>
-                <Image src={formData.featuredImage} alt="Preview" fill className="object-cover" />
+          <div>
+            <Label>Photos*</Label>
+            <p className="text-xs text-muted-foreground mt-1">
+              Upload one or more photos. All photos are shown in the gallery carousel.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+            {formData.galleryImages.map((img, idx) => (
+              <div key={idx} className="relative aspect-square bg-muted rounded-lg overflow-hidden group">
+                <Image src={img} alt={`Photo ${idx + 1}`} fill className="object-cover" />
                 <button
                   type="button"
-                  onClick={() => setFormData((prev) => ({ ...prev, featuredImage: '' }))}
-                  className="absolute top-2 right-2 bg-destructive text-white p-1 rounded-full shadow-lg"
+                  onClick={() =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      galleryImages: prev.galleryImages.filter((_, i) => i !== idx),
+                    }))
+                  }
+                  className="absolute top-1 right-1 bg-black/60 text-white p-1 rounded-full"
                 >
-                  <X size={14} />
+                  <X size={12} />
                 </button>
-              </>
-            ) : (
-              <label className="cursor-pointer flex flex-col items-center gap-2 p-4">
-                <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                  {isUploading ? (
-                    <Loader2 className="animate-spin text-secondary" />
-                  ) : (
-                    <Upload className="text-secondary" />
-                  )}
-                </div>
-                <span className="text-xs text-muted-foreground font-medium">Click to upload</span>
-                <input
-                  type="file"
-                  className="hidden"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  disabled={isUploading}
-                />
-              </label>
-            )}
+              </div>
+            ))}
+            <label className="aspect-square bg-muted rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-muted/80 transition-colors">
+              {isUploading ? (
+                <Loader2 className="animate-spin text-secondary" size={24} />
+              ) : (
+                <>
+                  <Plus className="text-muted-foreground" size={24} />
+                  <span className="text-xs text-muted-foreground">Add photo</span>
+                </>
+              )}
+              <input
+                type="file"
+                className="hidden"
+                accept="image/*"
+                onChange={handleImageUpload}
+                disabled={isUploading}
+              />
+            </label>
           </div>
         </div>
 

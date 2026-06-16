@@ -5,7 +5,6 @@ const protectedRoutes = [
   '/admin/dashboard',
   '/admin/events',
   '/admin/newsletter',
-  '/admin/media',
   '/admin/advisory',
   '/admin/documents',
   '/admin/settings',

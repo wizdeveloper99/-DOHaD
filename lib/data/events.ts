@@ -5,7 +5,7 @@ import Event from '@/lib/models/Event';
 export const EVENTS_TAG = 'events';
 
 const ADMIN_LIST_FIELDS =
-  '_id title slug startDate location featuredImage published eventType category';
+  '_id title slug startDate location featuredImage galleryImages published eventType category';
 
 async function fetchAdminEvents() {
   await dbConnect();

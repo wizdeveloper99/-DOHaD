@@ -103,15 +103,30 @@ function SectionHeadingFields({
 function EventRow({
   event,
   onDelete,
+  variant = 'default',
 }: {
   event: EventRecord;
   onDelete: (id: string) => void;
+  variant?: 'default' | 'past-gallery';
 }) {
+  const galleryCount = event.galleryImages?.length ?? 0;
+
   return (
     <div className="flex items-center gap-4 p-4 rounded-xl border border-border bg-white hover:border-secondary/30 transition-colors">
       <div className="relative w-14 h-14 rounded-lg overflow-hidden bg-muted shrink-0">
-        {event.featuredImage ? (
-          <Image src={event.featuredImage} alt={event.title} fill className="object-cover" />
+        {(variant === 'past-gallery' && galleryCount > 0
+          ? event.galleryImages?.[0]
+          : event.featuredImage) ? (
+          <Image
+            src={
+              (variant === 'past-gallery' && galleryCount > 0
+                ? event.galleryImages?.[0]
+                : event.featuredImage) as string
+            }
+            alt={event.title}
+            fill
+            className="object-cover"
+          />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
             <Calendar className="text-muted-foreground" size={22} />
@@ -133,11 +148,23 @@ function EventRow({
             {event.location || 'Online'}
           </span>
           {!event.published && <span className="text-amber-600 font-medium">Draft</span>}
+          {variant === 'past-gallery' && galleryCount > 0 && (
+            <span className="text-emerald-600 font-medium">
+              {galleryCount} photo{galleryCount === 1 ? '' : 's'}
+            </span>
+          )}
         </div>
       </div>
       <div className="flex items-center gap-1 shrink-0">
         <Button variant="ghost" size="icon" className="h-9 w-9" asChild>
-          <Link href={`/admin/events/${event._id}/edit`} aria-label={`Edit ${event.title}`}>
+          <Link
+            href={
+              variant === 'past-gallery'
+                ? `/admin/events/gallery/${event._id}/edit`
+                : `/admin/events/${event._id}/edit`
+            }
+            aria-label={`Edit ${event.title}`}
+          >
             <Edit2 size={18} />
           </Link>
         </Button>
@@ -240,12 +267,12 @@ export default function EventsAdminPage() {
     }
   };
 
-  const { upcomingEvents, pastEvents } = useMemo(() => {
+  const { upcomingEvents, pastEventsForGallery } = useMemo(() => {
     const now = new Date();
     const upcoming = events
       .filter((e) => new Date(e.startDate) >= now)
       .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
-    const past = events
+    const pastWithGallery = events
       .filter(
         (e) =>
           new Date(e.startDate) < now &&
@@ -253,7 +280,10 @@ export default function EventsAdminPage() {
           e.galleryImages.length > 0
       )
       .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
-    return { upcomingEvents: upcoming, pastEvents: past };
+    return {
+      upcomingEvents: upcoming,
+      pastEventsForGallery: pastWithGallery,
+    };
   }, [events]);
 
   const updateOfferItem = (index: number, field: 'title' | 'description', value: string) => {
@@ -327,7 +357,9 @@ export default function EventsAdminPage() {
             </div>
             <div>
               <h2 className="text-xl font-semibold text-foreground">Upcoming Events</h2>
-              <p className="text-sm text-muted-foreground">Events with a future date appear here</p>
+              <p className="text-sm text-muted-foreground">
+                Future-dated events shown as cards. Registration link is optional — only add it if people can sign up online.
+              </p>
             </div>
           </div>
           <Link href="/admin/events/new">
@@ -370,17 +402,31 @@ export default function EventsAdminPage() {
 
       {/* Past Events Gallery */}
       <section className="space-y-4 pt-4 border-t border-border">
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-xl bg-secondary/10 text-secondary">
-            <Images size={22} />
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+          <div className="flex items-center gap-3">
+            <div className="p-2.5 rounded-xl bg-secondary/10 text-secondary">
+              <Images size={22} />
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-foreground">Past Events Gallery</h2>
+              <p className="text-sm text-muted-foreground">
+                Photo carousel for events that already happened
+              </p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-xl font-semibold text-foreground">Past Events Gallery</h2>
-            <p className="text-sm text-muted-foreground">
-              Past events appear as a photo carousel on your website
-            </p>
-          </div>
+          <Link href="/admin/events/gallery/new">
+            <Button className="rounded-full bg-secondary hover:bg-secondary/90 gap-2 w-full sm:w-auto">
+              <Plus size={18} />
+              Add to gallery
+            </Button>
+          </Link>
         </div>
+
+        {pastEventsForGallery.length > 0 && (
+          <p className="text-sm text-emerald-700 font-medium">
+            {pastEventsForGallery.length} event{pastEventsForGallery.length === 1 ? '' : 's'} live in the public gallery carousel.
+          </p>
+        )}
 
         <SectionHeadingFields
           titleLabel="Section heading (shown on website)"
@@ -402,12 +448,17 @@ export default function EventsAdminPage() {
         />
 
         <div className="space-y-3">
-          {pastEvents.length > 0 ? (
-            pastEvents.map((event) => (
-              <EventRow key={event._id} event={event} onDelete={handleDelete} />
+          {pastEventsForGallery.length > 0 ? (
+            pastEventsForGallery.map((event) => (
+              <EventRow
+                key={event._id}
+                event={event}
+                onDelete={handleDelete}
+                variant="past-gallery"
+              />
             ))
           ) : (
-            <EmptyEvents message="No past events yet. Only events with a past date and uploaded gallery photos appear in the carousel." />
+            <EmptyEvents message="No gallery entries yet. Click Add to gallery to upload photos from a past event." />
           )}
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { ArrowLeft, Upload, X, Loader2 } from 'lucide-react';
+import { ArrowLeft, Upload, X, Loader2, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import Image from 'next/image';
 
-export default function NewEventPage() {
+export default function NewGalleryEntryPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
@@ -18,10 +18,9 @@ export default function NewEventPage() {
   const [formData, setFormData] = useState({
     title: '',
     shortDescription: '',
-    featuredImage: '',
     startDate: '',
     location: '',
-    registrationLink: '',
+    galleryImages: [] as string[],
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -43,10 +42,13 @@ export default function NewEventPage() {
       if (!res.ok) throw new Error('Upload failed');
 
       const data = await res.json();
-      setFormData((prev) => ({ ...prev, featuredImage: data.secure_url }));
-      toast.success('Image uploaded');
+      setFormData((prev) => ({
+        ...prev,
+        galleryImages: [...prev.galleryImages, data.secure_url],
+      }));
+      toast.success('Photo uploaded');
     } catch {
-      toast.error('Image upload failed');
+      toast.error('Photo upload failed');
     } finally {
       setIsUploading(false);
       e.target.value = '';
@@ -55,26 +57,40 @@ export default function NewEventPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
 
+    if (formData.galleryImages.length === 0) {
+      toast.error('Upload at least one photo');
+      return;
+    }
+
+    if (formData.startDate && new Date(formData.startDate) >= new Date()) {
+      toast.error('Event date must be in the past');
+      return;
+    }
+
+    setIsLoading(true);
     try {
       const res = await fetch('/api/events', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...formData,
+          title: formData.title,
+          shortDescription: formData.shortDescription,
+          startDate: formData.startDate,
+          location: formData.location,
+          galleryImages: formData.galleryImages,
           eventType: 'conference',
           published: true,
         }),
       });
 
       if (res.ok) {
-        toast.success('Event created');
+        toast.success('Added to gallery');
         router.push('/admin/events');
         router.refresh();
       } else {
         const error = await res.json();
-        toast.error(error.error || 'Failed to create event');
+        toast.error(error.error || 'Failed to save');
       }
     } catch {
       toast.error('An error occurred');
@@ -94,9 +110,9 @@ export default function NewEventPage() {
           <ArrowLeft size={16} />
           Back to Events
         </Button>
-        <h1 className="text-3xl font-bold text-foreground">Add Upcoming Event</h1>
+        <h1 className="text-3xl font-bold text-foreground">Add to Past Events Gallery</h1>
         <p className="mt-2 text-sm text-muted-foreground">
-          Create an event with a future date. It appears as a card on your events page.
+          Add photos from a past event. They appear in the carousel on your public events page.
         </p>
       </div>
 
@@ -110,12 +126,12 @@ export default function NewEventPage() {
               value={formData.title}
               onChange={handleInputChange}
               required
-              placeholder="e.g. Annual DOHaD Conference 2026"
+              placeholder="e.g. Public Health Summit 2025"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="startDate">Date*</Label>
+            <Label htmlFor="startDate">When did it happen?*</Label>
             <Input
               id="startDate"
               name="startDate"
@@ -133,12 +149,12 @@ export default function NewEventPage() {
               name="location"
               value={formData.location}
               onChange={handleInputChange}
-              placeholder="e.g. Bangalore, India"
+              placeholder="e.g. Chennai, India"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="shortDescription">Description*</Label>
+            <Label htmlFor="shortDescription">Caption*</Label>
             <Textarea
               id="shortDescription"
               name="shortDescription"
@@ -146,58 +162,54 @@ export default function NewEventPage() {
               value={formData.shortDescription}
               onChange={handleInputChange}
               required
-              placeholder="A short summary shown on the event card..."
+              placeholder="A short line shown below the photos in the gallery..."
             />
-          </div>
-
-          <div className="space-y-2">
-            <Label htmlFor="registrationLink">Registration link (optional)</Label>
-            <Input
-              id="registrationLink"
-              name="registrationLink"
-              value={formData.registrationLink}
-              onChange={handleInputChange}
-              placeholder="https://..."
-            />
-            <p className="text-xs text-muted-foreground">
-              Leave blank if no online registration.
-            </p>
           </div>
         </div>
 
         <div className="bg-white p-6 rounded-2xl border shadow-sm space-y-4">
-          <Label>Cover image (optional)</Label>
-          <div className="relative aspect-video bg-muted rounded-xl border-2 border-dashed flex flex-col items-center justify-center overflow-hidden">
-            {formData.featuredImage ? (
-              <>
-                <Image src={formData.featuredImage} alt="Preview" fill className="object-cover" />
+          <div>
+            <Label>Photos*</Label>
+            <p className="text-xs text-muted-foreground mt-1">
+              Upload one or more photos. All photos are shown in the gallery carousel.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-3 sm:grid-cols-4 gap-3">
+            {formData.galleryImages.map((img, idx) => (
+              <div key={idx} className="relative aspect-square bg-muted rounded-lg overflow-hidden group">
+                <Image src={img} alt={`Photo ${idx + 1}`} fill className="object-cover" />
                 <button
                   type="button"
-                  onClick={() => setFormData((prev) => ({ ...prev, featuredImage: '' }))}
-                  className="absolute top-2 right-2 bg-destructive text-white p-1 rounded-full shadow-lg"
+                  onClick={() =>
+                    setFormData((prev) => ({
+                      ...prev,
+                      galleryImages: prev.galleryImages.filter((_, i) => i !== idx),
+                    }))
+                  }
+                  className="absolute top-1 right-1 bg-black/60 text-white p-1 rounded-full"
                 >
-                  <X size={14} />
+                  <X size={12} />
                 </button>
-              </>
-            ) : (
-              <label className="cursor-pointer flex flex-col items-center gap-2 p-4">
-                <div className="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
-                  {isUploading ? (
-                    <Loader2 className="animate-spin text-secondary" />
-                  ) : (
-                    <Upload className="text-secondary" />
-                  )}
-                </div>
-                <span className="text-xs text-muted-foreground font-medium">Click to upload</span>
-                <input
-                  type="file"
-                  className="hidden"
-                  accept="image/*"
-                  onChange={handleImageUpload}
-                  disabled={isUploading}
-                />
-              </label>
-            )}
+              </div>
+            ))}
+            <label className="aspect-square bg-muted rounded-lg border-2 border-dashed flex flex-col items-center justify-center gap-1 cursor-pointer hover:bg-muted/80 transition-colors">
+              {isUploading ? (
+                <Loader2 className="animate-spin text-secondary" size={24} />
+              ) : (
+                <>
+                  <Plus className="text-muted-foreground" size={24} />
+                  <span className="text-xs text-muted-foreground">Add photo</span>
+                </>
+              )}
+              <input
+                type="file"
+                className="hidden"
+                accept="image/*"
+                onChange={handleImageUpload}
+                disabled={isUploading}
+              />
+            </label>
           </div>
         </div>
 
@@ -217,7 +229,7 @@ export default function NewEventPage() {
             disabled={isLoading || isUploading}
           >
             {isLoading ? <Loader2 className="animate-spin mr-2" size={18} /> : null}
-            Create Event
+            Save to Gallery
           </Button>
         </div>
       </form>

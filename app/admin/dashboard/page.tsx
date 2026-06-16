@@ -3,7 +3,6 @@ import Image from 'next/image';
 import {
   Calendar,
   Mail,
-  Image as ImageIcon,
   Users,
   FileText,
   Settings,
@@ -15,7 +14,6 @@ import { ADMIN_SITE, ADMIN_SECTIONS } from '@/lib/admin-site';
 const sectionIcons = {
   '/admin/events': Calendar,
   '/admin/newsletter': Mail,
-  '/admin/media': ImageIcon,
   '/admin/advisory': Users,
   '/admin/documents': FileText,
   '/admin/settings': Settings,

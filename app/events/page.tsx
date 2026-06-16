@@ -41,6 +41,29 @@ export default async function EventsPage() {
       new Date(e.startDate) < now && Array.isArray(e.galleryImages) && e.galleryImages.length > 0
   );
 
+  type GallerySlide = {
+    _id: string;
+    title: string;
+    startDate: string;
+    shortDescription?: string;
+    image: string;
+    imageIndex: number;
+    totalImages: number;
+  };
+
+  const gallerySlides: GallerySlide[] = pastEvents.flatMap(
+    (event: { _id: string; galleryImages?: string[]; title: string; startDate: string; shortDescription?: string }) =>
+      (event.galleryImages ?? []).map((image, imageIndex) => ({
+        _id: event._id,
+        title: event.title,
+        startDate: event.startDate,
+        shortDescription: event.shortDescription,
+        image,
+        imageIndex,
+        totalImages: event.galleryImages?.length ?? 0,
+      }))
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -78,33 +101,30 @@ export default async function EventsPage() {
           </div>
 
           <div className="w-full px-4 sm:px-0">
-            {pastEvents && pastEvents.length > 0 ? (
+            {gallerySlides.length > 0 ? (
               <Carousel className="w-full">
                 <CarouselContent>
-                  {pastEvents.map((event: { _id: string; featuredImage?: string; galleryImages?: string[]; title: string; startDate: string; shortDescription?: string }, index: number) => {
-                    const galleryImage = event.galleryImages?.[0] ?? event.featuredImage;
-                    return (
-                    <CarouselItem key={event._id}>
+                  {gallerySlides.map((slide, index) => (
+                    <CarouselItem key={`${slide._id}-${slide.imageIndex}`}>
                       <div className="flex flex-col items-center text-center">
                         <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg aspect-video md:aspect-[21/9] bg-muted">
-                          {galleryImage ? (
-                            <Image
-                              src={galleryImage}
-                              alt={event.title}
-                              fill
-                              className="object-cover"
-                              priority={index === 0}
-                            />
-                          ) : (
-                            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
-                              No image available
+                          <Image
+                            src={slide.image}
+                            alt={`${slide.title} — photo ${slide.imageIndex + 1}`}
+                            fill
+                            className="object-cover"
+                            priority={index === 0}
+                          />
+                          {slide.totalImages > 1 && (
+                            <div className="absolute bottom-3 right-3 bg-black/60 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm">
+                              {slide.imageIndex + 1} / {slide.totalImages}
                             </div>
                           )}
                         </div>
 
                         <div className="mt-6 sm:mt-8 md:mt-10">
                           <div className="inline-block bg-secondary/10 text-secondary text-sm px-3 py-1 rounded-full mb-3 shadow-sm font-semibold">
-                            {new Date(event.startDate).toLocaleDateString("en-US", {
+                            {new Date(slide.startDate).toLocaleDateString("en-US", {
                               year: "numeric",
                               month: "long",
                               day: "numeric",
@@ -112,19 +132,18 @@ export default async function EventsPage() {
                           </div>
 
                           <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground mb-3">
-                            {event.title}
+                            {slide.title}
                           </h2>
 
-                          {event.shortDescription && (
+                          {slide.shortDescription && (
                             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                              {event.shortDescription}
+                              {slide.shortDescription}
                             </p>
                           )}
                         </div>
                       </div>
                     </CarouselItem>
-                    );
-                  })}
+                  ))}
                 </CarouselContent>
 
                 <CarouselPrevious className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border border-border text-foreground h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full shadow-md backdrop-blur-md" />

@@ -18,11 +18,6 @@ export const ADMIN_SECTIONS = [
     href: '/admin/newsletter',
   },
   {
-    label: 'Photos & Files',
-    description: 'Upload and manage images for your website',
-    href: '/admin/media',
-  },
-  {
     label: 'Advisory Board',
     description: 'Update profiles of advisory committee members',
     href: '/admin/advisory',

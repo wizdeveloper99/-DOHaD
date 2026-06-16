@@ -64,17 +64,18 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
               <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
                 {event.shortDescription}
               </p>
-              {event.registrationLink && (
+              {event.registrationLink ? (
                 <div className="pt-4 border-t mt-auto">
                   <a 
                     href={event.registrationLink} 
                     target="_blank" 
+                    rel="noopener noreferrer"
                     className="text-xs font-bold text-secondary hover:underline flex items-center gap-1"
                   >
                     Register Now
                   </a>
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         ))}
