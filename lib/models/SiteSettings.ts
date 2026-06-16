@@ -59,14 +59,14 @@ const SiteSettingsSchema = new Schema({
       title: { type: String, default: 'Past Events Gallery' },
       subtitle: {
         type: String,
-        default: 'Highlights and memories from our previous events',
+        default: 'Photo highlights from our events will be shared here',
       },
     },
     whatWeOffer: {
       title: { type: String, default: 'What We Offer' },
       subtitle: {
         type: String,
-        default: 'Comprehensive event experiences for our community',
+        default: 'Event types we are building for the DOHaD community',
       },
       items: {
         type: [
@@ -90,11 +90,6 @@ const SiteSettingsSchema = new Schema({
             title: 'Networking Events',
             description:
               'Opportunities to connect with fellow researchers, build collaborations, and strengthen the DOHaD community.',
-          },
-          {
-            title: 'Event Registration',
-            description:
-              'Easy online registration system for workshops and conferences with member discounts and early bird pricing.',
           },
         ],
       },

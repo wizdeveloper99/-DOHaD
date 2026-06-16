@@ -33,6 +33,7 @@ type EventRecord = {
   startDate: string;
   location?: string;
   featuredImage?: string;
+  galleryImages?: string[];
   published: boolean;
   eventType: string;
 };
@@ -251,7 +252,12 @@ export default function EventsAdminPage() {
       .filter((e) => new Date(e.startDate) >= now)
       .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
     const past = events
-      .filter((e) => new Date(e.startDate) < now)
+      .filter(
+        (e) =>
+          new Date(e.startDate) < now &&
+          Array.isArray(e.galleryImages) &&
+          e.galleryImages.length > 0
+      )
       .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
     return { upcomingEvents: upcoming, pastEvents: past };
   }, [events]);
@@ -407,7 +413,7 @@ export default function EventsAdminPage() {
               <EventRow key={event._id} event={event} onDelete={handleDelete} />
             ))
           ) : (
-            <EmptyEvents message="No past events yet. Events with a past date will appear in the gallery automatically." />
+            <EmptyEvents message="No past events yet. Only events with a past date and uploaded gallery photos appear in the carousel." />
           )}
         </div>
       </section>

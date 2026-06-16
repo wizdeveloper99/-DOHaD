@@ -68,6 +68,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Kalyanaraman Kumaran",
       title: "Chair of DOHaD India Regional Society",
+      organization: "University of Southampton, UK",
       image: "/people/advisory/Dr Kalyanaraman Kumaran img.png",
       fullBio: "Dr. Kalyanaraman Kumaran is currently Professor of Public Health at the University of Southampton, UK, and Senior Scientist at the CSI Holdsworth Memorial Hospital & Vivekananda Memorial Hospital, India. Kumaran has over 30 years of experience in epidemiology and public health across the UK and India. His research focuses on understanding how factors operating in early life (such as maternal nutrition, fetal and infant growth) influence adult non-communicable diseases. He is also involved in the development and delivery of undergraduate and postgraduate public health teaching.",
       linkedin: "https://www.linkedin.com/in/kalyanaraman-kumaran-48636976/"
@@ -75,6 +76,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Giridhara R. Babu (GRB)",
       title: "Professor of Population Medicine",
+      organization: "College of Medicine, Qatar University",
       image: "/people/advisory/Dr. Giridhara R. Babu (GRB)  img.png",
       fullBio: "Dr. Giridhara R. Babu (GRB) serves as a Professor of Population Medicine at the College of Medicine, Qatar University. With a career spanning over two decades, GRB has led transformative public health research across epidemiology, disease prevention, and health security. His extensive work on infectious diseases, including the eradication of polio, his contributions to the COVID-19 response, and his commitment to advancing the resilience of health systems have earned him recognition as a leader in global health. His research, which has shaped global public health responses, focused on maternal and child health, non-communicable diseases, and health policy. He continues to influence health policy and education worldwide. He is featured among the top 2% of global highly cited researchers in 2024, as listed by Elsevier-Stanford (Scopus-based). His research interests include Global Health, NCD prevention, Lifecourse epidemiology, Cohort studies, and Pandemic preparedness.",
       linkedin: "https://www.linkedin.com/in/giridharbabur/"
@@ -82,6 +84,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Stephen Matthews",
       title: "Canada Research Chair in Early Development and Health",
+      organization: "University of Toronto, Canada",
       image: "/people/advisory/Dr. Stephen Matthews  img.png",
       fullBio: "Dr. Stephen Matthews is Canada Research Chair in Early Development and Health, Professor of Physiology, Ob-Gyn, and Medicine at the University of Toronto, and a Senior Scientist at the Lunenfeld-Tanenbaum Research Institute, Sinai Health. He served as Chair of the Department of Physiology (UofT; 2007-2014). He is currently the Director of Research at the Alliance for Human Development, LTRI, the Director of the Ontario Birth Study, and the Canadian lead PI of the Healthy Life Trajectories (HeLTI) trial in India. He has served as elected President of the Society for Reproductive Investigation (2023). In 2015, he co-founded DOHaD Canada and served as elected President (2018-23).",
       linkedin: "https://www.linkedin.com/in/stephen-matthews-45bb7611a/"
@@ -89,6 +92,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Giriraj Ratan Chandak",
       title: "Sir Jagadish Chandra Bose Fellow",
+      organization: "CSIR–Center for Cellular and Molecular Biology, Hyderabad",
       image: "/people/advisory/Dr. Chandak img.png",
       fullBio: "Dr. Giriraj Ratan Chandak, former director of the Center for DNA Fingerprinting and Diagnostics and Chief Scientist at CSIR–Center for Cellular and Molecular Biology, Hyderabad. He currently serves as Sir Jagadish Chandra Bose Fellow at CSIR-CCMB and is a Fellow of all four Indian National Science Academies and Fellow of The World Academy of Sciences. Dr. Chandak is a physician-scientist specializing in human and medical genetics, with notable work on the genomic and epigenetic architecture of complex disorders such as type 2 diabetes and metabolic syndrome, with a particular focus on developmental programming. He has pioneered research on the genetic and epigenetic basis of the “thin–fat Indian” phenotype and developmental origins of type 2 diabetes and metabolic syndrome. He has over 150 publications shaping the understanding of complex genetic traits and the role of gene-environment interactions in South Asian populations. He has recently founded Lightening Lives LLP to translate genomics into healthcare solutions for underserved communities.",
       linkedin: "https://www.linkedin.com/in/giriraj-ratan-chandak-36334929/"
@@ -96,6 +100,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Rebecca Kuriyan Raj",
       title: "Professor and Head of the Division of Nutrition",
+      organization: "St. John's Research Institute, Bengaluru",
       image: "/people/advisory/Dr. Rebecca Kuriyan Raj ing.png",
       fullBio: "Dr. Rebecca Kuriyan Raj serves as Professor and Head of the Division of Nutrition at St. John’s Research Institute. She has over three decades of experience in clinical nutrition, public health research, and academia, with interests in infant and child health, clinical nutrition, body composition, obesity, and energy expenditure. She has led large-scale cohorts examining the double and triple burden of malnutrition, linking multi-factorial evidence to inform functional and health outcomes, and evaluation of government initiatives- take-home ration programs, informing program redesign and policy uptake. Dr. Kuriyan-Raj has played a central role in capacity building for over two decades as Course Director of the Bangalore Boston Nutrition Collaborative and, later, NURTURE (2024 onwards), that have trained over 600 professionals from India and other countries. Her work has received numerous awards, including the Radha Practicing Dietitian Award and the Dean Louis & May Monteiro Research Prize, and she was listed among the top 2% of scientists in Medical Research by Stanford University in 2024 and 2025. Recently, she was awarded the title of Fellow of the International Union of Nutritional Sciences (IUNS) at the International Congress of Nutrition (ICN) in August 2025.",
       linkedin: "https://www.linkedin.com/in/rebecca-raj/"
@@ -103,6 +108,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Sunita Taneja",
       title: "Senior Scientist and Executive Director",
+      organization: "Society for Applied Studies (SAS), Delhi",
       image: "/people/advisory/Dr. Sunita Taneja imf.png",
       fullBio: "Dr. Sunita Taneja is a Senior Scientist and Executive Director of the Society for Applied Studies (SAS), Delhi. SAS is a not-for-profit research organization whose contributions to research have found a place in Indian and developing-country public health programs. Her research interests are child health and nutrition, and the development and evaluation of single or packages of interventions to improve birth outcomes, survival, growth, and development during early childhood. With around 3 decades of experience, she is globally recognized as a leading public health researcher.",
       linkedin: "https://www.linkedin.com/in/sunita-taneja-5694a755/"
@@ -110,6 +116,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Suzanne Ozane",
       title: "Professor of Developmental Endocrinology",
+      organization: "University of Cambridge, UK",
       image: "/people/advisory/Dr. Suzanne Ozane img.png",
       fullBio: "Dr. Suzanne Ozane, professor of Developmental Endocrinology, Head of the Department of Clinical Biochemistry, and Director of the Institute of Metabolic Science-Metabolic Research Laboratories at the University of Cambridge. Her research interests focus on understanding the mechanistic basis of the relationship between suboptimal early nutrition and long-term cardiometabolic health, with the goal of using this information to improve the health of the next generation. Professor Ozanne is the author of over 300 peer-reviewed full papers on the early origins of health and disease. She is an elected member of the Council of the Society for the Developmental Origins of Health and Disease and was elected as a Fellow of the Academy of Medical Sciences in 2022.",
       linkedin: "https://www.linkedin.com/in/sue-ozanne-13616979/"
@@ -117,6 +124,7 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Sadhana Joshi",
       title: "Director Grade Scientist",
+      organization: "Institute of Research in Reproduction and Health Advocacy (IRSHA), Pune",
       image: "/people/advisory/Dr. Sadhana Joshi  img.png",
       fullBio: "Dr. Sadhana Joshi is currently a Director Grade Scientist and heads the Division of Mother and Child Health at IRSHA. She has been working in the field of maternal and child health for over 30 years. She is the Principal Investigator on an ICMR, Center for Advanced Research, as well as the ICMR Center for Collaborating Excellence. She is also the Principal Investigator on a DBT SAHAJ grant. Sadhana Joshi is a recipient of numerous national and international grants and has delivered critical orations in various scientific forums. She was awarded the 9th Dr. Rajammal P. Devadas Memorial Award of the Nutrition Society of India, 2018, and the Research Excellence Award for Developing Country Scientist at the 7th World Congress on Developmental Origins of Health and Disease, Portland, USA. She is a board member for the Preterm Birth International Collaborative PREBIC Australasian Branch (2017-2018).",
       linkedin: "https://www.bvuniversity.edu.in/irsha/staff-details/sadhana-joshi/1/4"
@@ -229,32 +237,37 @@ export default function WhoAreWePage() {
               <Dialog key={index}>
                 <DialogTrigger asChild>
                   <div className="group cursor-pointer relative rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-300">
-                    <div className="relative w-full h-72 overflow-hidden">
+                    <div className="relative w-full min-h-[18rem] sm:min-h-[19rem] md:h-80 overflow-hidden">
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10" />
                     </div>
 
-                    <div className="absolute bottom-0 w-full p-4 text-center">
-                      <p className="text-[9px] md:text-[10px] xl:text-xs 2xl:text-sm uppercase tracking-wider font-bold text-emerald-400 mb-1">
+                    <div className="absolute bottom-0 w-full p-4 sm:p-5 text-center">
+                      <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-emerald-400 mb-1 leading-snug">
                         {member.title}
                       </p>
-                      <div className="flex items-center justify-center gap-2">
-                        <h3 className="text-sm xl:text-base 2xl:text-lg font-bold text-white leading-tight">
+                      <div className="flex items-center justify-center gap-2 flex-wrap">
+                        <h3 className="text-sm sm:text-base xl:text-lg 2xl:text-xl font-bold text-white leading-tight">
                           {member.name}
                         </h3>
                         {member.linkedin && (
-                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>
-                            <LinkedInIcon className="w-4 h-4" />
+                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors shrink-0" onClick={(e) => e.stopPropagation()}>
+                            <LinkedInIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </a>
                         )}
                       </div>
+                      {member.organization && (
+                        <p className="mt-2 text-xs sm:text-sm md:text-base text-white font-medium leading-snug break-words">
+                          {member.organization}
+                        </p>
+                      )}
                       <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="text-[9px] md:text-[10px] xl:text-xs 2xl:text-sm text-white/80 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
+                        <span className="text-[10px] sm:text-xs text-white/80 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
                           Read Full Bio
                         </span>
                       </div>
@@ -284,6 +297,11 @@ export default function WhoAreWePage() {
                         <p className="text-xs xl:text-sm 2xl:text-base font-semibold text-emerald-500">
                           {member.title}
                         </p>
+                        {member.organization && (
+                          <p className="text-xs sm:text-sm xl:text-base text-muted-foreground mt-1 leading-snug">
+                            {member.organization}
+                          </p>
+                        )}
                       </div>
                     </div>
                   </DialogHeader>

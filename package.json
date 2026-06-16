@@ -1,5 +1,5 @@
 {
-  "name": "my-v0-project",
+  "name": "dohad-india",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,11 @@
     "test:documents:verify": "bun run scripts/test-documents.mjs verify",
     "media:audit": "bun run scripts/cleanup-media.mjs audit",
     "media:cleanup": "bun run scripts/cleanup-media.mjs delete --confirm",
-    "media:cleanup-orphans": "bun run scripts/cleanup-media.mjs delete-orphans --confirm"
+    "media:cleanup-orphans": "bun run scripts/cleanup-media.mjs delete-orphans --confirm",
+    "events:unpublish": "bun run scripts/unpublish-events.mjs",
+    "events:delete-all": "bun run scripts/unpublish-events.mjs --delete",
+    "production:cleanup": "bun run scripts/production-cleanup.mjs --confirm",
+    "production:cleanup:preview": "bun run scripts/production-cleanup.mjs"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

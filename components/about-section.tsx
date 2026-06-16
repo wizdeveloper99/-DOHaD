@@ -116,19 +116,8 @@ export default function AboutSection({ settings }: { settings?: any }) {
               <div className="absolute inset-0 bg-gradient-to-t from-white via-white/20 to-transparent dark:from-slate-950 dark:via-slate-950/20" />
             </div>
 
-            {/* Stats Overlay */}
             <div className="relative z-10 h-full flex flex-col justify-end p-3 md:p-4 xl:p-8">
               <div className="grid grid-cols-1 gap-2">
-                {/* Hiding stats for now
-                <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-md transition-all">
-                  <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">150+</div>
-                  <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Active Members</div>
-                </div>
-                <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl shadow-sm border border-slate-200/50 dark:border-slate-700/50 hover:shadow-md transition-all">
-                  <div className="text-2xl md:text-3xl font-bold text-secondary mb-1">25,000+</div>
-                  <div className="text-[10px] font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider">Visitors</div>
-                </div>
-                */}
                 <div className="bg-secondary/95 backdrop-blur-md p-3 xl:p-5 rounded-xl xl:rounded-2xl shadow-lg text-white border border-white/10 hover:bg-secondary transition-colors">
                   <div className="flex items-center gap-2.5">
                     <div className="p-1.5 xl:p-2.5 bg-white/20 rounded-lg xl:rounded-xl shrink-0">

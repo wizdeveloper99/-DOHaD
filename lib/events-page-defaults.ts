@@ -31,11 +31,11 @@ export const DEFAULT_EVENTS_PAGE: EventsPageSettings = {
   },
   pastEventsGallery: {
     title: 'Past Events Gallery',
-    subtitle: 'Highlights and memories from our previous events',
+    subtitle: 'Photo highlights from our events will be shared here',
   },
   whatWeOffer: {
     title: 'What We Offer',
-    subtitle: 'Comprehensive event experiences for our community',
+    subtitle: 'Event types we are building for the DOHaD community',
     items: [
       {
         title: 'Annual Conferences',
@@ -51,11 +51,6 @@ export const DEFAULT_EVENTS_PAGE: EventsPageSettings = {
         title: 'Networking Events',
         description:
           'Opportunities to connect with fellow researchers, build collaborations, and strengthen the DOHaD community.',
-      },
-      {
-        title: 'Event Registration',
-        description:
-          'Easy online registration system for workshops and conferences with member discounts and early bird pricing.',
       },
     ],
   },

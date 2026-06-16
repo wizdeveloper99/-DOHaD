@@ -36,7 +36,10 @@ export default async function EventsPage() {
 
   const now = new Date();
   const upcomingEvents = events.filter((e: { startDate: string }) => new Date(e.startDate) >= now).reverse();
-  const pastEvents = events.filter((e: { startDate: string }) => new Date(e.startDate) < now);
+  const pastEvents = events.filter(
+    (e: { startDate: string; galleryImages?: string[] }) =>
+      new Date(e.startDate) < now && Array.isArray(e.galleryImages) && e.galleryImages.length > 0
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,13 +81,15 @@ export default async function EventsPage() {
             {pastEvents && pastEvents.length > 0 ? (
               <Carousel className="w-full">
                 <CarouselContent>
-                  {pastEvents.map((event: { _id: string; featuredImage?: string; title: string; startDate: string; shortDescription?: string }, index: number) => (
+                  {pastEvents.map((event: { _id: string; featuredImage?: string; galleryImages?: string[]; title: string; startDate: string; shortDescription?: string }, index: number) => {
+                    const galleryImage = event.galleryImages?.[0] ?? event.featuredImage;
+                    return (
                     <CarouselItem key={event._id}>
                       <div className="flex flex-col items-center text-center">
                         <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg aspect-video md:aspect-[21/9] bg-muted">
-                          {event.featuredImage ? (
+                          {galleryImage ? (
                             <Image
-                              src={event.featuredImage}
+                              src={galleryImage}
                               alt={event.title}
                               fill
                               className="object-cover"
@@ -118,7 +123,8 @@ export default async function EventsPage() {
                         </div>
                       </div>
                     </CarouselItem>
-                  ))}
+                    );
+                  })}
                 </CarouselContent>
 
                 <CarouselPrevious className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border border-border text-foreground h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full shadow-md backdrop-blur-md" />

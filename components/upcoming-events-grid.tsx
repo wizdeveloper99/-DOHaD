@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Users, Calendar, BookOpen } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents: any[] }) {
@@ -12,36 +12,12 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
 
   if (upcomingEvents.length === 0) {
     return (
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-          <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-            <Calendar className="w-6 h-6 text-secondary" />
-          </div>
-          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2">Annual DOHaD Conference</h3>
-          <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-            Join researchers from across India for our flagship gathering.
-          </p>
-        </div>
-
-        <div className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-          <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-            <BookOpen className="w-6 h-6 text-secondary" />
-          </div>
-          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2">Research Methods Workshop</h3>
-          <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-            Hands-on training sessions for developmental research.
-          </p>
-        </div>
-
-        <div className="bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-shadow duration-300">
-          <div className="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-4">
-            <Users className="w-6 h-6 text-secondary" />
-          </div>
-          <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-2">Community Networking</h3>
-          <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-            Building connections across scientific disciplines.
-          </p>
-        </div>
+      <div className="border border-border rounded-2xl p-8 sm:p-12 text-center bg-muted/20">
+        <Calendar className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground mx-auto mb-4" />
+        <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">No Upcoming Events</h3>
+        <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto">
+          We are planning workshops and conferences. Check back soon or subscribe to our newsletter for updates.
+        </p>
       </div>
     );
   }
@@ -88,12 +64,8 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
               <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
                 {event.shortDescription}
               </p>
-              <div className="pt-4 border-t flex items-center justify-between mt-auto">
-                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <Users size={14} className="text-secondary" />
-                  <span>{event.speakerNames?.[0] ? `${event.speakerNames[0]}${event.speakerNames.length > 1 ? ' + others' : ''}` : 'DOHaD Team'}</span>
-                </div>
-                {event.registrationLink && (
+              {event.registrationLink && (
+                <div className="pt-4 border-t mt-auto">
                   <a 
                     href={event.registrationLink} 
                     target="_blank" 
@@ -101,8 +73,8 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
                   >
                     Register Now
                   </a>
-                )}
-              </div>
+                </div>
+              )}
             </div>
           </div>
         ))}

@@ -56,7 +56,7 @@ const EventSchema = new Schema({
   },
   published: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 }, { timestamps: true });
 

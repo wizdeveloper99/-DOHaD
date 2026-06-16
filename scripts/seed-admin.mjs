@@ -1,33 +1,55 @@
 import bcrypt from 'bcryptjs';
+import { readFileSync, existsSync } from 'fs';
+import { dirname, join } from 'path';
+import { fileURLToPath } from 'url';
 import mongoose from 'mongoose';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+function loadMongoUri() {
+  const envPath = join(__dirname, '..', '.env.local');
+  if (!existsSync(envPath)) throw new Error('Missing .env.local');
+  const env = readFileSync(envPath, 'utf8');
+  const match = env.match(/^MONGODB_URI=(.+)$/m);
+  if (!match) throw new Error('MONGODB_URI not found in .env.local');
+  return match[1].trim().replace(/^["']|["']$/g, '');
+}
+
 async function seed() {
-  await mongoose.connect('mongodb+srv://dohadindiaorg_db_user:K2EaOaCnZBPQzohO@cluster0.jgm2s1n.mongodb.net/?appName=Cluster0');
-  
+  await mongoose.connect(loadMongoUri());
+
   const adminSchema = new mongoose.Schema({
-    email: String,
+    username: String,
     password: String,
     name: String,
-    role: { type: String, enum: ['admin', 'superadmin'], default: 'admin' }
+    role: { type: String, enum: ['admin', 'superadmin'], default: 'admin' },
   }, { timestamps: true });
-  
+
   const AdminUser = mongoose.models.AdminUser || mongoose.model('AdminUser', adminSchema);
-  
-  await AdminUser.deleteOne({ email: 'admin@dohadindia.org' });
-  
-  const hashedPassword = await bcrypt.hash('admin', 12);
-  
+
+  const username = process.env.ADMIN_USERNAME || 'admin';
+  const password = process.env.ADMIN_PASSWORD;
+
+  if (!password) {
+    throw new Error('Set ADMIN_PASSWORD in the environment before running seed-admin.');
+  }
+
+  await AdminUser.deleteOne({ username });
+
+  const hashedPassword = await bcrypt.hash(password, 12);
+
   await AdminUser.create({
-    email: 'admin@dohadindia.org',
+    username,
     password: hashedPassword,
     name: 'Admin',
-    role: 'superadmin'
+    role: 'superadmin',
   });
-  
-  console.log('Admin user created successfully!');
-  console.log('Email: admin@dohadindia.org');
-  console.log('Password: admin');
+
+  console.log(`Admin user created: ${username}`);
   process.exit(0);
 }
 
-seed().catch(err => { console.error(err); process.exit(1); });
+seed().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});

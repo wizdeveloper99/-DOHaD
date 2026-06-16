@@ -45,7 +45,7 @@ export default function NewEventPage() {
     registrationLink: '',
     eventType: 'conference',
     featured: false,
-    published: true,
+    published: false,
   });
 
   const [speakerInput, setSpeakerInput] = useState('');
