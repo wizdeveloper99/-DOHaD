@@ -5,6 +5,8 @@ import {
   getAdminEvents,
   invalidateEventsCache,
   queryEvents,
+  resolveUniqueEventSlug,
+  slugifyTitle,
 } from '@/lib/data/events';
 import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
 
@@ -40,10 +42,8 @@ export async function POST(request: NextRequest) {
     const data = await request.json();
 
     if (!data.slug && data.title) {
-      data.slug = data.title
-        .toLowerCase()
-        .replace(/ /g, '-')
-        .replace(/[^\w-]+/g, '');
+      const baseSlug = slugifyTitle(data.title);
+      data.slug = await resolveUniqueEventSlug(baseSlug);
     }
 
     const event = await Event.create(data);
@@ -51,6 +51,9 @@ export async function POST(request: NextRequest) {
 
     return jsonOk(event, 201);
   } catch (error: any) {
+    if (error?.code === 11000) {
+      return jsonError('An event with this slug already exists', 409);
+    }
     return jsonError(error.message);
   }
 }
