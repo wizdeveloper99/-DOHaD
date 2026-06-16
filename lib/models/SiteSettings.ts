@@ -44,6 +44,40 @@ const SiteSettingsSchema = new Schema({
       default: 'Download or view our detailed institutional guidelines on equity and safeguarding.',
     },
   },
+  whoWeArePage: {
+    pageTitle: { type: String, default: 'Who We Are' },
+    pageDescription: {
+      type: String,
+      default:
+        'Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India\'s mission to advance developmental origins of health and disease research across the country.',
+    },
+    secretariatAddress: {
+      type: String,
+      default:
+        'The current secretariat is at the Public Health Foundation of India, Indian Institute of Public Health, Epidemic Diseases (Isolation) Hospital compound, Indiranagar, Bengaluru -560038',
+    },
+    organizationLinkedin: {
+      type: String,
+      default:
+        'https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/',
+    },
+    executiveCouncil: {
+      title: { type: String, default: 'Executive Council' },
+      description: {
+        type: String,
+        default:
+          'Our leadership team guiding DOHaD India\'s strategic initiatives',
+      },
+    },
+    advisoryGroup: {
+      title: { type: String, default: 'Advisory Group' },
+      description: {
+        type: String,
+        default:
+          'Distinguished advisors providing strategic guidance and expertise',
+      },
+    },
+  },
   eventsPage: {
     pageTitle: { type: String, default: 'Events & Workshops' },
     pageDescription: {

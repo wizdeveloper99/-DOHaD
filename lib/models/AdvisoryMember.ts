@@ -13,6 +13,17 @@ const AdvisoryMemberSchema = new Schema({
   organization: {
     type: String,
   },
+  additionalRole: {
+    type: String,
+  },
+  linkedinUrl: {
+    type: String,
+  },
+  section: {
+    type: String,
+    enum: ['executive-council', 'advisory-group'],
+    default: 'advisory-group',
+  },
   fullBio: {
     type: String,
   },

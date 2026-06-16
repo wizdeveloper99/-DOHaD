@@ -36,6 +36,7 @@ export async function PUT(
 
     await dbConnect();
     const data = await request.json();
+    delete data._id;
     const member = await AdvisoryMember.findByIdAndUpdate(params.id, data, {
       new: true,
       lean: true,

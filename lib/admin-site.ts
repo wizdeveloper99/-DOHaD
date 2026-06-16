@@ -18,8 +18,8 @@ export const ADMIN_SECTIONS = [
     href: '/admin/newsletter',
   },
   {
-    label: 'Advisory Board',
-    description: 'Update profiles of advisory committee members',
+    label: 'Who We Are',
+    description: 'Manage Executive Council, Advisory Group, and page content',
     href: '/admin/advisory',
   },
   {
