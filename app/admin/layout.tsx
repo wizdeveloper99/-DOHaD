@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { 
   LayoutDashboard, 
@@ -70,8 +71,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
         <Link href="/admin/dashboard" className="flex items-center gap-2">
-          <div className="w-7 h-7 bg-secondary rounded-lg flex items-center justify-center text-white font-bold text-sm">
-            D
+          <div className="relative shrink-0 w-7 h-7">
+            <Image
+              src="/dohad-india-rgb.png"
+              alt="DOHaD India Logo"
+              fill
+              className="object-contain"
+            />
           </div>
           <span className="font-bold text-base text-foreground">DOHaD Admin</span>
         </Link>
@@ -94,8 +100,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className="h-full flex flex-col">
           <div className="p-6 border-b">
             <Link href="/admin/dashboard" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center text-white font-bold">
-                D
+              <div className="relative shrink-0 w-8 h-8">
+                <Image
+                  src="/dohad-india-rgb.png"
+                  alt="DOHaD India Logo"
+                  fill
+                  className="object-contain"
+                />
               </div>
               <span className="font-bold text-lg text-foreground">DOHaD Admin</span>
             </Link>
