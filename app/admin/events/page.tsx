@@ -6,7 +6,6 @@ import {
   Plus,
   Edit2,
   Trash2,
-  ExternalLink,
   Calendar,
   MapPin,
   Loader2,
@@ -140,11 +139,6 @@ function EventRow({
         <Button variant="ghost" size="icon" className="h-9 w-9" asChild>
           <Link href={`/admin/events/${event._id}/edit`} aria-label={`Edit ${event.title}`}>
             <Edit2 size={18} />
-          </Link>
-        </Button>
-        <Button variant="ghost" size="icon" className="h-9 w-9" asChild>
-          <Link href={`/events/${event.slug}`} target="_blank" aria-label={`View ${event.title}`}>
-            <ExternalLink size={18} />
           </Link>
         </Button>
         <Button

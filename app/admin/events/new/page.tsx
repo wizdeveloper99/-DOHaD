@@ -21,7 +21,6 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/ui/select';
-import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
 import Image from 'next/image';
 
@@ -32,7 +31,6 @@ export default function NewEventPage() {
   
   const [formData, setFormData] = useState({
     title: '',
-    slug: '',
     shortDescription: '',
     fullDescription: '',
     featuredImage: '',
@@ -45,7 +43,7 @@ export default function NewEventPage() {
     registrationLink: '',
     eventType: 'conference',
     featured: false,
-    published: false,
+    published: true,
   });
 
   const [speakerInput, setSpeakerInput] = useState('');
@@ -53,12 +51,6 @@ export default function NewEventPage() {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
-    // Auto-generate slug from title
-    if (name === 'title' && !formData.slug) {
-      const generatedSlug = value.toLowerCase().replace(/ /g, '-').replace(/[^\w-]+/g, '');
-      setFormData(prev => ({ ...prev, slug: generatedSlug }));
-    }
   };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>, isGallery = false) => {
@@ -169,18 +161,6 @@ export default function NewEventPage() {
                   onChange={handleInputChange} 
                   required 
                   placeholder="e.g. Annual DOHaD Conference 2026"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="slug">Slug (URL)*</Label>
-                <Input 
-                  id="slug" 
-                  name="slug" 
-                  value={formData.slug} 
-                  onChange={handleInputChange} 
-                  required 
-                  placeholder="annual-conference-2026"
                 />
               </div>
 
@@ -345,32 +325,6 @@ export default function NewEventPage() {
               </div>
             </div>
 
-            {/* Status */}
-            <div className="bg-white p-6 rounded-2xl border shadow-sm space-y-4">
-              <h2 className="text-lg font-semibold border-b pb-2">Publishing</h2>
-              
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <Label>Published Status</Label>
-                  <p className="text-xs text-muted-foreground">Visible on the website</p>
-                </div>
-                <Switch 
-                  checked={formData.published} 
-                  onCheckedChange={(val) => setFormData(prev => ({ ...prev, published: val }))} 
-                />
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <Label>Featured Event</Label>
-                  <p className="text-xs text-muted-foreground">Show at the top of the events page</p>
-                </div>
-                <Switch 
-                  checked={formData.featured} 
-                  onCheckedChange={(val) => setFormData(prev => ({ ...prev, featured: val }))} 
-                />
-              </div>
-            </div>
           </div>
         </div>
 

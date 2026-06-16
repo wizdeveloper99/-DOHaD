@@ -22,7 +22,6 @@ import {
   SelectTrigger, 
   SelectValue 
 } from '@/components/ui/select';
-import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
 import Image from 'next/image';
 
@@ -144,7 +143,7 @@ export default function EditEventPage() {
       const res = await fetch(`/api/events/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, published: true }),
       });
 
       if (res.ok) {
@@ -198,17 +197,6 @@ export default function EditEventPage() {
                   id="title" 
                   name="title" 
                   value={formData.title} 
-                  onChange={handleInputChange} 
-                  required 
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="slug">Slug (URL)*</Label>
-                <Input 
-                  id="slug" 
-                  name="slug" 
-                  value={formData.slug} 
                   onChange={handleInputChange} 
                   required 
                 />
@@ -372,32 +360,6 @@ export default function EditEventPage() {
               </div>
             </div>
 
-            {/* Status */}
-            <div className="bg-white p-6 rounded-2xl border shadow-sm space-y-4">
-              <h2 className="text-lg font-semibold border-b pb-2">Publishing</h2>
-              
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <Label>Published Status</Label>
-                  <p className="text-xs text-muted-foreground">Visible on the website</p>
-                </div>
-                <Switch 
-                  checked={formData.published} 
-                  onCheckedChange={(val) => setFormData(prev => ({ ...prev, published: val }))} 
-                />
-              </div>
-
-              <div className="flex items-center justify-between">
-                <div className="space-y-0.5">
-                  <Label>Featured Event</Label>
-                  <p className="text-xs text-muted-foreground">Show at the top of the events page</p>
-                </div>
-                <Switch 
-                  checked={formData.featured} 
-                  onCheckedChange={(val) => setFormData(prev => ({ ...prev, featured: val }))} 
-                />
-              </div>
-            </div>
           </div>
         </div>
 
