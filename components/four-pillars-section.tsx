@@ -166,7 +166,7 @@ export function BentoCarousel() {
             }}
             className="w-full px-4"
           >
-            <div className="flex justify-center items-center gap-4 mb-4">
+            <div className="flex justify-center items-center gap-4 mb-8">
               <CarouselPrevious className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-md hover:scale-105 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all duration-300 ease-in-out relative static">
                 <ArrowLeft className="w-5 h-5" />
                 <span className="sr-only">Previous slide</span>

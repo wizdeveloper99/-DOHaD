@@ -72,7 +72,7 @@ export function FooterSection({ settings }: { settings?: any }) {
                 aria-label="Connect with DOHaD India on LinkedIn"
                 className="h-7 w-7 xl:h-9 xl:w-9 2xl:h-10 2xl:w-10 flex items-center justify-center rounded-md hover:bg-white/20 transition-colors"
               >
-                <LinkedInIcon className="h-4 w-4" />
+                <LinkedInIcon className="h-4 w-4 text-white" />
               </a>
 
               {/* YouTube */}

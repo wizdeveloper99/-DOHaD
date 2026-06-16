@@ -17,37 +17,37 @@ export default function LearnAboutDOHaD({ settings }: { settings?: any }) {
   const ctaLink = settings?.ctaLink || "https://dohadsoc.org/";
 
   return (
-    <section className="w-full py-8 md:py-10 xl:py-20 2xl:py-28 bg-background overflow-hidden" id="learn-dohad">
+    <section className="w-full py-8 md:py-10 xl:py-20 2xl:py-28 bg-background" id="learn-dohad">
       <div className="w-full">
         <div className={
           showCard 
             ? "grid grid-cols-1 sm:grid-cols-[200px_1fr] md:grid-cols-[250px_1fr] xl:grid-cols-[300px_1fr] 2xl:grid-cols-[360px_1fr] gap-4 md:gap-6 lg:gap-8 xl:gap-16 2xl:gap-20 items-center"
-            : "max-w-4xl mx-auto text-left space-y-4"
+            : "max-w-4xl mx-auto px-8 sm:px-0 text-left space-y-4"
         }>
 
           {/* Left Column: Dr. David Barker Photo */}
           {showCard && (
-            <div className="relative group">
-              <div className="relative aspect-[4/5] w-full max-w-[200px] xl:max-w-[280px] 2xl:max-w-[340px] mx-auto sm:mx-0 rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative group w-full mx-auto sm:mx-0 sm:max-w-[200px] xl:max-w-[280px] 2xl:max-w-[340px]">
+              <div className="relative aspect-[4/5] w-full rounded-none sm:rounded-3xl overflow-hidden shadow-none sm:shadow-2xl">
                 <Image
                   src={cardImage}
                   alt={cardName}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <p className="text-white font-bold text-sm md:text-base 2xl:text-lg leading-tight">{cardName}</p>
-                  <p className="text-white/80 text-[10px] 2xl:text-xs">{cardRole}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 inset-x-0 px-5 pb-5 pt-12 sm:bottom-4 sm:inset-x-auto sm:left-4 sm:right-4 sm:px-0 sm:pb-0 sm:pt-0">
+                  <p className="text-white font-bold text-sm md:text-base 2xl:text-lg leading-tight drop-shadow-md">{cardName}</p>
+                  <p className="text-white/90 text-xs sm:text-[10px] 2xl:text-xs mt-0.5 drop-shadow-md">{cardRole}</p>
                 </div>
               </div>
               {/* Decorative element */}
-              <div className="absolute -z-10 -bottom-4 -right-4 w-48 h-48 bg-secondary/10 rounded-full blur-3xl" />
+              <div className="absolute -z-10 -bottom-4 -right-4 w-48 h-48 bg-secondary/10 rounded-full blur-3xl hidden sm:block" />
             </div>
           )}
 
           {/* Right Column: Content */}
-          <div className="space-y-4">
+          <div className="space-y-4 px-8 sm:px-0">
             <div className="space-y-1.5">
               <div className="inline-block px-3 py-1 bg-secondary/10 text-secondary-700 dark:text-secondary-300 text-[10px] sm:text-xs xl:text-sm 2xl:text-base font-semibold rounded-full tracking-wide">
                 {badge}

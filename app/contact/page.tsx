@@ -116,7 +116,7 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 px-4 py-2 bg-background border border-border rounded-full hover:bg-muted/50 transition-colors"
                 >
-                  <LinkedInIcon className="w-5 h-5 shrink-0" />
+                  <LinkedInIcon className="w-5 h-5 shrink-0 text-[#0A66C2]" />
                   <span className="text-sm font-medium text-foreground">DOHaD India Regional Society</span>
                 </a>
               </div>

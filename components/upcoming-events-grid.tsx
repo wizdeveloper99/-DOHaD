@@ -14,9 +14,9 @@ export default function UpcomingEventsGrid({ upcomingEvents }: { upcomingEvents:
     return (
       <div className="border border-border rounded-2xl p-8 sm:p-12 text-center bg-muted/20">
         <Calendar className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground mx-auto mb-4" />
-        <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">No Upcoming Events</h3>
+        <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3">Coming Soon</h3>
         <p className="text-sm sm:text-base text-muted-foreground max-w-lg mx-auto">
-          We are planning workshops and conferences. Check back soon or subscribe to our newsletter for updates.
+          Stay tuned — upcoming events and workshops will be announced here.
         </p>
       </div>
     );

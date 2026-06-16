@@ -42,7 +42,7 @@ export default async function HomePage() {
         {/* Learn About DOHaD Section */}
         <AnimatedSection
           id="learn-section"
-          className="relative max-w-7xl mx-auto px-8 md:px-12"
+          className="relative max-w-7xl mx-auto px-0 sm:px-8 md:px-12"
           delay={0.2}
         >
           <LearnAboutDOHaD settings={settings?.learnDohad} />

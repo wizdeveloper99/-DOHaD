@@ -84,9 +84,10 @@ export default function WhoAreWePage() {
     {
       name: "Dr. Stephen Matthews",
       title: "Canada Research Chair in Early Development and Health",
+      additionalRole: "President elect, International DOHaD society",
       organization: "University of Toronto, Canada",
       image: "/people/advisory/Dr. Stephen Matthews  img.png",
-      fullBio: "Dr. Stephen Matthews is Canada Research Chair in Early Development and Health, Professor of Physiology, Ob-Gyn, and Medicine at the University of Toronto, and a Senior Scientist at the Lunenfeld-Tanenbaum Research Institute, Sinai Health. He served as Chair of the Department of Physiology (UofT; 2007-2014). He is currently the Director of Research at the Alliance for Human Development, LTRI, the Director of the Ontario Birth Study, and the Canadian lead PI of the Healthy Life Trajectories (HeLTI) trial in India. He has served as elected President of the Society for Reproductive Investigation (2023). In 2015, he co-founded DOHaD Canada and served as elected President (2018-23).",
+      fullBio: "Dr. Stephen Matthews is Canada Research Chair in Early Development and Health, Professor of Physiology, Ob-Gyn, and Medicine at the University of Toronto, and a Senior Scientist at the Lunenfeld-Tanenbaum Research Institute, Sinai Health. He served as Chair of the Department of Physiology (UofT; 2007-2014). He is currently the Director of Research at the Alliance for Human Development, LTRI, the Director of the Ontario Birth Study, and the Canadian lead PI of the Healthy Life Trajectories (HeLTI) trial in India. He has served as elected President of the Society for Reproductive Investigation (2023). In 2015, he co-founded DOHaD Canada and served as elected President (2018-23). He is President elect of the International DOHaD society.",
       linkedin: "https://www.linkedin.com/in/stephen-matthews-45bb7611a/"
     },
     {
@@ -185,36 +186,45 @@ export default function WhoAreWePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-6 lg:gap-8">
             {executiveCouncil.map((member, index) => (
               <div
                 key={index}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-300"
+                className="group flex flex-col h-full rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               >
-                <div className="relative w-full h-80 overflow-hidden">
+                <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                 </div>
 
-                <div className="absolute bottom-0 w-full p-6 text-center">
-                  <p className="text-[11px] md:text-xs xl:text-sm 2xl:text-base font-medium text-emerald-400 mb-1">
-                    {member.title}
-                  </p>
-                  <div className="flex items-center justify-center gap-2">
-                    <h3 className="text-base xl:text-xl 2xl:text-2xl font-bold text-white">
+                <div className="flex flex-1 flex-col p-3 sm:p-6 text-center">
+                  <div className="flex items-start justify-center gap-1.5">
+                    <h3 className="text-xs sm:text-base xl:text-xl 2xl:text-2xl font-bold text-foreground leading-tight">
                       {member.name}
                     </h3>
                     {member.linkedin && (
-                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors" onClick={(e) => e.stopPropagation()}>
-                        <LinkedInIcon className="w-5 h-5" />
+                      <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-0.5 sm:mt-1 text-[#0A66C2] hover:opacity-80 transition-opacity shrink-0" onClick={(e) => e.stopPropagation()}>
+                        <LinkedInIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </a>
                     )}
                   </div>
+                  <p className="mt-1.5 sm:mt-2 text-[11px] xl:text-sm 2xl:text-base font-semibold text-emerald-600 dark:text-emerald-400 leading-snug">
+                    {member.title}
+                  </p>
+                  {member.additionalRole && (
+                    <p className="mt-1 text-[11px] xl:text-sm 2xl:text-base font-semibold text-emerald-600 dark:text-emerald-400 leading-snug">
+                      {member.additionalRole}
+                    </p>
+                  )}
+                  {member.description && (
+                    <p className="mt-2 sm:mt-3 text-[11px] sm:text-sm text-muted-foreground leading-snug break-words">
+                      {member.description}
+                    </p>
+                  )}
                 </div>
               </div>
             ))}
@@ -232,43 +242,47 @@ export default function WhoAreWePage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6">
             {advisoryCouncil.map((member, index) => (
               <Dialog key={index}>
                 <DialogTrigger asChild>
-                  <div className="group cursor-pointer relative rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-300">
-                    <div className="relative w-full min-h-[18rem] sm:min-h-[19rem] md:h-80 overflow-hidden">
+                  <div className="group cursor-pointer flex flex-col h-full rounded-2xl overflow-hidden bg-card border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                    <div className="relative w-full aspect-[4/5] overflow-hidden bg-muted">
                       <Image
                         src={member.image}
                         alt={member.name}
                         fill
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/10" />
                     </div>
 
-                    <div className="absolute bottom-0 w-full p-4 sm:p-5 text-center">
-                      <p className="text-[10px] sm:text-xs md:text-sm font-semibold text-emerald-400 mb-1 leading-snug">
-                        {member.title}
-                      </p>
-                      <div className="flex items-center justify-center gap-2 flex-wrap">
-                        <h3 className="text-sm sm:text-base xl:text-lg 2xl:text-xl font-bold text-white leading-tight">
+                    <div className="flex flex-1 flex-col p-3 sm:p-5 text-center">
+                      <div className="flex items-start justify-center gap-1.5">
+                        <h3 className="text-xs sm:text-base xl:text-lg font-bold text-foreground leading-tight">
                           {member.name}
                         </h3>
                         {member.linkedin && (
-                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white transition-colors shrink-0" onClick={(e) => e.stopPropagation()}>
+                          <a href={member.linkedin} target="_blank" rel="noopener noreferrer" className="mt-0.5 text-[#0A66C2] hover:opacity-80 transition-opacity shrink-0" onClick={(e) => e.stopPropagation()}>
                             <LinkedInIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </a>
                         )}
                       </div>
+                      <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-xs md:text-sm font-semibold text-emerald-600 dark:text-emerald-400 leading-snug">
+                        {member.title}
+                      </p>
+                      {member.additionalRole && (
+                        <p className="mt-1 text-[10px] sm:text-xs font-semibold text-emerald-600 dark:text-emerald-400 leading-snug">
+                          {member.additionalRole}
+                        </p>
+                      )}
                       {member.organization && (
-                        <p className="mt-2 text-xs sm:text-sm md:text-base text-white font-medium leading-snug break-words">
+                        <p className="mt-1.5 sm:mt-2 text-[10px] sm:text-sm text-muted-foreground leading-snug break-words">
                           {member.organization}
                         </p>
                       )}
-                      <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <span className="text-[10px] sm:text-xs text-white/80 bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20">
-                          Read Full Bio
+                      <div className="mt-auto pt-3 sm:pt-4">
+                        <span className="inline-block text-[10px] sm:text-xs font-medium text-secondary group-hover:text-secondary/80 transition-colors">
+                          Read Full Bio →
                         </span>
                       </div>
                     </div>
@@ -297,6 +311,11 @@ export default function WhoAreWePage() {
                         <p className="text-xs xl:text-sm 2xl:text-base font-semibold text-emerald-500">
                           {member.title}
                         </p>
+                        {member.additionalRole && (
+                          <p className="text-xs xl:text-sm 2xl:text-base font-semibold text-emerald-500 mt-0.5">
+                            {member.additionalRole}
+                          </p>
+                        )}
                         {member.organization && (
                           <p className="text-xs sm:text-sm xl:text-base text-muted-foreground mt-1 leading-snug">
                             {member.organization}
