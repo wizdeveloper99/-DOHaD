@@ -202,28 +202,31 @@ export default function EventsAdminPage() {
   const pageContentRef = useRef(pageContent);
   pageContentRef.current = pageContent;
 
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     setIsLoading(true);
     try {
       const [eventsRes, settingsRes] = await Promise.all([
-        fetch('/api/events?admin=true'),
-        fetch('/api/settings'),
+        fetch('/api/events?admin=true', { cache: 'no-store' }),
+        fetch('/api/settings', { cache: 'no-store' }),
       ]);
-      const eventsData = await eventsRes.json();
-      const settingsData = await settingsRes.json();
-      setEvents(eventsData);
+      const eventsData = eventsRes.ok ? await eventsRes.json() : [];
+      const settingsData = settingsRes.ok ? await settingsRes.json() : null;
+      setEvents(Array.isArray(eventsData) ? eventsData : []);
       setPageContent(normalizeEventsPageSettings(settingsData?.eventsPage));
       setHasLoaded(true);
+      if (!eventsRes.ok) {
+        toast.error('Failed to load events');
+      }
     } catch {
       toast.error('Failed to load events page');
     } finally {
       setIsLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   const savePageContent = useCallback(async () => {
     const content = pageContentRef.current;
@@ -268,20 +271,19 @@ export default function EventsAdminPage() {
     }
   };
 
-  const { upcomingEvents, pastEventsForGallery } = useMemo(() => {
+  const { upcomingEvents, pastEvents, pastEventsForGallery } = useMemo(() => {
     const upcoming = events
       .filter((e) => isUpcomingEvent(e.startDate))
       .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
-    const pastWithGallery = events
-      .filter(
-        (e) =>
-          isPastEvent(e.startDate) &&
-          Array.isArray(e.galleryImages) &&
-          e.galleryImages.length > 0
-      )
+    const past = events
+      .filter((e) => isPastEvent(e.startDate))
       .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+    const pastWithGallery = past.filter(
+      (e) => Array.isArray(e.galleryImages) && e.galleryImages.length > 0
+    );
     return {
       upcomingEvents: upcoming,
+      pastEvents: past,
       pastEventsForGallery: pastWithGallery,
     };
   }, [events]);
@@ -448,8 +450,8 @@ export default function EventsAdminPage() {
         />
 
         <div className="space-y-3">
-          {pastEventsForGallery.length > 0 ? (
-            pastEventsForGallery.map((event) => (
+          {pastEvents.length > 0 ? (
+            pastEvents.map((event) => (
               <EventRow
                 key={event._id}
                 event={event}

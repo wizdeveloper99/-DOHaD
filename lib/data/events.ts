@@ -45,7 +45,8 @@ async function fetchAdminEvents() {
 
 /** Admin lists must always be fresh — do not cache (dev skips cache; prod would serve stale data). */
 export async function getAdminEvents() {
-  return fetchAdminEvents();
+  const events = await fetchAdminEvents();
+  return JSON.parse(JSON.stringify(events));
 }
 
 export async function queryEvents(options: {

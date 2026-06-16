@@ -1,4 +1,15 @@
 const DATE_KEY_RE = /^(\d{4})-(\d{2})-(\d{2})/;
+const DATE_ONLY_RE = /^(\d{4})-(\d{2})-(\d{2})$/;
+
+/** Store calendar dates at noon UTC so YYYY-MM-DD comparisons stay correct across time zones. */
+export function parseEventDateInput(value: string | Date): Date {
+  if (value instanceof Date) return value;
+  const dateOnly = value.match(DATE_ONLY_RE);
+  if (dateOnly) {
+    return new Date(`${dateOnly[1]}-${dateOnly[2]}-${dateOnly[3]}T12:00:00.000Z`);
+  }
+  return new Date(value);
+}
 
 /** Calendar day as YYYY-MM-DD. Date-only strings are taken literally (no UTC parsing). */
 export function toLocalDateKey(value: string | Date): string {

@@ -9,6 +9,9 @@ import {
   slugifyTitle,
 } from '@/lib/data/events';
 import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
+import { parseEventDateInput } from '@/lib/event-dates';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(request: NextRequest) {
   try {
@@ -44,6 +47,13 @@ export async function POST(request: NextRequest) {
     if (!data.slug && data.title) {
       const baseSlug = slugifyTitle(data.title);
       data.slug = await resolveUniqueEventSlug(baseSlug);
+    }
+
+    if (data.startDate) {
+      data.startDate = parseEventDateInput(data.startDate);
+    }
+    if (data.endDate) {
+      data.endDate = parseEventDateInput(data.endDate);
     }
 
     const event = await Event.create(data);

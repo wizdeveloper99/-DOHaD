@@ -3,6 +3,9 @@ import dbConnect from '@/lib/mongodb';
 import Event from '@/lib/models/Event';
 import { invalidateEventsCache } from '@/lib/data/events';
 import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
+import { parseEventDateInput } from '@/lib/event-dates';
+
+export const dynamic = 'force-dynamic';
 
 export async function GET(
   _request: NextRequest,
@@ -32,6 +35,12 @@ export async function PUT(
 
     await dbConnect();
     const data = await request.json();
+    if (data.startDate) {
+      data.startDate = parseEventDateInput(data.startDate);
+    }
+    if (data.endDate) {
+      data.endDate = parseEventDateInput(data.endDate);
+    }
     const event = await Event.findByIdAndUpdate(params.id, data, {
       new: true,
       lean: true,
