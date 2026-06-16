@@ -150,7 +150,7 @@ export default function WhoAreWePage() {
                 Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India's mission to advance developmental origins of health and disease research across the country.
               </p>
               <p className="text-sm md:text-base xl:text-lg 2xl:text-xl text-muted-foreground font-medium leading-relaxed">
-                The current secretariat is at the Public Health Foundation of India, Indian Institute of Public Health, Bengaluru
+                The current secretariat is at the Public Health Foundation of India, Indian Institute of Public Health, Epidemic Diseases (Isolation) Hospital compound, Indiranagar, Bengaluru -560038
               </p>
               <a
                 href="https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/"

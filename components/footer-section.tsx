@@ -4,6 +4,11 @@ import { Mail, MapPin, FileText } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { LinkedInIcon } from "@/components/linkedin-icon"
+import {
+  SECRETARIAT_ADDRESS_LINES,
+  SECRETARIAT_MAPS_URL,
+  SECRETARIAT_ORG_LINES,
+} from "@/lib/site-contact"
 
 // Brand SVG icons
 const XIcon = () => (
@@ -178,20 +183,27 @@ export function FooterSection({ settings }: { settings?: any }) {
               </a>
 
               {/* Secretariat */}
-              <p className="text-white/90 leading-snug mt-2.5 sm:mt-3">
-                Secretariat: Public Health Foundation of India, Indian Institute of Public Health, Bengaluru
-              </p>
+              <div className="text-white/90 leading-snug mt-2.5 sm:mt-3 space-y-0.5">
+                {SECRETARIAT_ORG_LINES.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
 
               {/* Address */}
               <a
-                href="https://maps.app.goo.gl/Ey8LTqmaAECRZKu99"
+                href={SECRETARIAT_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start space-x-2 hover:opacity-80 transition-opacity cursor-pointer mt-2.5 sm:mt-3"
               >
                 <MapPin className="h-4 w-4 xl:h-5 xl:w-5 text-white shrink-0 mt-0.5" />
                 <span className="text-white/90 leading-snug">
-                  New Baiyyappanahalli Extension, Maruthi Sevanagar, Bengaluru, Karnataka 560038
+                  {SECRETARIAT_ADDRESS_LINES.map((line, index) => (
+                    <span key={line}>
+                      {line}
+                      {index < SECRETARIAT_ADDRESS_LINES.length - 1 && <br />}
+                    </span>
+                  ))}
                 </span>
               </a>
             </div>

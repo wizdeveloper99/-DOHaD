@@ -3,6 +3,12 @@ import { LinkedInIcon } from "@/components/linkedin-icon"
 import { Mail, MapPin, Bell } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { headingStyles } from "@/lib/utils"
+import {
+  SECRETARIAT_ADDRESS_LINES,
+  SECRETARIAT_MAPS_EMBED_URL,
+  SECRETARIAT_MAPS_URL,
+  SECRETARIAT_ORG_LINES,
+} from "@/lib/site-contact"
 
 export default function ContactPage() {
   return (
@@ -48,13 +54,18 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Secretariat</h3>
                   <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-                    Public Health Foundation of India, Indian Institute of Public Health, Bengaluru
+                    {SECRETARIAT_ORG_LINES.map((line, index) => (
+                      <span key={line}>
+                        {line}
+                        {index < SECRETARIAT_ORG_LINES.length - 1 && <br />}
+                      </span>
+                    ))}
                   </p>
                 </div>
               </div>
 
               <a
-                href="https://maps.app.goo.gl/Ey8LTqmaAECRZKu99"
+                href={SECRETARIAT_MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
@@ -65,7 +76,12 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Address</h3>
                   <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-                    New Baiyyappanahalli Extension, Maruthi Sevanagar, Bengaluru, Karnataka 560038
+                    {SECRETARIAT_ADDRESS_LINES.map((line, index) => (
+                      <span key={line}>
+                        {line}
+                        {index < SECRETARIAT_ADDRESS_LINES.length - 1 && <br />}
+                      </span>
+                    ))}
                     <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
                   </p>
                 </div>
@@ -202,12 +218,24 @@ export default function ContactPage() {
           </h2>
 
           <p className="text-sm text-muted-foreground text-center mb-4">
-            New Baiyyappanahalli Extension, Maruthi Sevanagar, Bengaluru, Karnataka 560038
+            {SECRETARIAT_ORG_LINES.map((line, index) => (
+              <span key={line}>
+                {line}
+                {index < SECRETARIAT_ORG_LINES.length - 1 && <br />}
+              </span>
+            ))}
+            <br />
+            {SECRETARIAT_ADDRESS_LINES.map((line, index) => (
+              <span key={line}>
+                {line}
+                {index < SECRETARIAT_ADDRESS_LINES.length - 1 && <br />}
+              </span>
+            ))}
           </p>
 
           <div className="w-full h-64 rounded-lg overflow-hidden shadow-md mb-4">
             <iframe
-              src="https://www.google.com/maps?q=New+Baiyyappanahalli+Extension,+Maruthi+Sevanagar,+Bengaluru,+Karnataka+560038&output=embed"
+              src={SECRETARIAT_MAPS_EMBED_URL}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -219,7 +247,7 @@ export default function ContactPage() {
 
           <div className="text-center">
             <a
-              href="https://maps.app.goo.gl/Ey8LTqmaAECRZKu99"
+              href={SECRETARIAT_MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-secondary/90 transition-colors"
