@@ -4,6 +4,7 @@ import { Hind_Siliguri } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { FooterSection } from "@/components/footer-section"
+import { Toaster } from "@/components/ui/sonner"
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"
 
@@ -43,6 +44,7 @@ export default async function RootLayout({
         <ThemeProvider>
           <main className="flex-1">{children}</main>
           <FooterSection settings={settings} />
+          <Toaster richColors position="top-center" />
         </ThemeProvider>
       </body>
     </html>
