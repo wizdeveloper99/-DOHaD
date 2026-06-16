@@ -13,7 +13,8 @@ import {
   Menu, 
   X,
   Users,
-  ChevronRight
+  ChevronRight,
+  FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -25,6 +26,7 @@ const sidebarItems = [
   { name: 'Newsletter', href: '/admin/newsletter', icon: Mail },
   { name: 'Media', href: '/admin/media', icon: ImageIcon },
   { name: 'Advisory', href: '/admin/advisory', icon: Users },
+  { name: 'Documents', href: '/admin/documents', icon: FileText },
   { name: 'Settings', href: '/admin/settings', icon: Settings },
 ];
 

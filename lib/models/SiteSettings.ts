@@ -29,12 +29,20 @@ const SiteSettingsSchema = new Schema({
     facebook: { type: String },
     instagram: { type: String },
   },
-  policies: {
-    constitution: { type: String },
-    governance: { type: String },
-    codeOfConduct: { type: String },
-    edi: { type: String },
-    safeguarding: { type: String },
+  policies: { type: Schema.Types.Mixed, default: {} },
+  governancePage: {
+    documentsSectionTitle: { type: String, default: 'Official Documents' },
+    documentsSectionDescription: {
+      type: String,
+      default: 'Download or view our primary constitutional and guidelines files.',
+    },
+  },
+  equityDiversityPage: {
+    policiesSectionTitle: { type: String, default: 'Official Policies' },
+    policiesSectionDescription: {
+      type: String,
+      default: 'Download or view our detailed institutional guidelines on equity and safeguarding.',
+    },
   },
   footerText: { type: String },
 }, { timestamps: true });

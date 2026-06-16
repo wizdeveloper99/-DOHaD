@@ -3,49 +3,37 @@ import { Landmark, Scale, FileCheck, Download, ArrowRight, Users } from "lucide-
 import Link from "next/link"
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"
+import { getGovernancePolicyList, normalizePolicies } from "@/lib/policy-documents"
+
+const iconMap = {
+  constitution: Landmark,
+  governance: Scale,
+  codeOfConduct: FileCheck,
+  edi: Users,
+} as const
+
+const styleMap = {
+  constitution: { color: "text-blue-500", bgColor: "bg-blue-500/10", borderColor: "border-blue-500/20" },
+  governance: { color: "text-indigo-500", bgColor: "bg-indigo-500/10", borderColor: "border-indigo-500/20" },
+  codeOfConduct: { color: "text-emerald-500", bgColor: "bg-emerald-500/10", borderColor: "border-emerald-500/20" },
+  edi: { color: "text-purple-500", bgColor: "bg-purple-500/10", borderColor: "border-purple-500/20" },
+} as const
 
 export default async function GovernancePage() {
   await dbConnect();
-  const settings = await SiteSettings.findOne({});
+  const settings = await SiteSettings.findOne({}).lean();
+  const policies = normalizePolicies(settings?.policies as Record<string, unknown> | undefined);
+  const policyList = getGovernancePolicyList(policies).map((item) => ({
+    ...item,
+    icon: iconMap[item.key as keyof typeof iconMap],
+    ...styleMap[item.key as keyof typeof styleMap],
+  }));
 
-  const policies = [
-    {
-      title: "Constitution",
-      description: "The foundational rules and principles governing DOHaD India, detailing our core mission, membership structure, and operational directives.",
-      link: settings?.policies?.constitution || "/policies/Constitution.docx",
-      icon: Landmark,
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10",
-      borderColor: "border-blue-500/20",
-    },
-    {
-      title: "Governance Guidelines",
-      description: "Detailed structural and operational guidelines ensuring transparency, board accountability, and smooth administration across the society.",
-      link: settings?.policies?.governance || "/policies/Governance.docx",
-      icon: Scale,
-      color: "text-indigo-500",
-      bgColor: "bg-indigo-500/10",
-      borderColor: "border-indigo-500/20",
-    },
-    {
-      title: "Code of Conduct",
-      description: "Expected professional behavior, ethical standards, and scientific integrity requirements for all members, affiliates, and participants.",
-      link: settings?.policies?.codeOfConduct || "/policies/Code%20of%20Conduct.docx",
-      icon: FileCheck,
-      color: "text-emerald-500",
-      bgColor: "bg-emerald-500/10",
-      borderColor: "border-emerald-500/20",
-    },
-    {
-      title: "Inclusivity",
-      description: "Our Equity, Diversity, and Inclusion framework guarantees equal opportunities, ensures gender balance, and cultivates a welcoming, collaborative environment for all members.",
-      link: settings?.policies?.edi || "/policies/EDI.docx",
-      icon: Users,
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/20",
-    },
-  ]
+  const documentsSectionTitle =
+    settings?.governancePage?.documentsSectionTitle || "Official Documents";
+  const documentsSectionDescription =
+    settings?.governancePage?.documentsSectionDescription ||
+    "Download or view our primary constitutional and guidelines files.";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -121,13 +109,13 @@ export default async function GovernancePage() {
           {/* Policy Downloads Section (Right Column) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 bg-muted/30 border border-border rounded-3xl">
-              <h2 className="text-xl font-bold mb-2 tracking-tight">Official Documents</h2>
+              <h2 className="text-xl font-bold mb-2 tracking-tight">{documentsSectionTitle}</h2>
               <p className="text-sm text-muted-foreground mb-6">
-                Download or view our primary constitutional and guidelines files.
+                {documentsSectionDescription}
               </p>
 
               <div className="space-y-6">
-                {policies.map((item, idx) => {
+                {policyList.map((item, idx) => {
                   const Icon = item.icon
                   return (
                     <div

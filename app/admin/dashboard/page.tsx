@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Mail, Users, ImageIcon, Clock } from 'lucide-react';
+import Link from 'next/link';
+import { Calendar, Mail, Users, Clock, FileText, ArrowRight } from 'lucide-react';
 import dbConnect from '@/lib/mongodb';
 import Event from '@/lib/models/Event';
 import NewsletterSubscriber from '@/lib/models/NewsletterSubscriber';
@@ -70,6 +71,31 @@ export default async function AdminDashboard() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 mt-6 sm:mt-8">
+        <Card className="border-border shadow-sm lg:col-span-2">
+          <CardHeader className="flex flex-row items-center justify-between">
+            <CardTitle>Quick Actions</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <Link
+                href="/admin/documents"
+                className="group flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-secondary/50 hover:shadow-sm transition-all"
+              >
+                <div className="p-3 rounded-lg bg-indigo-100 text-indigo-600">
+                  <FileText className="h-5 w-5" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="font-semibold text-foreground text-sm">Governance Documents</p>
+                  <p className="text-xs text-muted-foreground truncate">
+                    Edit policies for Governance &amp; Equity pages
+                  </p>
+                </div>
+                <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-secondary transition-colors shrink-0" />
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
         <Card className="border-border shadow-sm">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>

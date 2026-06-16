@@ -8,10 +8,11 @@ export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     await dbConnect();
-    let settings = await SiteSettings.findOne();
+    let settings = await SiteSettings.findOne().lean();
     
     if (!settings) {
-      settings = await SiteSettings.create({});
+      const created = await SiteSettings.create({});
+      settings = created.toObject();
     }
     
     return NextResponse.json(settings);

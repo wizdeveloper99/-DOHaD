@@ -3,31 +3,33 @@ import { Users, ShieldCheck, Download, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"
+import { getEquityPolicyList, normalizePolicies } from "@/lib/policy-documents"
+
+const iconMap = {
+  edi: Users,
+  safeguarding: ShieldCheck,
+} as const
+
+const styleMap = {
+  edi: { color: "text-purple-500", bgColor: "bg-purple-500/10", borderColor: "border-purple-500/20" },
+  safeguarding: { color: "text-rose-500", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" },
+} as const
 
 export default async function EquityDiversityPage() {
   await dbConnect();
-  const settings = await SiteSettings.findOne({});
+  const settings = await SiteSettings.findOne({}).lean();
+  const policies = normalizePolicies(settings?.policies as Record<string, unknown> | undefined);
+  const policyList = getEquityPolicyList(policies).map((item) => ({
+    ...item,
+    icon: iconMap[item.key as keyof typeof iconMap],
+    ...styleMap[item.key as keyof typeof styleMap],
+  }));
 
-  const policies = [
-    {
-      title: "EDI Policy",
-      description: "Our Equity, Diversity, and Inclusion framework guarantees equal opportunities, ensures gender balance, and cultivates a welcoming, collaborative environment for all members.",
-      link: settings?.policies?.edi || "/policies/EDI.docx",
-      icon: Users,
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10",
-      borderColor: "border-purple-500/20",
-    },
-    {
-      title: "Safeguarding Policy",
-      description: "Comprehensive guidelines, procedures, and reporting systems to ensure the safety, protection, and overall well-being of all individuals participating in DOHaD India events and activities.",
-      link: settings?.policies?.safeguarding || "/policies/Safeguarding%20Policy.docx",
-      icon: ShieldCheck,
-      color: "text-rose-500",
-      bgColor: "bg-rose-500/10",
-      borderColor: "border-rose-500/20",
-    },
-  ]
+  const policiesSectionTitle =
+    settings?.equityDiversityPage?.policiesSectionTitle || "Official Policies";
+  const policiesSectionDescription =
+    settings?.equityDiversityPage?.policiesSectionDescription ||
+    "Download or view our detailed institutional guidelines on equity and safeguarding.";
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -87,13 +89,13 @@ export default async function EquityDiversityPage() {
           {/* Policy Downloads Section (Right Column) */}
           <div className="lg:col-span-5 space-y-6">
             <div className="p-6 bg-muted/30 border border-border rounded-3xl">
-              <h2 className="text-xl font-bold mb-2 tracking-tight">Official Policies</h2>
+              <h2 className="text-xl font-bold mb-2 tracking-tight">{policiesSectionTitle}</h2>
               <p className="text-sm text-muted-foreground mb-6">
-                Download or view our detailed institutional guidelines on equity and safeguarding.
+                {policiesSectionDescription}
               </p>
 
               <div className="space-y-6">
-                {policies.map((item, idx) => {
+                {policyList.map((item, idx) => {
                   const Icon = item.icon
                   return (
                     <div
