@@ -26,8 +26,8 @@ const SiteSettingsSchema = new Schema({
   socialLinks: {
     twitter: { type: String },
     linkedin: { type: String },
-    facebook: { type: String },
-    instagram: { type: String },
+    youtube: { type: String },
+    bluesky: { type: String },
   },
   policies: { type: Schema.Types.Mixed, default: {} },
   governancePage: {

@@ -1,5 +1,14 @@
-/** Calendar day as YYYY-MM-DD in local timezone (not UTC midnight parsing). */
+const DATE_KEY_RE = /^(\d{4})-(\d{2})-(\d{2})/;
+
+/** Calendar day as YYYY-MM-DD. Date-only strings are taken literally (no UTC parsing). */
 export function toLocalDateKey(value: string | Date): string {
+  if (typeof value === 'string') {
+    const match = value.match(DATE_KEY_RE);
+    if (match) {
+      return `${match[1]}-${match[2]}-${match[3]}`;
+    }
+  }
+
   const date = typeof value === 'string' ? new Date(value) : value;
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, '0');

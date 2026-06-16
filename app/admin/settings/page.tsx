@@ -2,13 +2,10 @@
 
 import { useState, useEffect } from 'react';
 import { 
-  Save, 
   Loader2, 
   Globe, 
-  MessageSquare, 
   Share2,
   Info,
-  FileText,
   Upload,
   BookOpen,
   Image as ImageIcon
@@ -46,10 +43,9 @@ const defaultSettings = {
   socialLinks: {
     twitter: '',
     linkedin: '',
-    facebook: '',
-    instagram: '',
+    youtube: '',
+    bluesky: '',
   },
-  footerText: '',
 };
 
 export default function SettingsAdminPage() {
@@ -107,17 +103,19 @@ export default function SettingsAdminPage() {
     setIsLoading(true);
     try {
       const res = await fetch('/api/settings');
-      const data = await res.json();
-      if (data) {
-        setSettings({
-          ...defaultSettings,
-          ...data,
-          hero: { ...defaultSettings.hero, ...data.hero },
-          about: { ...defaultSettings.about, ...data.about },
-          learnDohad: { ...defaultSettings.learnDohad, ...data.learnDohad },
-          socialLinks: { ...defaultSettings.socialLinks, ...data.socialLinks },
-        });
+      if (!res.ok) {
+        toast.error(res.status === 401 ? 'Session expired — please log in again' : 'Failed to fetch settings');
+        return;
       }
+      const data = await res.json();
+      setSettings({
+        ...defaultSettings,
+        ...data,
+        hero: { ...defaultSettings.hero, ...data.hero },
+        about: { ...defaultSettings.about, ...data.about },
+        learnDohad: { ...defaultSettings.learnDohad, ...data.learnDohad },
+        socialLinks: { ...defaultSettings.socialLinks, ...data.socialLinks },
+      });
       setHasLoaded(true);
     } catch (error) {
       toast.error('Failed to fetch settings');
@@ -137,7 +135,6 @@ export default function SettingsAdminPage() {
           about: settings.about,
           learnDohad: settings.learnDohad,
           socialLinks: settings.socialLinks,
-          footerText: settings.footerText,
         }),
       });
 
@@ -515,74 +512,30 @@ export default function SettingsAdminPage() {
               />
             </div>
             <div className="space-y-2">
-              <Label>Facebook URL</Label>
+              <Label>YouTube URL</Label>
               <Input 
-                value={settings.socialLinks?.facebook} 
+                value={settings.socialLinks?.youtube} 
                 onChange={(e) => setSettings({
                   ...settings, 
-                  socialLinks: { ...settings.socialLinks, facebook: e.target.value }
+                  socialLinks: { ...settings.socialLinks, youtube: e.target.value }
                 })} 
-                placeholder="https://facebook.com/..."
+                placeholder="https://www.youtube.com/@dohadindia"
               />
             </div>
             <div className="space-y-2">
-              <Label>Instagram URL</Label>
+              <Label>Bluesky URL</Label>
               <Input 
-                value={settings.socialLinks?.instagram} 
+                value={settings.socialLinks?.bluesky} 
                 onChange={(e) => setSettings({
                   ...settings, 
-                  socialLinks: { ...settings.socialLinks, instagram: e.target.value }
+                  socialLinks: { ...settings.socialLinks, bluesky: e.target.value }
                 })} 
-                placeholder="https://instagram.com/..."
+                placeholder="https://bsky.app/profile/dohadindia.bsky.social"
               />
             </div>
           </CardContent>
         </Card>
 
-        {/* Policy Documents — managed in Documents section */}
-        <Card className="border-border shadow-sm border-dashed">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <FileText className="text-secondary" size={20} />
-              <CardTitle>Policy Documents</CardTitle>
-            </div>
-            <CardDescription>
-              Governance and equity policy files are now managed in the Documents section.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button asChild variant="outline" className="gap-2">
-              <a href="/admin/documents">
-                <FileText size={16} />
-                Manage Documents
-              </a>
-            </Button>
-          </CardContent>
-        </Card>
-
-        {/* Footer */}
-        <Card className="border-border shadow-sm">
-          <CardHeader>
-            <div className="flex items-center gap-2">
-              <MessageSquare className="text-secondary" size={20} />
-              <CardTitle>Footer Information</CardTitle>
-            </div>
-            <CardDescription>Global footer text and copyright info.</CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="space-y-2">
-              <Label>Footer Custom Text</Label>
-              <Textarea 
-                value={settings.footerText} 
-                onChange={(e) => setSettings({
-                  ...settings, 
-                  footerText: e.target.value
-                })} 
-                placeholder="e.g. Registered non-profit society in India..."
-              />
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );
