@@ -19,7 +19,7 @@ const SiteSettingsSchema = new Schema({
     ctaText: { type: String, default: 'Learn more about the International Society.' },
     ctaLink: { type: String, default: 'https://dohadsoc.org/' },
     showCard: { type: Boolean, default: true },
-    cardImage: { type: String, default: '/placeholder-user.jpg' },
+    cardImage: { type: String, default: '' },
     cardName: { type: String, default: 'Prof. David Barker' },
     cardRole: { type: String, default: 'Pioneer of the DOHaD paradigm' },
   },

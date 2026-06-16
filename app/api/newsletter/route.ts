@@ -1,20 +1,21 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import NewsletterSubscriber from '@/lib/models/NewsletterSubscriber';
-import { getSession } from '@/lib/auth';
+import {
+  getNewsletterSubscribers,
+  invalidateNewsletterCache,
+} from '@/lib/data/newsletter';
+import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
-    const session = await getSession();
-    if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
 
-    await dbConnect();
-    const subscribers = await NewsletterSubscriber.find().sort({ createdAt: -1 });
-    return NextResponse.json(subscribers);
+    const subscribers = await getNewsletterSubscribers();
+    return jsonOk(subscribers);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }
 
@@ -24,17 +25,19 @@ export async function POST(request: NextRequest) {
     const data = await request.json();
 
     if (!data.email) {
-      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+      return jsonError('Email is required', 400);
     }
 
-    const existing = await NewsletterSubscriber.findOne({ email: data.email });
+    const existing = await NewsletterSubscriber.findOne({ email: data.email }).lean();
     if (existing) {
-      return NextResponse.json({ message: 'Already subscribed' }, { status: 200 });
+      return jsonOk({ message: 'Already subscribed' });
     }
 
     const subscriber = await NewsletterSubscriber.create(data);
-    return NextResponse.json(subscriber, { status: 201 });
+    invalidateNewsletterCache();
+
+    return jsonOk(subscriber, 201);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }

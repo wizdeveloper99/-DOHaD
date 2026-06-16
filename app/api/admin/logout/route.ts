@@ -1,12 +1,13 @@
-import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
+import { jsonOk } from '@/lib/api/route-helpers';
 
 export async function POST() {
-  cookies().set('session', '', { 
-    expires: new Date(0), 
+  cookies().set('session', '', {
+    expires: new Date(0),
     path: '/',
     secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict'
+    sameSite: 'strict',
   });
-  return NextResponse.json({ message: 'Logged out' });
+
+  return jsonOk({ message: 'Logged out' });
 }

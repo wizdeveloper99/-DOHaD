@@ -8,7 +8,6 @@ import { BentoCarousel } from "@/components/four-pillars-section"
 import { Header } from "@/components/header"
 import Hero from "@/components/about-DOHaD"
 import LearnAboutDOHaD from "@/components/learn-dohad"
-import FinanceSection from "@/components/FinanceSection"
 
 import dbConnect from "@/lib/mongodb"
 import SiteSettings from "@/lib/models/SiteSettings"

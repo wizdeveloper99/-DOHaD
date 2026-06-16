@@ -4,6 +4,9 @@ import { Play } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+const YOUTUBE_VIDEO_ID = "ZCvb8hPb8wM";
+const YOUTUBE_THUMBNAIL = `https://img.youtube.com/vi/${YOUTUBE_VIDEO_ID}/hqdefault.jpg`;
+
 export default function Hero({ settings }: { settings?: any }) {
   const [isPlaying, setIsPlaying] = useState(false);
   const headline = settings?.headline || "Advancing Health by Understanding the Earliest Stages of Life";
@@ -50,7 +53,7 @@ export default function Hero({ settings }: { settings?: any }) {
               <div className="relative w-full max-w-2xl shadow-2xl rounded-2xl overflow-hidden bg-slate-900 aspect-video group">
                 {isPlaying ? (
                   <iframe
-                    src="https://www.youtube.com/embed/ZCvb8hPb8wM?autoplay=1&rel=0"
+                    src={`https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`}
                     title="DOHaD Introduction Video"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -64,7 +67,7 @@ export default function Hero({ settings }: { settings?: any }) {
                     aria-label="Play introduction video inline"
                   >
                     <Image
-                      src="/video-thumbnail.jpg"
+                      src={YOUTUBE_THUMBNAIL}
                       alt="DOHaD Introduction Video Thumbnail"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -88,7 +91,7 @@ export default function Hero({ settings }: { settings?: any }) {
               
               {/* Description and YouTube Link */}
               <a 
-                href="https://www.youtube.com/watch?v=ZCvb8hPb8wM&t=1s" 
+                href={`https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}&t=1s`} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="mt-2 xl:mt-4 2xl:mt-6 text-xs sm:text-sm xl:text-base 2xl:text-lg text-muted-foreground hover:text-secondary hover:underline font-semibold flex items-center justify-center gap-1.5 sm:gap-2 transition-colors cursor-pointer group/link whitespace-nowrap"

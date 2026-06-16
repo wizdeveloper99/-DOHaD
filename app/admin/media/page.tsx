@@ -30,17 +30,25 @@ export default function MediaAdminPage() {
 
   const fetchMedia = async () => {
     setIsLoading(true);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 30_000);
+
     try {
-      const res = await fetch('/api/media');
+      const res = await fetch('/api/media', { signal: controller.signal });
       const data = await res.json();
       if (res.ok) {
         setMediaItems(data);
       } else {
-        toast.error('Failed to fetch media');
+        toast.error(data.error || 'Failed to fetch media');
       }
     } catch (error) {
-      toast.error('An error occurred while fetching media');
+      if (error instanceof DOMException && error.name === 'AbortError') {
+        toast.error('Media load timed out. Please try again.');
+      } else {
+        toast.error('An error occurred while fetching media');
+      }
     } finally {
+      clearTimeout(timeoutId);
       setIsLoading(false);
     }
   };
@@ -144,7 +152,7 @@ export default function MediaAdminPage() {
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Media Management</h1>
-          <p className="text-muted-foreground mt-1 text-sm">Manage all your Cloudinary assets in one place.</p>
+          <p className="text-muted-foreground mt-1 text-sm">Manage uploaded images and documents used across the site.</p>
         </div>
         
         <div className="flex items-center gap-3 w-full sm:w-auto">

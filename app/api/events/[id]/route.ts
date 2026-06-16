@@ -1,21 +1,24 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import Event from '@/lib/models/Event';
-import { getSession } from '@/lib/auth';
+import { invalidateEventsCache } from '@/lib/data/events';
+import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
 
 export async function GET(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
     await dbConnect();
-    const event = await Event.findById(params.id);
+    const event = await Event.findById(params.id).lean();
+
     if (!event) {
-      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+      return jsonError('Event not found', 404);
     }
-    return NextResponse.json(event);
+
+    return jsonOk(event);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }
 
@@ -24,44 +27,45 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const session = await getSession();
-    if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
 
     await dbConnect();
     const data = await request.json();
-    const event = await Event.findByIdAndUpdate(params.id, data, { new: true });
-    
+    const event = await Event.findByIdAndUpdate(params.id, data, {
+      new: true,
+      lean: true,
+    });
+
     if (!event) {
-      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+      return jsonError('Event not found', 404);
     }
-    
-    return NextResponse.json(event);
+
+    invalidateEventsCache();
+    return jsonOk(event);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }
 
 export async function DELETE(
-  request: NextRequest,
+  _request: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const session = await getSession();
-    if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
 
     await dbConnect();
     const event = await Event.findByIdAndDelete(params.id);
-    
+
     if (!event) {
-      return NextResponse.json({ error: 'Event not found' }, { status: 404 });
+      return jsonError('Event not found', 404);
     }
-    
-    return NextResponse.json({ message: 'Event deleted successfully' });
+
+    invalidateEventsCache();
+    return jsonOk({ message: 'Event deleted successfully' });
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }

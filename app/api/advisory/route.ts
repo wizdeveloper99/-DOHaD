@@ -1,30 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest } from 'next/server';
 import dbConnect from '@/lib/mongodb';
 import AdvisoryMember from '@/lib/models/AdvisoryMember';
-import { getSession } from '@/lib/auth';
+import {
+  getAdvisoryMembers,
+  invalidateAdvisoryCache,
+} from '@/lib/data/advisory';
+import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
 
 export async function GET() {
   try {
-    await dbConnect();
-    const members = await AdvisoryMember.find().sort({ displayOrder: 1 });
-    return NextResponse.json(members);
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
+
+    const members = await getAdvisoryMembers();
+    return jsonOk(members);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }
 
 export async function POST(request: NextRequest) {
   try {
-    const session = await getSession();
-    if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
 
     await dbConnect();
     const data = await request.json();
     const member = await AdvisoryMember.create(data);
-    return NextResponse.json(member, { status: 201 });
+    invalidateAdvisoryCache();
+
+    return jsonOk(member, 201);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }

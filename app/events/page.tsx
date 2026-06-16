@@ -81,14 +81,20 @@ export default async function EventsPage() {
                   {pastEvents.map((event: { _id: string; featuredImage?: string; title: string; startDate: string; shortDescription?: string }, index: number) => (
                     <CarouselItem key={event._id}>
                       <div className="flex flex-col items-center text-center">
-                        <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg aspect-video md:aspect-[21/9]">
-                          <Image
-                            src={event.featuredImage || '/placeholder.jpg'}
-                            alt={event.title}
-                            fill
-                            className="object-cover"
-                            priority={index === 0}
-                          />
+                        <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg aspect-video md:aspect-[21/9] bg-muted">
+                          {event.featuredImage ? (
+                            <Image
+                              src={event.featuredImage}
+                              alt={event.title}
+                              fill
+                              className="object-cover"
+                              priority={index === 0}
+                            />
+                          ) : (
+                            <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
+                              No image available
+                            </div>
+                          )}
                         </div>
 
                         <div className="mt-6 sm:mt-8 md:mt-10">

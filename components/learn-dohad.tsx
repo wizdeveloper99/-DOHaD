@@ -4,8 +4,8 @@ import Image from "next/image";
 import { ArrowRight, ExternalLink } from "lucide-react";
 
 export default function LearnAboutDOHaD({ settings }: { settings?: any }) {
-  const showCard = settings?.showCard !== false; // default true
-  const cardImage = settings?.cardImage || "/placeholder-user.jpg";
+  const showCard = settings?.showCard !== false && Boolean(settings?.cardImage);
+  const cardImage = settings?.cardImage;
   const cardName = settings?.cardName || "Prof. David Barker";
   const cardRole = settings?.cardRole || "Pioneer of the DOHaD paradigm";
   

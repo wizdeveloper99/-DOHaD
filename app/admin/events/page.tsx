@@ -187,7 +187,7 @@ export default function EventsAdminPage() {
     setIsLoading(true);
     try {
       const [eventsRes, settingsRes] = await Promise.all([
-        fetch('/api/events'),
+        fetch('/api/events?admin=true'),
         fetch('/api/settings'),
       ]);
       const eventsData = await eventsRes.json();
@@ -206,15 +206,10 @@ export default function EventsAdminPage() {
     const content = pageContentRef.current;
     setIsSaving(true);
     try {
-      const currentRes = await fetch('/api/settings');
-      const current = await currentRes.json();
       const updateRes = await fetch('/api/settings', {
-        method: 'POST',
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...current,
-          eventsPage: content,
-        }),
+        body: JSON.stringify({ eventsPage: content }),
       });
       if (updateRes.ok) {
         setIsSaved(true);

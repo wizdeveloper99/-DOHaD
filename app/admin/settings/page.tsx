@@ -39,7 +39,7 @@ const defaultSettings = {
     ctaText: 'Learn More at the International Society',
     ctaLink: 'https://dohadsoc.org/',
     showCard: true,
-    cardImage: '/placeholder-user.jpg',
+    cardImage: '',
     cardName: 'Prof. David Barker',
     cardRole: 'Pioneer of the DOHaD paradigm',
   },
@@ -129,18 +129,15 @@ export default function SettingsAdminPage() {
   const saveSettings = async () => {
     setIsSaving(true);
     try {
-      const currentRes = await fetch('/api/settings');
-      const current = await currentRes.json();
-
       const res = await fetch('/api/settings', {
-        method: 'POST',
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...current,
-          ...settings,
-          policies: current.policies,
-          governancePage: current.governancePage,
-          equityDiversityPage: current.equityDiversityPage,
+          hero: settings.hero,
+          about: settings.about,
+          learnDohad: settings.learnDohad,
+          socialLinks: settings.socialLinks,
+          footerText: settings.footerText,
         }),
       });
 

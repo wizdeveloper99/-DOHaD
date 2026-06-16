@@ -10,7 +10,10 @@
     "test:documents:backup": "bun run scripts/test-documents.mjs backup",
     "test:documents:dummy": "bun run scripts/test-documents.mjs dummy",
     "test:documents:restore": "bun run scripts/test-documents.mjs restore",
-    "test:documents:verify": "bun run scripts/test-documents.mjs verify"
+    "test:documents:verify": "bun run scripts/test-documents.mjs verify",
+    "media:audit": "bun run scripts/cleanup-media.mjs audit",
+    "media:cleanup": "bun run scripts/cleanup-media.mjs delete --confirm",
+    "media:cleanup-orphans": "bun run scripts/cleanup-media.mjs delete-orphans --confirm"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",

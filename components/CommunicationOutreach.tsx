@@ -170,7 +170,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
   subtitle = "Nature's Poetry",
   content = "Like feathers dancing on a gentle breeze, this card embodies the soft elegance and tranquil beauty found in nature's most delicate creations.",
   variant = "primary" as VariantType,
-  image = "abstract-geometric-shapes.png",
+  image,
   className,
   onClick,
   isClickable = false,
@@ -223,11 +223,7 @@ const FeatherCard: React.FC<FeatherCardProps> = ({
         ) : image === 'newsletter-vector' ? (
           <NewsletterVector />
         ) : (
-          <img
-            src={image?.startsWith('http') ? image : `/${image}`}
-            alt={title}
-            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-          />
+          <div className="w-full h-full bg-gradient-to-br from-primary/10 via-accent/5 to-secondary/10" />
         )}
         {/* Subtle overlay for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />

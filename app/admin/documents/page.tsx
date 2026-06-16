@@ -80,14 +80,10 @@ export default function DocumentsAdminPage() {
   const saveSettings = async () => {
     setIsSaving(true);
     try {
-      const res = await fetch('/api/settings');
-      const current = await res.json();
-
       const updateRes = await fetch('/api/settings', {
-        method: 'POST',
+        method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...current,
           policies,
           governancePage: pageSettings.governancePage,
           equityDiversityPage: pageSettings.equityDiversityPage,

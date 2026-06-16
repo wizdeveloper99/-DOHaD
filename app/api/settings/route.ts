@@ -1,46 +1,36 @@
-import { NextRequest, NextResponse } from 'next/server';
-import dbConnect from '@/lib/mongodb';
-import SiteSettings from '@/lib/models/SiteSettings';
-import { getSession } from '@/lib/auth';
-
-export const dynamic = 'force-dynamic';
+import { NextRequest } from 'next/server';
+import {
+  getSiteSettings,
+  patchSiteSettings,
+} from '@/lib/data/site-settings';
+import { jsonOk, jsonError, requireAdmin } from '@/lib/api/route-helpers';
 
 export async function GET() {
   try {
-    await dbConnect();
-    let settings = await SiteSettings.findOne().lean();
-    
-    if (!settings) {
-      const created = await SiteSettings.create({});
-      settings = created.toObject();
-    }
-    
-    return NextResponse.json(settings);
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
+
+    const settings = await getSiteSettings();
+    return jsonOk(settings);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
 }
 
-export async function POST(request: NextRequest) {
+export async function PATCH(request: NextRequest) {
   try {
-    const session = await getSession();
-    if (!session) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-    }
+    const { unauthorized } = await requireAdmin();
+    if (unauthorized) return unauthorized;
 
-    await dbConnect();
-    const data = await request.json();
-    
-    let settings = await SiteSettings.findOne();
-    
-    if (settings) {
-      settings = await SiteSettings.findByIdAndUpdate(settings._id, data, { new: true });
-    } else {
-      settings = await SiteSettings.create(data);
-    }
-    
-    return NextResponse.json(settings);
+    const updates = await request.json();
+    const settings = await patchSiteSettings(updates);
+    return jsonOk(settings);
   } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return jsonError(error.message);
   }
+}
+
+/** @deprecated Use PATCH for partial updates */
+export async function POST(request: NextRequest) {
+  return PATCH(request);
 }
