@@ -4,31 +4,40 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
-import { 
-  LayoutDashboard, 
-  Calendar, 
-  Mail, 
-  Image as ImageIcon, 
-  Settings, 
-  LogOut, 
-  Menu, 
+import {
+  Home,
+  Calendar,
+  Mail,
+  Image as ImageIcon,
+  Settings,
+  LogOut,
+  Menu,
   X,
   Users,
-  ChevronRight,
   FileText,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { toast } from 'sonner';
+import { ADMIN_SITE, ADMIN_SECTIONS } from '@/lib/admin-site';
+
+const navIcons = {
+  '/admin/dashboard': Home,
+  '/admin/events': Calendar,
+  '/admin/newsletter': Mail,
+  '/admin/media': ImageIcon,
+  '/admin/advisory': Users,
+  '/admin/documents': FileText,
+  '/admin/settings': Settings,
+} as const;
 
 const sidebarItems = [
-  { name: 'Dashboard', href: '/admin/dashboard', icon: LayoutDashboard },
-  { name: 'Events', href: '/admin/events', icon: Calendar },
-  { name: 'Newsletter', href: '/admin/newsletter', icon: Mail },
-  { name: 'Media', href: '/admin/media', icon: ImageIcon },
-  { name: 'Advisory', href: '/admin/advisory', icon: Users },
-  { name: 'Documents', href: '/admin/documents', icon: FileText },
-  { name: 'Settings', href: '/admin/settings', icon: Settings },
+  { name: 'Home', href: '/admin/dashboard', icon: Home },
+  ...ADMIN_SECTIONS.map((section) => ({
+    name: section.label,
+    href: section.href,
+    icon: navIcons[section.href as keyof typeof navIcons],
+  })),
 ];
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -36,12 +45,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const pathname = usePathname();
   const router = useRouter();
 
-  // Close sidebar on route change (mobile)
   useEffect(() => {
     setIsSidebarOpen(false);
   }, [pathname]);
 
-  // Don't show sidebar on login page
   if (pathname === '/admin/login') {
     return <>{children}</>;
   }
@@ -54,24 +61,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         router.push('/admin/login');
         router.refresh();
       }
-    } catch (error) {
+    } catch {
       toast.error('Logout failed');
     }
   };
 
   return (
-    <div className="min-h-screen bg-muted/20 flex">
+    <div className="min-h-screen bg-muted/30 flex">
       {/* Mobile Top Bar */}
-      <div className="fixed top-0 left-0 right-0 z-50 flex items-center gap-3 px-4 py-3 bg-white border-b shadow-sm md:hidden">
-        <button 
+      <div className="fixed top-0 left-0 right-0 z-50 flex items-center gap-3 px-4 py-3 bg-white border-b md:hidden">
+        <button
           className="p-2 rounded-lg hover:bg-muted/50 transition-colors"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          aria-label="Toggle sidebar"
+          aria-label="Open menu"
         >
-          {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
+          {isSidebarOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
-        <Link href="/admin/dashboard" className="flex items-center gap-2">
-          <div className="relative shrink-0 w-7 h-7">
+        <Link href="/admin/dashboard" className="flex items-center gap-2 min-w-0">
+          <div className="relative shrink-0 w-8 h-8">
             <Image
               src="/dohad-india-rgb.png"
               alt="DOHaD India Logo"
@@ -79,28 +86,31 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               className="object-contain"
             />
           </div>
-          <span className="font-bold text-base text-foreground">DOHaD Admin</span>
+          <span className="font-bold text-base text-foreground truncate">
+            {ADMIN_SITE.shortName}
+          </span>
         </Link>
       </div>
 
-      {/* Backdrop overlay for mobile */}
       {isSidebarOpen && (
-        <div 
-          className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm md:hidden"
+        <div
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
           onClick={() => setIsSidebarOpen(false)}
         />
       )}
 
       {/* Sidebar */}
-      <aside className={cn(
-        "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r transform transition-transform duration-300 ease-in-out",
-        "md:relative md:translate-x-0",
-        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-      )}>
+      <aside
+        className={cn(
+          'fixed inset-y-0 left-0 z-40 w-72 bg-white border-r transform transition-transform duration-300 ease-in-out',
+          'md:relative md:translate-x-0',
+          isSidebarOpen ? 'translate-x-0' : '-translate-x-full'
+        )}
+      >
         <div className="h-full flex flex-col">
           <div className="p-6 border-b">
-            <Link href="/admin/dashboard" className="flex items-center gap-2">
-              <div className="relative shrink-0 w-8 h-8">
+            <Link href="/admin/dashboard" className="flex items-center gap-3">
+              <div className="relative shrink-0 w-10 h-10">
                 <Image
                   src="/dohad-india-rgb.png"
                   alt="DOHaD India Logo"
@@ -108,27 +118,32 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                   className="object-contain"
                 />
               </div>
-              <span className="font-bold text-lg text-foreground">DOHaD Admin</span>
+              <div className="min-w-0">
+                <p className="font-bold text-base text-foreground leading-tight">
+                  {ADMIN_SITE.shortName}
+                </p>
+                <p className="text-sm text-muted-foreground">{ADMIN_SITE.tagline}</p>
+              </div>
             </Link>
           </div>
 
-          <nav className="flex-1 p-4 space-y-1 overflow-y-auto">
+          <nav className="flex-1 p-4 space-y-1 overflow-y-auto" aria-label="Website sections">
             {sidebarItems.map((item) => {
-              const isActive = pathname === item.href || pathname.startsWith(item.href + '/');
+              const isActive =
+                pathname === item.href || pathname.startsWith(item.href + '/');
               return (
                 <Link
-                  key={item.name}
+                  key={item.href}
                   href={item.href}
                   className={cn(
-                    "flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-colors",
-                    isActive 
-                      ? "bg-secondary/10 text-secondary" 
-                      : "text-muted-foreground hover:bg-muted/50 hover:text-foreground"
+                    'flex items-center gap-3 px-4 py-3.5 rounded-xl text-base font-medium transition-colors',
+                    isActive
+                      ? 'bg-secondary/10 text-secondary'
+                      : 'text-foreground/70 hover:bg-muted/60 hover:text-foreground'
                   )}
                 >
-                  <item.icon size={20} />
+                  <item.icon size={22} strokeWidth={isActive ? 2.25 : 2} />
                   {item.name}
-                  {isActive && <ChevronRight size={16} className="ml-auto" />}
                 </Link>
               );
             })}
@@ -137,21 +152,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <div className="p-4 border-t">
             <Button
               variant="ghost"
-              className="w-full justify-start gap-3 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl"
+              className="w-full justify-start gap-3 text-base text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-xl h-12"
               onClick={handleLogout}
             >
-              <LogOut size={20} />
-              Logout
+              <LogOut size={22} />
+              Sign out
             </Button>
           </div>
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 min-w-0 flex flex-col overflow-hidden">
-        {/* Spacer for mobile top bar */}
         <div className="h-14 md:h-0 shrink-0" />
-        <div className="flex-1 overflow-y-auto p-4 md:p-8">
+        <div className="flex-1 overflow-y-auto p-5 sm:p-8 md:p-10">
           {children}
         </div>
       </main>

@@ -44,6 +44,62 @@ const SiteSettingsSchema = new Schema({
       default: 'Download or view our detailed institutional guidelines on equity and safeguarding.',
     },
   },
+  eventsPage: {
+    pageTitle: { type: String, default: 'Events & Workshops' },
+    pageDescription: {
+      type: String,
+      default:
+        'Discover upcoming opportunities and explore highlights from our conferences, workshops, and community gatherings advancing DOHaD research.',
+    },
+    upcomingEvents: {
+      title: { type: String, default: 'Upcoming Events' },
+      subtitle: { type: String, default: 'Join us at our next events and workshops' },
+    },
+    pastEventsGallery: {
+      title: { type: String, default: 'Past Events Gallery' },
+      subtitle: {
+        type: String,
+        default: 'Highlights and memories from our previous events',
+      },
+    },
+    whatWeOffer: {
+      title: { type: String, default: 'What We Offer' },
+      subtitle: {
+        type: String,
+        default: 'Comprehensive event experiences for our community',
+      },
+      items: {
+        type: [
+          {
+            title: { type: String },
+            description: { type: String },
+          },
+        ],
+        default: [
+          {
+            title: 'Annual Conferences',
+            description:
+              'Flagship gatherings bringing together DOHaD researchers from across India for knowledge sharing and networking.',
+          },
+          {
+            title: 'Workshops & Training',
+            description:
+              'Capacity building workshops, methodology training, and skill development sessions for researchers at all career stages.',
+          },
+          {
+            title: 'Networking Events',
+            description:
+              'Opportunities to connect with fellow researchers, build collaborations, and strengthen the DOHaD community.',
+          },
+          {
+            title: 'Event Registration',
+            description:
+              'Easy online registration system for workshops and conferences with member discounts and early bird pricing.',
+          },
+        ],
+      },
+    },
+  },
   footerText: { type: String },
 }, { timestamps: true });
 

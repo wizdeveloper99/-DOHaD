@@ -51,9 +51,9 @@ export default function AdminLoginPage() {
               <Lock className="w-6 h-6 text-secondary" />
             </div>
           </div>
-          <CardTitle className="text-2xl font-bold tracking-tight">Admin Login</CardTitle>
+          <CardTitle className="text-2xl font-bold tracking-tight">DOHaD India</CardTitle>
           <CardDescription>
-            Enter your credentials to access the DOHaD India CMS
+            Sign in to manage your website
           </CardDescription>
         </CardHeader>
         <CardContent>
