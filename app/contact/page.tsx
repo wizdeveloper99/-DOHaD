@@ -48,13 +48,13 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Secretariat</h3>
                   <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-                    PHFI-Centre for Developmental and Lifecourse Research
+                    Public Health Foundation of India, Indian Institute of Public Health, Bengaluru
                   </p>
                 </div>
               </div>
 
               <a
-                href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
+                href="https://maps.app.goo.gl/Ey8LTqmaAECRZKu99"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
@@ -65,7 +65,7 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Address</h3>
                   <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
-                    PHFI Centre for Developmental and Lifecourse Research - Indira Nagar I Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038
+                    New Baiyyappanahalli Extension, Maruthi Sevanagar, Bengaluru, Karnataka 560038
                     <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
                   </p>
                 </div>
@@ -202,12 +202,12 @@ export default function ContactPage() {
           </h2>
 
           <p className="text-sm text-muted-foreground text-center mb-4">
-            PHFI Centre for Developmental and Lifecourse Research, Indiranagar, Bengaluru, Karnataka 560038
+            New Baiyyappanahalli Extension, Maruthi Sevanagar, Bengaluru, Karnataka 560038
           </p>
 
           <div className="w-full h-64 rounded-lg overflow-hidden shadow-md mb-4">
             <iframe
-              src="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038&output=embed"
+              src="https://www.google.com/maps?q=New+Baiyyappanahalli+Extension,+Maruthi+Sevanagar,+Bengaluru,+Karnataka+560038&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -219,7 +219,7 @@ export default function ContactPage() {
 
           <div className="text-center">
             <a
-              href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
+              href="https://maps.app.goo.gl/Ey8LTqmaAECRZKu99"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-2.5 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-secondary/90 transition-colors"

@@ -179,19 +179,19 @@ export function FooterSection({ settings }: { settings?: any }) {
 
               {/* Secretariat */}
               <p className="text-white/90 leading-snug mt-2.5 sm:mt-3">
-                Secretariat: PHFI-Centre for Developmental and Lifecourse Research
+                Secretariat: Public Health Foundation of India, Indian Institute of Public Health, Bengaluru
               </p>
 
               {/* Address */}
               <a
-                href="https://www.google.com/maps?q=PHFI+Centre+for+Developmental+and+Lifecourse+Research+-+Indira+Nagar+I+Stage,+Hoysala+Nagar,+Indiranagar,+Bengaluru,+Karnataka+560038"
+                href="https://maps.app.goo.gl/Ey8LTqmaAECRZKu99"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start space-x-2 hover:opacity-80 transition-opacity cursor-pointer mt-2.5 sm:mt-3"
               >
                 <MapPin className="h-4 w-4 xl:h-5 xl:w-5 text-white shrink-0 mt-0.5" />
                 <span className="text-white/90 leading-snug">
-                  PHFI Centre for Developmental and Lifecourse Research, Indiranagar, Bengaluru, Karnataka 560038
+                  New Baiyyappanahalli Extension, Maruthi Sevanagar, Bengaluru, Karnataka 560038
                 </span>
               </a>
             </div>
