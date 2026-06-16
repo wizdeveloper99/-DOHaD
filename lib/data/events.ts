@@ -1,4 +1,4 @@
-import { unstable_cache, revalidateTag } from 'next/cache';
+import { revalidateTag } from 'next/cache';
 import dbConnect from '@/lib/mongodb';
 import Event from '@/lib/models/Event';
 
@@ -16,11 +16,10 @@ async function fetchAdminEvents() {
     .lean();
 }
 
-export const getAdminEvents = unstable_cache(
-  fetchAdminEvents,
-  ['events-admin'],
-  { revalidate: 60, tags: [EVENTS_TAG] }
-);
+/** Admin lists must always be fresh — do not cache (dev skips cache; prod would serve stale data). */
+export async function getAdminEvents() {
+  return fetchAdminEvents();
+}
 
 export async function queryEvents(options: {
   category?: string;

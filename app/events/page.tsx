@@ -10,6 +10,7 @@ import SiteSettings from "@/lib/models/SiteSettings"
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import UpcomingEventsGrid from "@/components/upcoming-events-grid"
 import { normalizeEventsPageSettings } from "@/lib/events-page-defaults"
+import { isPastEvent, isUpcomingEvent } from "@/lib/event-dates"
 
 async function getPageData() {
   try {
@@ -34,11 +35,12 @@ async function getPageData() {
 export default async function EventsPage() {
   const { events, pageContent } = await getPageData();
 
-  const now = new Date();
-  const upcomingEvents = events.filter((e: { startDate: string }) => new Date(e.startDate) >= now).reverse();
+  const upcomingEvents = events
+    .filter((e: { startDate: string }) => isUpcomingEvent(e.startDate))
+    .reverse();
   const pastEvents = events.filter(
     (e: { startDate: string; galleryImages?: string[] }) =>
-      new Date(e.startDate) < now && Array.isArray(e.galleryImages) && e.galleryImages.length > 0
+      isPastEvent(e.startDate) && Array.isArray(e.galleryImages) && e.galleryImages.length > 0
   );
 
   type GallerySlide = {

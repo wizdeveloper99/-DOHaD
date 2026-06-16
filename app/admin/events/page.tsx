@@ -24,6 +24,7 @@ import {
   normalizeEventsPageSettings,
   type EventsPageSettings,
 } from '@/lib/events-page-defaults';
+import { isPastEvent, isUpcomingEvent } from '@/lib/event-dates';
 
 type EventRecord = {
   _id: string;
@@ -268,14 +269,13 @@ export default function EventsAdminPage() {
   };
 
   const { upcomingEvents, pastEventsForGallery } = useMemo(() => {
-    const now = new Date();
     const upcoming = events
-      .filter((e) => new Date(e.startDate) >= now)
+      .filter((e) => isUpcomingEvent(e.startDate))
       .sort((a, b) => new Date(a.startDate).getTime() - new Date(b.startDate).getTime());
     const pastWithGallery = events
       .filter(
         (e) =>
-          new Date(e.startDate) < now &&
+          isPastEvent(e.startDate) &&
           Array.isArray(e.galleryImages) &&
           e.galleryImages.length > 0
       )

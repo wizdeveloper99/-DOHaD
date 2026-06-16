@@ -9,6 +9,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import Image from 'next/image';
+import { isUpcomingEvent } from '@/lib/event-dates';
 
 export default function NewGalleryEntryPage() {
   const router = useRouter();
@@ -63,7 +64,7 @@ export default function NewGalleryEntryPage() {
       return;
     }
 
-    if (formData.startDate && new Date(formData.startDate) >= new Date()) {
+    if (formData.startDate && isUpcomingEvent(formData.startDate)) {
       toast.error('Event date must be in the past');
       return;
     }
