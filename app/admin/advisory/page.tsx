@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {
   Plus,
   Trash2,
@@ -68,6 +68,7 @@ export default function WhoWeAreAdminPage() {
   const [isUploading, setIsUploading] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState<MemberFormData>(defaultFormData);
+  const photoInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     fetchMembers();
@@ -110,6 +111,7 @@ export default function WhoWeAreAdminPage() {
       toast.error('Upload failed');
     } finally {
       setIsUploading(false);
+      e.target.value = '';
     }
   };
 
@@ -221,31 +223,60 @@ export default function WhoWeAreAdminPage() {
               </select>
             </div>
 
-            <div className="space-y-2">
-              <Label>Photo</Label>
-              <div className="relative aspect-square w-32 mx-auto bg-muted rounded-full border-2 border-dashed flex items-center justify-center overflow-hidden">
-                {formData.profileImage ? (
-                  <>
+            <div className="space-y-3 rounded-lg border border-border bg-muted/30 p-4">
+              <div>
+                <Label>Profile Photo</Label>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Upload or replace the member&apos;s headshot. Square images work best (400×400px or larger).
+                </p>
+              </div>
+              <div className="flex flex-col items-center gap-3">
+                <div className="relative w-32 h-32 bg-muted rounded-full overflow-hidden border-2 border-dashed border-border flex items-center justify-center">
+                  {formData.profileImage ? (
                     <Image src={formData.profileImage} alt="Preview" fill className="object-cover" />
-                    <button
+                  ) : (
+                    <Users className="w-10 h-10 text-muted-foreground" />
+                  )}
+                  {isUploading && (
+                    <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+                      <Loader2 className="animate-spin text-white" size={24} />
+                    </div>
+                  )}
+                </div>
+                <input
+                  ref={photoInputRef}
+                  type="file"
+                  className="hidden"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  disabled={isUploading}
+                />
+                <div className="flex flex-wrap items-center justify-center gap-2">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    className="rounded-full gap-1.5"
+                    disabled={isUploading}
+                    onClick={() => photoInputRef.current?.click()}
+                  >
+                    <Upload size={14} />
+                    {formData.profileImage ? 'Change Photo' : 'Upload Photo'}
+                  </Button>
+                  {formData.profileImage && (
+                    <Button
                       type="button"
+                      variant="ghost"
+                      size="sm"
+                      className="rounded-full text-destructive hover:text-destructive hover:bg-destructive/10 gap-1.5"
+                      disabled={isUploading}
                       onClick={() => setFormData((prev) => ({ ...prev, profileImage: '' }))}
-                      className="absolute top-1 right-1 bg-destructive text-white p-1 rounded-full"
                     >
-                      <X size={12} />
-                    </button>
-                  </>
-                ) : (
-                  <label className="cursor-pointer flex flex-col items-center gap-1">
-                    {isUploading ? (
-                      <Loader2 className="animate-spin text-secondary" size={20} />
-                    ) : (
-                      <Upload className="text-secondary" size={20} />
-                    )}
-                    <span className="text-[10px] text-muted-foreground">Upload</span>
-                    <input type="file" className="hidden" accept="image/*" onChange={handleImageUpload} />
-                  </label>
-                )}
+                      <X size={14} />
+                      Remove Photo
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
 
