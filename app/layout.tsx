@@ -5,8 +5,9 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { FooterSection } from "@/components/footer-section"
 import { Toaster } from "@/components/ui/sonner"
-import dbConnect from "@/lib/mongodb"
-import SiteSettings from "@/lib/models/SiteSettings"
+import { getSiteSettings } from "@/lib/data/site-settings"
+
+export const revalidate = 60
 
 const hindSiliguri = Hind_Siliguri({
   subsets: ["latin"],
@@ -21,22 +22,17 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
-async function getSiteSettings() {
-  try {
-    await dbConnect();
-    const settings = await SiteSettings.findOne();
-    return settings ? JSON.parse(JSON.stringify(settings)) : null;
-  } catch (error) {
-    return null;
-  }
-}
-
 export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const settings = await getSiteSettings();
+  let settings = null
+  try {
+    settings = JSON.parse(JSON.stringify(await getSiteSettings()))
+  } catch {
+    settings = null
+  }
 
   return (
     <html lang="en" className={`${hindSiliguri.variable} antialiased`} suppressHydrationWarning>

@@ -9,21 +9,17 @@ import { Header } from "@/components/header"
 import Hero from "@/components/about-DOHaD"
 import LearnAboutDOHaD from "@/components/learn-dohad"
 
-import dbConnect from "@/lib/mongodb"
-import SiteSettings from "@/lib/models/SiteSettings"
+import { getSiteSettings } from "@/lib/data/site-settings"
 
-async function getSiteSettings() {
-  try {
-    await dbConnect();
-    const settings = await SiteSettings.findOne();
-    return JSON.parse(JSON.stringify(settings));
-  } catch (error) {
-    return null;
-  }
-}
+export const revalidate = 60
 
 export default async function HomePage() {
-  const settings = await getSiteSettings();
+  let settings = null
+  try {
+    settings = JSON.parse(JSON.stringify(await getSiteSettings()))
+  } catch {
+    settings = null
+  }
 
   return (
     <div className="min-h-screen bg-background relative">
