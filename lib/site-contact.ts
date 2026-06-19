@@ -15,10 +15,10 @@ export const SECRETARIAT_WHO_WE_ARE_TEXT = `The current secretariat is at the ${
 ].join(" ")}`;
 
 export const SECRETARIAT_COORDINATES = {
-  lat: 12.9859373,
-  lng: 77.6442694,
+  lat: 12.9861432,
+  lng: 77.6439983,
 } as const;
 
-export const SECRETARIAT_MAPS_URL = "https://share.google/n8tDoU7EX3yVWckMO";
+export const SECRETARIAT_MAPS_URL = "https://maps.app.goo.gl/gW75pGnurFxbS3U99";
 
 export const SECRETARIAT_MAPS_EMBED_URL = `https://www.google.com/maps?q=${SECRETARIAT_COORDINATES.lat},${SECRETARIAT_COORDINATES.lng}&hl=en&z=17&output=embed`;
