@@ -1,4 +1,5 @@
 import mongoose, { Schema, model, models } from 'mongoose';
+import { SECRETARIAT_WHO_WE_ARE_TEXT } from '@/lib/site-contact';
 
 const SiteSettingsSchema = new Schema({
   hero: {
@@ -53,8 +54,7 @@ const SiteSettingsSchema = new Schema({
     },
     secretariatAddress: {
       type: String,
-      default:
-        'The current secretariat is at the Public Health Foundation of India, Indian Institute of Public Health, Epidemic Diseases (Isolation) Hospital compound, Indiranagar, Bengaluru -560038',
+      default: SECRETARIAT_WHO_WE_ARE_TEXT,
     },
     organizationLinkedin: {
       type: String,
@@ -93,7 +93,19 @@ const SiteSettingsSchema = new Schema({
       title: { type: String, default: 'Past Events Gallery' },
       subtitle: {
         type: String,
-        default: 'Photo highlights from our events will be shared here',
+        default: 'Highlights from our conferences, talks, and community gatherings',
+      },
+      featuredVideo: {
+        youtubeVideoId: { type: String, default: '1dHV_CnCDC8' },
+        title: {
+          type: String,
+          default: 'Shaping the Future of DOHaD Research in India',
+        },
+        description: {
+          type: String,
+          default:
+            'Hear from our President, Prof. Debarati Mukherjee, about our vision and strategies to shape the future of DOHaD research in India.',
+        },
       },
     },
     whatWeOffer: {

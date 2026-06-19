@@ -11,6 +11,8 @@ import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 import UpcomingEventsGrid from "@/components/upcoming-events-grid"
 import { normalizeEventsPageSettings } from "@/lib/events-page-defaults"
 import { isPastEvent, isUpcomingEvent } from "@/lib/event-dates"
+import { normalizeGalleryImages } from "@/lib/gallery-images"
+import PastEventsGalleryVideo from "@/components/past-events-gallery-video"
 
 async function getPageData() {
   try {
@@ -49,22 +51,26 @@ export default async function EventsPage() {
     startDate: string;
     shortDescription?: string;
     image: string;
+    caption?: string;
     imageIndex: number;
     totalImages: number;
   };
 
   const gallerySlides: GallerySlide[] = pastEvents.flatMap(
-    (event: { _id: string; galleryImages?: string[]; title: string; startDate: string; shortDescription?: string }) =>
-      (event.galleryImages ?? []).map((image, imageIndex) => ({
+    (event: { _id: string; galleryImages?: Array<string | { url: string; caption?: string }>; title: string; startDate: string; shortDescription?: string }) =>
+      normalizeGalleryImages(event.galleryImages).map((galleryImage, imageIndex, images) => ({
         _id: event._id,
         title: event.title,
         startDate: event.startDate,
         shortDescription: event.shortDescription,
-        image,
+        image: galleryImage.url,
+        caption: galleryImage.caption,
         imageIndex,
-        totalImages: event.galleryImages?.length ?? 0,
+        totalImages: images.length,
       }))
   );
+
+  const featuredVideo = pageContent.pastEventsGallery.featuredVideo;
 
   return (
     <div className="min-h-screen bg-background">
@@ -103,18 +109,29 @@ export default async function EventsPage() {
           </div>
 
           <div className="w-full px-4 sm:px-0">
+            {featuredVideo?.youtubeVideoId && (
+              <PastEventsGalleryVideo
+                youtubeVideoId={featuredVideo.youtubeVideoId}
+                title={featuredVideo.title}
+                description={featuredVideo.description}
+              />
+            )}
+
             {gallerySlides.length > 0 ? (
               <Carousel className="w-full">
                 <CarouselContent>
                   {gallerySlides.map((slide, index) => (
                     <CarouselItem key={`${slide._id}-${slide.imageIndex}`}>
                       <div className="flex flex-col items-center text-center">
-                        <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg aspect-video md:aspect-[21/9] bg-muted">
+                        <div className="relative w-full max-w-6xl mx-auto rounded-3xl overflow-hidden shadow-lg aspect-[4/3] md:aspect-[16/10] bg-muted">
                           <Image
                             src={slide.image}
-                            alt={`${slide.title} — photo ${slide.imageIndex + 1}`}
+                            alt={
+                              slide.caption ||
+                              `${slide.title} — photo ${slide.imageIndex + 1}`
+                            }
                             fill
-                            className="object-cover"
+                            className="object-contain"
                             priority={index === 0}
                           />
                           {slide.totalImages > 1 && (
@@ -137,11 +154,15 @@ export default async function EventsPage() {
                             {slide.title}
                           </h2>
 
-                          {slide.shortDescription && (
+                          {slide.caption ? (
+                            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                              {slide.caption}
+                            </p>
+                          ) : slide.shortDescription ? (
                             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                               {slide.shortDescription}
                             </p>
-                          )}
+                          ) : null}
                         </div>
                       </div>
                     </CarouselItem>
@@ -151,7 +172,7 @@ export default async function EventsPage() {
                 <CarouselPrevious className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border border-border text-foreground h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full shadow-md backdrop-blur-md" />
                 <CarouselNext className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white border border-border text-foreground h-10 w-10 sm:h-12 sm:w-12 md:h-14 md:w-14 rounded-full shadow-md backdrop-blur-md" />
               </Carousel>
-            ) : (
+            ) : !featuredVideo?.youtubeVideoId ? (
               <div className="border border-border rounded-2xl p-8 sm:p-12 text-center min-h-[400px] flex flex-col justify-center mx-4 sm:mx-8 bg-muted/20">
                 <Camera className="w-12 h-12 sm:w-16 sm:h-16 text-muted-foreground mx-auto mb-4" />
                 <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-3 sm:mb-4">No Past Events Available</h3>
@@ -159,7 +180,7 @@ export default async function EventsPage() {
                   Photo gallery will be updated with highlights from our events.
                 </p>
               </div>
-            )}
+            ) : null}
           </div>
         </section>
 

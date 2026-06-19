@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { LinkedInIcon } from "@/components/linkedin-icon"
-import { Mail, MapPin, Bell } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { headingStyles } from "@/lib/utils"
 import {
@@ -26,11 +26,11 @@ export default function ContactPage() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div>
+        <div className="grid md:grid-cols-2 gap-8 mb-12 md:items-stretch">
+          <div className="flex flex-col h-full">
             <h2 className={`${headingStyles} mb-6`}>Get in Touch</h2>
 
-            <div className="space-y-5">
+            <div className="space-y-5 flex-1">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-6 h-6 text-primary" />
@@ -46,14 +46,13 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Address */}
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-6 h-6 text-primary" />
                 </div>
                 <div>
                   <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Secretariat</h3>
-                  <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
+                  <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed mb-1">
                     {SECRETARIAT_ORG_LINES.map((line, index) => (
                       <span key={line}>
                         {line}
@@ -61,20 +60,6 @@ export default function ContactPage() {
                       </span>
                     ))}
                   </p>
-                </div>
-              </div>
-
-              <a
-                href={SECRETARIAT_MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-start gap-4 hover:opacity-80 transition-opacity cursor-pointer"
-              >
-                <div className="w-12 h-12 bg-secondary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-6 h-6 text-secondary" />
-                </div>
-                <div>
-                  <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-1">Address</h3>
                   <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground leading-relaxed">
                     {SECRETARIAT_ADDRESS_LINES.map((line, index) => (
                       <span key={line}>
@@ -82,28 +67,26 @@ export default function ContactPage() {
                         {index < SECRETARIAT_ADDRESS_LINES.length - 1 && <br />}
                       </span>
                     ))}
-                    <span className="text-blue-400 ml-2"><br/>(Show on Map)</span>
                   </p>
                 </div>
-              </a>
-
+              </div>
             </div>
 
             <div className="bg-card border border-border rounded-lg p-5 shadow-sm mt-5">
               <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-4">Office Hours</h3>
               <div className="space-y-2 text-[11px] sm:text-xs xl:text-sm">
-                <div className="flex justify-between">
+                <div className="flex justify-between gap-4">
                   <span className="text-muted-foreground">Monday - Friday</span>
-                  <span className="text-foreground">9:00 AM - 6:00 PM IST</span>
+                  <span className="text-foreground text-right">9:00 AM - 6:00 PM IST</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col h-full">
             <h2 className={`${headingStyles} mb-6`}>Find us</h2>
 
-            <div className="space-y-5">
+            <div className="flex flex-col flex-1 gap-5">
               <div className="bg-card border border-border rounded-lg p-5 shadow-sm">
                 <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3">Follow Us</h3>
                 <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground mb-4">
@@ -121,31 +104,27 @@ export default function ContactPage() {
                 </a>
               </div>
 
-               <div className="bg-card border border-border rounded-lg p-6 mb-8 shadow-sm">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-secondary/20 rounded-full flex items-center justify-center">
-                  <Bell className="w-5 h-5 text-secondary" />
+              <div className="bg-card border border-border rounded-lg p-5 shadow-sm flex flex-col flex-1 min-h-[280px]">
+                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground mb-3">Location</h3>
+                <div className="relative flex-1 min-h-[200px] rounded-lg overflow-hidden shadow-md">
+                  <iframe
+                    src={SECRETARIAT_MAPS_EMBED_URL}
+                    className="absolute inset-0 w-full h-full border-0"
+                    allowFullScreen={true}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="DOHaD India Secretariat location"
+                  />
                 </div>
-                <h3 className="text-sm sm:text-base xl:text-xl font-bold text-foreground">Subscribe</h3>
-              </div>
-
-              <p className="text-[11px] sm:text-xs xl:text-sm text-muted-foreground mb-6">
-                Stay updated with the latest DOHaD research, events, and community news. Subscribe to our monthly
-                newsletter.
-              </p>
-
-              <div className="space-y-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email address"
-                  className="w-full px-4 py-3 bg-background border border-border rounded-full focus:outline-none focus:ring-2 focus:ring-primary text-sm text-foreground"
-                />
-                <Button className="w-full bg-secondary text-secondary-foreground hover:bg-secondary/90">
-                  Subscribe
-                </Button>
-              </div>
-
-                <p className="text-xs text-muted-foreground mt-3">We respect your privacy. You may unsubscribe from our newsletter at any time by using the unsubscribe link included in each email, or by contacting us at contact@dohadindia.org to request removal from our mailing list.</p>
+                <a
+                  href={SECRETARIAT_MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors mt-3"
+                >
+                  <MapPin className="w-4 h-4" />
+                  Open in Google Maps
+                </a>
               </div>
             </div>
           </div>
@@ -212,51 +191,6 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
-          <h2 className={`${headingStyles} text-center mb-4`}>
-            Visit Our Location
-          </h2>
-
-          <p className="text-sm text-muted-foreground text-center mb-4">
-            {SECRETARIAT_ORG_LINES.map((line, index) => (
-              <span key={line}>
-                {line}
-                {index < SECRETARIAT_ORG_LINES.length - 1 && <br />}
-              </span>
-            ))}
-            <br />
-            {SECRETARIAT_ADDRESS_LINES.map((line, index) => (
-              <span key={line}>
-                {line}
-                {index < SECRETARIAT_ADDRESS_LINES.length - 1 && <br />}
-              </span>
-            ))}
-          </p>
-
-          <div className="w-full h-64 rounded-lg overflow-hidden shadow-md mb-4">
-            <iframe
-              src={SECRETARIAT_MAPS_EMBED_URL}
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-
-          <div className="text-center">
-            <a
-              href={SECRETARIAT_MAPS_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-2.5 bg-secondary text-secondary-foreground rounded-full font-medium hover:bg-secondary/90 transition-colors"
-            >
-              <MapPin className="w-5 h-5" />
-              Open in Google Maps
-            </a>
-          </div>
-        </div>
       </main>
     </div>
   )

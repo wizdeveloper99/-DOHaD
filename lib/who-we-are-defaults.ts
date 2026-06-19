@@ -1,3 +1,5 @@
+import { SECRETARIAT_WHO_WE_ARE_TEXT } from "@/lib/site-contact";
+
 export type WhoWeAreSectionSettings = {
   title: string;
   description: string;
@@ -29,8 +31,7 @@ export const DEFAULT_WHO_WE_ARE_PAGE: WhoWeArePageSettings = {
   pageTitle: 'Who We Are',
   pageDescription:
     'Meet the dedicated team of researchers, clinicians, and advocates leading DOHaD India\'s mission to advance developmental origins of health and disease research across the country.',
-  secretariatAddress:
-    'The current secretariat is at the Public Health Foundation of India, Indian Institute of Public Health, Epidemic Diseases (Isolation) Hospital compound, Indiranagar, Bengaluru -560038',
+  secretariatAddress: SECRETARIAT_WHO_WE_ARE_TEXT,
   organizationLinkedin:
     'https://www.linkedin.com/in/dohad-india-regional-society-2b784240b/',
   executiveCouncil: {

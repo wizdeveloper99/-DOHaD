@@ -13,6 +13,11 @@ export type EventsPageSettings = {
   pastEventsGallery: {
     title: string;
     subtitle: string;
+    featuredVideo?: {
+      youtubeVideoId: string;
+      title: string;
+      description: string;
+    } | null;
   };
   whatWeOffer: {
     title: string;
@@ -31,7 +36,13 @@ export const DEFAULT_EVENTS_PAGE: EventsPageSettings = {
   },
   pastEventsGallery: {
     title: 'Past Events Gallery',
-    subtitle: 'Photo highlights from our events will be shared here',
+    subtitle: 'Highlights from our conferences, talks, and community gatherings',
+    featuredVideo: {
+      youtubeVideoId: '1dHV_CnCDC8',
+      title: 'Shaping the Future of DOHaD Research in India',
+      description:
+        'Hear from our President, Prof. Debarati Mukherjee, about our vision and strategies to shape the future of DOHaD research in India.',
+    },
   },
   whatWeOffer: {
     title: 'What We Offer',
@@ -71,6 +82,12 @@ export function normalizeEventsPageSettings(
     pastEventsGallery: {
       ...DEFAULT_EVENTS_PAGE.pastEventsGallery,
       ...raw.pastEventsGallery,
+      featuredVideo: raw.pastEventsGallery?.featuredVideo
+        ? {
+            ...DEFAULT_EVENTS_PAGE.pastEventsGallery.featuredVideo,
+            ...raw.pastEventsGallery.featuredVideo,
+          }
+        : DEFAULT_EVENTS_PAGE.pastEventsGallery.featuredVideo,
     },
     whatWeOffer: {
       ...DEFAULT_EVENTS_PAGE.whatWeOffer,

@@ -24,7 +24,7 @@ const EventSchema = new Schema({
     type: String, // Cloudinary URL
   },
   galleryImages: [{
-    type: String, // Array of Cloudinary URLs
+    type: Schema.Types.Mixed, // string URL or { url, caption }
   }],
   startDate: {
     type: Date,

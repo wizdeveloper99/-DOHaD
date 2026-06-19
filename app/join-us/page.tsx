@@ -93,32 +93,17 @@ export default function JoinUsPage() {
             <div className="bg-card border rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
               <h4 className="text-xl font-bold text-foreground mb-2">Undergraduate Students</h4>
               <p className="text-4xl font-extrabold text-secondary mb-4">₹250</p>
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">Annual Fee</p>
-              <ul className="text-left text-sm space-y-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Full access to resources</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Networking events</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Training opportunities</li>
-              </ul>
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Annual Fee</p>
             </div>
             <div className="bg-card border rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
               <h4 className="text-xl font-bold text-foreground mb-2">Early Career Researchers</h4>
               <p className="text-4xl font-extrabold text-secondary mb-4">₹500</p>
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">Annual Fee</p>
-              <ul className="text-left text-sm space-y-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> All student benefits</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Journal access</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Research collaboration</li>
-              </ul>
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Annual Fee</p>
             </div>
             <div className="bg-card border rounded-3xl p-8 text-center shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
               <h4 className="text-xl font-bold text-foreground mb-2">Standard Regular Members</h4>
               <p className="text-4xl font-extrabold text-secondary mb-4">₹1000</p>
-              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest mb-6">Annual Fee</p>
-              <ul className="text-left text-sm space-y-3 mb-8 flex-grow">
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Full membership benefits</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Policy involvement</li>
-                <li className="flex items-center gap-3"><div className="w-1.5 h-1.5 rounded-full bg-secondary" /> Leadership opportunities</li>
-              </ul>
+              <p className="text-sm font-semibold text-muted-foreground uppercase tracking-widest">Annual Fee</p>
             </div>
           </div>
           <p className="text-center text-xs md:text-sm xl:text-base text-muted-foreground mt-8 xl:mt-12 italic">

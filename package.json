@@ -17,6 +17,7 @@
     "events:unpublish": "bun run scripts/unpublish-events.mjs",
     "events:delete-all": "bun run scripts/unpublish-events.mjs --delete",
     "who-we-are:seed": "bun run scripts/seed-who-we-are.mjs",
+    "events:gallery:seed": "bun run scripts/seed-past-events-gallery.mjs",
     "production:cleanup": "bun run scripts/production-cleanup.mjs --confirm",
     "production:cleanup:preview": "bun run scripts/production-cleanup.mjs"
   },
