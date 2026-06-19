@@ -58,6 +58,11 @@ const galleryEntry = {
   {
     url: '/events/gallery/dohad-2025-researchers-group.png',
   },
+  {
+    url: '/events/gallery/dohad-2025-debarati-mukherjee-svym.png',
+    caption:
+      'Prof. Debarati Mukherjee, President of DOHaD India, sharing the vision and strategies for the future of DOHaD research in India at an SVYM event.',
+  },
   ],
 };
 
