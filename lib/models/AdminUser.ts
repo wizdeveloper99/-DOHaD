@@ -8,6 +8,13 @@ const AdminUserSchema = new Schema({
     lowercase: true,
     trim: true,
   },
+  email: {
+    type: String,
+    unique: true,
+    sparse: true,
+    lowercase: true,
+    trim: true,
+  },
   password: {
     type: String,
     required: [true, 'Please provide a password'],
@@ -20,6 +27,12 @@ const AdminUserSchema = new Schema({
     type: String,
     enum: ['admin', 'superadmin'],
     default: 'admin',
+  },
+  resetOtp: {
+    type: String,
+  },
+  resetOtpExpires: {
+    type: Date,
   },
 }, { timestamps: true });
 

@@ -20,14 +20,18 @@ async function seed() {
 
   const adminSchema = new mongoose.Schema({
     username: String,
+    email: String,
     password: String,
     name: String,
     role: { type: String, enum: ['admin', 'superadmin'], default: 'admin' },
+    resetOtp: String,
+    resetOtpExpires: Date,
   }, { timestamps: true });
 
   const AdminUser = mongoose.models.AdminUser || mongoose.model('AdminUser', adminSchema);
 
   const username = process.env.ADMIN_USERNAME || 'admin';
+  const email = process.env.ADMIN_EMAIL || 'dohadindiaorg@gmail.com';
   const password = process.env.ADMIN_PASSWORD;
 
   if (!password) {
@@ -35,13 +39,15 @@ async function seed() {
   }
 
   await AdminUser.deleteOne({ username });
+  await AdminUser.deleteOne({ email });
 
   const hashedPassword = await bcrypt.hash(password, 12);
 
   await AdminUser.create({
     username,
+    email,
     password: hashedPassword,
-    name: 'Admin',
+    name: 'Super Admin',
     role: 'superadmin',
   });
 
