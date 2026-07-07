@@ -1,10 +1,11 @@
 import sharp from "sharp"
 import { mkdir } from "node:fs/promises"
 
-const src = "public/dohad-india-rgb.png"
+// Peacock emblem only — much more readable at favicon sizes than the wide logo
+const src = "public/logo__1_-removebg-preview.png"
 
-async function makeSquareIcon(size, out) {
-  const pad = Math.round(size * 0.06)
+async function makeSquareIcon(size, out, padding = 0.08) {
+  const pad = Math.round(size * padding)
   const inner = size - pad * 2
   const resized = await sharp(src)
     .resize(inner, inner, { fit: "contain", background: { r: 255, g: 255, b: 255, alpha: 0 } })
@@ -24,9 +25,13 @@ async function makeSquareIcon(size, out) {
 }
 
 await mkdir("app", { recursive: true })
+await mkdir("public", { recursive: true })
 
 await makeSquareIcon(512, "app/icon.png")
 await makeSquareIcon(180, "app/apple-icon.png")
-await makeSquareIcon(48, "public/favicon-48.png")
+await makeSquareIcon(180, "public/apple-touch-icon.png")
+await makeSquareIcon(192, "public/favicon-192x192.png")
+await makeSquareIcon(96, "public/favicon-96x96.png")
+await makeSquareIcon(48, "public/favicon-48x48.png")
 
-console.log("Icons generated: app/icon.png, app/apple-icon.png, public/favicon-48.png")
+console.log("Icons generated from peacock emblem")
