@@ -24,11 +24,8 @@ async function makeSquareIcon(size, out, padding = 0.08) {
     .toFile(out)
 }
 
-await mkdir("app", { recursive: true })
 await mkdir("public", { recursive: true })
 
-await makeSquareIcon(512, "app/icon.png")
-await makeSquareIcon(180, "app/apple-icon.png")
 await makeSquareIcon(180, "public/apple-touch-icon.png")
 await makeSquareIcon(192, "public/favicon-192x192.png")
 await makeSquareIcon(96, "public/favicon-96x96.png")
