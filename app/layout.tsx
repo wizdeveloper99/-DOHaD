@@ -16,10 +16,37 @@ const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
 })
 
+const siteUrl = "https://dohadindia.org"
+const siteTitle = "DOHaD India – Developmental Origins of Health and Disease Regional Society"
+const siteDescription =
+  "DOHaD India Regional Society advances research, training, and policy on the developmental origins of health and disease in India, connecting researchers, clinicians, and policymakers."
+
 export const metadata: Metadata = {
-  title: "DOHaD India – Developmental Origins of Health and Disease Regional Society",
-  description: "DOHaD India Regional Society advances research, training, and policy on the developmental origins of health and disease in India, connecting researchers, clinicians, and policymakers.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
   generator: "v0.app",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180" }],
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "DOHaD India",
+    type: "website",
+    images: [{ url: "/dohad-india-rgb.png", width: 1024, height: 640, alt: "DOHaD India Logo" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/dohad-india-rgb.png"],
+  },
 }
 
 export default async function RootLayout({
