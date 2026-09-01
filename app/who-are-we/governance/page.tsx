@@ -19,9 +19,19 @@ const styleMap = {
   edi: { color: "text-purple-500", bgColor: "bg-purple-500/10", borderColor: "border-purple-500/20" },
 } as const
 
+async function getPageData() {
+  try {
+    await dbConnect();
+    const settings = await SiteSettings.findOne({}).lean();
+    return { settings };
+  } catch (error) {
+    console.error("Failed to fetch governance page data:", error);
+    return { settings: null };
+  }
+}
+
 export default async function GovernancePage() {
-  await dbConnect();
-  const settings = await SiteSettings.findOne({}).lean();
+  const { settings } = await getPageData();
   const policies = normalizePolicies(settings?.policies as Record<string, unknown> | undefined);
   const policyList = getGovernancePolicyList(policies).map((item) => ({
     ...item,

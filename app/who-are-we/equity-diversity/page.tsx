@@ -15,9 +15,19 @@ const styleMap = {
   safeguarding: { color: "text-rose-500", bgColor: "bg-rose-500/10", borderColor: "border-rose-500/20" },
 } as const
 
+async function getPageData() {
+  try {
+    await dbConnect();
+    const settings = await SiteSettings.findOne({}).lean();
+    return { settings };
+  } catch (error) {
+    console.error("Failed to fetch equity-diversity page data:", error);
+    return { settings: null };
+  }
+}
+
 export default async function EquityDiversityPage() {
-  await dbConnect();
-  const settings = await SiteSettings.findOne({}).lean();
+  const { settings } = await getPageData();
   const policies = normalizePolicies(settings?.policies as Record<string, unknown> | undefined);
   const policyList = getEquityPolicyList(policies).map((item) => ({
     ...item,
