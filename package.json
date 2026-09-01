@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "main": "server.js",
   "private": true,
+  "packageManager": "npm@10.9.2",
   "scripts": {
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start",
+    "start": "node server.js",
     "test:documents:backup": "bun run scripts/test-documents.mjs backup",
     "test:documents:dummy": "bun run scripts/test-documents.mjs dummy",
     "test:documents:restore": "bun run scripts/test-documents.mjs restore",
