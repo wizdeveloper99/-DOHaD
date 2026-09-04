@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     admin.resetOtpExpires = expiry;
     await admin.save();
 
-    // Send email using Resend
+    // Send email via configured SMTP (Microsoft 365)
     const htmlContent = `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e5e7eb; border-radius: 8px;">
         <h2 style="color: #0ea5e9; text-align: center; font-family: Outfit, sans-serif;">DOHaD India CMS</h2>
